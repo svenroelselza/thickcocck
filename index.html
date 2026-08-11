@@ -1,0 +1,354 @@
+html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Symmetrical Cock | Private Collection</title>
+    <meta name="description" content="Perfect symmetrical thick cock and balls - high quality photo">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #eaeaea;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1f1f1f;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ff4d4d;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        section {
+            padding: 120px 20px 80px;
+        }
+
+        .hero {
+            text-align: center;
+            padding-top: 160px;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            color: #888;
+            font-size: 1.1rem;
+            max-width: 520px;
+            margin: 0 auto 30px;
+        }
+
+        .image-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .image-frame {
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+        }
+
+        .image-frame img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 50px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-number {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #ff4d4d;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        /* Gallery */
+        #gallery {
+            background: #0f0f0f;
+            text-align: center;
+        }
+
+        #gallery h2 {
+            font-size: 1.9rem;
+            margin-bottom: 12px;
+        }
+
+        #gallery .intro {
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto 45px;
+            font-size: 1.05rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            background: #161616;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #252525;
+            transition: transform 0.25s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 380px;
+            object-fit: contain;
+            background: #111;
+            display: block;
+        }
+
+        .gallery-item .name {
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #ddd;
+        }
+
+        /* Live Cams */
+        #cams {
+            text-align: center;
+            background: #0a0a0a;
+        }
+
+        #cams h2 {
+            font-size: 1.9rem;
+            margin-bottom: 12px;
+        }
+
+        #cams .intro {
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 1.05rem;
+        }
+
+        .cam-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #141414;
+            border-radius: 18px;
+            padding: 20px;
+            border: 1px solid #252525;
+            overflow: hidden;
+        }
+
+        .cam-container iframe {
+            width: 100%;
+            max-width: 850px;
+            height: 528px;
+            border: none;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* About */
+        .info {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .info h2 {
+            font-size: 1.6rem;
+            margin-bottom: 18px;
+        }
+
+        .info p {
+            color: #999;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #1a1a1a;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.1rem; }
+            header { padding: 15px 20px; flex-direction: column; gap: 12px; }
+            nav a { margin: 0 12px; }
+            .stats { gap: 30px; }
+            .gallery-item img { height: 320px; }
+            .cam-container iframe { height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">SYMMETRICAL<span>.</span></div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#cams">Live Cams</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+        <h1>Perfect Symmetrical Cock</h1>
+        <p>Thick, balanced and perfectly shaped. One of the highest viewed private shots.</p>
+    </section>
+
+    <section class="image-section">
+        <div class="image-frame">
+            <img src="cock.jpg" alt="Perfect symmetrical thick cock and balls">
+        </div>
+
+        <div class="stats">
+            <div>
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Views</div>
+            </div>
+            <div>
+                <div class="stat-number">165</div>
+                <div class="stat-label">Likes</div>
+            </div>
+            <div>
+                <div class="stat-number">#1</div>
+                <div class="stat-label">Rated</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <p class="intro">
+            Hard for, among others, Esmee, Fleur, Laia and Zara.<br>
+            These are some of the girls who made this cock stay hard the longest.
+        </p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="esmee.jpg" alt="Esmee">
+                <div class="name">Esmee</div>
+            </div>
+            <div class="gallery-item">
+                <img src="fleur.jpg" alt="Fleur">
+                <div class="name">Fleur</div>
+            </div>
+            <div class="gallery-item">
+                <img src="laia.jpg" alt="Laia">
+                <div class="name">Laia</div>
+            </div>
+            <div class="gallery-item">
+                <img src="zara.png" alt="Zara">
+                <div class="name">Zara</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE CAMS -->
+    <section id="cams">
+        <h2>Live Cams</h2>
+        <p class="intro">
+            Some good Chaturbate accounts worth checking out.<br>
+            Currently featuring:
+        </p>
+
+        <div class="cam-container">
+            <iframe src="https://cbxyz.com/in/?track=embed&campaign=h0Whk&tour=SHBY&room=shine_chanel" 
+                    height="528" 
+                    width="850" 
+                    style="border: none;"
+                    allowfullscreen>
+            </iframe>
+
+<iframe src='https://cbxyz.com/in/?tour=SHBY&campaign=h0Whk&track=embed&room=beckymadsons' height=528 width=850 style='border: none;'></iframe>
+
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="info" id="about">
+        <h2>About this shot</h2>
+        <p>
+            Captured in natural light. Known for its clean symmetry, thickness and perfect proportions. 
+            Originally posted as a simple reply and quickly became one of the most viewed private images.
+        </p>
+    </section>
+
+    <footer>
+        © 2026 Private Collection — All rights reserved
+    </footer>
+
+</body>
+</html>
