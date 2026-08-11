@@ -1,4 +1,4 @@
-html = """
+]html = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +22,11 @@ html = """
             color: #eaeaea;
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
+            cursor: url('cock-cursor.png') 24 32, auto;
+        }
+
+        a, button, .star {
+            cursor: url('cock-cursor.png') 24 32, pointer;
         }
 
         header {
@@ -123,6 +128,54 @@ html = """
             margin-top: 4px;
         }
 
+        /* Rate box */
+        .rate-box {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .rate-box h3 {
+            margin-bottom: 14px;
+            font-size: 1.15rem;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .star {
+            font-size: 1.9rem;
+            color: #333;
+            transition: 0.15s;
+            user-select: none;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #ff4d4d;
+            transform: scale(1.15);
+        }
+
+        .rating-result {
+            color: #aaa;
+            font-size: 0.95rem;
+            min-height: 24px;
+        }
+
+        .live-views {
+            margin-top: 22px;
+            font-size: 0.95rem;
+            color: #888;
+        }
+
+        .live-views span {
+            color: #ff4d4d;
+            font-weight: 600;
+        }
+
         /* Gallery */
         #gallery {
             background: #0f0f0f;
@@ -211,7 +264,7 @@ html = """
             border: none;
             border-radius: 12px;
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 20px auto;
         }
 
         /* About */
@@ -274,17 +327,39 @@ html = """
 
         <div class="stats">
             <div>
-                <div class="stat-number">50K+</div>
+                <div class="stat-number" id="views">0</div>
                 <div class="stat-label">Views</div>
             </div>
             <div>
-                <div class="stat-number">165</div>
+                <div class="stat-number" id="likes">0</div>
                 <div class="stat-label">Likes</div>
             </div>
             <div>
                 <div class="stat-number">#1</div>
                 <div class="stat-label">Rated</div>
             </div>
+        </div>
+
+        <!-- Rate this cock -->
+        <div class="rate-box">
+            <h3>Rate this cock</h3>
+            <div class="stars" id="stars">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+                <span class="star" data-value="6">★</span>
+                <span class="star" data-value="7">★</span>
+                <span class="star" data-value="8">★</span>
+                <span class="star" data-value="9">★</span>
+                <span class="star" data-value="10">★</span>
+            </div>
+            <div class="rating-result" id="ratingResult">Click a star to rate</div>
+        </div>
+
+        <div class="live-views">
+            Live views right now: <span id="liveViews">128</span>
         </div>
     </section>
 
@@ -318,32 +393,30 @@ html = """
 
     <!-- LIVE CAMS -->
     <section id="cams">
-    <h2>Live Cams</h2>
-<p class="intro">
+        <h2>Live Cams</h2>
+        <p class="intro">
             Some good Chaturbate accounts worth checking out.<br>
             Currently featuring:
         </p>
 
-    <div class="cam-container">
+        <div class="cam-container">
+            <iframe
+                src="https://cbxyz.com/in/?tour=SHBY&campaign=h0Whk&track=embed&room=shine_chanel"
+                height="528"
+                width="850"
+                style="border: none;"
+                allowfullscreen>
+            </iframe>
 
-        <iframe
-            src="https://cbxyz.com/in/?tour=SHBY&campaign=h0Whk&track=embed&room=shine_chanel"
-            height="528"
-            width="850"
-            style="border: none;"
-            allowfullscreen>
-        </iframe>
-
-        <iframe
-            src="https://cbxyz.com/in/?tour=nvfS&campaign=h0Whk&track=embed"
-            height="528"
-            width="850"
-            style="border: none;"
-            allowfullscreen>
-        </iframe>
-
-    </div>
-</section>
+            <iframe
+                src="https://cbxyz.com/in/?tour=nvfS&campaign=h0Whk&track=embed"
+                height="528"
+                width="850"
+                style="border: none;"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
 
     <!-- ABOUT -->
     <section class="info" id="about">
@@ -358,5 +431,70 @@ html = """
         © 2026 Private Collection — All rights reserved
     </footer>
 
+    <script>
+        // Animated counters
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            const range = end - start;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const value = Math.floor(start + range * progress);
+                
+                if (id === 'views') {
+                    obj.textContent = value.toLocaleString() + '+';
+                } else {
+                    obj.textContent = value;
+                }
+                
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        }
+
+        window.addEventListener('load', () => {
+            animateValue('views', 0, 50000, 2200);
+            animateValue('likes', 0, 165, 1800);
+        });
+
+        // Rating system
+        const stars = document.querySelectorAll('.star');
+        const result = document.getElementById('ratingResult');
+        let currentRating = localStorage.getItem('cockRating') || 0;
+
+        if (currentRating > 0) {
+            highlightStars(currentRating);
+            result.textContent = `You rated this cock: ${currentRating}/10`;
+        }
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const value = star.getAttribute('data-value');
+                currentRating = value;
+                localStorage.setItem('cockRating', value);
+                highlightStars(value);
+                result.textContent = `You rated this cock: ${value}/10`;
+            });
+        });
+
+        function highlightStars(rating) {
+            stars.forEach(star => {
+                star.classList.toggle('active', star.getAttribute('data-value') <= rating);
+            });
+        }
+
+        // Live views counter
+        let live = 128;
+        setInterval(() => {
+            live += Math.floor(Math.random() * 3);
+            document.getElementById('liveViews').textContent = live;
+        }, 4000);
+    </script>
 </body>
 </html>
+"""
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html)
