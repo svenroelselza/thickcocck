@@ -1,4 +1,4 @@
-]html = """
+html = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,6 +126,20 @@
             font-size: 0.85rem;
             color: #777;
             margin-top: 4px;
+        }
+
+        /* Currently throbbing */
+        .throbbing {
+            margin: 30px auto 10px;
+            text-align: center;
+            font-size: 1.15rem;
+            color: #ccc;
+        }
+
+        .throbbing span {
+            color: #ff4d4d;
+            font-weight: 600;
+            transition: 0.4s;
         }
 
         /* Rate box */
@@ -340,6 +354,11 @@
             </div>
         </div>
 
+        <!-- Currently throbbing for -->
+        <div class="throbbing">
+            Currently throbbing for: <span id="throbbingFor">Esmee</span>
+        </div>
+
         <!-- Rate this cock -->
         <div class="rate-box">
             <h3>Rate this cock</h3>
@@ -491,6 +510,23 @@
             live += Math.floor(Math.random() * 3);
             document.getElementById('liveViews').textContent = live;
         }, 4000);
+
+        // Currently throbbing for...
+        const girls = ["Esmee", "Fleur", "Laia", "Zara"];
+        const throbbingEl = document.getElementById("throbbingFor");
+
+        function changeGirl() {
+            const randomGirl = girls[Math.floor(Math.random() * girls.length)];
+            throbbingEl.style.opacity = 0;
+
+            setTimeout(() => {
+                throbbingEl.textContent = randomGirl;
+                throbbingEl.style.opacity = 1;
+            }, 300);
+        }
+
+        // Change every 4.5 seconds
+setInterval(changeGirl, 100000); // 100 seconden
     </script>
 </body>
 </html>
