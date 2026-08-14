@@ -39,17 +39,18 @@ section{padding:120px 20px 80px}
 #gallery h2{font-size:1.9rem;margin-bottom:12px}
 #gallery .intro{color:#999;max-width:600px;margin:0 auto 40px;font-size:1.05rem}
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;max-width:1100px;margin:0 auto 60px}
-.gallery-item{background:#161616;border-radius:16px;overflow:hidden;border:1px solid #252525;transition:transform .25s;position:relative}
+.gallery-item{background:#161616;border-radius:16px;overflow:hidden;border:1px solid #252525;transition:transform .25s}
 .gallery-item:hover{transform:translateY(-5px)}
 .gallery-item img{width:100%;height:320px;object-fit:contain;background:#111;display:block}
 .gallery-item .name{padding:14px;font-size:1rem;font-weight:500}
-#cursor-reaction{position:fixed;pointer-events:none;background:rgba(20,20,20,.92);color:#ff4d4d;padding:10px 14px;border-radius:10px;font-size:.9rem;max-width:260px;line-height:1.4;z-index:9999;opacity:0;transform:translate(12px,12px);transition:opacity .15s;border:1px solid #333;box-shadow:0 4px 20px rgba(0,0,0,.5)}
+#cursor-reaction{position:fixed;pointer-events:none;background:rgba(20,20,20,.92);color:#ff4d4d;padding:10px 14px;border-radius:10px;font-size:.9rem;max-width:260px;line-height:1.4;z-index:9999;opacity:0;transform:translate(12px,12px);transition:opacity .15s;border:1px solid #333}
 .game-box{max-width:920px;margin:0 auto 45px;background:#141414;border-radius:20px;padding:35px 25px;border:1px solid #252525}
 .game-box h3{font-size:1.45rem;color:#ff4d4d;margin-bottom:18px}
 .btn{background:#ff4d4d;color:#fff;border:none;padding:12px 24px;border-radius:30px;font-size:.95rem;font-weight:600;margin:5px;transition:.2s}
 .btn:hover{background:#e03c3c;transform:scale(1.03)}
+.btn.secondary{background:#222;border:1px solid #444}
 .text-area{color:#e0e0e0;font-size:1.1rem;line-height:1.7;min-height:50px;max-width:700px;margin:15px auto;text-align:left}
-.rp-text{background:linear-gradient(145deg,#1a1a1a,#151515);border:1px solid #2a2a2a;border-radius:16px;padding:28px 32px;color:#e8e8e8;font-size:1.08rem;line-height:1.85;max-width:720px;margin:20px auto 0;text-align:left;white-space:pre-line;box-shadow:0 10px 40px rgba(0,0,0,.4);font-family:Georgia,'Times New Roman',serif}
+.rp-text{background:#151515;border:1px solid #2a2a2a;border-radius:16px;padding:32px 36px;color:#f0f0f0;font-size:1.08rem;line-height:1.85;max-width:720px;margin:20px auto 0;text-align:left;white-space:pre-line;box-shadow:0 10px 40px rgba(0,0,0,.5);font-family:Georgia,'Times New Roman',serif}
 .joi-countdown{font-size:3.5rem;font-weight:700;color:#ff4d4d;margin:20px 0;min-height:80px}
 .joi-girl{color:#ff4d4d;font-weight:600;margin-bottom:10px}
 .joi-photo{width:260px;height:260px;object-fit:cover;border-radius:18px;margin:15px auto;display:none;border:2px solid #ff4d4d;box-shadow:0 0 30px rgba(255,77,77,.45)}
@@ -65,6 +66,10 @@ section{padding:120px 20px 80px}
 .fmk-option.selected{background:#ff4d4d;border-color:#ff4d4d;color:#fff;font-weight:600}
 .fmk-result{margin-top:18px;padding:14px;background:#1a1a1a;border-radius:12px;color:#ddd;font-size:1rem;line-height:1.7;min-height:30px}
 textarea{width:100%;max-width:500px;height:90px;background:#1a1a1a;border:1px solid #333;border-radius:12px;color:#eee;padding:12px;font-size:1rem;margin:10px auto;display:block;resize:vertical}
+.mirror-container{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;align-items:flex-start;margin-top:15px}
+.mirror-video{width:320px;height:240px;background:#111;border-radius:12px;object-fit:cover;border:2px solid #333}
+.mirror-girl{width:180px;border-radius:12px;border:2px solid #ff4d4d}
+.mirror-comments{max-width:560px;margin:12px auto;font-size:1.15rem;color:#ffb3b3;min-height:50px}
 #cams{text-align:center}#cams h2{font-size:1.9rem;margin-bottom:12px}
 #cams .intro{color:#999;max-width:600px;margin:0 auto 40px}
 .cam-container{max-width:900px;margin:0 auto;background:#141414;border-radius:18px;padding:20px;border:1px solid #252525}
@@ -125,6 +130,19 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#5
 <div class="gallery-item" data-girl="Zara"><img src="zara.png" alt="Zara"><div class="name">Zara</div></div>
 </div>
 
+<!-- Cock Care -->
+<div class="game-box">
+<h3>Cock Care</h3>
+<p style="color:#aaa;margin-bottom:15px">They care how you keep it.</p>
+<div class="button-row">
+<button class="btn" onclick="showCare('Esmee')">Esmee</button>
+<button class="btn" onclick="showCare('Fleur')">Fleur</button>
+<button class="btn" onclick="showCare('Laia')">Laia</button>
+<button class="btn" onclick="showCare('Zara')">Zara</button>
+</div>
+<div class="text-area" id="careText">Choose a girl...</div>
+</div>
+
 <div class="game-box">
 <h3>Body Worship</h3>
 <div class="button-row">
@@ -155,6 +173,25 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#5
 <img id="joiPhoto" class="joi-photo" src="" alt="">
 <div class="text-area" id="joiText">Press the button when you're ready...</div>
 <div class="joi-countdown" id="joiCountdown"></div>
+</div>
+
+<div class="game-box">
+<h3>Cock Worship Mirror</h3>
+<p style="color:#aaa;margin-bottom:12px">Type what you're doing. She will recognize it and react.</p>
+<div class="button-row">
+<button class="btn" onclick="startMirror('Esmee')">Esmee</button>
+<button class="btn" onclick="startMirror('Fleur')">Fleur</button>
+<button class="btn" onclick="startMirror('Laia')">Laia</button>
+<button class="btn" onclick="startMirror('Zara')">Zara</button>
+</div>
+<div class="mirror-container">
+  <video id="mirrorVideo" class="mirror-video" autoplay playsinline muted></video>
+  <img id="mirrorGirl" class="mirror-girl" src="" style="display:none">
+</div>
+<textarea id="mirrorInput" placeholder="Type what you're doing right now..."></textarea>
+<button class="btn" onclick="mirrorReact()">Send</button>
+<div class="mirror-comments" id="mirrorComments">Choose a girl first...</div>
+<button class="btn secondary" id="stopCamera" style="display:none;margin-top:10px" onclick="stopCamera()">Stop Camera</button>
 </div>
 
 <div class="game-box">
@@ -229,10 +266,10 @@ const sounds={Fuck:new Audio('sounds_moan.mp3'),Marry:new Audio('sounds_marry.mp
 Object.values(sounds).forEach(s=>s.volume=0.65);
 
 const allReactions={
-Esmee:["She freezes for a second, then softly says “fuck…”","Esmee bites her lip hard and can’t look away","She presses her thighs together","Her breathing gets heavier the longer she stares","She looks at you with pure want"],
-Fleur:["Fleur stares and quietly says “oh my god”","She smirks and moves a little closer","Her eyes drop straight down and stay there","She shifts her weight, already restless","She whispers “I need that…”"],
-Laia:["Laia’s mouth falls open","She looks up at you with pure hunger","She already looks like she wants it in her mouth","Her cheeks flush while she stares","She bites her lip and doesn’t look away"],
-Zara:["Zara’s cheeks flush as she takes it in","She swallows and whispers “that’s really thick”","She can’t hide how much she wants it","Her eyes keep flicking back to it","She’s already imagining it inside her"]
+Esmee:["She freezes for a second, then softly says “fuck…”","Esmee bites her lip hard and can’t look away","She presses her thighs together","Her breathing gets heavier","She looks at you with pure want"],
+Fleur:["Fleur stares and quietly says “oh my god”","She smirks and moves closer","Her eyes drop and stay there","She shifts, already restless","She whispers “I need that…”"],
+Laia:["Laia’s mouth falls open","She looks up with pure hunger","She already wants it in her mouth","Her cheeks flush","She bites her lip and doesn’t look away"],
+Zara:["Zara’s cheeks flush","She swallows and whispers “that’s really thick”","She can’t hide how much she wants it","Her eyes keep flicking back","She’s already imagining it inside her"]
 };
 const usedReactions={Esmee:[],Fleur:[],Laia:[],Zara:[]};
 let currentGirl=null,reactionInterval=null;
@@ -244,28 +281,37 @@ item.addEventListener('mousemove',e=>{cursorReaction.style.left=e.clientX+"px";c
 item.addEventListener('mouseleave',()=>{cursorReaction.style.opacity="0";clearInterval(reactionInterval);currentGirl=null;});
 });
 
+const care = {
+Esmee: "I want my cock soft, clean and a little shiny at all times. Wash it morning and night with lukewarm water and mild soap. Pat it dry, never rub. Every morning massage jojoba oil all over the shaft until it looks smooth and ready. At night put a thin layer of unscented cream on the head so it stays soft when I drag my tongue over it. Clean under the foreskin. Oil your balls too. Keep the hair neat. If it feels dry or rough when I put it in my mouth, I’m not happy. Keep it in the condition I like to use.",
+Fleur: "It needs to look tight, clean and well-kept or I lose interest in getting on my knees. Wash it twice a day. Dry it properly. Use only neutral oil on the shaft so the skin stays smooth. Night cream on the head. Keep the hair short and clean. Balls soft and clean too. No dry head, no rough skin, no messy bush. If it doesn’t look looked-after, I touch it less. Keep it the way I want to suck and fuck it.",
+Laia: "Daddy, I want it perfectly soft and clean for me. Wash it twice a day, pat it dry, then massage oil over the shaft and your balls until everything feels smooth and warm. At night a little cream on the head so it stays nice and soft when I lick it. Pull the foreskin back and clean underneath. Keep the hair neat. I don’t like it when it’s dry or rough. You take care of it because I’m the one who’s going to put it in my mouth and hands later, understood?",
+Zara: "I notice how it looks and feels. Wash it morning and night with lukewarm water and mild soap. Pat dry. Then apply light neutral oil until the skin looks healthy and smooth. Night cream on the head. Oil your balls. Keep the hair short. Clean under the foreskin. If the skin is dry, tight or messy I notice immediately and it turns me off. Keep it in the condition I want to use, good boy."
+};
+function showCare(g){document.getElementById('careText').textContent=care[g];}
+
 const worship={
-Esmee:["I would start by kissing the tip, slowly, tasting whatever is already leaking… then I’d lick all the way down and take your balls in my mouth while I stroke you with both hands.","I’d spit on it and wrap both hands around you, stroking slow at first, twisting every time I reach the head. I want to feel how heavy it is.","I want that cock resting on my tongue. I’d suck just the head while I play with your balls, letting spit run down the shaft."],
-Fleur:["I’d drop to my knees, kiss the side of it first, then drag my tongue all the way up and swirl around the tip.","I’d hold it against my face for a second just to feel the heat, then lick every drop of precum before I take it deeper.","I’d stroke you with one hand and suck on your balls with the other, switching every time more precum comes out."],
-Laia:["Daddy… I’d get on my knees and look up at you while I kiss the tip. Then I’d take it as deep as I can, even if I gag.","I’d use both hands and my mouth at the same time. Slow strokes while I suck the head, going deeper until my eyes water. All for you.","I’d press it against my cheek first, then lick from your balls all the way to the tip while I keep looking at you."],
-Zara:["I’d just hold it first, feeling the weight in my hand, then stroke slowly and lick every drop that comes out.","I want it throbbing on my tongue. I’d suck the tip hard while I stroke the rest with both hands.","I’d get messy on purpose. Lots of spit, long strokes, lips wrapped tight around the head the whole time."]
+Esmee:["I would start by kissing the tip, tasting the precum, then lick all the way down and suck your balls while stroking you.","I’d spit on it and stroke slow, twisting at the head.","I want that cock on my tongue."],
+Fleur:["I’d drop to my knees, kiss the side, then drag my tongue up to the tip.","I’d hold it against my face first, then lick every drop of precum.","I’d stroke with one hand and suck your balls with the other."],
+Laia:["Daddy… I’d get on my knees and look up at you while I kiss the tip, then take it deep.","I’d use both hands and my mouth at the same time. All for you.","I’d press it against my cheek, then lick from your balls to the tip."],
+Zara:["I’d hold it first, feeling the weight, then stroke and lick every drop.","I want it throbbing on my tongue, good boy.","I’d get messy on purpose. Lots of spit."]
 };
 function showWorship(g){document.getElementById('worshipText').textContent=worship[g][Math.floor(Math.random()*worship[g].length)];}
 
+// ===== LONG ROLEPLAY STORIES =====
 const rp = {
-esmee: `You open the door and the apartment is quiet. The only light comes from the lamp in the corner. Esmee is on the couch, curled up in one of your shirts, legs tucked under her. She looks up when she hears you and her expression softens immediately.
+esmee: `You close the door behind you. The apartment is quiet except for the soft sound of the city outside. Esmee is on the couch in one of your shirts, legs tucked under her, scrolling on her phone. When she looks up her whole face changes.
 
 “Hey… you’re later than I thought.”
 
-She puts her phone down and just watches you for a few seconds. You drop your keys and walk over. When you sit she doesn’t climb on you right away. She shifts closer, rests her head on your shoulder, and stays quiet. Her hand finds your thigh and stays there, warm, not moving higher yet.
+She sets the phone down and just watches you for a moment. You drop your keys. She pats the cushion next to her. When you sit she doesn’t climb on you. Instead she shifts closer, rests her head on your shoulder, and stays quiet. Her hand finds your thigh and stays there, warm, not moving higher yet.
 
 “You smell good,” she murmurs against your neck. “I missed this.”
 
-She turns her face and kisses the side of your neck once, soft. Then again, a little lower. Her fingers start tracing slow circles on your thigh. Still not touching anything else. She stays like that for a long time, just breathing you in, kissing your neck, letting the tension build.
+She turns her face and kisses the side of your neck once, soft. Then again, a little lower. Her fingers start tracing slow circles on your thigh. She stays like that for a long time — kissing your neck, breathing you in, letting the tension build without rushing anything.
 
 “You’ve been tense all day, haven’t you?” she whispers. “I could feel it even from here.”
 
-Only after a long, slow kiss does her hand finally slide higher and press against the bulge in your pants. She doesn’t grab. She just feels it through the fabric, breathing a little heavier against your mouth.
+Only after a long, slow kiss does her hand finally slide higher and press against the bulge in your pants. She doesn’t grab. She just feels it through the fabric, breathing a little heavier.
 
 “Take it out for me.”
 
@@ -291,7 +337,9 @@ You reach around and rub her clit while you keep pounding her. Within a minute h
 
 “Don’t pull out. Cum deep. Fill me up.”
 
-You bury yourself as deep as you can and unload, thick pulses flooding her while she grinds back against you, milking every drop. You stay inside her afterward, both of you breathing hard, her still gently squeezing around you.`,
+You bury yourself as deep as you can and unload, thick pulses flooding her while she grinds back against you, milking every drop. You stay inside her afterward, both of you breathing hard. She reaches back and holds your hand, still gently squeezing around you.
+
+“Stay like this for a bit,” she whispers. “I want to feel you throbbing.”`,
 
 fleur: `Fleur is already leaning against the wall when you open the door. Short black dress, one knee bent, looking completely calm.
 
@@ -323,7 +371,9 @@ You reach under her and find her clit, rubbing tight circles while you keep poun
 
 “Cum. Right now. Empty those balls inside me.”
 
-You slam in deep and explode, thick ropes pumping into her while she stays bent over, taking every pulse and pushing back to keep you buried. You stay inside her for a while afterward, both of you breathing hard.`,
+You slam in deep and explode, thick ropes pumping into her while she stays bent over, taking every pulse and pushing back to keep you buried. You stay inside her for a while afterward, both of you breathing hard. She looks back at you over her shoulder, still flushed.
+
+“Don’t move yet,” she says. “I want to feel it.”`,
 
 laia: `Laia is sitting cross-legged on the bed when you walk in, wearing only one of your hoodies. The second she sees you her whole face softens.
 
@@ -355,7 +405,9 @@ You give her deep, heavy thrusts that make the bed slam against the wall. She cu
 
 “Cum inside me daddy. Please fill me up. I want every drop.”
 
-You bury yourself to the hilt and unload hard, pulsing deep inside her while she holds you tight and whispers “thank you daddy” over and over against your neck. You stay inside her afterward, still throbbing, while she keeps her legs wrapped around you.`,
+You bury yourself to the hilt and unload hard, pulsing deep inside her while she holds you tight and whispers “thank you daddy” over and over against your neck. You stay inside her afterward, still throbbing, while she keeps her legs wrapped around you and strokes your back.
+
+“Stay in me a little longer,” she whispers. “Please.”`,
 
 zara: `Zara is standing by the window when you arrive, looking out at the city lights. She doesn’t turn around right away.
 
@@ -381,7 +433,9 @@ She cums first, thighs shaking, mouth open. You roll her onto her back without p
 
 “Cum inside me. I want to feel it pulse. Give me every drop.”
 
-You drive in as deep as possible and explode, thick hot ropes flooding her while she keeps squeezing around you, milking everything she can get. You stay buried in her afterward, both of you breathing hard.`,
+You drive in as deep as possible and explode, thick hot ropes flooding her while she keeps squeezing around you, milking everything she can get. You stay buried in her afterward, both of you breathing hard. She keeps her legs locked around you.
+
+“Don’t pull out yet,” she says softly. “I like feeling it.”`,
 
 group: `You walk into the living room and stop cold.
 
@@ -407,273 +461,137 @@ When you finally get close they all gather around. You stroke yourself while the
 
 “Good boy,” she whispers.`
 };
-
 function showRP(key){document.getElementById('rpText').textContent=rp[key];}
 
 const joiGirls=["Esmee","Fleur","Laia","Zara"];
 const girlPhotos={Esmee:"esmee.jpg",Fleur:"fleur.jpg",Laia:"laia.jpg",Zara:"zara.png"};
 const joiScripts={
-Esmee:[[
-"I want you just to listen and follow my instructions, ok babe?",
-"Slowly take your hand… start gently pressing your balls and your cock for me.",
-"Hmm just drag your fingers up the shaft… get it nice and hard. We’ll release all that pressure later.",
-"Give it a nice squeeze for me… keep that pressure and stroke down… up and down… slowly babe, don’t rush it.",
-"Now go a little bit faster… I know it makes you so excited when you go faster for me.",
-"And then slow down again… yes, go slow again. We don’t want you to cum already.",
-"Squeeze your cock for me… go a little faster and squeeze it harder… it’s gonna feel so good.",
-"That’s right… you’re gonna feel yourself start to get close. That cum just wants to shoot out… but right when you feel like you’re gonna explode… you stop.",
-"Take your hands off… take a deep breath for me.",
-"You can start squeezing again now… nice and hard… then stroke it up and down. All that pressure in your balls… you wanna cum so bad…",
-"Go faster… but when you feel yourself at that edge, stop again. We want your orgasm to be unbelievable.",
-"Are you close? Then hands off… deep breath.",
-"Edge yourself for me babe… grab it again and stroke… all the way up to the tip and all the way down… massage your balls while you keep stroking.",
-"You’re doing so good… I love when you tease yourself for me… all that cum building up inside you.",
-"Stroke it… keep going… faster… yes, a little faster on that horny cock… you’re so ready to explode for me."
-]],
-Fleur:[[
-"Just listen to me and do exactly what I say, okay?",
-"Take your hand and start slow… gently press your balls and the base of your cock.",
-"Drag your fingers up the shaft really slowly… get it fully hard for me.",
-"Squeeze it nice and firm… then stroke down and up… slow, don’t rush.",
-"A little faster now… I know you like that.",
-"Slow down again… we are not finishing yet.",
-"Squeeze harder while you stroke… feel that pressure building in your balls.",
-"You’re getting close already, aren’t you? The second you feel like you might cum… stop completely.",
-"Hands off. Deep breath.",
-"You can touch it again… squeeze it… stroke it slow… all that cum is just waiting.",
-"Faster… but stop right at the edge again. Don’t you dare cum yet.",
-"Hands off. Breathe.",
-"Stroke again… full strokes… play with your balls at the same time.",
-"You’re teasing yourself so well for me… keep that cum locked up.",
-"Faster now… you’re so close… keep going until I say."
-]],
-Laia:[[
-"I want you to listen carefully and follow everything I say, daddy.",
-"Slowly take your hand and start gently pressing your balls and your cock for me.",
-"Drag your fingers up the shaft… get it nice and hard. We’ll let all that pressure out later, I promise.",
-"Give it a nice squeeze… keep the pressure and stroke down… up and down… slowly daddy, don’t rush.",
-"Go a little faster for me… I know it makes you so excited.",
-"Now slow down again… yes, slow. We don’t want you to cum already.",
-"Squeeze it harder while you stroke… it feels so good, doesn’t it?",
-"You’re getting close… that cum wants to shoot out so bad… but the second you feel it… stop.",
-"Hands off daddy. Take a deep breath.",
-"You can squeeze it again now… nice and hard… then stroke. All that pressure in your balls… you want to cum so bad for me.",
-"Faster… but when you reach the edge, stop again. I want your orgasm to be perfect.",
-"Are you close? Hands off. Deep breath for me.",
-"Edge yourself daddy… grab it and stroke all the way up to the tip and down to your balls… massage them while you stroke.",
-"You’re doing so good… I love when you tease yourself for me… all that cum building up.",
-"Stroke it daddy… keep going… faster… yes, a little faster… you’re so ready to explode for me."
-]],
-Zara:[[
-"Just listen and follow my voice, okay?",
-"Take your hand slowly… start gently pressing your balls and your cock.",
-"Drag your fingers up the shaft… nice and slow… get it fully hard.",
-"Squeeze it for me… then stroke down and up… don’t rush it.",
-"A little faster… I know that feels good.",
-"Slow down again… we’re not done building yet.",
-"Squeeze harder while you stroke… feel the pressure in your balls.",
-"You’re getting close… the moment you feel like you might cum, stop completely.",
-"Hands off. Deep breath.",
-"Touch it again… squeeze… stroke slow… all that cum is waiting.",
-"Faster… but stop right at the edge. Don’t cum.",
-"Hands off. Breathe.",
-"Stroke again… full long strokes… play with your balls at the same time.",
-"You’re teasing yourself so well… keep holding that cum in.",
-"Faster… you’re so close… keep going until I tell you."
-]]
+Esmee:["I want you just to listen and follow my instructions, ok babe?","Slowly take your hand… start gently pressing your balls and your cock for me.","Drag your fingers up the shaft… get it nice and hard.","Give it a nice squeeze… stroke down and up… slowly, don’t rush.","A little faster now… I know that makes you excited.","Slow down again. We don’t want you to cum yet.","Squeeze harder while you stroke… feel that pressure building.","You’re getting close, aren’t you? The second you feel it… STOP. Hands off.","Deep breath for me.","You can touch it again… but only the tip. Just the head.","Full strokes now… faster… but when you feel that edge, stop again.","Hands off. Breathe.","Stroke again… full length… play with your balls.","Faster… you’re so close… but you’re not allowed to cum yet.","One more time… get right to the edge… and stop."],
+Fleur:["Just listen and do exactly what I say.","Start slow… press your balls and the base of your cock.","Drag your fingers up the shaft… get it fully hard.","Squeeze and stroke… slow.","Faster… I know you like that.","Slow down. Not yet.","Squeeze harder… feel the pressure in your balls.","You’re close. Stop completely. Hands off.","Breathe.","Only the tip now. Little strokes on the head.","Full strokes… faster… stop right at the edge.","Hands off.","Stroke again… full length + balls.","Faster… so close… hold it.","Get to the edge one more time… and stop."],
+Laia:["Listen carefully and follow everything I say, daddy.","Slowly take your hand and start gently pressing your balls and your cock.","Drag your fingers up the shaft… get it nice and hard for me.","Squeeze it… stroke down and up… slowly daddy.","A little faster… I know it makes you excited.","Slow down again. We don’t want you to cum already.","Squeeze harder… feel that pressure.","You’re getting close… stop. Hands off daddy.","Deep breath.","You can touch it again… but only the tip. Be gentle.","Full strokes now… faster… stop at the edge.","Hands off. Breathe for me.","Stroke again… full length and play with your balls.","Faster daddy… you’re so close… hold it in.","One more edge… get right there… and stop."],
+Zara:["Just listen and follow my voice, good boy.","Take your hand slowly… press your balls and your cock.","Drag your fingers up the shaft… get it fully hard for me, good boy.","Squeeze and stroke… slow.","A little faster. Good boy.","Slow down. Not yet.","Squeeze harder… feel the pressure.","You’re close. Stop. Hands off, good boy.","Breathe.","Only the tip now.","Full strokes… faster… stop at the edge.","Hands off, good boy.","Stroke again… full length + balls.","Faster… so close… hold it. Good boy.","One more time to the edge… and stop."]
 };
 const cumTexts={
 Esmee:{last3:"Yeah baby… give me that cum.<br>Empty those heavy balls for me.",final:"Now. Cum for me. Cover me with it."},
 Fleur:{last3:"Fuck… I want every drop.<br>Don’t hold back.",final:"Cum. Right now. Give it all to me."},
 Laia:{last3:"Please daddy… give me that cum.<br>Empty those balls for your girl.",final:"Now daddy… cum for me. Empty those balls."},
-Zara:{last3:"I need it… give me that thick load.<br>Don’t waste a drop.",final:"Cum for me. Fill me up."}
+Zara:{last3:"I need it… give me that thick load, good boy.<br>Don’t waste a drop.",final:"Cum for me, good boy. Fill me up."}
 };
+const prankLines={
+Esmee:["Baby… did you literally think I’d let you cum that easy?","Aww look at you… so ready. Not yet."],
+Fleur:["Did you really think I’d let you finish that fast?","Nice try. Hands off. We’re not done."],
+Laia:["Daddy… did you think I’d let you cum already?","Not yet. Be a good boy and keep going."],
+Zara:["Did you think I’d let you go that quick, good boy?","Not yet. Keep holding it. Good boy."]
+};
+
 let joiRunning=false;
 document.getElementById('startJoi').onclick=()=>{
 if(joiRunning)return;joiRunning=true;
 const girl=joiGirls[Math.floor(Math.random()*4)];
-const script=joiScripts[girl][0];
+const script=joiScripts[girl];
 document.getElementById('joiGirl').textContent=girl+" is taking control...";
 document.getElementById('startJoi').style.display="none";
 document.getElementById('joiPhoto').style.display="none";
 let step=0;
-function next(){if(step<script.length){document.getElementById('joiText').textContent=script[step];document.getElementById('joiCountdown').textContent="";step++;setTimeout(next,9000);}else startCum(girl);}
+function next(){if(step<script.length){document.getElementById('joiText').textContent=script[step];document.getElementById('joiCountdown').textContent="";step++;setTimeout(next,8500);}else startCum(girl);}
 next();
 };
+
 function startCum(girl){
-let c=10;const cd=document.getElementById('joiCountdown'),ph=document.getElementById('joiPhoto'),tx=document.getElementById('joiText');
-tx.textContent=girl+" says: Get ready...";cd.textContent=c;ph.style.display="none";
-const iv=setInterval(()=>{
-c--;cd.textContent=c;
-if(c===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.25rem">${cumTexts[girl].last3}</span>`;}
-if(c<=0){clearInterval(iv);cd.textContent="CUM";tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.3rem">${cumTexts[girl].final}</span>`;
-setTimeout(()=>{document.getElementById('joiGirl').textContent="";tx.textContent="Press the button when you're ready...";cd.textContent="";ph.style.display="none";document.getElementById('startJoi').style.display="inline-block";joiRunning=false;},6500);}
-},1000);
+  let c=10;
+  const cd=document.getElementById('joiCountdown');
+  const ph=document.getElementById('joiPhoto');
+  const tx=document.getElementById('joiText');
+  const doPrank = Math.random() < 0.4;
+  let prankDone = false;
+  tx.textContent=girl+" says: Get ready...";
+  cd.textContent=c;
+  ph.style.display="none";
+  const iv=setInterval(()=>{
+    c--;
+    cd.textContent=c;
+    if(doPrank && !prankDone && (c===5 || c===4)){
+      prankDone = true;
+      clearInterval(iv);
+      const line = prankLines[girl][Math.floor(Math.random()*prankLines[girl].length)];
+      tx.innerHTML = `<span style="color:#ff4d4d;font-size:1.2rem">${line}</span>`;
+      cd.textContent = "";
+      setTimeout(()=>{
+        let c2 = 8;
+        cd.textContent = c2;
+        tx.textContent = girl+" says: Okay… now you can get ready again.";
+        const iv2 = setInterval(()=>{
+          c2--;
+          cd.textContent = c2;
+          if(c2===3){
+            ph.src = girlPhotos[girl];
+            ph.style.display = "block";
+            tx.innerHTML = `<span style="color:#ff4d4d;font-size:1.25rem">${cumTexts[girl].last3}</span>`;
+          }
+          if(c2<=0){
+            clearInterval(iv2);
+            cd.textContent = "CUM";
+            tx.innerHTML = `<span style="color:#ff4d4d;font-size:1.3rem">${cumTexts[girl].final}</span>`;
+            setTimeout(()=>{
+              document.getElementById('joiGirl').textContent="";
+              tx.textContent="Press the button when you're ready...";
+              cd.textContent="";
+              ph.style.display="none";
+              document.getElementById('startJoi').style.display="inline-block";
+              joiRunning=false;
+            },6500);
+          }
+        },1000);
+      },4500);
+      return;
+    }
+    if(c===3){
+      ph.src=girlPhotos[girl];
+      ph.style.display="block";
+      tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.25rem">${cumTexts[girl].last3}</span>`;
+    }
+    if(c<=0){
+      clearInterval(iv);
+      cd.textContent="CUM";
+      tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.3rem">${cumTexts[girl].final}</span>`;
+      setTimeout(()=>{
+        document.getElementById('joiGirl').textContent="";
+        tx.textContent="Press the button when you're ready...";
+        cd.textContent="";
+        ph.style.display="none";
+        document.getElementById('startJoi').style.display="inline-block";
+        joiRunning=false;
+      },6500);
+    }
+  },1000);
 }
+
+// Mirror + rest
+let mirrorGirl=null,mirrorStream=null;
+const mirrorDB={
+stroke:{Esmee:["That’s it baby… keep stroking for me."],Fleur:["Keep stroking."],Laia:["Yes daddy… stroke it for me."],Zara:["Keep stroking, good boy."]},
+tip:{Esmee:["Show me the tip baby."],Fleur:["Focus on the tip."],Laia:["Show me the tip daddy."],Zara:["Show me the tip, good boy."]},
+balls:{Esmee:["Play with your balls baby."],Fleur:["Don’t forget your balls."],Laia:["Play with your balls daddy."],Zara:["Play with your balls, good boy."]},
+leak:{Esmee:["Fuck baby you’re leaking…"],Fleur:["You’re leaking."],Laia:["Daddy you’re leaking…"],Zara:["You’re leaking… good boy."]},
+close:{Esmee:["You’re close aren’t you? Slow down."],Fleur:["You’re getting close. Slow down."],Laia:["You’re close daddy… slow down."],Zara:["You’re close. Slow down, good boy."]},
+stop:{Esmee:["Hands off baby."],Fleur:["Hands off."],Laia:["Hands off daddy."],Zara:["Hands off, good boy."]},
+squeeze:{Esmee:["Squeeze it harder baby."],Fleur:["Squeeze harder."],Laia:["Squeeze it daddy."],Zara:["Squeeze it, good boy."]},
+fast:{Esmee:["Faster baby… but don’t cum."],Fleur:["Faster."],Laia:["Faster daddy."],Zara:["Faster, good boy."]},
+slow:{Esmee:["Slow down baby."],Fleur:["Slow down."],Laia:["Slow down daddy."],Zara:["Slow down, good boy."]},
+throb:{Esmee:["It’s throbbing so hard…"],Fleur:["Throbbing…"],Laia:["It’s throbbing daddy…"],Zara:["Throbbing hard… good boy."]},
+general:{Esmee:["Keep going baby…"],Fleur:["Keep going."],Laia:["Keep going daddy…"],Zara:["Keep going, good boy."]}
+};
+function detectMirror(text){text=text.toLowerCase();if(/(strok|rub|jerk|pump)/.test(text))return"stroke";if(/(tip|head|glans)/.test(text))return"tip";if(/(ball|sack)/.test(text))return"balls";if(/(leak|precum|drip|wet)/.test(text))return"leak";if(/(close|edge|almost|gonna cum)/.test(text))return"close";if(/(stop|hands off)/.test(text))return"stop";if(/(squeez|grip|tight)/.test(text))return"squeeze";if(/(fast|faster)/.test(text))return"fast";if(/(slow)/.test(text))return"slow";if(/(throb|twitch|pulse|hard)/.test(text))return"throb";return"general";}
+function startMirror(girl){mirrorGirl=girl;document.getElementById('mirrorGirl').src=girlPhotos[girl];document.getElementById('mirrorGirl').style.display="block";document.getElementById('mirrorComments').textContent="Camera starting... Type what you're doing.";document.getElementById('stopCamera').style.display="inline-block";navigator.mediaDevices.getUserMedia({video:true,audio:false}).then(stream=>{mirrorStream=stream;document.getElementById('mirrorVideo').srcObject=stream;}).catch(()=>{document.getElementById('mirrorComments').textContent="Camera not available. You can still type.";});}
+function stopCamera(){if(mirrorStream){mirrorStream.getTracks().forEach(t=>t.stop());mirrorStream=null;}document.getElementById('mirrorVideo').srcObject=null;document.getElementById('mirrorGirl').style.display="none";document.getElementById('mirrorComments').textContent="Choose a girl first...";document.getElementById('stopCamera').style.display="none";mirrorGirl=null;}
+function mirrorReact(){if(!mirrorGirl){document.getElementById('mirrorComments').textContent="Choose a girl first.";return;}const text=document.getElementById('mirrorInput').value.trim();if(!text){document.getElementById('mirrorComments').textContent="Type what you're doing...";return;}const cat=detectMirror(text);const options=mirrorDB[cat][mirrorGirl];document.getElementById('mirrorComments').textContent=options[Math.floor(Math.random()*options.length)];document.getElementById('mirrorInput').value="";}
 
 let selected=null;
-function selectGirl(g){selected=g;document.getElementById('selectedGirl').textContent="Talking to "+g;document.getElementById('describeReaction').textContent="";document.getElementById('userDescribe').value="";}
-
-const reactionsDB = {
-  mouth: {
-    Esmee: [
-      "Fuck baby… I’d drop to my knees so fast. I’d take that thick cock in my mouth and suck it slow at first, tasting every drop of precum. Then I’d push it deeper until I was gagging on it, spit running down my chin, looking up at you the whole time like a good girl.",
-      "Mmm I’d wrap my lips around the head and suck hard while I stroked the rest. I’d get it all wet and messy for you baby. I want to feel it throb on my tongue while you watch me take it.",
-      "I’d stay on my knees and suck your cock like I was starving for it. Deep, wet, sloppy… gagging on purpose because I love how it feels when it hits the back of my throat."
-    ],
-    Fleur: [
-      "I’d push you against the wall and drop down immediately. I’d lick every inch of that heavy cock first, then suck the head so hard your knees would buckle. Spit everywhere. I wouldn’t stop until you were leaking all over my tongue.",
-      "Get that cock in my mouth right now. I want to feel it stretch my lips and hit the back of my throat. I’d look up at you the whole time while I choked on it.",
-      "I’d suck you so wet and messy you’d hear it. Both hands stroking what I couldn’t fit, tongue working the underside… I’d make you throb so hard."
-    ],
-    Laia: [
-      "Yes daddy… I’d get on my knees and take your cock in my mouth so fast. I’d suck it slow at first, then deeper and deeper until I was choking on it for you. Tears in my eyes, spit everywhere, still looking up at you like a good girl.",
-      "Please let me suck it daddy. I want to taste that precum and feel it throb on my tongue. I’ll take it as deep as I can and keep going even when I gag.",
-      "I’d stay on my knees for as long as you wanted, daddy. Sucking, stroking, drooling all over your cock… I’d be such a good girl for you."
-    ],
-    Zara: [
-      "I’d drop down and take that thick cock in my mouth immediately. I’d suck the head hard while I stroked the shaft, getting it all wet and shiny. I want to feel it pulse on my tongue.",
-      "I’d get so messy for you… spit running down your cock and onto my tits while I tried to take every inch. I wouldn’t stop until you were leaking.",
-      "I’d look you in the eyes the whole time I was sucking you. Slow and deep, then faster… making sure you felt every second of it."
-    ]
-  },
-  pussy: {
-    Esmee: [
-      "Baby I’d already be soaking wet. I’d spread my legs and guide that thick cock inside me slowly so I could feel every inch stretching me open. Then I’d beg you to fuck me harder.",
-      "Push it in me… I want to feel you filling me up completely. Once you’re all the way in, fuck me deep and don’t stop until I’m shaking and dripping around you.",
-      "I’d wrap my legs around you and pull you deeper. I want to feel that cock throbbing inside me when you cum. Fill me up baby."
-    ],
-    Fleur: [
-      "I’d be dripping by the time you pushed inside. Fuck me hard and deep from the start. I want to feel that thick cock rearranging me.",
-      "Hold my hips and slam into me until I can’t think. I want to feel it in my stomach. Don’t you dare slow down.",
-      "Don’t pull out. I want every drop of that cum deep inside me. Leave me leaking."
-    ],
-    Laia: [
-      "Please put it in me daddy… I need to feel you stretching my pussy. Go slow at first so I can take all of it, then fuck me as hard as you want. I’ll take everything.",
-      "I’d keep telling you how good it feels while you were inside me. How full I am. How much I love taking your cock. Cum inside me daddy, please.",
-      "I want to feel you pulse and fill me up completely. Leave it in me after you cum so I can feel it throbbing."
-    ],
-    Zara: [
-      "I’d sink down onto you slowly, letting every thick inch stretch me open. Then I’d ride you until my thighs were shaking and I was dripping down your cock.",
-      "Fuck me deep. I want to feel you hitting the right spot over and over until I cum hard on your cock.",
-      "Stay inside me when you finish. I want to feel every pulse while you empty those balls in me."
-    ]
-  },
-  ass: {
-    Esmee: [
-      "I’d be nervous but so fucking turned on… I’d let you take my ass slow, using lots of spit, while I reached back and spread myself for you. Once you were in I’d push back and take every inch like a good girl.",
-      "Go slow at first baby… I want to feel myself opening up around that thick cock. Then you can fuck my ass as hard as you want. I’ll take it.",
-      "I’d be so full. I’d moan the whole time and beg you to cum deep inside my ass."
-    ],
-    Fleur: [
-      "Spit on it and push into my ass slow. Once the head is in I’ll push back until you’re buried. Then fuck it properly. I want to feel every inch.",
-      "I want that thick cock stretching my ass open. Don’t be gentle once I’m used to it. Use me.",
-      "Cum in my ass. I want to feel it leaking out of me afterward."
-    ],
-    Laia: [
-      "Daddy… if you want my ass you can have it. Just go slow at first so I can take it. I’ll be a good girl and push back for you the whole time.",
-      "I’d hold myself open while you slid into my ass. It would hurt a little but I’d still beg you to keep going. Cum deep in me daddy.",
-      "I want to feel you throbbing in my ass when you finish. Please fill me."
-    ],
-    Zara: [
-      "I’d let you have my ass if you took your time. Lots of spit, slow strokes at first… then harder once I adjusted. Stretch me open.",
-      "I want to feel every thick inch forcing its way in. Don’t stop until you’re all the way inside.",
-      "Don’t pull out. Cum in my ass and leave it there so I can feel it."
-    ]
-  },
-  face: {
-    Esmee: [
-      "I’d get on my knees, stick my tongue out, and look up at you while you stroked that thick cock. I want every rope across my face and tongue baby. Cover me.",
-      "Make a mess of me. I want it dripping down my chin and onto my tits. Don’t hold anything back.",
-      "I’d keep my mouth open the whole time so I could taste some of it while you painted my face."
-    ],
-    Fleur: [
-      "I’d kneel in front of you and tell you to mark me. Stroke it and aim for my face. I want to feel it hot across my cheeks and lips.",
-      "Don’t waste a single drop. Cover my face completely.",
-      "I’d look you in the eyes the whole time you were cumming on me."
-    ],
-    Laia: [
-      "Please cum on my face daddy. I want to feel it. I’ll stick my tongue out and take every thick rope you give me like a good girl.",
-      "Make a mess of me daddy. All over my face and in my mouth. I’ll stay on my knees until you’re empty.",
-      "I want to taste it and feel it dripping down my cheeks. Please."
-    ],
-    Zara: [
-      "I’d get on my knees and look up at you. Stroke that cock and aim for my face. I want to feel every pulse.",
-      "Cover me. Cheeks, lips, tongue… I want all of it.",
-      "I’ll stay right there until you’re completely done and then lick whatever landed near my mouth."
-    ]
-  },
-  tits: {
-    Esmee: [
-      "I’d push my tits together and let you slide that thick cock between them. I’d spit on it to make it nice and wet and look up at you while you fucked them.",
-      "Tittyfuck me until you’re close, then cum all over them. I want to feel it dripping between my breasts baby.",
-      "I’d squeeze them tight around your cock and let you use them until you finished all over me."
-    ],
-    Fleur: [
-      "I’d get on my knees, push my tits together, and let you fuck them. Spit on your cock first so it slides easy.",
-      "Use my tits. I want to feel that thick cock sliding between them until you cum all over my chest.",
-      "Aim for my neck and tits when you finish. Make a real mess."
-    ],
-    Laia: [
-      "You can fuck my tits daddy. I’ll push them together and keep them nice and tight for you. Spit on it so it feels good.",
-      "I want to watch your cock disappear between my breasts. Cum on them when you’re ready… I’ll be a good girl and take it.",
-      "I’ll stay still and let you use them however you want until you empty those balls on me."
-    ],
-    Zara: [
-      "I’d push my tits together and let you slide between them. Slow at first, then faster once it was wet enough.",
-      "Fuck my tits until you’re about to cum, then finish all over them. I want to feel the heat of it.",
-      "I want your cum dripping down my chest after you’re done."
-    ]
-  },
-  general: {
-    Esmee: [
-      "Fuck baby… that sounds so hot. I’d let you do whatever you wanted to me. Just tell me how you want me and I’ll take it like a good girl.",
-      "I’d be dripping hearing you say that. Use me however you need. I’m yours.",
-      "I want it. All of it. Don’t hold back with me baby."
-    ],
-    Fleur: [
-      "Good. That’s exactly what I want to hear. Now come do it. I won’t stop you.",
-      "I’d make sure you finished everything you started. No stopping halfway.",
-      "Keep talking like that and I won’t be able to keep my hands off that cock."
-    ],
-    Laia: [
-      "Yes daddy… please do that to me. I’ll be so good for you. Use me however you want.",
-      "I want whatever you want, daddy. Just tell me and I’ll take it.",
-      "Tell me more while you’re doing it. I love hearing how you’re going to use me."
-    ],
-    Zara: [
-      "I’ve been thinking about things like that all day. Do it. I won’t stop you.",
-      "I want to feel everything you just described. Look me in the eyes while you do it.",
-      "Come here and show me. I’m ready."
-    ]
-  }
+function selectGirl(g){selected=g;document.getElementById('selectedGirl').textContent="Talking to "+g;document.getElementById('describeReaction').textContent="";}
+const reactionsDB={mouth:{Esmee:["Fuck baby… I’d drop to my knees and suck you deep."],Fleur:["I’d suck you wet and messy."],Laia:["Yes daddy… I’d suck it deep."],Zara:["I’d take it in my mouth, good boy."]},pussy:{Esmee:["I’d guide you inside me and beg you to fuck me."],Fleur:["Fuck me hard."],Laia:["Please put it in me daddy."],Zara:["I’d sink down onto you, good boy."]},ass:{Esmee:["I’d let you take my ass."],Fleur:["Push into my ass."],Laia:["You can have my ass daddy."],Zara:["I’d let you have my ass, good boy."]},face:{Esmee:["I’d let you cum on my face."],Fleur:["Cover my face."],Laia:["Please cum on my face daddy."],Zara:["Aim for my face, good boy."]},tits:{Esmee:["I’d push my tits together for you."],Fleur:["Fuck my tits."],Laia:["You can fuck my tits daddy."],Zara:["Slide between my tits, good boy."]},general:{Esmee:["I’d let you do whatever you want."],Fleur:["Come do it."],Laia:["Yes daddy, use me."],Zara:["Do it, good boy."]}
 };
-
-function detectCategory(text) {
-  text = text.toLowerCase();
-  if (/(blowjob|blow job|suck|mouth|oral|throat|gag|lick.*cock|cock.*lick|tongue|lips)/.test(text)) return "mouth";
-  if (/(ass|anal|butt|behind|from behind)/.test(text)) return "ass";
-  if (/(pussy|cunt|fuck you|inside you|in you|cum inside|creampie|breed|inside me)/.test(text)) return "pussy";
-  if (/(face|facial|on your face|cum on face|over your face|on my face)/.test(text)) return "face";
-  if (/(tit|breast|boob|chest|between your)/.test(text)) return "tits";
-  return "general";
-}
-
-function getReaction() {
-  if (!selected) {
-    document.getElementById('describeReaction').textContent = "Choose a girl first.";
-    return;
-  }
-  const text = document.getElementById('userDescribe').value.trim();
-  if (!text) {
-    document.getElementById('describeReaction').textContent = "Type something first...";
-    return;
-  }
-  const category = detectCategory(text);
-  const options = reactionsDB[category][selected];
-  const reply = options[Math.floor(Math.random() * options.length)];
-  document.getElementById('describeReaction').textContent = reply;
-}
+function detectCategory(text){text=text.toLowerCase();if(/(blowjob|suck|mouth|oral)/.test(text))return"mouth";if(/(ass|anal)/.test(text))return"ass";if(/(pussy|fuck you|inside|creampie)/.test(text))return"pussy";if(/(face|facial)/.test(text))return"face";if(/(tit|breast)/.test(text))return"tits";return"general";}
+function getReaction(){if(!selected){document.getElementById('describeReaction').textContent="Choose a girl first.";return;}const text=document.getElementById('userDescribe').value.trim();if(!text){document.getElementById('describeReaction').textContent="Type something first...";return;}const cat=detectCategory(text);const opts=reactionsDB[cat][selected];document.getElementById('describeReaction').textContent=opts[Math.floor(Math.random()*opts.length)];}
 
 function animateValue(id,start,end,dur){const obj=document.getElementById(id),range=end-start,t0=performance.now();function upd(t){const p=Math.min((t-t0)/dur,1);const v=Math.floor(start+range*p);obj.textContent=id==='views'?v.toLocaleString()+'+':v;if(p<1)requestAnimationFrame(upd);}requestAnimationFrame(upd);}
 window.onload=()=>{animateValue('views',0,50000,2200);animateValue('likes',0,165,1800);document.getElementById('quote').textContent=`"${["This cock doesn’t miss","Built different","Symmetry so good it hurts","She would be ruined","Thick, heavy and perfect"][Math.floor(Math.random()*5)]}"`;};
