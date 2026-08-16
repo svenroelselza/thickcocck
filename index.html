@@ -7,8 +7,30 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:#0a0a0a;color:#eaeaea;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;cursor:url('cock-cursor.png') 24 32,auto}
+body{background:#0a0a0a;color:#eaeaea;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;cursor:url('cock-cursor.png') 24 32,auto;position:relative}
 a,button,.star,.fmk-option,.btn,textarea{cursor:url('cock-cursor.png') 24 32,pointer}
+
+/* JOI background video */
+#joiBgVideo{
+  position:fixed;
+  top:0;left:0;
+  width:100vw;height:100vh;
+  object-fit:cover;
+  z-index:0;
+  display:none;
+  pointer-events:none;
+}
+#joiBgOverlay{
+  position:fixed;
+  top:0;left:0;
+  width:100vw;height:100vh;
+  background:rgba(0,0,0,0.55);
+  z-index:1;
+  display:none;
+  pointer-events:none;
+}
+.page-content{position:relative;z-index:2}
+
 header{position:fixed;top:0;left:0;right:0;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,15,15,.95);backdrop-filter:blur(10px);border-bottom:1px solid #1f1f1f;z-index:100}
 .logo{font-size:1.3rem;font-weight:700}.logo span{color:#ff4d4d}
 nav a{color:#aaa;text-decoration:none;margin-left:28px;font-size:.95rem}nav a:hover{color:#fff}
@@ -81,6 +103,14 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#5
 </style>
 </head>
 <body>
+
+<!-- JOI background video -->
+<video id="joiBgVideo" muted playsinline>
+  <source src="joi.mp4" type="video/mp4">
+</video>
+<div id="joiBgOverlay"></div>
+
+<div class="page-content">
 <div id="cursor-reaction"></div>
 <header>
 <div class="logo">SYMMETRICAL<span>.</span></div>
@@ -130,7 +160,6 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#5
 <div class="gallery-item" data-girl="Zara"><img src="zara.png" alt="Zara"><div class="name">Zara</div></div>
 </div>
 
-<!-- Cock Care -->
 <div class="game-box">
 <h3>Cock Care</h3>
 <p style="color:#aaa;margin-bottom:15px">They care how you keep it.</p>
@@ -260,6 +289,7 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#5
 <p>Captured in natural light. Known for its clean symmetry, thickness and perfect proportions.</p>
 </section>
 <footer>© 2026 Private Collection</footer>
+</div>
 
 <script>
 const sounds={Fuck:new Audio('sounds_moan.mp3'),Marry:new Audio('sounds_marry.mp3'),Kiss:new Audio('sounds_kiss.mp3'),Kill:new Audio('sounds_kill.mp3')};
@@ -297,169 +327,92 @@ Zara:["I’d hold it first, feeling the weight, then stroke and lick every drop.
 };
 function showWorship(g){document.getElementById('worshipText').textContent=worship[g][Math.floor(Math.random()*worship[g].length)];}
 
-// ===== LONG ROLEPLAY STORIES =====
 const rp = {
-esmee: `You close the door behind you. The apartment is quiet except for the soft sound of the city outside. Esmee is on the couch in one of your shirts, legs tucked under her, scrolling on her phone. When she looks up her whole face changes.
+esmee: `You close the door. Esmee is on the couch in one of your shirts. She looks up and softens.
 
 “Hey… you’re later than I thought.”
 
-She sets the phone down and just watches you for a moment. You drop your keys. She pats the cushion next to her. When you sit she doesn’t climb on you. Instead she shifts closer, rests her head on your shoulder, and stays quiet. Her hand finds your thigh and stays there, warm, not moving higher yet.
-
-“You smell good,” she murmurs against your neck. “I missed this.”
-
-She turns her face and kisses the side of your neck once, soft. Then again, a little lower. Her fingers start tracing slow circles on your thigh. She stays like that for a long time — kissing your neck, breathing you in, letting the tension build without rushing anything.
-
-“You’ve been tense all day, haven’t you?” she whispers. “I could feel it even from here.”
-
-Only after a long, slow kiss does her hand finally slide higher and press against the bulge in your pants. She doesn’t grab. She just feels it through the fabric, breathing a little heavier.
+She shifts closer, rests her head on your shoulder. Her hand stays on your thigh for a long time before finally pressing against the bulge.
 
 “Take it out for me.”
 
-You free your cock. She stares at it for several seconds, then wraps her fingers around the base and gives one single, slow stroke from bottom to tip, spreading the precum that was already there.
-
-“Fuck… it’s even thicker than last time.”
-
-She slides off the couch and onto her knees between your legs. She starts by kissing the tip, then licking the underside in long wet strokes from your balls all the way up. She takes just the head into her mouth and sucks gently while looking up at you. Spit starts running down. She goes deeper, gagging softly when it hits her throat, but she doesn’t pull away. She stays there, eyes watering, still looking at you.
-
-When she finally comes up for air, a thick string of spit connects her lips to your cock.
+You free your cock. She gives one slow stroke, then drops to her knees. She licks the underside in long wet strokes, takes the head in her mouth and sucks while looking up. Spit runs down. She goes deeper, gagging softly.
 
 “I need this inside me.”
 
-She stands, pulls the shirt over her head, and bends over the arm of the couch. She reaches back and spreads herself open. She’s already dripping. You rub the swollen head up and down her slit, coating yourself, then push in slowly. She lets out a long, shaking moan as inch after inch disappears inside her.
+She bends over the couch and spreads herself. You push in slowly. She moans long and deep as you fill her.
 
-“Yes… just like that. Stretch me.”
+“Yes… stretch me.”
 
-You start with deep, steady thrusts. She pushes back to meet every one. You grip her hips harder and start fucking her properly. The wet sound of your cock driving in and out fills the room. She keeps moaning your name, telling you how full she feels, how good it is.
-
-“Harder… use me. I want to feel it tomorrow.”
-
-You reach around and rub her clit while you keep pounding her. Within a minute her legs start shaking and she cums hard, squeezing rhythmically around your cock, soaking your balls. You don’t stop. You keep fucking her through it until she’s a trembling mess.
-
-“Don’t pull out. Cum deep. Fill me up.”
-
-You bury yourself as deep as you can and unload, thick pulses flooding her while she grinds back against you, milking every drop. You stay inside her afterward, both of you breathing hard. She reaches back and holds your hand, still gently squeezing around you.
+You fuck her hard. She pushes back, moaning. You rub her clit while pounding her. She cums hard, shaking. You keep going until you bury yourself deep and empty everything inside her while she milks every drop.
 
 “Stay like this for a bit,” she whispers. “I want to feel you throbbing.”`,
 
-fleur: `Fleur is already leaning against the wall when you open the door. Short black dress, one knee bent, looking completely calm.
+fleur: `Fleur is leaning against the wall in a short dress.
 
 “Took you long enough.”
 
-She walks past you into the living room, letting her fingers trail across your chest. You follow. She turns around, steps in close, and looks up at you without smiling.
-
-“You’ve been hard since this morning. Don’t lie.”
-
-Her hand rests on your stomach, just above your belt. She doesn’t go lower yet. She just stands there, close enough that you can feel her breath, waiting until the silence gets heavy. Only then does she open your pants and free your cock. She doesn’t stroke it right away. She holds it, feeling the weight, watching it twitch in her hand.
+She steps close, frees your cock, and holds it.
 
 “Jesus Christ…”
 
-She drops to her knees without another word. She starts with slow, deliberate licks, coating every side of your cock in spit. Then she takes you into her mouth and starts sucking with purpose — wet, loud, messy. She uses both hands, twisting them in opposite directions while her mouth works the head. Every time she pulls off, spit pours down your shaft and onto her chest.
+She drops to her knees and sucks wet and messy. Spit runs down her chest. Then she bends over the table.
 
-After a few minutes she stands, turns around, and bends over the table. She looks back at you while pulling her dress up. Nothing underneath.
+“You’ve teased me enough. Now do something about it.”
 
-“You’ve teased me enough by existing. Now do something about it.”
-
-You step forward and rub the head of your cock between her lips. She’s soaked. You push in slowly and she drops her forehead onto the table with a deep moan.
+You push in. She moans deep.
 
 “Fuck— yes. All the way.”
 
-You start thrusting. She reaches back and digs her nails into your thigh, pulling you deeper. The table creaks with every impact. You grab a handful of her hair and fuck her harder. The wet slap of your hips against her ass echoes through the room.
-
-“Don’t you dare slow down. I want every thick inch.”
-
-You reach under her and find her clit, rubbing tight circles while you keep pounding. She cums with a loud, broken cry, her pussy clamping down hard around you. You keep going, fucking her through the aftershocks until she’s shaking.
-
-“Cum. Right now. Empty those balls inside me.”
-
-You slam in deep and explode, thick ropes pumping into her while she stays bent over, taking every pulse and pushing back to keep you buried. You stay inside her for a while afterward, both of you breathing hard. She looks back at you over her shoulder, still flushed.
+You fuck her hard. She digs her nails into your thigh. You rub her clit while pounding her. She cums with a broken cry. You slam deep and pump everything into her.
 
 “Don’t move yet,” she says. “I want to feel it.”`,
 
-laia: `Laia is sitting cross-legged on the bed when you walk in, wearing only one of your hoodies. The second she sees you her whole face softens.
+laia: `Laia is on the bed in only your hoodie.
 
 “Hi daddy.”
 
-She crawls to the edge of the bed and waits. When you get close she wraps her arms around your waist and presses her face against your stomach, just breathing you in for a long moment.
+She wraps her arms around you and presses her face against your stomach.
 
-“I missed you,” she murmurs. “I kept getting wet thinking about you.”
+“I missed you.”
 
-Her hands slowly undo your pants. When your cock springs free she makes a tiny happy sound. She holds it carefully, gives it one slow stroke, then looks up at you with big eyes.
+She frees your cock and looks up.
 
 “Can I put it in my mouth, daddy?”
 
-She leans in, licks the precum, then takes the head between her lips and sucks softly. She goes deeper little by little, gagging when it hits her throat, but she forces herself further, tears forming in the corners of her eyes, never breaking eye contact. She keeps moaning around your cock like it’s the best thing she’s ever tasted.
+She sucks deep, gagging, eyes watering. Then she lies back and spreads her legs.
 
-When she finally pulls off, spit is running down her chin and onto her chest.
+“Please daddy… fuck me.”
 
-“Please daddy… I need you to fuck me now.”
+You push inside. She gasps.
 
-She lies back, pulls the hoodie up, and spreads her legs wide. You climb over her. She reaches down, grabs your cock, and guides it to her entrance. The second you push inside she gasps and clutches your back with both hands.
+“Yes— daddy, you’re so thick…”
 
-“Yes— daddy, you’re so thick… it feels so good…”
+You fuck her deep. She cums first. You bury yourself and unload while she whispers “thank you daddy”.
 
-You start thrusting. She wraps her legs high around your waist and keeps talking, voice broken and needy.
+“Stay in me a little longer,” she whispers.`,
 
-“Harder daddy… use my pussy… I want to feel it in my stomach…”
+zara: `Zara stands by the window.
 
-You give her deep, heavy thrusts that make the bed slam against the wall. She cums first, crying out and squeezing you so tight it almost hurts. You keep fucking her through it, chasing your own orgasm.
+“I almost touched myself three times today thinking about your cock. But I waited.”
 
-“Cum inside me daddy. Please fill me up. I want every drop.”
+She frees your cock, strokes it slowly, then climbs on top and sinks down.
 
-You bury yourself to the hilt and unload hard, pulsing deep inside her while she holds you tight and whispers “thank you daddy” over and over against your neck. You stay inside her afterward, still throbbing, while she keeps her legs wrapped around you and strokes your back.
+“Oh fuck… it’s stretching me so much.”
 
-“Stay in me a little longer,” she whispers. “Please.”`,
+She rides you hard. She cums first. You roll her over, fuck her deep, and empty everything inside her.
 
-zara: `Zara is standing by the window when you arrive, looking out at the city lights. She doesn’t turn around right away.
+“Don’t pull out yet,” she says. “I like feeling it, good boy.”`,
 
-“I almost touched myself three times today thinking about your cock,” she says calmly. “But I waited.”
+group: `All four girls are waiting.
 
-She finally turns. Her eyes drop to your crotch, then back to your face. She walks over, stops in front of you, and places both hands on your chest.
+They take their time kissing and touching you. Laia frees your cock. They take turns sucking you, sometimes two at once. Spit runs down your shaft.
 
-“Show me.”
+Esmee rides you while Laia sits on your face. They switch freely.
 
-You free your cock. She stares at it for a long moment, then steps closer until the head brushes against her dress. She smiles a little.
+When you’re close they gather around. You cum across their tongues, chests and faces. Laia swallows the last of it.
 
-“It’s even better up close.”
-
-She wraps her fingers around you and gives several slow, deliberate strokes, watching precum bead at the tip and smear across her knuckles. She leads you to the bed, pushes you down, and climbs on top still fully dressed. She grinds against your cock through the thin fabric of her panties for a long time, getting herself more and more worked up, until she finally lifts up, pulls the panties aside, and sinks down onto you in one smooth, continuous motion.
-
-“Oh fuck…” she breathes, head falling back. “It’s stretching me so much.”
-
-She rides you slowly at first, grinding in tight circles so she can feel every ridge. Then she plants her hands on your chest and starts bouncing harder, taking you deeper with every drop. You sit up, wrap an arm around her waist, and start thrusting up to meet her. The wet sound of her pussy sliding up and down your cock fills the room.
-
-“Don’t stop— I’m so close…”
-
-She cums first, thighs shaking, mouth open. You roll her onto her back without pulling out and start fucking her properly — long, powerful strokes that make her tits bounce. She hooks her legs around you and pulls you deeper.
-
-“Cum inside me. I want to feel it pulse. Give me every drop.”
-
-You drive in as deep as possible and explode, thick hot ropes flooding her while she keeps squeezing around you, milking everything she can get. You stay buried in her afterward, both of you breathing hard. She keeps her legs locked around you.
-
-“Don’t pull out yet,” she says softly. “I like feeling it.”`,
-
-group: `You walk into the living room and stop cold.
-
-Esmee is on the couch. Fleur is sitting on the armrest. Laia is on the floor between them. Zara is in the chair by the window. All four of them look at you at the same time.
-
-Laia smiles first. “We talked about you.”
-
-Fleur stands and walks over until she’s almost touching you. “We’ve been patient. But patience has limits.”
-
-Esmee pats the cushion next to her. “Come sit.”
-
-You do. Immediately Laia crawls closer and rests her head on your thigh. Zara walks behind the couch and leans down to speak near your ear.
-
-“We’ve all been thinking about the same thing.”
-
-Fleur sits on your other side and casually rests her hand high on your leg. Esmee leans in from the front and starts unbuttoning your shirt, slowly. No one rushes. They take their time touching you, kissing your neck, your mouth, your chest. Laia eventually frees your cock and just holds it, looking up at everyone else like she’s asking permission.
-
-Esmee is the first to lean down and take you into her mouth. She sucks slowly, then passes you to Fleur. Fleur goes deeper, gagging softly. Then Laia. Then Zara. They take turns, sometimes two at once — one sucking the head while the other licks your balls and the shaft. Spit runs down your cock and drips onto Laia’s chest. The room is filled with wet sounds and soft moans.
-
-Eventually they pull you down onto the floor. Esmee climbs on top and sinks onto your cock while Laia sits on your face. Fleur and Zara take turns kissing you and playing with Esmee’s body while she rides. They switch positions freely — someone always on your cock, someone always on your mouth, hands everywhere.
-
-When you finally get close they all gather around. You stroke yourself while they watch and talk dirty. The moment you start cumming they lean in. Some of it lands on tongues, some on chests, some on faces. Laia catches the last of it in her mouth and swallows, looking very pleased.
-
-“Good boy,” she whispers.`
+“Good boy,” Zara whispers.`
 };
 function showRP(key){document.getElementById('rpText').textContent=rp[key];}
 
@@ -485,19 +438,44 @@ Zara:["Did you think I’d let you go that quick, good boy?","Not yet. Keep hold
 };
 
 let joiRunning=false;
+const bgVideo = document.getElementById('joiBgVideo');
+const bgOverlay = document.getElementById('joiBgOverlay');
+
+bgVideo.addEventListener('ended', () => {
+  bgVideo.style.display = 'none';
+  bgOverlay.style.display = 'none';
+  bgVideo.currentTime = 0;
+});
+
 document.getElementById('startJoi').onclick=()=>{
-if(joiRunning)return;joiRunning=true;
-const girl=joiGirls[Math.floor(Math.random()*4)];
-const script=joiScripts[girl];
-document.getElementById('joiGirl').textContent=girl+" is taking control...";
-document.getElementById('startJoi').style.display="none";
-document.getElementById('joiPhoto').style.display="none";
-let step=0;
-function next(){if(step<script.length){document.getElementById('joiText').textContent=script[step];document.getElementById('joiCountdown').textContent="";step++;setTimeout(next,8500);}else startCum(girl);}
-next();
+  if(joiRunning)return;
+  joiRunning=true;
+  const girl=joiGirls[Math.floor(Math.random()*4)];
+  const script=joiScripts[girl];
+  document.getElementById('joiGirl').textContent=girl+" is taking control...";
+  document.getElementById('startJoi').style.display="none";
+  document.getElementById('joiPhoto').style.display="none";
+  let step=0;
+  function next(){
+    if(step<script.length){
+      document.getElementById('joiText').textContent=script[step];
+      document.getElementById('joiCountdown').textContent="";
+      step++;
+      setTimeout(next,8500);
+    } else {
+      startCum(girl);
+    }
+  }
+  next();
 };
 
 function startCum(girl){
+  // Start background video – plays fully, even after CUM
+  bgVideo.style.display = 'block';
+  bgOverlay.style.display = 'block';
+  bgVideo.currentTime = 0;
+  bgVideo.play().catch(()=>{});
+
   let c=10;
   const cd=document.getElementById('joiCountdown');
   const ph=document.getElementById('joiPhoto');
@@ -507,9 +485,11 @@ function startCum(girl){
   tx.textContent=girl+" says: Get ready...";
   cd.textContent=c;
   ph.style.display="none";
+
   const iv=setInterval(()=>{
     c--;
     cd.textContent=c;
+
     if(doPrank && !prankDone && (c===5 || c===4)){
       prankDone = true;
       clearInterval(iv);
@@ -545,6 +525,7 @@ function startCum(girl){
       },4500);
       return;
     }
+
     if(c===3){
       ph.src=girlPhotos[girl];
       ph.style.display="block";
@@ -566,7 +547,7 @@ function startCum(girl){
   },1000);
 }
 
-// Mirror + rest
+// Mirror
 let mirrorGirl=null,mirrorStream=null;
 const mirrorDB={
 stroke:{Esmee:["That’s it baby… keep stroking for me."],Fleur:["Keep stroking."],Laia:["Yes daddy… stroke it for me."],Zara:["Keep stroking, good boy."]},
