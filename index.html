@@ -8,29 +8,10 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:#0a0a0a;color:#eaeaea;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;cursor:url('cock-cursor.png') 24 32,auto;position:relative}
-a,button,.star,.fmk-option,.btn,textarea{cursor:url('cock-cursor.png') 24 32,pointer}
-
-/* JOI background video */
-#joiBgVideo{
-  position:fixed;
-  top:0;left:0;
-  width:100vw;height:100vh;
-  object-fit:cover;
-  z-index:0;
-  display:none;
-  pointer-events:none;
-}
-#joiBgOverlay{
-  position:fixed;
-  top:0;left:0;
-  width:100vw;height:100vh;
-  background:rgba(0,0,0,0.55);
-  z-index:1;
-  display:none;
-  pointer-events:none;
-}
+a,button,.star,.fmk-option,.btn,textarea,input{cursor:url('cock-cursor.png') 24 32,pointer}
+#joiBgVideo{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:0;display:none;pointer-events:none}
+#joiBgOverlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.55);z-index:1;display:none;pointer-events:none}
 .page-content{position:relative;z-index:2}
-
 header{position:fixed;top:0;left:0;right:0;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,15,15,.95);backdrop-filter:blur(10px);border-bottom:1px solid #1f1f1f;z-index:100}
 .logo{font-size:1.3rem;font-weight:700}.logo span{color:#ff4d4d}
 nav a{color:#aaa;text-decoration:none;margin-left:28px;font-size:.95rem}nav a:hover{color:#fff}
@@ -87,11 +68,18 @@ section{padding:120px 20px 80px}
 .fmk-option:hover{background:#333}
 .fmk-option.selected{background:#ff4d4d;border-color:#ff4d4d;color:#fff;font-weight:600}
 .fmk-result{margin-top:18px;padding:14px;background:#1a1a1a;border-radius:12px;color:#ddd;font-size:1rem;line-height:1.7;min-height:30px}
-textarea{width:100%;max-width:500px;height:90px;background:#1a1a1a;border:1px solid #333;border-radius:12px;color:#eee;padding:12px;font-size:1rem;margin:10px auto;display:block;resize:vertical}
+textarea,input[type="text"],input[type="number"]{width:100%;max-width:500px;background:#1a1a1a;border:1px solid #333;border-radius:12px;color:#eee;padding:12px;font-size:1rem;margin:8px auto;display:block}
+textarea{height:90px;resize:vertical}
 .mirror-container{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;align-items:flex-start;margin-top:15px}
 .mirror-video{width:320px;height:240px;background:#111;border-radius:12px;object-fit:cover;border:2px solid #333}
 .mirror-girl{width:180px;border-radius:12px;border:2px solid #ff4d4d}
 .mirror-comments{max-width:560px;margin:12px auto;font-size:1.15rem;color:#ffb3b3;min-height:50px}
+.duel-cat{display:flex;justify-content:space-between;align-items:center;max-width:420px;margin:8px auto;gap:12px}
+.duel-cat label{flex:1;text-align:left;color:#ccc;font-size:.95rem}
+.duel-cat input{width:70px;max-width:70px;margin:0;text-align:center}
+.duel-status{color:#ff4d4d;margin:12px 0;font-size:1.05rem}
+.duel-code-box{background:#1a1a1a;border:1px solid #333;border-radius:12px;padding:14px;margin:15px auto;max-width:500px;word-break:break-all;font-size:.9rem;color:#ccc}
+.duel-result{background:#1a1a1a;border-radius:12px;padding:20px;margin-top:20px;text-align:left;max-width:520px;margin-left:auto;margin-right:auto}
 #cams{text-align:center}#cams h2{font-size:1.9rem;margin-bottom:12px}
 #cams .intro{color:#999;max-width:600px;margin:0 auto 40px}
 .cam-container{max-width:900px;margin:0 auto;background:#141414;border-radius:18px;padding:20px;border:1px solid #252525}
@@ -104,7 +92,6 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#5
 </head>
 <body>
 
-<!-- JOI background video -->
 <video id="joiBgVideo" muted playsinline>
   <source src="joi.mp4" type="video/mp4">
 </video>
@@ -160,9 +147,45 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#5
 <div class="gallery-item" data-girl="Zara"><img src="zara.png" alt="Zara"><div class="name">Zara</div></div>
 </div>
 
+<!-- DICK DUEL -->
+<div class="game-box" id="duelSection">
+<h3>Dick Duel</h3>
+<p style="color:#aaa;margin-bottom:15px">Challenge someone. Both rate your own cock. Winner takes it.</p>
+
+<div id="duelStep1">
+  <div class="button-row">
+    <button class="btn" onclick="duelStartCreate()">Create duel</button>
+    <button class="btn secondary" onclick="duelStartJoin()">Join duel</button>
+  </div>
+</div>
+
+<div id="duelStepCreate" style="display:none">
+  <p style="color:#ccc;margin-bottom:10px">Rate <strong>your</strong> cock (1–10), then share the code.</p>
+  <input type="text" id="duelName1" placeholder="Your name" maxlength="20">
+  <div id="duelCats1"></div>
+  <button class="btn" onclick="duelGenerateCode()" style="margin-top:12px">Generate duel code</button>
+  <div id="duelCodeOut" style="display:none">
+    <p class="duel-status">Send this code to your opponent:</p>
+    <div class="duel-code-box" id="duelCodeText"></div>
+    <button class="btn secondary" onclick="duelCopyCode()">Copy code</button>
+    <p style="color:#666;font-size:.85rem;margin-top:8px">They open the site → Join duel → paste code → rate their cock.</p>
+  </div>
+</div>
+
+<div id="duelStepJoin" style="display:none">
+  <p style="color:#ccc;margin-bottom:10px">Paste their duel code, then rate <strong>your</strong> cock.</p>
+  <input type="text" id="duelCodeIn" placeholder="Paste duel code here">
+  <input type="text" id="duelName2" placeholder="Your name" maxlength="20">
+  <div id="duelCats2"></div>
+  <button class="btn" onclick="duelFinishJoin()" style="margin-top:12px">Submit & see winner</button>
+  <div class="duel-status" id="duelJoinErr"></div>
+</div>
+
+<div id="duelResult" style="display:none"></div>
+</div>
+
 <div class="game-box">
 <h3>Cock Care</h3>
-<p style="color:#aaa;margin-bottom:15px">They care how you keep it.</p>
 <div class="button-row">
 <button class="btn" onclick="showCare('Esmee')">Esmee</button>
 <button class="btn" onclick="showCare('Fleur')">Fleur</button>
@@ -292,6 +315,150 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#5
 </div>
 
 <script>
+const DUEL_CATS = [
+  "Thickness","Length","Symmetry","Head shape","Veininess",
+  "Balls","Color / tone","Proportion","Overall look","Would suck"
+];
+
+function buildCats(containerId, prefix){
+  const box = document.getElementById(containerId);
+  box.innerHTML = "";
+  DUEL_CATS.forEach((cat,i)=>{
+    box.innerHTML += `<div class="duel-cat"><label>${cat}</label><input type="number" min="1" max="10" id="${prefix}${i}" placeholder="1-10"></div>`;
+  });
+}
+
+function readScores(prefix){
+  const scores = {};
+  let ok = true;
+  DUEL_CATS.forEach((cat,i)=>{
+    const v = parseInt(document.getElementById(prefix+i).value, 10);
+    if(!v || v < 1 || v > 10) ok = false;
+    scores[cat] = v || 0;
+  });
+  return ok ? scores : null;
+}
+
+function avg(scores){
+  const vals = Object.values(scores);
+  return Math.round((vals.reduce((a,b)=>a+b,0) / vals.length) * 10) / 10;
+}
+
+function encodeDuel(data){
+  return btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+}
+function decodeDuel(str){
+  try {
+    return JSON.parse(decodeURIComponent(escape(atob(str.trim()))));
+  } catch(e){ return null; }
+}
+
+function duelStartCreate(){
+  document.getElementById('duelStep1').style.display = 'none';
+  document.getElementById('duelStepCreate').style.display = 'block';
+  document.getElementById('duelStepJoin').style.display = 'none';
+  document.getElementById('duelResult').style.display = 'none';
+  buildCats('duelCats1','c1_');
+}
+
+function duelStartJoin(){
+  document.getElementById('duelStep1').style.display = 'none';
+  document.getElementById('duelStepCreate').style.display = 'none';
+  document.getElementById('duelStepJoin').style.display = 'block';
+  document.getElementById('duelResult').style.display = 'none';
+  buildCats('duelCats2','c2_');
+}
+
+function duelGenerateCode(){
+  const name = document.getElementById('duelName1').value.trim() || "Player 1";
+  const scores = readScores('c1_');
+  if(!scores){
+    alert("Fill all categories with numbers 1–10.");
+    return;
+  }
+  const payload = { name, scores, avg: avg(scores), v: 1 };
+  const code = encodeDuel(payload);
+  document.getElementById('duelCodeOut').style.display = 'block';
+  document.getElementById('duelCodeText').textContent = code;
+  window._lastDuelCode = code;
+}
+
+function duelCopyCode(){
+  const t = window._lastDuelCode || document.getElementById('duelCodeText').textContent;
+  navigator.clipboard.writeText(t).then(()=>alert("Code copied.")).catch(()=>alert("Copy manually."));
+}
+
+function duelFinishJoin(){
+  const code = document.getElementById('duelCodeIn').value.trim();
+  const p1 = decodeDuel(code);
+  if(!p1 || !p1.scores || !p1.name){
+    document.getElementById('duelJoinErr').textContent = "Invalid duel code.";
+    return;
+  }
+  const name = document.getElementById('duelName2').value.trim() || "Player 2";
+  const scores = readScores('c2_');
+  if(!scores){
+    document.getElementById('duelJoinErr').textContent = "Fill all categories with 1–10.";
+    return;
+  }
+  const p2 = { name, scores, avg: avg(scores) };
+  showDuelWinner(p1, p2);
+}
+
+function showDuelWinner(p1, p2){
+  document.getElementById('duelStepCreate').style.display = 'none';
+  document.getElementById('duelStepJoin').style.display = 'none';
+  const res = document.getElementById('duelResult');
+  res.style.display = 'block';
+
+  let winner = null, wAvg, lAvg, loser;
+  if(p1.avg > p2.avg){ winner = p1.name; loser = p2.name; wAvg = p1.avg; lAvg = p2.avg; }
+  else if(p2.avg > p1.avg){ winner = p2.name; loser = p1.name; wAvg = p2.avg; lAvg = p1.avg; }
+
+  const commentsWin = [
+    `Zara: "Good boy, ${winner}. That cock earned the win."`,
+    `Laia: "Daddy… I'd pick ${winner}. No contest."`,
+    `Fleur: "${winner} takes it. Clear winner."`,
+    `Esmee: "I'd get on my knees for ${winner} first."`
+  ];
+  const commentsDraw = [
+    `Zara: "Draw. I'd need to see them side by side, good boys."`,
+    `Fleur: "Equal on paper. Still want a closer look."`
+  ];
+
+  let html = `<div class="duel-result"><h3 style="color:#ff4d4d;margin-bottom:14px">Duel result</h3>`;
+  html += `<p><strong>${p1.name}</strong>: ${p1.avg}/10</p>`;
+  html += `<p><strong>${p2.name}</strong>: ${p2.avg}/10</p>`;
+  html += `<hr style="border-color:#333;margin:14px 0">`;
+
+  if(winner){
+    html += `<p style="font-size:1.25rem;color:#ff4d4d"><strong>${winner} wins</strong> (${wAvg} vs ${lAvg})</p>`;
+    html += `<p style="margin-top:12px;color:#ffb3b3">${commentsWin[Math.floor(Math.random()*commentsWin.length)]}</p>`;
+  } else {
+    html += `<p style="font-size:1.25rem;color:#ff4d4d"><strong>Draw</strong></p>`;
+    html += `<p style="margin-top:12px;color:#ffb3b3">${commentsDraw[Math.floor(Math.random()*commentsDraw.length)]}</p>`;
+  }
+
+  html += `<h4 style="margin-top:18px;color:#aaa">Breakdown</h4>`;
+  DUEL_CATS.forEach(cat=>{
+    const s1 = p1.scores[cat], s2 = p2.scores[cat];
+    let mark = "";
+    if(s1 > s2) mark = ` ← ${p1.name}`;
+    else if(s2 > s1) mark = ` ← ${p2.name}`;
+    html += `<p style="font-size:.92rem">${cat}: ${s1} vs ${s2}${mark}</p>`;
+  });
+  html += `<button class="btn secondary" style="margin-top:16px" onclick="duelReset()">New duel</button></div>`;
+  res.innerHTML = html;
+}
+
+function duelReset(){
+  document.getElementById('duelResult').style.display = 'none';
+  document.getElementById('duelStep1').style.display = 'block';
+  document.getElementById('duelCodeOut').style.display = 'none';
+  document.getElementById('duelJoinErr').textContent = "";
+}
+
+// ===== rest of site =====
 const sounds={Fuck:new Audio('sounds_moan.mp3'),Marry:new Audio('sounds_marry.mp3'),Kiss:new Audio('sounds_kiss.mp3'),Kill:new Audio('sounds_kill.mp3')};
 Object.values(sounds).forEach(s=>s.volume=0.65);
 
@@ -311,11 +478,11 @@ item.addEventListener('mousemove',e=>{cursorReaction.style.left=e.clientX+"px";c
 item.addEventListener('mouseleave',()=>{cursorReaction.style.opacity="0";clearInterval(reactionInterval);currentGirl=null;});
 });
 
-const care = {
-Esmee: "I want my cock soft, clean and a little shiny at all times. Wash it morning and night with lukewarm water and mild soap. Pat it dry, never rub. Every morning massage jojoba oil all over the shaft until it looks smooth and ready. At night put a thin layer of unscented cream on the head so it stays soft when I drag my tongue over it. Clean under the foreskin. Oil your balls too. Keep the hair neat. If it feels dry or rough when I put it in my mouth, I’m not happy. Keep it in the condition I like to use.",
-Fleur: "It needs to look tight, clean and well-kept or I lose interest in getting on my knees. Wash it twice a day. Dry it properly. Use only neutral oil on the shaft so the skin stays smooth. Night cream on the head. Keep the hair short and clean. Balls soft and clean too. No dry head, no rough skin, no messy bush. If it doesn’t look looked-after, I touch it less. Keep it the way I want to suck and fuck it.",
-Laia: "Daddy, I want it perfectly soft and clean for me. Wash it twice a day, pat it dry, then massage oil over the shaft and your balls until everything feels smooth and warm. At night a little cream on the head so it stays nice and soft when I lick it. Pull the foreskin back and clean underneath. Keep the hair neat. I don’t like it when it’s dry or rough. You take care of it because I’m the one who’s going to put it in my mouth and hands later, understood?",
-Zara: "I notice how it looks and feels. Wash it morning and night with lukewarm water and mild soap. Pat dry. Then apply light neutral oil until the skin looks healthy and smooth. Night cream on the head. Oil your balls. Keep the hair short. Clean under the foreskin. If the skin is dry, tight or messy I notice immediately and it turns me off. Keep it in the condition I want to use, good boy."
+const care={
+Esmee:"I want my cock soft, clean and a little shiny at all times. Wash it morning and night with lukewarm water and mild soap. Pat it dry, never rub. Every morning massage jojoba oil all over the shaft until it looks smooth and ready. At night put a thin layer of unscented cream on the head so it stays soft when I drag my tongue over it. Clean under the foreskin. Oil your balls too. Keep the hair neat. If it feels dry or rough when I put it in my mouth, I’m not happy. Keep it in the condition I like to use.",
+Fleur:"It needs to look tight, clean and well-kept or I lose interest in getting on my knees. Wash it twice a day. Dry it properly. Use only neutral oil on the shaft so the skin stays smooth. Night cream on the head. Keep the hair short and clean. Balls soft and clean too. No dry head, no rough skin, no messy bush. If it doesn’t look looked-after, I touch it less. Keep it the way I want to suck and fuck it.",
+Laia:"Daddy, I want it perfectly soft and clean for me. Wash it twice a day, pat it dry, then massage oil over the shaft and your balls until everything feels smooth and warm. At night a little cream on the head so it stays nice and soft when I lick it. Pull the foreskin back and clean underneath. Keep the hair neat. I don’t like it when it’s dry or rough. You take care of it because I’m the one who’s going to put it in my mouth and hands later, understood?",
+Zara:"I notice how it looks and feels. Wash it morning and night with lukewarm water and mild soap. Pat dry. Then apply light neutral oil until the skin looks healthy and smooth. Night cream on the head. Oil your balls. Keep the hair short. Clean under the foreskin. If the skin is dry, tight or messy I notice immediately and it turns me off. Keep it in the condition I want to use, good boy."
 };
 function showCare(g){document.getElementById('careText').textContent=care[g];}
 
@@ -327,92 +494,12 @@ Zara:["I’d hold it first, feeling the weight, then stroke and lick every drop.
 };
 function showWorship(g){document.getElementById('worshipText').textContent=worship[g][Math.floor(Math.random()*worship[g].length)];}
 
-const rp = {
-esmee: `You close the door. Esmee is on the couch in one of your shirts. She looks up and softens.
-
-“Hey… you’re later than I thought.”
-
-She shifts closer, rests her head on your shoulder. Her hand stays on your thigh for a long time before finally pressing against the bulge.
-
-“Take it out for me.”
-
-You free your cock. She gives one slow stroke, then drops to her knees. She licks the underside in long wet strokes, takes the head in her mouth and sucks while looking up. Spit runs down. She goes deeper, gagging softly.
-
-“I need this inside me.”
-
-She bends over the couch and spreads herself. You push in slowly. She moans long and deep as you fill her.
-
-“Yes… stretch me.”
-
-You fuck her hard. She pushes back, moaning. You rub her clit while pounding her. She cums hard, shaking. You keep going until you bury yourself deep and empty everything inside her while she milks every drop.
-
-“Stay like this for a bit,” she whispers. “I want to feel you throbbing.”`,
-
-fleur: `Fleur is leaning against the wall in a short dress.
-
-“Took you long enough.”
-
-She steps close, frees your cock, and holds it.
-
-“Jesus Christ…”
-
-She drops to her knees and sucks wet and messy. Spit runs down her chest. Then she bends over the table.
-
-“You’ve teased me enough. Now do something about it.”
-
-You push in. She moans deep.
-
-“Fuck— yes. All the way.”
-
-You fuck her hard. She digs her nails into your thigh. You rub her clit while pounding her. She cums with a broken cry. You slam deep and pump everything into her.
-
-“Don’t move yet,” she says. “I want to feel it.”`,
-
-laia: `Laia is on the bed in only your hoodie.
-
-“Hi daddy.”
-
-She wraps her arms around you and presses her face against your stomach.
-
-“I missed you.”
-
-She frees your cock and looks up.
-
-“Can I put it in my mouth, daddy?”
-
-She sucks deep, gagging, eyes watering. Then she lies back and spreads her legs.
-
-“Please daddy… fuck me.”
-
-You push inside. She gasps.
-
-“Yes— daddy, you’re so thick…”
-
-You fuck her deep. She cums first. You bury yourself and unload while she whispers “thank you daddy”.
-
-“Stay in me a little longer,” she whispers.`,
-
-zara: `Zara stands by the window.
-
-“I almost touched myself three times today thinking about your cock. But I waited.”
-
-She frees your cock, strokes it slowly, then climbs on top and sinks down.
-
-“Oh fuck… it’s stretching me so much.”
-
-She rides you hard. She cums first. You roll her over, fuck her deep, and empty everything inside her.
-
-“Don’t pull out yet,” she says. “I like feeling it, good boy.”`,
-
-group: `All four girls are waiting.
-
-They take their time kissing and touching you. Laia frees your cock. They take turns sucking you, sometimes two at once. Spit runs down your shaft.
-
-Esmee rides you while Laia sits on your face. They switch freely.
-
-When you’re close they gather around. You cum across their tongues, chests and faces. Laia swallows the last of it.
-
-“Good boy,” Zara whispers.`
+const rp={
+esmee:`You close the door. Esmee is on the couch in one of your shirts. She looks up and softens.\n\n“Hey… you’re later than I thought.”\n\nShe shifts closer, rests her head on your shoulder. Her hand stays on your thigh for a long time before finally pressing against the bulge.\n\n“Take it out for me.”\n\nYou free your cock. She gives one slow stroke, then drops to her knees. She licks the underside in long wet strokes, takes the head in her mouth and sucks while looking up. Spit runs down. She goes deeper, gagging softly.\n\n“I need this inside me.”\n\nShe bends over the couch and spreads herself. You push in slowly. She moans long and deep as you fill her.\n\n“Yes… stretch me.”\n\nYou fuck her hard. She pushes back, moaning. You rub her clit while pounding her. She cums hard, shaking. You keep going until you bury yourself deep and empty everything inside her while she milks every drop.\n\n“Stay like this for a bit,” she whispers. “I want to feel you throbbing.”`,
+fleur:`Fleur is leaning against the wall in a short dress.\n\n“Took you long enough.”\n\nShe steps close, frees your cock, and holds it.\n\n“Jesus Christ…”\n\nShe drops to her knees and sucks wet and messy. Spit runs down her chest. Then she bends over the table.\n\n“You’ve teased me enough. Now do something about it.”\n\nYou push in. She moans deep.\n\n“Fuck— yes. All the way.”\n\nYou fuck her hard. She digs her nails into your thigh. You rub her clit while pounding her. She cums with a broken cry. You slam deep and pump everything into her.\n\n“Don’t move yet,” she says. “I want to feel it.”`,
+laia:`Laia is on the bed in only your hoodie.\n\n“Hi daddy.”\n\nShe wraps her arms around you and presses her face against your stomach.\n\n“I missed you.”\n\nShe frees your cock and looks up.\n\n“Can I put it in my mouth, daddy?”\n\nShe sucks deep, gagging, eyes watering. Then she lies back and spreads her legs.\n\n“Please daddy… fuck me.”\n\nYou push inside. She gasps.\n\n“Yes— daddy, you’re so thick…”\n\nYou fuck her deep. She cums first. You bury yourself and unload while she whispers “thank you daddy”.\n\n“Stay in me a little longer,” she whispers.`,
+zara:`Zara stands by the window.\n\n“I almost touched myself three times today thinking about your cock. But I waited.”\n\nShe frees your cock, strokes it slowly, then climbs on top and sinks down.\n\n“Oh fuck… it’s stretching me so much.”\n\nShe rides you hard. She cums first. You roll her over, fuck her deep, and empty everything inside her.\n\n“Don’t pull out yet,” she says. “I like feeling it, good boy.”`,
+group:`All four girls are waiting.\n\nThey take their time kissing and touching you. Laia frees your cock. They take turns sucking you, sometimes two at once. Spit runs down your shaft.\n\nEsmee rides you while Laia sits on your face. They switch freely.\n\nWhen you’re close they gather around. You cum across their tongues, chests and faces. Laia swallows the last of it.\n\n“Good boy,” Zara whispers.`
 };
 function showRP(key){document.getElementById('rpText').textContent=rp[key];}
 
@@ -438,116 +525,49 @@ Zara:["Did you think I’d let you go that quick, good boy?","Not yet. Keep hold
 };
 
 let joiRunning=false;
-const bgVideo = document.getElementById('joiBgVideo');
-const bgOverlay = document.getElementById('joiBgOverlay');
-
-bgVideo.addEventListener('ended', () => {
-  bgVideo.style.display = 'none';
-  bgOverlay.style.display = 'none';
-  bgVideo.currentTime = 0;
-});
+const bgVideo=document.getElementById('joiBgVideo');
+const bgOverlay=document.getElementById('joiBgOverlay');
+bgVideo.addEventListener('ended',()=>{bgVideo.style.display='none';bgOverlay.style.display='none';bgVideo.currentTime=0;});
 
 document.getElementById('startJoi').onclick=()=>{
-  if(joiRunning)return;
-  joiRunning=true;
-  const girl=joiGirls[Math.floor(Math.random()*4)];
-  const script=joiScripts[girl];
-  document.getElementById('joiGirl').textContent=girl+" is taking control...";
-  document.getElementById('startJoi').style.display="none";
-  document.getElementById('joiPhoto').style.display="none";
-  let step=0;
-  function next(){
-    if(step<script.length){
-      document.getElementById('joiText').textContent=script[step];
-      document.getElementById('joiCountdown').textContent="";
-      step++;
-      setTimeout(next,8500);
-    } else {
-      startCum(girl);
-    }
-  }
-  next();
+if(joiRunning)return;joiRunning=true;
+const girl=joiGirls[Math.floor(Math.random()*4)];
+const script=joiScripts[girl];
+document.getElementById('joiGirl').textContent=girl+" is taking control...";
+document.getElementById('startJoi').style.display="none";
+document.getElementById('joiPhoto').style.display="none";
+let step=0;
+function next(){if(step<script.length){document.getElementById('joiText').textContent=script[step];document.getElementById('joiCountdown').textContent="";step++;setTimeout(next,8500);}else startCum(girl);}
+next();
 };
 
 function startCum(girl){
-  // Start background video – plays fully, even after CUM
-  bgVideo.style.display = 'block';
-  bgOverlay.style.display = 'block';
-  bgVideo.currentTime = 0;
-  bgVideo.play().catch(()=>{});
-
-  let c=10;
-  const cd=document.getElementById('joiCountdown');
-  const ph=document.getElementById('joiPhoto');
-  const tx=document.getElementById('joiText');
-  const doPrank = Math.random() < 0.4;
-  let prankDone = false;
-  tx.textContent=girl+" says: Get ready...";
-  cd.textContent=c;
-  ph.style.display="none";
-
-  const iv=setInterval(()=>{
-    c--;
-    cd.textContent=c;
-
-    if(doPrank && !prankDone && (c===5 || c===4)){
-      prankDone = true;
-      clearInterval(iv);
-      const line = prankLines[girl][Math.floor(Math.random()*prankLines[girl].length)];
-      tx.innerHTML = `<span style="color:#ff4d4d;font-size:1.2rem">${line}</span>`;
-      cd.textContent = "";
-      setTimeout(()=>{
-        let c2 = 8;
-        cd.textContent = c2;
-        tx.textContent = girl+" says: Okay… now you can get ready again.";
-        const iv2 = setInterval(()=>{
-          c2--;
-          cd.textContent = c2;
-          if(c2===3){
-            ph.src = girlPhotos[girl];
-            ph.style.display = "block";
-            tx.innerHTML = `<span style="color:#ff4d4d;font-size:1.25rem">${cumTexts[girl].last3}</span>`;
-          }
-          if(c2<=0){
-            clearInterval(iv2);
-            cd.textContent = "CUM";
-            tx.innerHTML = `<span style="color:#ff4d4d;font-size:1.3rem">${cumTexts[girl].final}</span>`;
-            setTimeout(()=>{
-              document.getElementById('joiGirl').textContent="";
-              tx.textContent="Press the button when you're ready...";
-              cd.textContent="";
-              ph.style.display="none";
-              document.getElementById('startJoi').style.display="inline-block";
-              joiRunning=false;
-            },6500);
-          }
-        },1000);
-      },4500);
-      return;
-    }
-
-    if(c===3){
-      ph.src=girlPhotos[girl];
-      ph.style.display="block";
-      tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.25rem">${cumTexts[girl].last3}</span>`;
-    }
-    if(c<=0){
-      clearInterval(iv);
-      cd.textContent="CUM";
-      tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.3rem">${cumTexts[girl].final}</span>`;
-      setTimeout(()=>{
-        document.getElementById('joiGirl').textContent="";
-        tx.textContent="Press the button when you're ready...";
-        cd.textContent="";
-        ph.style.display="none";
-        document.getElementById('startJoi').style.display="inline-block";
-        joiRunning=false;
-      },6500);
-    }
-  },1000);
+bgVideo.style.display='block';bgOverlay.style.display='block';bgVideo.currentTime=0;bgVideo.play().catch(()=>{});
+let c=10;const cd=document.getElementById('joiCountdown'),ph=document.getElementById('joiPhoto'),tx=document.getElementById('joiText');
+const doPrank=Math.random()<0.4;let prankDone=false;
+tx.textContent=girl+" says: Get ready...";cd.textContent=c;ph.style.display="none";
+const iv=setInterval(()=>{
+c--;cd.textContent=c;
+if(doPrank&&!prankDone&&(c===5||c===4)){
+prankDone=true;clearInterval(iv);
+const line=prankLines[girl][Math.floor(Math.random()*prankLines[girl].length)];
+tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.2rem">${line}</span>`;cd.textContent="";
+setTimeout(()=>{
+let c2=8;cd.textContent=c2;tx.textContent=girl+" says: Okay… now you can get ready again.";
+const iv2=setInterval(()=>{
+c2--;cd.textContent=c2;
+if(c2===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.25rem">${cumTexts[girl].last3}</span>`;}
+if(c2<=0){clearInterval(iv2);cd.textContent="CUM";tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.3rem">${cumTexts[girl].final}</span>`;
+setTimeout(()=>{document.getElementById('joiGirl').textContent="";tx.textContent="Press the button when you're ready...";cd.textContent="";ph.style.display="none";document.getElementById('startJoi').style.display="inline-block";joiRunning=false;},6500);}
+},1000);
+},4500);return;
+}
+if(c===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.25rem">${cumTexts[girl].last3}</span>`;}
+if(c<=0){clearInterval(iv);cd.textContent="CUM";tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.3rem">${cumTexts[girl].final}</span>`;
+setTimeout(()=>{document.getElementById('joiGirl').textContent="";tx.textContent="Press the button when you're ready...";cd.textContent="";ph.style.display="none";document.getElementById('startJoi').style.display="inline-block";joiRunning=false;},6500);}
+},1000);
 }
 
-// Mirror
 let mirrorGirl=null,mirrorStream=null;
 const mirrorDB={
 stroke:{Esmee:["That’s it baby… keep stroking for me."],Fleur:["Keep stroking."],Laia:["Yes daddy… stroke it for me."],Zara:["Keep stroking, good boy."]},
