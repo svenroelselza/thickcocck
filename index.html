@@ -10,15 +10,8 @@ html{scroll-behavior:smooth}
 body{background:#0a0a0a;color:#eaeaea;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;cursor:url('cock-cursor.png') 24 32,auto;position:relative}
 a,button,.star,.fmk-option,.btn,textarea,input{cursor:url('cock-cursor.png') 24 32,pointer}
 
-/* Permanent video background */
-#siteBgVideo{
-  position:fixed;top:0;left:0;width:100vw;height:100vh;
-  object-fit:cover;z-index:0;pointer-events:none;
-}
-#siteBgOverlay{
-  position:fixed;top:0;left:0;width:100vw;height:100vh;
-  background:rgba(0,0,0,0.62);z-index:1;pointer-events:none;
-}
+#siteBgVideo{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:0;pointer-events:none}
+#siteBgOverlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.62);z-index:1;pointer-events:none}
 .page-content{position:relative;z-index:2}
 
 header{position:fixed;top:0;left:0;right:0;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,15,15,.92);backdrop-filter:blur(10px);border-bottom:1px solid #1f1f1f;z-index:100}
@@ -47,14 +40,24 @@ section{padding:120px 20px 80px}
 .last-rating{color:#777;font-size:.85rem;margin-top:6px}
 .live-views{margin-top:25px;font-size:.95rem;color:#999;text-align:center}
 .live-views span{color:#ff4d4d;font-weight:600}
+
 #gallery{text-align:center}
 #gallery h2{font-size:1.9rem;margin-bottom:12px}
-#gallery .intro{color:#aaa;max-width:600px;margin:0 auto 40px;font-size:1.05rem}
+#gallery .intro{color:#aaa;max-width:600px;margin:0 auto 16px;font-size:1.05rem}
+#gallery .reveal-text{color:#ff4d4d;font-size:1.2rem;font-weight:600;margin-bottom:28px}
+
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;max-width:1100px;margin:0 auto 60px}
-.gallery-item{background:rgba(22,22,22,.9);border-radius:16px;overflow:hidden;border:1px solid #252525;transition:transform .25s}
-.gallery-item:hover{transform:translateY(-5px)}
-.gallery-item img{width:100%;height:320px;object-fit:contain;background:#111;display:block}
-.gallery-item .name{padding:14px;font-size:1rem;font-weight:500}
+
+/* Flip cards */
+.flip-card{background:transparent;perspective:1000px;cursor:pointer;height:360px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden;border:1px solid #252525;background:rgba(22,22,22,.95)}
+.flip-back{transform:rotateY(180deg);border-color:#ff4d4d}
+.flip-front img,.flip-back img{width:100%;height:calc(100% - 44px);object-fit:contain;background:#111;display:block}
+.flip-front .name,.flip-back .name{padding:12px;font-size:1rem;font-weight:500;text-align:center}
+.flip-back .name{color:#ff4d4d}
+
 #cursor-reaction{position:fixed;pointer-events:none;background:rgba(20,20,20,.92);color:#ff4d4d;padding:10px 14px;border-radius:10px;font-size:.9rem;max-width:260px;line-height:1.4;z-index:9999;opacity:0;transform:translate(12px,12px);transition:opacity .15s;border:1px solid #333}
 .game-box{max-width:920px;margin:0 auto 45px;background:rgba(20,20,20,.88);border-radius:20px;padding:35px 25px;border:1px solid #252525}
 .game-box h3{font-size:1.45rem;color:#ff4d4d;margin-bottom:18px}
@@ -92,7 +95,6 @@ input[type="file"]{max-width:500px;margin:10px auto;display:block;color:#ccc}
 .duel-result{background:#1a1a1a;border-radius:12px;padding:20px;margin-top:20px;text-align:left;max-width:520px;margin-left:auto;margin-right:auto}
 .duel-preview{max-width:280px;max-height:320px;border-radius:12px;margin:12px auto;display:block;border:2px solid #333;object-fit:contain;background:#111}
 
-/* My photos slideshow + grid */
 .slideshow-wrap{position:relative;max-width:520px;margin:0 auto 30px;overflow:hidden;border-radius:16px;border:1px solid #252525;background:#111;touch-action:pan-y}
 .slideshow-track{display:flex;transition:transform .35s ease;will-change:transform}
 .slide{min-width:100%;user-select:none}
@@ -115,12 +117,11 @@ input[type="file"]{max-width:500px;margin:10px auto;display:block;color:#ccc}
 .info{max-width:700px;margin:0 auto;text-align:center}
 .info h2{font-size:1.6rem;margin-bottom:18px}.info p{color:#aaa;font-size:1.05rem}
 footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#666;font-size:.9rem}
-@media(max-width:600px){.hero h1{font-size:2.1rem}header{flex-direction:column;gap:12px;padding:15px 20px}.joi-countdown{font-size:2.8rem}.joi-photo{width:200px;height:200px}.rp-text{padding:20px;font-size:1rem}}
+@media(max-width:600px){.hero h1{font-size:2.1rem}header{flex-direction:column;gap:12px;padding:15px 20px}.joi-countdown{font-size:2.8rem}.joi-photo{width:200px;height:200px}.rp-text{padding:20px;font-size:1rem}.flip-card{height:320px}}
 </style>
 </head>
 <body>
 
-<!-- Always-on background video -->
 <video id="siteBgVideo" autoplay muted loop playsinline>
   <source src="joi.mp4" type="video/mp4">
 </video>
@@ -169,18 +170,67 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 
 <section id="gallery">
 <h2>Gallery</h2>
-<p class="intro">Hard for, among others, Esmee, Fleur, Laia and Zara.</p>
+<p class="reveal-text">Click her. See the cock she’s craving.</p>
+<p class="intro">Hard for Esmee, Fleur, Laia &amp; Zara — tap a face to reveal what she wants.</p>
+
 <div class="gallery-grid">
-<div class="gallery-item" data-girl="Esmee"><img src="esmee.jpg" alt="Esmee"><div class="name">Esmee</div></div>
-<div class="gallery-item" data-girl="Fleur"><img src="fleur.jpg" alt="Fleur"><div class="name">Fleur</div></div>
-<div class="gallery-item" data-girl="Laia"><img src="laia.jpg" alt="Laia"><div class="name">Laia</div></div>
-<div class="gallery-item" data-girl="Zara"><img src="zara.png" alt="Zara"><div class="name">Zara</div></div>
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="esmee.jpg" alt="Esmee">
+        <div class="name">Esmee</div>
+      </div>
+      <div class="flip-back">
+        <img src="2026-08-29_9cb40058-a7f4-e6f1-42e0-1b7f7f1491f0-main.jpg" alt="cock">
+        <div class="name">What she wants</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="fleur.jpg" alt="Fleur">
+        <div class="name">Fleur</div>
+      </div>
+      <div class="flip-back">
+        <img src="20260819_205630.jpg" alt="cock">
+        <div class="name">What she wants</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="laia.jpg" alt="Laia">
+        <div class="name">Laia</div>
+      </div>
+      <div class="flip-back">
+        <img src="1000023134.jpg" alt="cock">
+        <div class="name">What she wants</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="zara.png" alt="Zara">
+        <div class="name">Zara</div>
+      </div>
+      <div class="flip-back">
+        <img src="1000023133.jpg" alt="cock">
+        <div class="name">What she wants</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- MY PHOTOS -->
 <div class="game-box" id="myPhotos">
 <h3>My Photos</h3>
-<p style="color:#aaa;margin-bottom:18px">Swipe through · or tap a thumbnail below</p>
+<p style="color:#aaa;margin-bottom:18px">Swipe through · or tap a thumbnail</p>
 <div class="slideshow-wrap" id="slideshow">
   <div class="slideshow-track" id="slideTrack">
     <div class="slide"><img src="2026-08-29_9cb40058-a7f4-e6f1-42e0-1b7f7f1491f0-main.jpg" alt="1"></div>
@@ -188,8 +238,8 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
     <div class="slide"><img src="1000023134.jpg" alt="3"></div>
     <div class="slide"><img src="1000023133.jpg" alt="4"></div>
   </div>
-  <button class="slide-btn prev" id="prevSlide">‹</button>
-  <button class="slide-btn next" id="nextSlide">›</button>
+  <button class="slide-btn prev" id="prevSlide" type="button">‹</button>
+  <button class="slide-btn next" id="nextSlide" type="button">›</button>
   <div class="slide-dots" id="slideDots"></div>
 </div>
 <div class="photo-grid">
@@ -206,53 +256,53 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <p style="color:#aaa;margin-bottom:15px">Upload your cock. Opponent rates yours. You rate his.</p>
 <div id="duelHome">
   <div class="button-row">
-    <button class="btn" onclick="duelGo('create')">Create duel</button>
-    <button class="btn secondary" onclick="duelGo('join')">Join duel</button>
-    <button class="btn secondary" onclick="duelGo('finish')">Finish duel</button>
+    <button class="btn" type="button" onclick="duelGo('create')">Create duel</button>
+    <button class="btn secondary" type="button" onclick="duelGo('join')">Join duel</button>
+    <button class="btn secondary" type="button" onclick="duelGo('finish')">Finish duel</button>
   </div>
 </div>
 <div id="duelCreate" style="display:none">
   <p style="color:#ccc">Your name + photo</p>
   <input type="text" id="dcName" placeholder="Your name" maxlength="20">
   <input type="file" id="dcFile" accept="image/*">
-  <img id="dcPreview" class="duel-preview" style="display:none">
-  <button class="btn" onclick="duelCreateCode()">Generate code</button>
+  <img id="dcPreview" class="duel-preview" style="display:none" alt="">
+  <button class="btn" type="button" onclick="duelCreateCode()">Generate code</button>
   <div id="dcOut" style="display:none">
     <p class="duel-status">Send this code:</p>
     <div class="duel-code-box" id="dcCode"></div>
-    <button class="btn secondary" onclick="copyText('dcCode')">Copy</button>
+    <button class="btn secondary" type="button" onclick="copyText('dcCode')">Copy</button>
   </div>
 </div>
 <div id="duelJoin" style="display:none">
   <input type="text" id="djCodeIn" placeholder="Paste duel code">
-  <button class="btn secondary" onclick="duelLoadOpponent()">Load his photo</button>
+  <button class="btn secondary" type="button" onclick="duelLoadOpponent()">Load his photo</button>
   <div id="djRateArea" style="display:none">
     <p style="color:#ff4d4d">Rate his cock (1–10)</p>
-    <img id="djOppPhoto" class="duel-preview">
+    <img id="djOppPhoto" class="duel-preview" alt="">
     <p id="djOppName" style="color:#aaa"></p>
     <div id="djCats"></div>
     <p style="color:#ccc;margin-top:12px">Your name + your photo</p>
     <input type="text" id="djName" placeholder="Your name" maxlength="20">
     <input type="file" id="djFile" accept="image/*">
-    <img id="djPreview" class="duel-preview" style="display:none">
-    <button class="btn" onclick="duelMakeReply()">Get reply code</button>
+    <img id="djPreview" class="duel-preview" style="display:none" alt="">
+    <button class="btn" type="button" onclick="duelMakeReply()">Get reply code</button>
     <div id="djOut" style="display:none">
       <p class="duel-status">Send reply code back:</p>
       <div class="duel-code-box" id="djCode"></div>
-      <button class="btn secondary" onclick="copyText('djCode')">Copy</button>
+      <button class="btn secondary" type="button" onclick="copyText('djCode')">Copy</button>
     </div>
   </div>
   <div class="duel-status" id="djErr"></div>
 </div>
 <div id="duelFinish" style="display:none">
   <input type="text" id="dfCodeIn" placeholder="Paste reply code">
-  <button class="btn secondary" onclick="duelLoadReply()">Load his photo</button>
+  <button class="btn secondary" type="button" onclick="duelLoadReply()">Load his photo</button>
   <div id="dfRateArea" style="display:none">
     <p style="color:#ff4d4d">Rate his cock (1–10)</p>
-    <img id="dfOppPhoto" class="duel-preview">
+    <img id="dfOppPhoto" class="duel-preview" alt="">
     <p id="dfOppName" style="color:#aaa"></p>
     <div id="dfCats"></div>
-    <button class="btn" onclick="duelShowResults()">See results</button>
+    <button class="btn" type="button" onclick="duelShowResults()">See results</button>
   </div>
   <div class="duel-status" id="dfErr"></div>
 </div>
@@ -262,10 +312,10 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <div class="game-box">
 <h3>Cock Care</h3>
 <div class="button-row">
-<button class="btn" onclick="showCare('Esmee')">Esmee</button>
-<button class="btn" onclick="showCare('Fleur')">Fleur</button>
-<button class="btn" onclick="showCare('Laia')">Laia</button>
-<button class="btn" onclick="showCare('Zara')">Zara</button>
+<button class="btn" type="button" onclick="showCare('Esmee')">Esmee</button>
+<button class="btn" type="button" onclick="showCare('Fleur')">Fleur</button>
+<button class="btn" type="button" onclick="showCare('Laia')">Laia</button>
+<button class="btn" type="button" onclick="showCare('Zara')">Zara</button>
 </div>
 <div class="text-area" id="careText">Choose a girl...</div>
 </div>
@@ -273,10 +323,10 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <div class="game-box">
 <h3>Body Worship</h3>
 <div class="button-row">
-<button class="btn" onclick="showWorship('Esmee')">Esmee</button>
-<button class="btn" onclick="showWorship('Fleur')">Fleur</button>
-<button class="btn" onclick="showWorship('Laia')">Laia</button>
-<button class="btn" onclick="showWorship('Zara')">Zara</button>
+<button class="btn" type="button" onclick="showWorship('Esmee')">Esmee</button>
+<button class="btn" type="button" onclick="showWorship('Fleur')">Fleur</button>
+<button class="btn" type="button" onclick="showWorship('Laia')">Laia</button>
+<button class="btn" type="button" onclick="showWorship('Zara')">Zara</button>
 </div>
 <div class="text-area" id="worshipText">Choose a girl...</div>
 </div>
@@ -284,18 +334,18 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <div class="game-box">
 <h3>Roleplay Stories</h3>
 <div class="button-row">
-<button class="btn" onclick="showRP('esmee')">Esmee</button>
-<button class="btn" onclick="showRP('fleur')">Fleur</button>
-<button class="btn" onclick="showRP('laia')">Laia</button>
-<button class="btn" onclick="showRP('zara')">Zara</button>
-<button class="btn" onclick="showRP('group')">Group</button>
+<button class="btn" type="button" onclick="showRP('esmee')">Esmee</button>
+<button class="btn" type="button" onclick="showRP('fleur')">Fleur</button>
+<button class="btn" type="button" onclick="showRP('laia')">Laia</button>
+<button class="btn" type="button" onclick="showRP('zara')">Zara</button>
+<button class="btn" type="button" onclick="showRP('group')">Group</button>
 </div>
 <div class="rp-text" id="rpText">Choose a story...</div>
 </div>
 
 <div class="game-box">
 <h3>JOI</h3>
-<button class="btn" id="startJoi">Start JOI</button>
+<button class="btn" type="button" id="startJoi">Start JOI</button>
 <div class="joi-girl" id="joiGirl"></div>
 <img id="joiPhoto" class="joi-photo" src="" alt="">
 <div class="text-area" id="joiText">Press the button when you're ready...</div>
@@ -306,32 +356,32 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <h3>Cock Worship Mirror</h3>
 <p style="color:#aaa;margin-bottom:12px">Type what you're doing</p>
 <div class="button-row">
-<button class="btn" onclick="startMirror('Esmee')">Esmee</button>
-<button class="btn" onclick="startMirror('Fleur')">Fleur</button>
-<button class="btn" onclick="startMirror('Laia')">Laia</button>
-<button class="btn" onclick="startMirror('Zara')">Zara</button>
+<button class="btn" type="button" onclick="startMirror('Esmee')">Esmee</button>
+<button class="btn" type="button" onclick="startMirror('Fleur')">Fleur</button>
+<button class="btn" type="button" onclick="startMirror('Laia')">Laia</button>
+<button class="btn" type="button" onclick="startMirror('Zara')">Zara</button>
 </div>
 <div class="mirror-container">
   <video id="mirrorVideo" class="mirror-video" autoplay playsinline muted></video>
-  <img id="mirrorGirl" class="mirror-girl" src="" style="display:none">
+  <img id="mirrorGirl" class="mirror-girl" src="" style="display:none" alt="">
 </div>
 <textarea id="mirrorInput" placeholder="Type what you're doing..."></textarea>
-<button class="btn" onclick="mirrorReact()">Send</button>
+<button class="btn" type="button" onclick="mirrorReact()">Send</button>
 <div class="mirror-comments" id="mirrorComments">Choose a girl first...</div>
-<button class="btn secondary" id="stopCamera" style="display:none;margin-top:10px" onclick="stopCamera()">Stop Camera</button>
+<button class="btn secondary" type="button" id="stopCamera" style="display:none;margin-top:10px" onclick="stopCamera()">Stop Camera</button>
 </div>
 
 <div class="game-box">
 <h3>Tell her what you want to do</h3>
 <div class="button-row">
-<button class="btn" onclick="selectGirl('Esmee')">Esmee</button>
-<button class="btn" onclick="selectGirl('Fleur')">Fleur</button>
-<button class="btn" onclick="selectGirl('Laia')">Laia</button>
-<button class="btn" onclick="selectGirl('Zara')">Zara</button>
+<button class="btn" type="button" onclick="selectGirl('Esmee')">Esmee</button>
+<button class="btn" type="button" onclick="selectGirl('Fleur')">Fleur</button>
+<button class="btn" type="button" onclick="selectGirl('Laia')">Laia</button>
+<button class="btn" type="button" onclick="selectGirl('Zara')">Zara</button>
 </div>
 <p id="selectedGirl" style="color:#ff4d4d;margin:10px 0"></p>
 <textarea id="userDescribe" placeholder="Type what you want to do..."></textarea>
-<button class="btn" onclick="getReaction()">Send</button>
+<button class="btn" type="button" onclick="getReaction()">Send</button>
 <div class="text-area" id="describeReaction"></div>
 </div>
 
@@ -339,28 +389,28 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <h3>Fuck • Marry • Kill • Kiss</h3>
 <div class="fmk-girls">
 <div class="fmk-card"><img src="esmee.jpg" alt="Esmee"><div class="girl-name">Esmee</div><div class="fmk-options">
-<button class="fmk-option" data-girl="Esmee" data-choice="Fuck">Fuck</button>
-<button class="fmk-option" data-girl="Esmee" data-choice="Marry">Marry</button>
-<button class="fmk-option" data-girl="Esmee" data-choice="Kill">Kill</button>
-<button class="fmk-option" data-girl="Esmee" data-choice="Kiss">Kiss</button>
+<button class="fmk-option" type="button" data-girl="Esmee" data-choice="Fuck">Fuck</button>
+<button class="fmk-option" type="button" data-girl="Esmee" data-choice="Marry">Marry</button>
+<button class="fmk-option" type="button" data-girl="Esmee" data-choice="Kill">Kill</button>
+<button class="fmk-option" type="button" data-girl="Esmee" data-choice="Kiss">Kiss</button>
 </div></div>
 <div class="fmk-card"><img src="fleur.jpg" alt="Fleur"><div class="girl-name">Fleur</div><div class="fmk-options">
-<button class="fmk-option" data-girl="Fleur" data-choice="Fuck">Fuck</button>
-<button class="fmk-option" data-girl="Fleur" data-choice="Marry">Marry</button>
-<button class="fmk-option" data-girl="Fleur" data-choice="Kill">Kill</button>
-<button class="fmk-option" data-girl="Fleur" data-choice="Kiss">Kiss</button>
+<button class="fmk-option" type="button" data-girl="Fleur" data-choice="Fuck">Fuck</button>
+<button class="fmk-option" type="button" data-girl="Fleur" data-choice="Marry">Marry</button>
+<button class="fmk-option" type="button" data-girl="Fleur" data-choice="Kill">Kill</button>
+<button class="fmk-option" type="button" data-girl="Fleur" data-choice="Kiss">Kiss</button>
 </div></div>
 <div class="fmk-card"><img src="laia.jpg" alt="Laia"><div class="girl-name">Laia</div><div class="fmk-options">
-<button class="fmk-option" data-girl="Laia" data-choice="Fuck">Fuck</button>
-<button class="fmk-option" data-girl="Laia" data-choice="Marry">Marry</button>
-<button class="fmk-option" data-girl="Laia" data-choice="Kill">Kill</button>
-<button class="fmk-option" data-girl="Laia" data-choice="Kiss">Kiss</button>
+<button class="fmk-option" type="button" data-girl="Laia" data-choice="Fuck">Fuck</button>
+<button class="fmk-option" type="button" data-girl="Laia" data-choice="Marry">Marry</button>
+<button class="fmk-option" type="button" data-girl="Laia" data-choice="Kill">Kill</button>
+<button class="fmk-option" type="button" data-girl="Laia" data-choice="Kiss">Kiss</button>
 </div></div>
 <div class="fmk-card"><img src="zara.png" alt="Zara"><div class="girl-name">Zara</div><div class="fmk-options">
-<button class="fmk-option" data-girl="Zara" data-choice="Fuck">Fuck</button>
-<button class="fmk-option" data-girl="Zara" data-choice="Marry">Marry</button>
-<button class="fmk-option" data-girl="Zara" data-choice="Kill">Kill</button>
-<button class="fmk-option" data-girl="Zara" data-choice="Kiss">Kiss</button>
+<button class="fmk-option" type="button" data-girl="Zara" data-choice="Fuck">Fuck</button>
+<button class="fmk-option" type="button" data-girl="Zara" data-choice="Marry">Marry</button>
+<button class="fmk-option" type="button" data-girl="Zara" data-choice="Kill">Kill</button>
+<button class="fmk-option" type="button" data-girl="Zara" data-choice="Kiss">Kiss</button>
 </div></div>
 </div>
 <div class="fmk-result" id="fmkResult">Make your choices above...</div>
@@ -368,7 +418,7 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 
 <div class="game-box">
 <h3>Fantasy Generator</h3>
-<button class="btn" onclick="generateFantasy()">Generate Fantasy</button>
+<button class="btn" type="button" onclick="generateFantasy()">Generate Fantasy</button>
 <div class="text-area" id="fantasyText">Click for something filthy...</div>
 </div>
 </section>
@@ -390,7 +440,7 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 </div>
 
 <script>
-/* ===== Slideshow ===== */
+/* Slideshow */
 (function(){
   const track=document.getElementById('slideTrack');
   const dotsBox=document.getElementById('slideDots');
@@ -422,7 +472,7 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
   window.addEventListener('mouseup',onEnd);
 })();
 
-/* ===== Dick Duel ===== */
+/* Dick Duel */
 const DUEL_CATS=["Thickness","Length","Symmetry","Head shape","Veininess","Balls","Color / tone","Proportion","Overall look","Would suck"];
 let _createImg=null,_joinImg=null,_replyData=null,_hostData=null;
 function duelGo(which){
@@ -460,13 +510,13 @@ function duelShowResults(){
   html+=`<p style="margin-top:12px;color:#ffb3b3">${comments[Math.floor(Math.random()*comments.length)]}</p>`;
   html+=`<h4 style="margin-top:16px;color:#aaa">Breakdown</h4>`;
   DUEL_CATS.forEach(c=>{html+=`<p style="font-size:.9rem">${c}: ${guestRatesHost.scores[c]} vs ${hostRatesGuest.scores[c]}</p>`;});
-  html+=`<button class="btn secondary" style="margin-top:14px" onclick="duelGo('home')">New duel</button></div>`;
+  html+=`<button class="btn secondary" type="button" style="margin-top:14px" onclick="duelGo('home')">New duel</button></div>`;
   document.getElementById('duelFinish').style.display='none';
   document.getElementById('duelResult').style.display='block';
   document.getElementById('duelResult').innerHTML=html;
 }
 
-/* ===== Site core ===== */
+/* Core */
 const sounds={Fuck:new Audio('sounds_moan.mp3'),Marry:new Audio('sounds_marry.mp3'),Kiss:new Audio('sounds_kiss.mp3'),Kill:new Audio('sounds_kill.mp3')};
 Object.values(sounds).forEach(s=>s.volume=0.65);
 const allReactions={
@@ -479,10 +529,14 @@ const usedReactions={Esmee:[],Fleur:[],Laia:[],Zara:[]};
 let currentGirl=null,reactionInterval=null;
 const cursorReaction=document.getElementById('cursor-reaction');
 function getNewReaction(g){let a=allReactions[g].filter(r=>!usedReactions[g].includes(r));if(!a.length){usedReactions[g]=[];a=[...allReactions[g]];}const c=a[Math.floor(Math.random()*a.length)];usedReactions[g].push(c);return c;}
-document.querySelectorAll('.gallery-item').forEach(item=>{
-item.addEventListener('mouseenter',()=>{currentGirl=item.dataset.girl;cursorReaction.textContent=getNewReaction(currentGirl);cursorReaction.style.opacity="1";clearInterval(reactionInterval);reactionInterval=setInterval(()=>{if(currentGirl)cursorReaction.textContent=getNewReaction(currentGirl);},10000);});
-item.addEventListener('mousemove',e=>{cursorReaction.style.left=e.clientX+"px";cursorReaction.style.top=e.clientY+"px";});
-item.addEventListener('mouseleave',()=>{cursorReaction.style.opacity="0";clearInterval(reactionInterval);currentGirl=null;});
+document.querySelectorAll('.flip-front').forEach(front=>{
+  const card=front.closest('.flip-card');
+  const nameEl=front.querySelector('.name');
+  if(!nameEl)return;
+  const g=nameEl.textContent.trim();
+  card.addEventListener('mouseenter',()=>{if(card.classList.contains('flipped'))return;currentGirl=g;cursorReaction.textContent=getNewReaction(g);cursorReaction.style.opacity="1";clearInterval(reactionInterval);reactionInterval=setInterval(()=>{if(currentGirl===g)cursorReaction.textContent=getNewReaction(g);},10000);});
+  card.addEventListener('mousemove',e=>{cursorReaction.style.left=e.clientX+"px";cursorReaction.style.top=e.clientY+"px";});
+  card.addEventListener('mouseleave',()=>{cursorReaction.style.opacity="0";clearInterval(reactionInterval);currentGirl=null;});
 });
 
 const care={
@@ -522,12 +576,7 @@ Fleur:{last3:"Fuck… every drop.<br>Don’t hold back.",final:"Cum. Right now."
 Laia:{last3:"Please daddy… give me that cum.",final:"Now daddy… empty those balls."},
 Zara:{last3:"Give me that thick load, good boy.",final:"Cum for me, good boy."}
 };
-const prankLines={
-Esmee:["Did you think I’d let you cum that easy?"],
-Fleur:["Nice try. We’re not done."],
-Laia:["Not yet daddy."],
-Zara:["Not yet, good boy."]
-};
+const prankLines={Esmee:["Did you think I’d let you cum that easy?"],Fleur:["Nice try. We’re not done."],Laia:["Not yet daddy."],Zara:["Not yet, good boy."]};
 let joiRunning=false;
 document.getElementById('startJoi').onclick=()=>{
 if(joiRunning)return;joiRunning=true;
@@ -599,9 +648,7 @@ function animateValue(id,start,end,dur){const obj=document.getElementById(id),ra
 window.onload=()=>{
   animateValue('views',0,50000,2200);animateValue('likes',0,165,1800);
   document.getElementById('quote').textContent=`"${["This cock doesn’t miss","Built different","Symmetry so good it hurts","She would be ruined","Thick, heavy and perfect"][Math.floor(Math.random()*5)]}"`;
-  // ensure bg video plays
-  const v=document.getElementById('siteBgVideo');
-  v.muted=true;v.play().catch(()=>{});
+  const v=document.getElementById('siteBgVideo');v.muted=true;v.play().catch(()=>{});
 };
 const stars=document.querySelectorAll('.star');let cur=localStorage.getItem('cockRating')||0;
 if(cur>0){stars.forEach(s=>s.classList.toggle('active',s.dataset.value<=cur));document.getElementById('ratingResult').textContent=`You rated this cock: ${cur}/10`;}
