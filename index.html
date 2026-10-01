@@ -58,7 +58,7 @@ section{padding:120px 20px 80px}
 .btn:hover{background:#e03c3c;transform:scale(1.03)}
 .btn.secondary{background:#222;border:1px solid #444}
 .btn:disabled{opacity:.5;transform:none}
-.text-area{color:#e0e0e0;font-size:1.1rem;line-height:1.7;min-height:50px;max-width:700px;margin:15px auto;text-align:left}
+.text-area{color:#e0e0e0;font-size:1.1rem;line-height:1.7;min-height:40px;max-width:700px;margin:15px auto;text-align:left}
 .rp-text{background:rgba(21,21,21,.95);border:1px solid #2a2a2a;border-radius:16px;padding:32px 36px;color:#f0f0f0;font-size:1.08rem;line-height:1.85;max-width:720px;margin:20px auto 0;text-align:left;white-space:pre-line;box-shadow:0 10px 40px rgba(0,0,0,.5);font-family:Georgia,'Times New Roman',serif}
 .joi-countdown{font-size:3.5rem;font-weight:700;color:#ff4d4d;margin:20px 0;min-height:80px}
 .joi-girl{color:#ff4d4d;font-weight:600;margin-bottom:10px}
@@ -76,44 +76,21 @@ section{padding:120px 20px 80px}
 .fmk-result{margin-top:18px;padding:14px;background:#1a1a1a;border-radius:12px;color:#ddd;font-size:1rem;line-height:1.7;min-height:30px}
 textarea{width:100%;max-width:500px;background:#1a1a1a;border:1px solid #333;border-radius:12px;color:#eee;padding:12px;font-size:1rem;margin:8px auto;display:block;height:90px;resize:vertical}
 
-/* Fixed spin wheel */
 .wheel-wrap{position:relative;width:300px;height:300px;margin:24px auto}
 .wheel-pointer{position:absolute;top:-12px;left:50%;transform:translateX(-50%);z-index:6;width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-top:32px solid #ff4d4d;filter:drop-shadow(0 2px 6px rgba(0,0,0,.7))}
 .wheel{
-  width:300px;height:300px;border-radius:50%;
-  border:8px solid #2a2a2a;
-  position:relative;
+  width:300px;height:300px;border-radius:50%;border:8px solid #2a2a2a;position:relative;
   transition:transform 4.5s cubic-bezier(0.12,0.75,0.12,1);
   box-shadow:0 0 40px rgba(255,77,77,.3), inset 0 0 20px rgba(0,0,0,.4);
-  background:conic-gradient(
-    from -45deg,
-    #e74c3c 0deg 90deg,
-    #922b21 90deg 180deg,
-    #c0392b 180deg 270deg,
-    #6d1a2a 270deg 360deg
-  );
+  background:conic-gradient(from -45deg,#e74c3c 0deg 90deg,#922b21 90deg 180deg,#c0392b 180deg 270deg,#6d1a2a 270deg 360deg);
 }
-.wheel-label{
-  position:absolute;width:100%;height:100%;top:0;left:0;
-  pointer-events:none;
-}
-.wheel-label span{
-  position:absolute;left:50%;top:50%;
-  width:90px;text-align:center;
-  font-weight:800;font-size:1rem;color:#fff;
-  text-shadow:0 2px 4px rgba(0,0,0,.8);
-  transform-origin:0 0;
-}
-/* labels centered in each 90° slice (centers at 0°, 90°, 180°, 270° from -45deg start = visual centers) */
-.wheel-label .l0{transform:rotate(0deg) translate(0,-118px) translateX(-50%)}   /* Esmee top-right-ish area */
-.wheel-label .l1{transform:rotate(90deg) translate(0,-118px) translateX(-50%)}  /* Fleur */
-.wheel-label .l2{transform:rotate(180deg) translate(0,-118px) translateX(-50%)} /* Laia */
-.wheel-label .l3{transform:rotate(270deg) translate(0,-118px) translateX(-50%)} /* Zara */
-.wheel-center{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:48px;height:48px;border-radius:50%;background:#1a1a1a;
-  border:3px solid #ff4d4d;z-index:4;
-}
+.wheel-label{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none}
+.wheel-label span{position:absolute;left:50%;top:50%;width:90px;text-align:center;font-weight:800;font-size:1rem;color:#fff;text-shadow:0 2px 4px rgba(0,0,0,.8);transform-origin:0 0}
+.wheel-label .l0{transform:rotate(0deg) translate(0,-118px) translateX(-50%)}
+.wheel-label .l1{transform:rotate(90deg) translate(0,-118px) translateX(-50%)}
+.wheel-label .l2{transform:rotate(180deg) translate(0,-118px) translateX(-50%)}
+.wheel-label .l3{transform:rotate(270deg) translate(0,-118px) translateX(-50%)}
+.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#1a1a1a;border:3px solid #ff4d4d;z-index:4}
 
 #cams{text-align:center}#cams h2{font-size:1.9rem;margin-bottom:12px}
 #cams .intro{color:#aaa;max-width:600px;margin:0 auto 40px}
@@ -122,7 +99,10 @@ textarea{width:100%;max-width:500px;background:#1a1a1a;border:1px solid #333;bor
 .info{max-width:700px;margin:0 auto;text-align:center}
 .info h2{font-size:1.6rem;margin-bottom:18px}.info p{color:#aaa;font-size:1.05rem}
 footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#666;font-size:.9rem}
-@media(max-width:600px){.hero h1{font-size:2.1rem}header{flex-direction:column;gap:12px;padding:15px 20px}.joi-countdown{font-size:2.8rem}.joi-photo{width:200px;height:200px}.rp-text{padding:20px;font-size:1rem}.flip-card{height:320px}.wheel-wrap,.wheel{width:260px;height:260px}.wheel-label span{font-size:.85rem;width:70px}.wheel-label .l0,.wheel-label .l1,.wheel-label .l2,.wheel-label .l3{/* closer on mobile */}
+@media(max-width:600px){
+.hero h1{font-size:2.1rem}header{flex-direction:column;gap:12px;padding:15px 20px}
+.joi-countdown{font-size:2.8rem}.joi-photo{width:200px;height:200px}.rp-text{padding:20px;font-size:1rem}.flip-card{height:320px}
+.wheel-wrap,.wheel{width:260px;height:260px}.wheel-label span{font-size:.85rem;width:70px}
 .wheel-label .l0{transform:rotate(0deg) translate(0,-100px) translateX(-50%)}
 .wheel-label .l1{transform:rotate(90deg) translate(0,-100px) translateX(-50%)}
 .wheel-label .l2{transform:rotate(180deg) translate(0,-100px) translateX(-50%)}
@@ -180,7 +160,7 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <section id="gallery">
 <h2>Gallery</h2>
 <p class="reveal-text">Click her. See the cock she’s craving.</p>
-<p class="intro">Hard for Esmee, Fleur, Laia &amp; Zara — tap a face to reveal what she wants.</p>
+<p class="intro">Hard for Esmee, Fleur, Laia &amp; Zara.</p>
 
 <div class="gallery-grid">
   <div class="flip-card" onclick="this.classList.toggle('flipped')">
@@ -209,10 +189,8 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
   </div>
 </div>
 
-<!-- Who gets it tonight – fixed wheel -->
 <div class="game-box">
 <h3>Who gets it tonight</h3>
-<p style="color:#aaa;margin-bottom:8px">Spin. One girl owns your cock tonight.</p>
 <div class="wheel-wrap">
   <div class="wheel-pointer"></div>
   <div class="wheel" id="wheel">
@@ -226,85 +204,63 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
   </div>
 </div>
 <button class="btn" type="button" id="spinBtn" onclick="spinWheel()">SPIN</button>
-<div class="text-area" id="tonightOut">Spin to find out...</div>
+<div class="text-area" id="tonightOut"></div>
 </div>
 
-<!-- She chooses the position (random) -->
 <div class="game-box">
 <h3>She chooses the position</h3>
-<p style="color:#aaa;margin-bottom:12px">A random girl decides how you fuck her.</p>
 <button class="btn" type="button" onclick="pickPosition()">Let her choose</button>
-<div class="text-area" id="posOut">Press the button...</div>
+<div class="text-area" id="posOut"></div>
 </div>
 
-<!-- Jealousy – short story -->
 <div class="game-box">
 <h3>Jealousy mode</h3>
-<p style="color:#aaa;margin-bottom:12px">One girl gets chosen. The others react.</p>
 <button class="btn" type="button" onclick="jealousy()">Who gets jealous?</button>
-<div class="text-area" id="jealousOut">Press the button...</div>
+<div class="text-area" id="jealousOut"></div>
 </div>
 
-<!-- Edge for her – fully automatic -->
 <div class="game-box">
 <h3>Edge for her</h3>
-<p style="color:#aaa;margin-bottom:12px">A random girl edges you. Instructions run automatically.</p>
 <button class="btn" type="button" id="edgeBtn" onclick="startEdge()">Start edging</button>
 <div class="joi-girl" id="edgeGirl"></div>
-<div class="text-area" id="edgeText">Press start...</div>
+<div class="text-area" id="edgeText"></div>
 </div>
 
-<!-- Cum tribute – random girl, pick part -->
 <div class="game-box">
-<h3>Cum tribute target</h3>
-<p style="color:#aaa;margin-bottom:12px">Where do you finish? (girl is random)</p>
-<div class="button-row">
-<button class="btn" type="button" onclick="tribute('face')">Face</button>
-<button class="btn" type="button" onclick="tribute('tits')">Tits</button>
-<button class="btn" type="button" onclick="tribute('mouth')">Mouth</button>
-<button class="btn" type="button" onclick="tribute('inside')">Inside</button>
-<button class="btn" type="button" onclick="tribute('ass')">Ass</button>
-</div>
-<div class="text-area" id="tributeOut">Pick a target...</div>
+<h3>Cum tribute</h3>
+<button class="btn" type="button" onclick="tribute()">Cum for her</button>
+<div class="text-area" id="tributeOut"></div>
 </div>
 
-<!-- Group vote -->
 <div class="game-box">
 <h3>Group vote</h3>
-<p style="color:#aaa;margin-bottom:12px">All four vote on you.</p>
 <button class="btn" type="button" onclick="groupVote()">Run the vote</button>
-<div class="text-area" id="voteOut">Press the button...</div>
+<div class="text-area" id="voteOut"></div>
 </div>
 
 <div class="game-box">
 <h3>Cock Care</h3>
-<div class="button-row">
-<button class="btn" type="button" onclick="showCare()">Random girl</button>
-<button class="btn secondary" type="button" onclick="showCare('Esmee')">Esmee</button>
-<button class="btn secondary" type="button" onclick="showCare('Fleur')">Fleur</button>
-<button class="btn secondary" type="button" onclick="showCare('Laia')">Laia</button>
-<button class="btn secondary" type="button" onclick="showCare('Zara')">Zara</button>
-</div>
-<div class="text-area" id="careText">Choose...</div>
+<button class="btn" type="button" onclick="showCare()">Show care tips</button>
+<div class="text-area" id="careText"></div>
 </div>
 
 <div class="game-box">
 <h3>Body Worship</h3>
-<button class="btn" type="button" onclick="showWorship()">Random girl</button>
-<div class="text-area" id="worshipText">Press for worship...</div>
+<button class="btn" type="button" onclick="showWorship()">Worship</button>
+<div class="text-area" id="worshipText"></div>
 </div>
 
 <div class="game-box">
 <h3>Roleplay Stories</h3>
-<div class="button-row">
 <button class="btn" type="button" onclick="showRP()">Random story</button>
+<div class="button-row">
 <button class="btn secondary" type="button" onclick="showRP('esmee')">Esmee</button>
 <button class="btn secondary" type="button" onclick="showRP('fleur')">Fleur</button>
 <button class="btn secondary" type="button" onclick="showRP('laia')">Laia</button>
 <button class="btn secondary" type="button" onclick="showRP('zara')">Zara</button>
 <button class="btn secondary" type="button" onclick="showRP('group')">Group</button>
 </div>
-<div class="rp-text" id="rpText">Choose a story...</div>
+<div class="rp-text" id="rpText"></div>
 </div>
 
 <div class="game-box">
@@ -312,13 +268,12 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <button class="btn" type="button" id="startJoi">Start JOI</button>
 <div class="joi-girl" id="joiGirl"></div>
 <img id="joiPhoto" class="joi-photo" src="" alt="">
-<div class="text-area" id="joiText">Press the button when you're ready...</div>
+<div class="text-area" id="joiText"></div>
 <div class="joi-countdown" id="joiCountdown"></div>
 </div>
 
 <div class="game-box">
 <h3>Tell her what you want to do</h3>
-<p style="color:#aaa;margin-bottom:8px">Girl is random. Just type.</p>
 <textarea id="userDescribe" placeholder="Type what you want to do..."></textarea>
 <button class="btn" type="button" onclick="getReaction()">Send</button>
 <div class="text-area" id="describeReaction"></div>
@@ -352,19 +307,18 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <button class="fmk-option" type="button" data-girl="Zara" data-choice="Kiss">Kiss</button>
 </div></div>
 </div>
-<div class="fmk-result" id="fmkResult">Make your choices above...</div>
+<div class="fmk-result" id="fmkResult"></div>
 </div>
 
 <div class="game-box">
 <h3>Fantasy Generator</h3>
 <button class="btn" type="button" onclick="generateFantasy()">Generate Fantasy</button>
-<div class="text-area" id="fantasyText">Click for something filthy...</div>
+<div class="text-area" id="fantasyText"></div>
 </div>
 </section>
 
 <section id="cams">
 <h2>Live Cams</h2>
-<p class="intro">Some good Chaturbate accounts.</p>
 <div class="cam-container">
 <iframe src="https://cbxyz.com/in/?track=embed&campaign=h0Whk&tour=SHBY&room=shine_chanel" height="528" width="850" style="border:none;" allowfullscreen></iframe>
 <iframe src="https://cbxyz.com/in/?track=embed&campaign=h0Whk&tour=nvfS" height="528" width="850" style="border:none;" allowfullscreen></iframe>
@@ -383,11 +337,6 @@ const GIRLS=["Esmee","Fleur","Laia","Zara"];
 const girlPhotos={Esmee:"esmee.jpg",Fleur:"fleur.jpg",Laia:"laia.jpg",Zara:"zara.png"};
 function randGirl(){return GIRLS[Math.floor(Math.random()*4)];}
 
-/* ===== Spin wheel (conic-gradient, 4 equal slices) =====
-   from -45deg so slice centers sit at 0°, 90°, 180°, 270°
-   Index: 0 Esmee (top), 1 Fleur (right), 2 Laia (bottom), 3 Zara (left)
-   Pointer at top. Rotate so chosen slice center lands under pointer.
-*/
 const tonightLines={
 Esmee:["Esmee wins tonight. Your cock is hers — soft strokes, then she takes every inch until you empty inside her.","Tonight belongs to Esmee. She wants you slow at first… then hard, deep, and messy."],
 Fleur:["Fleur gets it tonight. On her knees first, then bent over — she doesn’t ask, she takes.","Tonight: Fleur. She stares at your cock and decides you’re not finishing until she’s shaking."],
@@ -399,13 +348,11 @@ function spinWheel(){
   if(wheelBusy)return;
   wheelBusy=true;
   document.getElementById('spinBtn').disabled=true;
-  document.getElementById('tonightOut').textContent="Spinning...";
+  document.getElementById('tonightOut').textContent="";
   const idx=Math.floor(Math.random()*4);
   const g=GIRLS[idx];
-  // slice center angles from top, clockwise: 0, 90, 180, 270
   const centerAngle=idx*90;
-  const extra=(5+Math.floor(Math.random()*3))*360; // 5–7 full turns
-  // rotate wheel clockwise so centerAngle moves to top (0°)
+  const extra=(5+Math.floor(Math.random()*3))*360;
   const need=(360-centerAngle)%360;
   wheelRotation+=extra+need;
   document.getElementById('wheel').style.transform=`rotate(${wheelRotation}deg)`;
@@ -417,7 +364,6 @@ function spinWheel(){
   },4800);
 }
 
-/* Position – random girl */
 const positions={
 Esmee:["Esmee chooses missionary — legs open, eyes on you, cock deep while she whispers how thick you feel.","Esmee wants you behind her, slow then deep, hand on her hip guiding every thrust."],
 Fleur:["Fleur bends over the table. Doggy. Hard. She looks back and tells you not to be gentle.","Fleur sits on your face first… then rides you reverse so you watch your cock disappear."],
@@ -430,7 +376,6 @@ function pickPosition(){
   document.getElementById('posOut').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${arr[Math.floor(Math.random()*arr.length)]}`;
 }
 
-/* Jealousy – short story */
 const jealousStories={
 Esmee:"You pull Esmee close and ignore the rest for a moment. Fleur watches with a tight jaw and mutters she’d still drain you better. Laia bites her lip, eyes glassy, whispering she would’ve been wetter for daddy. Zara only smirks — she’d have edged you longer, good boy. Esmee pretends not to notice, but her hand stays on your cock.",
 Fleur:"You choose Fleur. She doesn’t look surprised. Esmee softens and says she’d still take that cock if you asked. Laia sinks a little, promising she’d wait on her knees for daddy anyway. Zara shrugs and offers to take the second load, good boy. Fleur just grips you tighter, like the argument is already over.",
@@ -442,7 +387,6 @@ function jealousy(){
   document.getElementById('jealousOut').innerHTML=`<strong style="color:#ff4d4d">${g} was chosen.</strong><br><br>${jealousStories[g]}`;
 }
 
-/* Edge – fully automatic */
 const edgeScripts={
 Esmee:["Stroke slow for Esmee. Feel every inch.","Faster — she wants to see you leak.","Stop. Hands off. Breathe for her.","Only the tip. Tease it.","Full strokes again… get close.","Stop. That edge is hers. Don’t cum."],
 Fleur:["Stroke for Fleur. Steady grip.","Faster. She likes you desperate.","Hands off. Hold it.","Balls and base only.","Stroke to the edge.","Stop. She said not yet."],
@@ -455,7 +399,7 @@ function startEdge(){
   const g=randGirl();
   const steps=edgeScripts[g];
   document.getElementById('edgeBtn').disabled=true;
-  document.getElementById('edgeGirl').textContent=g+" is edging you";
+  document.getElementById('edgeGirl').textContent=g;
   let i=0;
   function next(){
     if(i>=steps.length){
@@ -472,7 +416,6 @@ function startEdge(){
   next();
 }
 
-/* Cum tribute – random girl */
 const tributeLines={
   face:{
     Esmee:"You cover Esmee’s face. She blinks, tastes a drop, and smiles.",
@@ -505,22 +448,22 @@ const tributeLines={
     Zara:"You cum in Zara’s ass. Stay still, good boy."
   }
 };
-function tribute(part){
+function tribute(){
   const g=randGirl();
-  document.getElementById('tributeOut').innerHTML=`<strong style="color:#ff4d4d">${g} · ${part}</strong><br><br>${tributeLines[part][g]}`;
+  const parts=["face","tits","mouth","inside","ass"];
+  const part=parts[Math.floor(Math.random()*parts.length)];
+  document.getElementById('tributeOut').innerHTML=
+    `<strong style="color:#ff4d4d">${g} · ${part}</strong><br><br>${tributeLines[part][g]}`;
 }
 
-/* Group vote */
 function groupVote(){
   document.getElementById('voteOut').innerHTML=
-    `<strong>Who wants you hardest:</strong> ${randGirl()}<br>`+
-    `<strong>Who wants to suck you:</strong> ${randGirl()}<br>`+
-    `<strong>Who wants to fuck you:</strong> ${randGirl()}<br>`+
-    `<strong>Who wants to edge you:</strong> ${randGirl()}<br><br>`+
-    `<span style="color:#ffb3b3">Zara: “Votes are in, good boy. Don’t keep us waiting.”</span>`;
+    `<strong>Hardest for you:</strong> ${randGirl()}<br>`+
+    `<strong>Wants to suck you:</strong> ${randGirl()}<br>`+
+    `<strong>Wants to fuck you:</strong> ${randGirl()}<br>`+
+    `<strong>Wants to edge you:</strong> ${randGirl()}`;
 }
 
-/* Core */
 const sounds={Fuck:new Audio('sounds_moan.mp3'),Marry:new Audio('sounds_marry.mp3'),Kiss:new Audio('sounds_kiss.mp3'),Kill:new Audio('sounds_kill.mp3')};
 Object.values(sounds).forEach(s=>{try{s.volume=0.65;}catch(e){}});
 const allReactions={
@@ -549,14 +492,14 @@ Fleur:"It needs to look tight, clean and well-kept or I lose interest in getting
 Laia:"Daddy, I want it perfectly soft and clean for me. Wash it twice a day, pat it dry, then massage oil over the shaft and your balls until everything feels smooth and warm. At night a little cream on the head so it stays nice and soft when I lick it. Pull the foreskin back and clean underneath. Keep the hair neat. I don’t like it when it’s dry or rough. You take care of it because I’m the one who’s going to put it in my mouth and hands later, understood?",
 Zara:"I notice how it looks and feels. Wash it morning and night with lukewarm water and mild soap. Pat dry. Then apply light neutral oil until the skin looks healthy and smooth. Night cream on the head. Oil your balls. Keep the hair short. Clean under the foreskin. If the skin is dry, tight or messy I notice immediately and it turns me off. Keep it in the condition I want to use, good boy."
 };
-function showCare(g){if(!g)g=randGirl();document.getElementById('careText').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${care[g]}`;}
+function showCare(){const g=randGirl();document.getElementById('careText').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${care[g]}`;}
 const worship={
 Esmee:["Kiss the tip, taste the precum, lick down and suck your balls.","Spit on it and stroke slow, twisting at the head.","I want that cock on my tongue."],
 Fleur:["Drop to my knees, drag my tongue up to the tip.","Hold it against my face, lick every drop.","Stroke with one hand, suck your balls with the other."],
 Laia:["Daddy… on my knees, kiss the tip, take it deep.","Both hands and mouth. All for you.","Press it against my cheek, lick from balls to tip."],
 Zara:["Hold it, feel the weight, stroke and lick.","Throbbing on my tongue, good boy.","Messy on purpose. Lots of spit."]
 };
-function showWorship(g){if(!g)g=randGirl();document.getElementById('worshipText').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${worship[g][Math.floor(Math.random()*worship[g].length)]}`;}
+function showWorship(){const g=randGirl();document.getElementById('worshipText').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${worship[g][Math.floor(Math.random()*worship[g].length)]}`;}
 const rp={
 esmee:`You close the door. Esmee is on the couch in one of your shirts. She looks up and softens.\n\n“Hey… you’re later than I thought.”\n\nShe shifts closer, rests her head on your shoulder. Her hand stays on your thigh before pressing against the bulge.\n\n“Take it out for me.”\n\nYou free your cock. She strokes once, drops to her knees, licks long wet strokes, sucks the head while looking up. Spit runs. She goes deeper, gagging softly.\n\n“I need this inside me.”\n\nShe bends over the couch. You push in slowly. She moans as you fill her.\n\n“Yes… stretch me.”\n\nYou fuck her hard. Rub her clit. She cums shaking. You bury deep and empty everything inside her.\n\n“Stay like this,” she whispers. “I want to feel you throbbing.”`,
 fleur:`Fleur leans against the wall in a short dress.\n\n“Took you long enough.”\n\nShe frees your cock.\n\n“Jesus Christ…”\n\nOn her knees, wet and messy. Then bent over the table.\n\n“Do something about it.”\n\nYou push in. She moans.\n\n“All the way.”\n\nYou fuck her hard. She cums with a broken cry. You slam deep and pump into her.\n\n“Don’t move yet. I want to feel it.”`,
@@ -586,34 +529,35 @@ let joiRunning=false;
 document.getElementById('startJoi').onclick=()=>{
 if(joiRunning)return;joiRunning=true;
 const girl=randGirl(),script=joiScripts[girl];
-document.getElementById('joiGirl').textContent=girl+" is taking control...";
+document.getElementById('joiGirl').textContent=girl;
 document.getElementById('startJoi').style.display="none";
 document.getElementById('joiPhoto').style.display="none";
+document.getElementById('joiText').textContent="";
 let step=0;
 (function next(){if(step<script.length){document.getElementById('joiText').textContent=script[step];document.getElementById('joiCountdown').textContent="";step++;setTimeout(next,8500);}else startCum(girl);})();
 };
 function startCum(girl){
 let c=10;const cd=document.getElementById('joiCountdown'),ph=document.getElementById('joiPhoto'),tx=document.getElementById('joiText');
 const doPrank=Math.random()<0.4;let prankDone=false;
-tx.textContent=girl+" says: Get ready...";cd.textContent=c;ph.style.display="none";
+tx.textContent="";cd.textContent=c;ph.style.display="none";
 const iv=setInterval(()=>{
 c--;cd.textContent=c;
 if(doPrank&&!prankDone&&(c===5||c===4)){
 prankDone=true;clearInterval(iv);
 tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.2rem">${prankLines[girl][0]}</span>`;cd.textContent="";
 setTimeout(()=>{
-let c2=8;cd.textContent=c2;tx.textContent=girl+" says: Okay… get ready again.";
+let c2=8;cd.textContent=c2;tx.textContent="";
 const iv2=setInterval(()=>{
 c2--;cd.textContent=c2;
 if(c2===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.25rem">${cumTexts[girl].last3}</span>`;}
 if(c2<=0){clearInterval(iv2);cd.textContent="CUM";tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.3rem">${cumTexts[girl].final}</span>`;
-setTimeout(()=>{document.getElementById('joiGirl').textContent="";tx.textContent="Press the button when you're ready...";cd.textContent="";ph.style.display="none";document.getElementById('startJoi').style.display="inline-block";joiRunning=false;},6500);}
+setTimeout(()=>{document.getElementById('joiGirl').textContent="";tx.textContent="";cd.textContent="";ph.style.display="none";document.getElementById('startJoi').style.display="inline-block";joiRunning=false;},6500);}
 },1000);
 },4500);return;
 }
 if(c===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.25rem">${cumTexts[girl].last3}</span>`;}
 if(c<=0){clearInterval(iv);cd.textContent="CUM";tx.innerHTML=`<span style="color:#ff4d4d;font-size:1.3rem">${cumTexts[girl].final}</span>`;
-setTimeout(()=>{document.getElementById('joiGirl').textContent="";tx.textContent="Press the button when you're ready...";cd.textContent="";ph.style.display="none";document.getElementById('startJoi').style.display="inline-block";joiRunning=false;},6500);}
+setTimeout(()=>{document.getElementById('joiGirl').textContent="";tx.textContent="";cd.textContent="";ph.style.display="none";document.getElementById('startJoi').style.display="inline-block";joiRunning=false;},6500);}
 },1000);
 }
 
@@ -628,10 +572,9 @@ general:{Esmee:["Do whatever you want."],Fleur:["Come do it."],Laia:["Use me dad
 function detectCategory(t){t=t.toLowerCase();if(/blowjob|suck|mouth|oral/.test(t))return"mouth";if(/ass|anal/.test(t))return"ass";if(/pussy|inside|creampie|fuck you/.test(t))return"pussy";if(/face|facial/.test(t))return"face";if(/tit|breast/.test(t))return"tits";return"general";}
 function getReaction(){
   const text=document.getElementById('userDescribe').value.trim();
-  if(!text){document.getElementById('describeReaction').textContent="Type something...";return;}
+  if(!text){document.getElementById('describeReaction').textContent="";return;}
   const g=randGirl();
-  const r=reactionsDB[detectCategory(text)][g][0];
-  document.getElementById('describeReaction').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${r}`;
+  document.getElementById('describeReaction').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${reactionsDB[detectCategory(text)][g][0]}`;
 }
 
 function animateValue(id,start,end,dur){const obj=document.getElementById(id),range=end-start,t0=performance.now();(function upd(t){const p=Math.min((t-t0)/dur,1);obj.textContent=id==='views'?Math.floor(start+range*p).toLocaleString()+'+':Math.floor(start+range*p);if(p<1)requestAnimationFrame(upd);})(t0);}
@@ -650,7 +593,7 @@ setInterval(()=>{
   el.style.opacity=0;
   setTimeout(()=>{el.textContent=randGirl();el.style.opacity=1;},350);
 },9000);
-const fmk={};document.querySelectorAll('.fmk-option').forEach(b=>b.onclick=()=>{const g=b.dataset.girl,c=b.dataset.choice;if(sounds[c]){sounds[c].currentTime=0;sounds[c].play().catch(()=>{});}document.querySelectorAll(`.fmk-option[data-girl="${g}"]`).forEach(x=>x.classList.remove('selected'));b.classList.add('selected');fmk[g]=c;let h="";["Fuck","Marry","Kiss","Kill"].forEach(t=>{const n=Object.keys(fmk).find(k=>fmk[k]===t);if(n)h+=`<strong>${t}:</strong> ${n}<br>`;});document.getElementById('fmkResult').innerHTML=h||"Make your choices above...";});
+const fmk={};document.querySelectorAll('.fmk-option').forEach(b=>b.onclick=()=>{const g=b.dataset.girl,c=b.dataset.choice;if(sounds[c]){sounds[c].currentTime=0;sounds[c].play().catch(()=>{});}document.querySelectorAll(`.fmk-option[data-girl="${g}"]`).forEach(x=>x.classList.remove('selected'));b.classList.add('selected');fmk[g]=c;let h="";["Fuck","Marry","Kiss","Kill"].forEach(t=>{const n=Object.keys(fmk).find(k=>fmk[k]===t);if(n)h+=`<strong>${t}:</strong> ${n}<br>`;});document.getElementById('fmkResult').innerHTML=h;});
 const fantasies=["Fleur on her knees","Esmee bent over","Laia reverse cowgirl","Zara edging you","All four waiting","Laia against the wall","Zara face down"];
 function generateFantasy(){document.getElementById('fantasyText').textContent=fantasies[Math.floor(Math.random()*fantasies.length)];}
 </script>
