@@ -121,6 +121,11 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 </video>
 <div id="siteBgOverlay"></div>
 
+<!-- Zara long JOI audio: same folder as index.html -->
+<audio id="zaraLongAudio" preload="auto">
+  <source src="joi_zara.mp3" type="audio/mpeg">
+</audio>
+
 <div id="lockModal">
   <div class="lock-box">
     <h3>Private</h3>
@@ -369,12 +374,11 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 
 <div class="game-box">
 <h3>Private JOI — OG</h3>
-<p class="hint">Zara: Short (text) or Long (audio only). Others: short style.</p>
 <button class="btn" type="button" id="ogJoiBtn" onclick="startOgJoi()">Start private JOI</button>
 <div id="zaraChoice" style="display:none;margin:12px 0">
   <p style="color:#ff4d4d;margin-bottom:10px">Zara — choose:</p>
   <button class="btn" type="button" onclick="runOgJoi('Zara','short')">Short JOI</button>
-  <button class="btn secondary" type="button" onclick="runOgJoi('Zara','long')">Long JOI (audio)</button>
+  <button class="btn secondary" type="button" onclick="runOgJoi('Zara','long')">Long JOI</button>
 </div>
 <div class="joi-girl" id="ogJoiGirl"></div>
 <img id="ogJoiPhoto" class="joi-photo" src="" alt="">
@@ -422,36 +426,49 @@ function randGirl(){return GIRLS[Math.floor(Math.random()*4)];}
 
 function handlePrivateNav(e){
   e.preventDefault();
-  if(privateUnlocked){document.getElementById("private").classList.add("unlocked");document.getElementById("private").scrollIntoView({behavior:"smooth"});return false;}
+  if(privateUnlocked){
+    document.getElementById("private").classList.add("unlocked");
+    document.getElementById("private").scrollIntoView({behavior:"smooth"});
+    return false;
+  }
   document.getElementById("lockModal").classList.add("show");
-  document.getElementById("lockPass").value="";document.getElementById("lockErr").textContent="";
-  setTimeout(()=>document.getElementById("lockPass").focus(),80);
+  document.getElementById("lockPass").value="";
+  document.getElementById("lockErr").textContent="";
+  setTimeout(function(){document.getElementById("lockPass").focus();},80);
   return false;
 }
 function closeLock(){document.getElementById("lockModal").classList.remove("show");}
 function tryUnlock(){
   if(document.getElementById("lockPass").value===PRIVATE_PASS){
-    privateUnlocked=true;sessionStorage.setItem("privOK","1");
+    privateUnlocked=true;
+    sessionStorage.setItem("privOK","1");
     document.getElementById("private").classList.add("unlocked");
     document.getElementById("navPrivate").textContent="Private";
     document.getElementById("navPrivate").classList.remove("lock");
-    closeLock();document.getElementById("private").scrollIntoView({behavior:"smooth"});
-  } else document.getElementById("lockErr").textContent="Wrong password.";
+    closeLock();
+    document.getElementById("private").scrollIntoView({behavior:"smooth"});
+  } else {
+    document.getElementById("lockErr").textContent="Wrong password.";
+  }
 }
-document.getElementById("lockPass").addEventListener("keydown",e=>{if(e.key==="Enter")tryUnlock();});
-if(privateUnlocked){document.getElementById("private").classList.add("unlocked");document.getElementById("navPrivate").textContent="Private";document.getElementById("navPrivate").classList.remove("lock");}
+document.getElementById("lockPass").addEventListener("keydown",function(e){if(e.key==="Enter")tryUnlock();});
+if(privateUnlocked){
+  document.getElementById("private").classList.add("unlocked");
+  document.getElementById("navPrivate").textContent="Private";
+  document.getElementById("navPrivate").classList.remove("lock");
+}
 
 const ogDesc={
 Esmee:"Sexiest blonde in school. That mirror selfie, striped top, gold hoops, half-annoyed half-knowing eyes — like she caught you staring and decided to let you keep going.",
-Laia:"Daddy’s girl energy in one photo. Yellow top, hand on her cheek, that pout. Innocent room, filthy effect. She looks like she’s waiting for you to say her name and mean it.",
+Laia:"Daddy’s girl energy in one photo. Yellow top, hand on her cheek, that pout. Innocent room, filthy effect.",
 Zara:"She knows. Restaurant light, deep neckline, wet hair, that little smile. You’re her good boy the second you open this picture.",
-Fleur:"Full blonde, tight navy top, kiss-mouth in the bathroom mirror. Classic bait. She posed like she already felt your cock twitch."
+Fleur:"Full blonde, tight navy top, kiss-mouth in the bathroom mirror. Classic bait."
 };
 const ogFilth={
-Esmee:["Don’t touch yet. Just look at her. Sexiest blonde in school and your cock already knows.","Slow hand. Wrap around it while you stare at those eyes.","Stroke for her. Full length. Imagine that face watching the tip leak.","Edge. Hands off. Keep looking."],
-Laia:["Hi daddy… look at her. Don’t stroke yet.","Now take it slow for daddy’s girl. Up and down.","Faster, daddy. Don’t you dare cum yet.","Edge for her. Hands off. Deep breath."],
-Zara:["Good boy. Eyes on her. No hands yet.","Stroke slow. She likes when you take orders.","Faster. Show her how hard her good boy gets.","Edge. Hands off, good boy."],
-Fleur:["Look at that mouth. Now touch yourself.","Stroke steady. She posed for this.","Faster. Messy.","Edge and stop. Hold it."]
+Esmee:["Don’t touch yet. Just look at her.","Slow hand. Wrap around it while you stare.","Stroke for her. Full length.","Edge. Hands off. Keep looking."],
+Laia:["Hi daddy… look at her. Don’t stroke yet.","Slow for daddy’s girl. Up and down.","Faster, daddy. Don’t cum yet.","Edge for her. Hands off."],
+Zara:["Good boy. Eyes on her. No hands yet.","Stroke slow.","Faster. Show her how hard her good boy gets.","Edge. Hands off, good boy."],
+Fleur:["Look at that mouth. Now touch yourself.","Stroke steady.","Faster. Messy.","Edge and stop. Hold it."]
 };
 let ogCurrent=null,ogFilthI=0;
 function showOG(g){
@@ -462,85 +479,96 @@ function showOG(g){
   document.getElementById("ogDetail").classList.add("show");
   document.getElementById("ogDetail").scrollIntoView({behavior:"smooth",block:"nearest"});
 }
-function ogNextFilth(){if(!ogCurrent)return;ogFilthI=(ogFilthI+1)%ogFilth[ogCurrent].length;document.getElementById("ogFilth").textContent=ogFilth[ogCurrent][ogFilthI];}
+function ogNextFilth(){
+  if(!ogCurrent)return;
+  ogFilthI=(ogFilthI+1)%ogFilth[ogCurrent].length;
+  document.getElementById("ogFilth").textContent=ogFilth[ogCurrent][ogFilthI];
+}
 function ogHide(){document.getElementById("ogDetail").classList.remove("show");ogCurrent=null;}
 
 const stareLines={
-Esmee:["Still looking? Good.","Sexiest blonde in school and you can’t look away.","Don’t touch. Just eyes."],
-Laia:["Daddy’s still staring…","Don’t look away from her.","Throbbing and you haven’t even touched it yet."],
-Zara:["Good boy. Eyes up.","Don’t break.","Still hard for her, good boy?"],
-Fleur:["Keep staring.","That mouth.","She already won."]
+Esmee:["Still looking? Good.","Don’t touch. Just eyes."],
+Laia:["Daddy’s still staring…","Don’t look away."],
+Zara:["Good boy. Eyes up.","Still hard for her, good boy?"],
+Fleur:["Keep staring.","That mouth."]
 };
 let stareIv=null,stareLineIv=null;
 function startStare(g){
   if(!g)g=ogCurrent||randGirl();
   stopStare();
-  const ph=document.getElementById("starePhoto");
-  ph.src=ogPhotos[g];ph.style.display="block";
+  var ph=document.getElementById("starePhoto");
+  ph.src=ogPhotos[g];
+  ph.style.display="block";
   document.getElementById("stareStop").style.display="inline-block";
   document.getElementById("stareText").textContent="Don’t look away from "+g+".";
-  let left=10*60;
+  var left=10*60;
   function tick(){
-    const m=Math.floor(left/60),s=left%60;
+    var m=Math.floor(left/60),s=left%60;
     document.getElementById("stareTimer").textContent=m+":"+String(s).padStart(2,"0");
-    if(left<=0){stopStare();document.getElementById("stareText").textContent="Ten minutes. You stared the whole time.";return;}
+    if(left<=0){
+      stopStare();
+      document.getElementById("stareText").textContent="Ten minutes. You stared the whole time.";
+      return;
+    }
     left--;
   }
   tick();
   stareIv=setInterval(tick,1000);
-  const lines=stareLines[g];
-  stareLineIv=setInterval(()=>{document.getElementById("stareText").textContent=lines[Math.floor(Math.random()*lines.length)];},45000);
+  var lines=stareLines[g];
+  stareLineIv=setInterval(function(){
+    document.getElementById("stareText").textContent=lines[Math.floor(Math.random()*lines.length)];
+  },45000);
   ph.scrollIntoView({behavior:"smooth",block:"center"});
 }
 function stopStare(){
-  if(stareIv)clearInterval(stareIv);if(stareLineIv)clearInterval(stareLineIv);
-  stareIv=stareLineIv=null;
+  if(stareIv)clearInterval(stareIv);
+  if(stareLineIv)clearInterval(stareLineIv);
+  stareIv=null;stareLineIv=null;
   document.getElementById("stareTimer").textContent="";
   document.getElementById("stareStop").style.display="none";
 }
 
-/* ===== Private JOI: Zara short / long ===== */
 const ogJoiScripts={
 Esmee:[
-  "Look at her first. Sexiest blonde in school. Don’t touch yet… just look.",
-  "Now slowly wrap your hand around your cock. Soft. No rushing.",
-  "Drag your fingers up the shaft… get it hard while you stare at those eyes.",
-  "Squeeze. Stroke down… up and down… slowly.",
-  "A little faster. She would notice how desperate you are.",
+  "Look at her first. Don’t touch yet… just look.",
+  "Slowly wrap your hand around your cock. Soft.",
+  "Drag your fingers up the shaft… get it hard while you stare.",
+  "Squeeze. Stroke slow… up and down.",
+  "A little faster.",
   "Slow down. Squeeze harder.",
   "Close? Stop. Hands off. Deep breath.",
-  "Touch again. Squeeze… stroke. Pressure building.",
-  "Faster… edge. Stop at the line. Hands off.",
+  "Touch again. Stroke. Pressure building.",
+  "Faster… edge. Hands off.",
   "Stroke again. Full length. Balls too.",
   "Faster. So ready for Esmee…",
   "Hold it. One more edge."
 ],
 Laia:[
   "Look at her, daddy. Don’t touch yet.",
-  "Slowly… gentle on your balls and cock for daddy’s girl.",
+  "Slowly… gentle on your balls and cock.",
   "Up the shaft… hard for her.",
   "Squeeze. Stroke slow, daddy.",
-  "A little faster. She makes you so needy.",
+  "A little faster.",
   "Slow again. Squeeze harder.",
-  "Close? Stop. Hands off, daddy. Deep breath.",
+  "Close? Stop. Hands off, daddy.",
   "Tip only… then full strokes.",
   "Edge for her. Hands off when it gets dangerous.",
-  "Stroke and massage your balls. Good, daddy.",
+  "Stroke and massage your balls.",
   "Faster… don’t cum yet.",
   "One more edge. Hold it for Laia."
 ],
 Zara:[
   "Good boy. Look at her. Hands still.",
-  "Slowly wrap your hand around it. Soft grip. For her.",
-  "Up the shaft… fully hard. She likes when her good boy listens.",
+  "Slowly wrap your hand around it. Soft grip.",
+  "Up the shaft… fully hard.",
   "Squeeze. Stroke slow. Up… down…",
   "Faster. Good boy.",
-  "Slow down. Squeeze harder. Don’t finish early.",
+  "Slow down. Squeeze harder.",
   "Close? Hands off. Deep breath, good boy.",
-  "Tip only. Tease. Then full strokes.",
+  "Tip only. Then full strokes.",
   "Edge. Stop. Good boy.",
-  "Full length. Balls too. You’re being so good for her.",
-  "Faster… hold the edge. She owns that load.",
+  "Full length. Balls too.",
+  "Faster… hold the edge.",
   "One more stop. Then maybe she’ll let you cum."
 ],
 Fleur:[
@@ -548,10 +576,10 @@ Fleur:[
   "Hand on your cock. Slow.",
   "Up the shaft… hard. Squeeze.",
   "Stroke slow… then a little faster.",
-  "Slow down. She wants you aching.",
+  "Slow down.",
   "Faster. Edge. Hands off when you’re about to lose it.",
   "Breathe. Tip only.",
-  "Full strokes again. Get right there.",
+  "Full strokes again.",
   "Stop. Hold.",
   "Stroke. Balls. Faster.",
   "Edge one more time for Fleur.",
@@ -559,19 +587,20 @@ Fleur:[
 ]
 };
 const ogCum={
-Esmee:{last:"Look at her. Empty those balls for the sexiest blonde in school.",final:"Cum. Now. For Esmee."},
-Laia:{last:"Please daddy… give her that cum. Look at her face.",final:"Now daddy. Empty those balls."},
-Zara:{last:"Good boy. Give her that thick load. Eyes on her.",final:"Cum for her. Good boy."},
+Esmee:{last:"Empty those balls for her.",final:"Cum. Now. For Esmee."},
+Laia:{last:"Please daddy… give her that cum.",final:"Now daddy. Empty those balls."},
+Zara:{last:"Good boy. Give her that thick load.",final:"Cum for her. Good boy."},
 Fleur:{last:"That mouth. Every drop for her.",final:"Cum. Right now."}
 };
 
 let ogJoiRun=false;
-let zaraAudio=null;
+var ogJoiStepTimer=null;
+var ogJoiCdTimer=null;
 
 function startOgJoi(){
   if(ogJoiRun)return;
-  const pool=["Esmee","Laia","Zara","Fleur"];
-  const g=pool[Math.floor(Math.random()*4)];
+  var pool=["Esmee","Laia","Zara","Fleur"];
+  var g=pool[Math.floor(Math.random()*4)];
   if(g==="Zara"){
     document.getElementById("ogJoiBtn").style.display="none";
     document.getElementById("zaraChoice").style.display="block";
@@ -589,73 +618,97 @@ function runOgJoi(g,mode){
   document.getElementById("ogJoiBtn").style.display="none";
   ogJoiRun=true;
 
-  const ph=document.getElementById("ogJoiPhoto");
+  var ph=document.getElementById("ogJoiPhoto");
   ph.src=ogPhotos[g];
   ph.style.display="block";
   document.getElementById("ogJoiGirl").textContent=g+(mode==="long"?" · Long":"");
   document.getElementById("ogJoiStop").style.display="inline-block";
+  document.getElementById("ogJoiText").textContent="";
+  document.getElementById("ogJoiCd").textContent="";
 
   if(g==="Zara" && mode==="long"){
-    // Long: photo only + audio, no text instructions
     ph.classList.add("long");
-    document.getElementById("ogJoiText").textContent="";
-    document.getElementById("ogJoiCd").textContent="";
-    if(zaraAudio){try{zaraAudio.pause();}catch(e){}}
-    zaraAudio=new Audio("joi_zara.mp3");
-    zaraAudio.play().catch(()=>{
-      document.getElementById("ogJoiText").textContent="Could not play joi_zara.mp3 — check the file is in the same folder.";
-    });
-    zaraAudio.onended=function(){finishOgJoi();};
+    var a=document.getElementById("zaraLongAudio");
+    try{
+      a.pause();
+      a.currentTime=0;
+      a.volume=1;
+      a.muted=false;
+    }catch(e){}
+    a.onended=function(){finishOgJoi();};
+    a.onerror=function(){
+      document.getElementById("ogJoiText").textContent="Audio error: put joi_zara.mp3 in the same folder as index.html";
+    };
+    var playPromise=a.play();
+    if(playPromise && typeof playPromise.then==="function"){
+      playPromise.then(function(){
+        document.getElementById("ogJoiText").textContent="";
+      }).catch(function(){
+        document.getElementById("ogJoiText").textContent="Click the page once, then press Long JOI again — or check joi_zara.mp3 is next to index.html";
+        ogJoiRun=false;
+        document.getElementById("ogJoiBtn").style.display="inline-block";
+        document.getElementById("ogJoiStop").style.display="none";
+        ph.style.display="none";
+        ph.classList.remove("long");
+      });
+    }
     return;
   }
 
-  // Short JOI (all girls including Zara short)
   ph.classList.remove("long");
-  const script=ogJoiScripts[g];
-  let i=0;
-  (function step(){
+  var script=ogJoiScripts[g];
+  var i=0;
+  function step(){
     if(!ogJoiRun)return;
     if(i<script.length){
       document.getElementById("ogJoiText").textContent=script[i];
       document.getElementById("ogJoiCd").textContent="";
-      i++;setTimeout(step,7000);
+      i++;
+      ogJoiStepTimer=setTimeout(step,7000);
     } else {
-      let c=10;
-      document.getElementById("ogJoiText").innerHTML=`<span style="color:#ff4d4d">${ogCum[g].last}</span>`;
+      var c=10;
+      document.getElementById("ogJoiText").innerHTML="<span style=\"color:#ff4d4d\">"+ogCum[g].last+"</span>";
       document.getElementById("ogJoiCd").textContent=c;
-      const iv=setInterval(()=>{
-        if(!ogJoiRun){clearInterval(iv);return;}
-        c--;document.getElementById("ogJoiCd").textContent=c;
+      ogJoiCdTimer=setInterval(function(){
+        if(!ogJoiRun){clearInterval(ogJoiCdTimer);return;}
+        c--;
+        document.getElementById("ogJoiCd").textContent=c;
         if(c<=0){
-          clearInterval(iv);
+          clearInterval(ogJoiCdTimer);
           document.getElementById("ogJoiCd").textContent="CUM";
-          document.getElementById("ogJoiText").innerHTML=`<span style="color:#ff4d4d;font-size:1.25rem">${ogCum[g].final}</span>`;
+          document.getElementById("ogJoiText").innerHTML="<span style=\"color:#ff4d4d;font-size:1.25rem\">"+ogCum[g].final+"</span>";
           setTimeout(finishOgJoi,6000);
         }
       },1000);
     }
-  })();
+  }
+  step();
 }
 
 function stopOgJoi(){
-  if(zaraAudio){try{zaraAudio.pause();zaraAudio.currentTime=0;}catch(e){}zaraAudio=null;}
+  var a=document.getElementById("zaraLongAudio");
+  try{a.pause();a.currentTime=0;}catch(e){}
   finishOgJoi();
 }
 function finishOgJoi(){
   ogJoiRun=false;
-  if(zaraAudio){try{zaraAudio.pause();}catch(e){}zaraAudio=null;}
+  if(ogJoiStepTimer){clearTimeout(ogJoiStepTimer);ogJoiStepTimer=null;}
+  if(ogJoiCdTimer){clearInterval(ogJoiCdTimer);ogJoiCdTimer=null;}
+  var a=document.getElementById("zaraLongAudio");
+  try{a.pause();a.currentTime=0;}catch(e){}
   document.getElementById("ogJoiGirl").textContent="";
   document.getElementById("ogJoiText").textContent="";
   document.getElementById("ogJoiCd").textContent="";
-  const ph=document.getElementById("ogJoiPhoto");
-  ph.style.display="none";ph.classList.remove("long");
+  var ph=document.getElementById("ogJoiPhoto");
+  ph.style.display="none";
+  ph.classList.remove("long");
   document.getElementById("ogJoiBtn").style.display="inline-block";
   document.getElementById("ogJoiStop").style.display="none";
   document.getElementById("zaraChoice").style.display="none";
 }
 
 function strokeChallenge(){
-  const opts=[
+  var opts=[
     "Esmee: Stroke slow 60s staring at her OG shot. Edge once. No cum.",
     "Laia: Daddy — tip only until you leak. Then full strokes to the edge. Hands off.",
     "Zara: Good boy. 30 fast. Stop. 30 slow. Edge. Repeat.",
@@ -664,7 +717,6 @@ function strokeChallenge(){
   document.getElementById("strokeOut").textContent=opts[Math.floor(Math.random()*opts.length)];
 }
 
-/* main site */
 const tonightLines={
 Esmee:["Esmee wins tonight. Soft strokes, then every inch until you empty inside her."],
 Fleur:["Fleur gets it. Knees first, then bent over."],
@@ -673,21 +725,28 @@ Zara:["Zara owns it, good boy. She edges you first."]
 };
 let wheelBusy=false,wheelRotation=0;
 function spinWheel(){
-  if(wheelBusy)return;wheelBusy=true;document.getElementById('spinBtn').disabled=true;document.getElementById('tonightOut').textContent="";
-  const idx=Math.floor(Math.random()*4),g=GIRLS[idx];
+  if(wheelBusy)return;
+  wheelBusy=true;
+  document.getElementById("spinBtn").disabled=true;
+  document.getElementById("tonightOut").textContent="";
+  var idx=Math.floor(Math.random()*4),g=GIRLS[idx];
   wheelRotation+=(5+Math.floor(Math.random()*3))*360+((360-idx*90)%360);
-  document.getElementById('wheel').style.transform=`rotate(${wheelRotation}deg)`;
-  setTimeout(()=>{document.getElementById('tonightOut').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${tonightLines[g][0]}`;wheelBusy=false;document.getElementById('spinBtn').disabled=false;},4800);
+  document.getElementById("wheel").style.transform="rotate("+wheelRotation+"deg)";
+  setTimeout(function(){
+    document.getElementById("tonightOut").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+tonightLines[g][0];
+    wheelBusy=false;
+    document.getElementById("spinBtn").disabled=false;
+  },4800);
 }
 const positions={Esmee:["Missionary — eyes on you, deep."],Fleur:["Doggy. Hard."],Laia:["Against the wall, moaning daddy."],Zara:["She rides. You edge. Good boy."]};
-function pickPosition(){const g=randGirl();document.getElementById('posOut').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${positions[g][0]}`;}
+function pickPosition(){var g=randGirl();document.getElementById("posOut").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+positions[g][0];}
 const jealousStories={
 Esmee:"You pull Esmee close. Fleur mutters she’d drain you better. Laia whispers she’d be wetter for daddy. Zara smirks — longer edge, good boy.",
 Fleur:"Fleur wins the grip. Esmee softens. Laia waits on her knees. Zara takes seconds, good boy.",
 Laia:"Laia’s quiet daddy makes the others restless. Esmee claims she’s wetter. Fleur wants next. Zara makes you earn it.",
 Zara:"Zara nods. Good boy. Esmee would suck deeper. Fleur finishes after. Laia wants next."
 };
-function jealousy(){const g=randGirl();document.getElementById('jealousOut').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${jealousStories[g]}`;}
+function jealousy(){var g=randGirl();document.getElementById("jealousOut").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+jealousStories[g];}
 const edgeScripts={
 Esmee:["Stroke slow for Esmee…","Faster…","Stop. Hands off.","Tip only…","Full strokes to the edge…","Stop."],
 Fleur:["Stroke for Fleur…","Faster…","Hands off…","Base and balls…","To the edge…","Stop."],
@@ -697,8 +756,21 @@ Zara:["Slow, good boy…","Faster…","Hands off, good boy…","Tip…","Edge…
 let edgeTimer=null;
 function startEdge(){
   if(edgeTimer)clearTimeout(edgeTimer);
-  const g=randGirl(),steps=edgeScripts[g];document.getElementById('edgeBtn').disabled=true;document.getElementById('edgeGirl').textContent=g;
-  let i=0;(function n(){if(i>=steps.length){document.getElementById('edgeText').textContent="Done. Heavier now.";document.getElementById('edgeGirl').textContent="";document.getElementById('edgeBtn').disabled=false;edgeTimer=null;return;}document.getElementById('edgeText').textContent=steps[i++];edgeTimer=setTimeout(n,4500);})();
+  var g=randGirl(),steps=edgeScripts[g];
+  document.getElementById("edgeBtn").disabled=true;
+  document.getElementById("edgeGirl").textContent=g;
+  var i=0;
+  (function n(){
+    if(i>=steps.length){
+      document.getElementById("edgeText").textContent="Done. Heavier now.";
+      document.getElementById("edgeGirl").textContent="";
+      document.getElementById("edgeBtn").disabled=false;
+      edgeTimer=null;
+      return;
+    }
+    document.getElementById("edgeText").textContent=steps[i++];
+    edgeTimer=setTimeout(n,4500);
+  })();
 }
 const tributeLines={
 face:{Esmee:"Cover Esmee’s face.",Fleur:"On Fleur’s face.",Laia:"Paint Laia’s face, daddy.",Zara:"On Zara’s face. Good boy."},
@@ -707,35 +779,58 @@ mouth:{Esmee:"Esmee swallows.",Fleur:"Fleur swallows.",Laia:"In Laia’s mouth, 
 inside:{Esmee:"Deep inside Esmee.",Fleur:"Inside Fleur.",Laia:"Fill Laia, daddy.",Zara:"Inside Zara. Good boy."},
 ass:{Esmee:"Esmee’s ass.",Fleur:"Fleur’s ass.",Laia:"Laia’s ass, daddy.",Zara:"Zara’s ass. Good boy."}
 };
-function tribute(){const g=randGirl(),p=["face","tits","mouth","inside","ass"][Math.floor(Math.random()*5)];document.getElementById('tributeOut').innerHTML=`<strong style="color:#ff4d4d">${g} · ${p}</strong><br><br>${tributeLines[p][g]}`;}
-function groupVote(){document.getElementById('voteOut').innerHTML=`<strong>Hardest:</strong> ${randGirl()}<br><strong>Suck:</strong> ${randGirl()}<br><strong>Fuck:</strong> ${randGirl()}<br><strong>Edge:</strong> ${randGirl()}`;}
+function tribute(){
+  var g=randGirl(),parts=["face","tits","mouth","inside","ass"],p=parts[Math.floor(Math.random()*5)];
+  document.getElementById("tributeOut").innerHTML="<strong style=\"color:#ff4d4d\">"+g+" · "+p+"</strong><br><br>"+tributeLines[p][g];
+}
+function groupVote(){
+  document.getElementById("voteOut").innerHTML="<strong>Hardest:</strong> "+randGirl()+"<br><strong>Suck:</strong> "+randGirl()+"<br><strong>Fuck:</strong> "+randGirl()+"<br><strong>Edge:</strong> "+randGirl();
+}
 
-const sounds={Fuck:new Audio('sounds_moan.mp3'),Marry:new Audio('sounds_marry.mp3'),Kiss:new Audio('sounds_kiss.mp3'),Kill:new Audio('sounds_kill.mp3')};
-Object.values(sounds).forEach(s=>{try{s.volume=0.65;}catch(e){}});
+const sounds={Fuck:new Audio("sounds_moan.mp3"),Marry:new Audio("sounds_marry.mp3"),Kiss:new Audio("sounds_kiss.mp3"),Kill:new Audio("sounds_kill.mp3")};
+Object.keys(sounds).forEach(function(k){try{sounds[k].volume=0.65;}catch(e){}});
 const allReactions={Esmee:["She freezes…","Bites her lip","Thighs press"],Fleur:["“oh my god”","Smirks","Eyes drop"],Laia:["Mouth open","Hunger","Cheeks flush"],Zara:["Flush","“that’s thick”","Can’t hide it"]};
 const usedReactions={Esmee:[],Fleur:[],Laia:[],Zara:[]};
 let currentGirl=null,reactionInterval=null;
-const cursorReaction=document.getElementById('cursor-reaction');
-function getNewReaction(g){let a=allReactions[g].filter(r=>!usedReactions[g].includes(r));if(!a.length){usedReactions[g]=[];a=[...allReactions[g]];}const c=a[Math.floor(Math.random()*a.length)];usedReactions[g].push(c);return c;}
-document.querySelectorAll('.flip-front').forEach(front=>{
-  const card=front.closest('.flip-card'),nameEl=front.querySelector('.name');if(!nameEl)return;const g=nameEl.textContent.trim();
-  card.addEventListener('mouseenter',()=>{if(card.classList.contains('flipped'))return;currentGirl=g;cursorReaction.textContent=getNewReaction(g);cursorReaction.style.opacity="1";clearInterval(reactionInterval);reactionInterval=setInterval(()=>{if(currentGirl===g)cursorReaction.textContent=getNewReaction(g);},10000);});
-  card.addEventListener('mousemove',e=>{cursorReaction.style.left=e.clientX+"px";cursorReaction.style.top=e.clientY+"px";});
-  card.addEventListener('mouseleave',()=>{cursorReaction.style.opacity="0";clearInterval(reactionInterval);currentGirl=null;});
+const cursorReaction=document.getElementById("cursor-reaction");
+function getNewReaction(g){
+  var a=allReactions[g].filter(function(r){return usedReactions[g].indexOf(r)===-1;});
+  if(!a.length){usedReactions[g]=[];a=allReactions[g].slice();}
+  var c=a[Math.floor(Math.random()*a.length)];
+  usedReactions[g].push(c);
+  return c;
+}
+document.querySelectorAll(".flip-front").forEach(function(front){
+  var card=front.closest(".flip-card"),nameEl=front.querySelector(".name");
+  if(!nameEl)return;
+  var g=nameEl.textContent.trim();
+  card.addEventListener("mouseenter",function(){
+    if(card.classList.contains("flipped"))return;
+    currentGirl=g;
+    cursorReaction.textContent=getNewReaction(g);
+    cursorReaction.style.opacity="1";
+    clearInterval(reactionInterval);
+    reactionInterval=setInterval(function(){if(currentGirl===g)cursorReaction.textContent=getNewReaction(g);},10000);
+  });
+  card.addEventListener("mousemove",function(e){cursorReaction.style.left=e.clientX+"px";cursorReaction.style.top=e.clientY+"px";});
+  card.addEventListener("mouseleave",function(){cursorReaction.style.opacity="0";clearInterval(reactionInterval);currentGirl=null;});
 });
 
-const care={Esmee:"Keep it soft, clean, shiny. Oil daily. Ready for my mouth.",Fleur:"Tight and clean or I lose interest.",Laia:"Daddy — soft and clean for me. I’m putting it in my mouth later.",Zara:"I notice everything. Keep it ready, good boy."};
-function showCare(){const g=randGirl();document.getElementById('careText').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${care[g]}`;}
+const care={Esmee:"Keep it soft, clean, shiny. Oil daily.",Fleur:"Tight and clean or I lose interest.",Laia:"Daddy — soft and clean for me.",Zara:"Keep it ready, good boy."};
+function showCare(){var g=randGirl();document.getElementById("careText").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+care[g];}
 const worship={Esmee:["Kiss the tip, taste it, suck your balls."],Fleur:["On my knees, tongue to the tip."],Laia:["Daddy… on my knees, deep."],Zara:["Stroke and lick. Good boy."]};
-function showWorship(){const g=randGirl();document.getElementById('worshipText').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${worship[g][0]}`;}
+function showWorship(){var g=randGirl();document.getElementById("worshipText").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+worship[g][0];}
 const rp={
-esmee:`Esmee on the couch.\n\n“Take it out.”\n\nKnees, wet mouth, then bent over — you fill her.`,
-fleur:`Fleur against the wall. Knees, then table. Hard. You empty inside.`,
-laia:`“Hi daddy.”\n\nShe sucks deep, then spreads. You fill her while she thanks you.`,
-zara:`She rides, edges you, finishes you inside.\n\n“Good boy.”`,
-group:`All four. Mouths, hands. You cum on them.\n\nZara: “Good boy.”`
+esmee:"Esmee on the couch.\n\n“Take it out.”\n\nKnees, wet mouth, then bent over — you fill her.",
+fleur:"Fleur against the wall. Knees, then table. Hard. You empty inside.",
+laia:"“Hi daddy.”\n\nShe sucks deep, then spreads. You fill her while she thanks you.",
+zara:"She rides, edges you, finishes you inside.\n\n“Good boy.”",
+group:"All four. Mouths, hands. You cum on them.\n\nZara: “Good boy.”"
 };
-function showRP(k){if(!k)k=["esmee","fleur","laia","zara","group"][Math.floor(Math.random()*5)];document.getElementById('rpText').textContent=rp[k];}
+function showRP(k){
+  if(!k)k=["esmee","fleur","laia","zara","group"][Math.floor(Math.random()*5)];
+  document.getElementById("rpText").textContent=rp[k];
+}
 
 const joiScripts={
 Esmee:["Listen babe…","Gently press balls and cock…","Up the shaft…","Squeeze, stroke slow…","Faster…","Slow…","Squeeze harder…","Close? STOP…","Breathe…","Tip only…","Full strokes, edge…","Hands off…","Stroke + balls…","Faster…","One more edge… stop."],
@@ -746,26 +841,58 @@ Zara:["Follow, good boy…","Press…","Hard…","Stroke slow…","Faster. Good 
 const cumTexts={Esmee:{last3:"Empty those balls for me.",final:"Cum for me."},Fleur:{last3:"Every drop.",final:"Cum."},Laia:{last3:"Please daddy… that cum.",final:"Now daddy."},Zara:{last3:"Thick load, good boy.",final:"Cum. Good boy."}};
 const prankLines={Esmee:["Not that easy."],Fleur:["Nice try."],Laia:["Not yet daddy."],Zara:["Not yet, good boy."]};
 let joiRunning=false;
-document.getElementById('startJoi').onclick=()=>{
-if(joiRunning)return;joiRunning=true;
-const girl=randGirl(),script=joiScripts[girl];
-document.getElementById('joiGirl').textContent=girl;document.getElementById('startJoi').style.display="none";document.getElementById('joiPhoto').style.display="none";document.getElementById('joiText').textContent="";
-let step=0;(function next(){if(step<script.length){document.getElementById('joiText').textContent=script[step];document.getElementById('joiCountdown').textContent="";step++;setTimeout(next,8500);}else startCum(girl);})();
+document.getElementById("startJoi").onclick=function(){
+  if(joiRunning)return;
+  joiRunning=true;
+  var girl=randGirl(),script=joiScripts[girl];
+  document.getElementById("joiGirl").textContent=girl;
+  document.getElementById("startJoi").style.display="none";
+  document.getElementById("joiPhoto").style.display="none";
+  document.getElementById("joiText").textContent="";
+  var step=0;
+  (function next(){
+    if(step<script.length){
+      document.getElementById("joiText").textContent=script[step];
+      document.getElementById("joiCountdown").textContent="";
+      step++;
+      setTimeout(next,8500);
+    } else startCum(girl);
+  })();
 };
 function startCum(girl){
-let c=10;const cd=document.getElementById('joiCountdown'),ph=document.getElementById('joiPhoto'),tx=document.getElementById('joiText');
-const doPrank=Math.random()<0.4;let prankDone=false;tx.textContent="";cd.textContent=c;ph.style.display="none";
-const iv=setInterval(()=>{
-c--;cd.textContent=c;
-if(doPrank&&!prankDone&&(c===5||c===4)){prankDone=true;clearInterval(iv);tx.innerHTML=`<span style="color:#ff4d4d">${prankLines[girl][0]}</span>`;cd.textContent="";
-setTimeout(()=>{let c2=8;cd.textContent=c2;
-const iv2=setInterval(()=>{c2--;cd.textContent=c2;if(c2===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML=`<span style="color:#ff4d4d">${cumTexts[girl].last3}</span>`;}
-if(c2<=0){clearInterval(iv2);cd.textContent="CUM";tx.innerHTML=`<span style="color:#ff4d4d">${cumTexts[girl].final}</span>`;
-setTimeout(()=>{document.getElementById('joiGirl').textContent="";tx.textContent="";cd.textContent="";ph.style.display="none";document.getElementById('startJoi').style.display="inline-block";joiRunning=false;},6500);}},1000);},4500);return;}
-if(c===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML=`<span style="color:#ff4d4d">${cumTexts[girl].last3}</span>`;}
-if(c<=0){clearInterval(iv);cd.textContent="CUM";tx.innerHTML=`<span style="color:#ff4d4d">${cumTexts[girl].final}</span>`;
-setTimeout(()=>{document.getElementById('joiGirl').textContent="";tx.textContent="";cd.textContent="";ph.style.display="none";document.getElementById('startJoi').style.display="inline-block";joiRunning=false;},6500);}
-},1000);
+  var c=10,cd=document.getElementById("joiCountdown"),ph=document.getElementById("joiPhoto"),tx=document.getElementById("joiText");
+  var doPrank=Math.random()<0.4,prankDone=false;
+  tx.textContent="";cd.textContent=c;ph.style.display="none";
+  var iv=setInterval(function(){
+    c--;cd.textContent=c;
+    if(doPrank&&!prankDone&&(c===5||c===4)){
+      prankDone=true;clearInterval(iv);
+      tx.innerHTML="<span style=\"color:#ff4d4d\">"+prankLines[girl][0]+"</span>";cd.textContent="";
+      setTimeout(function(){
+        var c2=8;cd.textContent=c2;
+        var iv2=setInterval(function(){
+          c2--;cd.textContent=c2;
+          if(c2===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML="<span style=\"color:#ff4d4d\">"+cumTexts[girl].last3+"</span>";}
+          if(c2<=0){
+            clearInterval(iv2);cd.textContent="CUM";tx.innerHTML="<span style=\"color:#ff4d4d\">"+cumTexts[girl].final+"</span>";
+            setTimeout(function(){
+              document.getElementById("joiGirl").textContent="";tx.textContent="";cd.textContent="";ph.style.display="none";
+              document.getElementById("startJoi").style.display="inline-block";joiRunning=false;
+            },6500);
+          }
+        },1000);
+      },4500);
+      return;
+    }
+    if(c===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML="<span style=\"color:#ff4d4d\">"+cumTexts[girl].last3+"</span>";}
+    if(c<=0){
+      clearInterval(iv);cd.textContent="CUM";tx.innerHTML="<span style=\"color:#ff4d4d\">"+cumTexts[girl].final+"</span>";
+      setTimeout(function(){
+        document.getElementById("joiGirl").textContent="";tx.textContent="";cd.textContent="";ph.style.display="none";
+        document.getElementById("startJoi").style.display="inline-block";joiRunning=false;
+      },6500);
+    }
+  },1000);
 }
 
 const reactionsDB={
@@ -776,19 +903,79 @@ face:{Esmee:["On my face."],Fleur:["Cover me."],Laia:["My face daddy."],Zara:["M
 tits:{Esmee:["My tits."],Fleur:["My tits."],Laia:["My tits daddy."],Zara:["Between them, good boy."]},
 general:{Esmee:["Whatever you want."],Fleur:["Do it."],Laia:["Use me daddy."],Zara:["Do it, good boy."]}
 };
-function detectCategory(t){t=t.toLowerCase();if(/blowjob|suck|mouth|oral/.test(t))return"mouth";if(/ass|anal/.test(t))return"ass";if(/pussy|inside|creampie|fuck you/.test(t))return"pussy";if(/face|facial/.test(t))return"face";if(/tit|breast/.test(t))return"tits";return"general";}
-function getReaction(){const text=document.getElementById('userDescribe').value.trim();if(!text)return;const g=randGirl();document.getElementById('describeReaction').innerHTML=`<strong style="color:#ff4d4d">${g}</strong><br><br>${reactionsDB[detectCategory(text)][g][0]}`;}
+function detectCategory(t){
+  t=t.toLowerCase();
+  if(/blowjob|suck|mouth|oral/.test(t))return"mouth";
+  if(/ass|anal/.test(t))return"ass";
+  if(/pussy|inside|creampie|fuck you/.test(t))return"pussy";
+  if(/face|facial/.test(t))return"face";
+  if(/tit|breast/.test(t))return"tits";
+  return"general";
+}
+function getReaction(){
+  var text=document.getElementById("userDescribe").value.trim();
+  if(!text)return;
+  var g=randGirl();
+  document.getElementById("describeReaction").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+reactionsDB[detectCategory(text)][g][0];
+}
 
-function animateValue(id,start,end,dur){const obj=document.getElementById(id),range=end-start,t0=performance.now();(function upd(t){const p=Math.min((t-t0)/dur,1);obj.textContent=id==='views'?Math.floor(start+range*p).toLocaleString()+'+':Math.floor(start+range*p);if(p<1)requestAnimationFrame(upd);})(t0);}
-window.onload=()=>{animateValue('views',0,50000,2200);animateValue('likes',0,165,1800);document.getElementById('quote').textContent=`"${["This cock doesn’t miss","Built different","Symmetry so good it hurts","Thick, heavy and perfect"][Math.floor(Math.random()*4)]}"`;const v=document.getElementById('siteBgVideo');v.muted=true;v.play().catch(()=>{});};
-const stars=document.querySelectorAll('.star');let cur=localStorage.getItem('cockRating')||0;
-if(cur>0){stars.forEach(s=>s.classList.toggle('active',s.dataset.value<=cur));document.getElementById('ratingResult').textContent=`You rated this cock: ${cur}/10`;}
-document.getElementById('lastRating').textContent=`Last rating: ${["9/10","10/10","8/10"][Math.floor(Math.random()*3)]} – just now`;
-stars.forEach(s=>s.onclick=()=>{const v=s.dataset.value;localStorage.setItem('cockRating',v);stars.forEach(x=>x.classList.toggle('active',x.dataset.value<=v));document.getElementById('ratingResult').textContent=`You rated this cock: ${v}/10`;});
-let live=128;setInterval(()=>{live+=Math.floor(Math.random()*3);document.getElementById('liveViews').textContent=live;},4000);
-setInterval(()=>{const el=document.getElementById("throbbingFor");el.style.opacity=0;setTimeout(()=>{el.textContent=randGirl();el.style.opacity=1;},350);},9000);
-const fmk={};document.querySelectorAll('.fmk-option').forEach(b=>b.onclick=()=>{const g=b.dataset.girl,c=b.dataset.choice;if(sounds[c]){sounds[c].currentTime=0;sounds[c].play().catch(()=>{});}document.querySelectorAll(`.fmk-option[data-girl="${g}"]`).forEach(x=>x.classList.remove('selected'));b.classList.add('selected');fmk[g]=c;let h="";["Fuck","Marry","Kiss","Kill"].forEach(t=>{const n=Object.keys(fmk).find(k=>fmk[k]===t);if(n)h+=`<strong>${t}:</strong> ${n}<br>`;});document.getElementById('fmkResult').innerHTML=h;});
-function generateFantasy(){document.getElementById('fantasyText').textContent=["Fleur on her knees","Esmee bent over","Laia reverse cowgirl","Zara edging you","All four waiting"][Math.floor(Math.random()*5)];}
+function animateValue(id,start,end,dur){
+  var obj=document.getElementById(id),range=end-start,t0=performance.now();
+  (function upd(t){
+    var p=Math.min((t-t0)/dur,1);
+    obj.textContent=id==="views"?Math.floor(start+range*p).toLocaleString()+"+":Math.floor(start+range*p);
+    if(p<1)requestAnimationFrame(upd);
+  })(t0);
+}
+window.onload=function(){
+  animateValue("views",0,50000,2200);
+  animateValue("likes",0,165,1800);
+  document.getElementById("quote").textContent='"'+["This cock doesn’t miss","Built different","Symmetry so good it hurts","Thick, heavy and perfect"][Math.floor(Math.random()*4)]+'"';
+  var v=document.getElementById("siteBgVideo");
+  v.muted=true;
+  v.play().catch(function(){});
+};
+const stars=document.querySelectorAll(".star");
+var cur=localStorage.getItem("cockRating")||0;
+if(cur>0){
+  stars.forEach(function(s){s.classList.toggle("active",s.dataset.value<=cur);});
+  document.getElementById("ratingResult").textContent="You rated this cock: "+cur+"/10";
+}
+document.getElementById("lastRating").textContent="Last rating: "+["9/10","10/10","8/10"][Math.floor(Math.random()*3)]+" – just now";
+stars.forEach(function(s){
+  s.onclick=function(){
+    var v=s.dataset.value;
+    localStorage.setItem("cockRating",v);
+    stars.forEach(function(x){x.classList.toggle("active",x.dataset.value<=v);});
+    document.getElementById("ratingResult").textContent="You rated this cock: "+v+"/10";
+  };
+});
+var live=128;
+setInterval(function(){live+=Math.floor(Math.random()*3);document.getElementById("liveViews").textContent=live;},4000);
+setInterval(function(){
+  var el=document.getElementById("throbbingFor");
+  el.style.opacity=0;
+  setTimeout(function(){el.textContent=randGirl();el.style.opacity=1;},350);
+},9000);
+var fmk={};
+document.querySelectorAll(".fmk-option").forEach(function(b){
+  b.onclick=function(){
+    var g=b.dataset.girl,c=b.dataset.choice;
+    if(sounds[c]){sounds[c].currentTime=0;sounds[c].play().catch(function(){});}
+    document.querySelectorAll('.fmk-option[data-girl="'+g+'"]').forEach(function(x){x.classList.remove("selected");});
+    b.classList.add("selected");
+    fmk[g]=c;
+    var h="";
+    ["Fuck","Marry","Kiss","Kill"].forEach(function(t){
+      var n=Object.keys(fmk).find(function(k){return fmk[k]===t;});
+      if(n)h+="<strong>"+t+":</strong> "+n+"<br>";
+    });
+    document.getElementById("fmkResult").innerHTML=h;
+  };
+});
+function generateFantasy(){
+  document.getElementById("fantasyText").textContent=["Fleur on her knees","Esmee bent over","Laia reverse cowgirl","Zara edging you","All four waiting"][Math.floor(Math.random()*5)];
+}
 </script>
 </body>
 </html>
