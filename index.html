@@ -5,125 +5,129 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perfect Symmetrical Cock | Private Collection</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:#0a0a0a;color:#eaeaea;font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;cursor:url('cock-cursor.png') 24 32,auto;position:relative}
-a,button,.star,.fmk-option,.btn,textarea,input{cursor:url('cock-cursor.png') 24 32,pointer}
-#siteBgVideo{position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:0;pointer-events:none}
-#siteBgOverlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.62);z-index:1;pointer-events:none}
+body{background:#050505;color:#ece8e4;font-family:'DM Sans',system-ui,sans-serif;line-height:1.65;cursor:url('cock-cursor.png') 24 32,auto;position:relative}
+a,button,.star,.fmk-option,.btn,textarea,input,.mem-card,.flip-card,.og-card{cursor:url('cock-cursor.png') 24 32,pointer}
+#siteBgVideo{position:fixed;inset:0;width:100vw;height:100vh;object-fit:cover;z-index:0;pointer-events:none}
+#siteBgOverlay{position:fixed;inset:0;background:linear-gradient(180deg,rgba(5,5,5,.55) 0%,rgba(5,5,5,.72) 40%,rgba(5,5,5,.85) 100%);z-index:1;pointer-events:none}
 .page-content{position:relative;z-index:2}
-header{position:fixed;top:0;left:0;right:0;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(15,15,15,.92);backdrop-filter:blur(10px);border-bottom:1px solid #1f1f1f;z-index:100;flex-wrap:wrap;gap:10px}
-.logo{font-size:1.3rem;font-weight:700}.logo span{color:#ff4d4d}
-nav a{color:#aaa;text-decoration:none;margin-left:22px;font-size:.95rem}nav a:hover{color:#fff}
+header{position:fixed;top:0;left:0;right:0;padding:14px 28px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,8,.75);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);z-index:100;flex-wrap:wrap;gap:10px}
+.logo{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;letter-spacing:.04em}
+.logo span{color:#ff3b5c}
+nav a{color:#9a9590;text-decoration:none;margin-left:20px;font-size:.88rem;font-weight:500;letter-spacing:.02em;transition:color .2s}
+nav a:hover{color:#fff}
 nav a.lock{color:#666}
-section{padding:120px 20px 80px}
-.hero{text-align:center;padding-top:160px}
-.hero h1{font-size:2.8rem;font-weight:700;margin-bottom:12px}
-.hero p{color:#bbb;font-size:1.1rem;max-width:520px;margin:0 auto 15px}
-.quote{color:#ff4d4d;font-style:italic;font-size:1.05rem;margin-bottom:25px;min-height:28px}
-.image-section{max-width:800px;margin:0 auto}
-.image-frame{background:rgba(20,20,20,.85);border:1px solid #222;border-radius:20px;padding:20px;animation:pulseGlow 3s ease-in-out infinite}
-@keyframes pulseGlow{0%,100%{box-shadow:0 0 25px rgba(255,77,77,.15)}50%{box-shadow:0 0 45px rgba(255,77,77,.35)}}
-.image-frame img{width:100%;border-radius:12px;display:block}
-.stats{display:flex;justify-content:center;gap:50px;margin:40px 0 15px;flex-wrap:wrap}
-.stat-number{font-size:1.9rem;font-weight:700;color:#ff4d4d}
-.stat-label{font-size:.85rem;color:#999;margin-top:4px}
-.throbbing{text-align:center;font-size:1.15rem;color:#ccc;margin:20px 0}
-.throbbing span{color:#ff4d4d;font-weight:600;transition:opacity .35s}
-.rate-box{margin-top:35px;text-align:center}
-.rate-box h3{margin-bottom:12px;font-size:1.15rem}
-.stars{display:flex;justify-content:center;gap:6px;margin-bottom:8px}
-.star{font-size:1.9rem;color:#333;transition:.15s;user-select:none}
-.star:hover,.star.active{color:#ff4d4d;transform:scale(1.15)}
-.rating-result,.last-rating{color:#aaa;font-size:.95rem;min-height:22px}
-.live-views{margin-top:25px;font-size:.95rem;color:#999;text-align:center}
-.live-views span{color:#ff4d4d;font-weight:600}
+section{padding:100px 20px 70px;max-width:1100px;margin:0 auto}
+.hero{text-align:center;padding-top:140px;max-width:700px}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
+.hero p{color:#a39e98;font-size:1.05rem;max-width:480px;margin:0 auto 14px}
+.quote{color:#ff3b5c;font-style:italic;font-size:1rem;min-height:26px;margin-bottom:20px}
+.image-section{max-width:720px}
+.image-frame{background:rgba(18,16,16,.7);border:1px solid rgba(255,59,92,.2);border-radius:24px;padding:14px;box-shadow:0 0 0 1px rgba(255,255,255,.03),0 24px 60px rgba(0,0,0,.45)}
+.image-frame img{width:100%;border-radius:16px;display:block}
+.stats{display:flex;justify-content:center;gap:36px;margin:36px 0 12px;flex-wrap:wrap}
+.stat-number{font-family:'Syne',sans-serif;font-size:1.75rem;font-weight:700;color:#ff3b5c}
+.stat-label{font-size:.75rem;color:#7a7570;text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.throbbing{text-align:center;font-size:1.05rem;color:#b0aaa4;margin:18px 0}
+.throbbing span{color:#ff3b5c;font-weight:600;transition:opacity .35s}
+.rate-box{margin-top:28px;text-align:center;padding:24px;background:rgba(20,18,18,.55);border-radius:20px;border:1px solid rgba(255,255,255,.05)}
+.rate-box h3{font-family:'Syne',sans-serif;margin-bottom:12px;font-size:1.1rem}
+.stars{display:flex;justify-content:center;gap:4px;margin-bottom:8px}
+.star{font-size:1.7rem;color:#2a2a2a;transition:.15s;user-select:none}
+.star:hover,.star.active{color:#ff3b5c;transform:scale(1.12)}
+.rating-result,.last-rating{color:#8a8580;font-size:.9rem;min-height:20px}
+.live-views{margin-top:18px;font-size:.9rem;color:#7a7570;text-align:center}
+.live-views span{color:#ff3b5c;font-weight:600}
 #gallery{text-align:center}
-#gallery h2{font-size:1.9rem;margin-bottom:12px}
-#gallery .intro{color:#aaa;max-width:600px;margin:0 auto 16px}
-#gallery .reveal-text{color:#ff4d4d;font-size:1.2rem;font-weight:600;margin-bottom:28px}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;max-width:1100px;margin:0 auto 60px}
-.flip-card{background:transparent;perspective:1000px;cursor:pointer;height:360px}
-.flip-inner{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+#gallery h2,.sec-title{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:700;margin-bottom:10px}
+#gallery .reveal-text{color:#ff3b5c;font-size:1.05rem;font-weight:600;margin-bottom:8px}
+#gallery .intro{color:#8a8580;max-width:520px;margin:0 auto 28px;font-size:.95rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin:0 auto 50px}
+.flip-card{perspective:1000px;height:340px}
+.flip-inner{position:relative;width:100%;height:100%;transition:transform .55s cubic-bezier(.4,.0,.2,1);transform-style:preserve-3d}
 .flip-card.flipped .flip-inner{transform:rotateY(180deg)}
-.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden;border:1px solid #252525;background:rgba(22,22,22,.95)}
-.flip-back{transform:rotateY(180deg);border-color:#ff4d4d}
-.flip-front img,.flip-back img{width:100%;height:calc(100% - 44px);object-fit:contain;background:#111;display:block}
-.flip-front .name,.flip-back .name{padding:12px;font-size:1rem;font-weight:500;text-align:center}
-.flip-back .name{color:#ff4d4d}
-#cursor-reaction{position:fixed;pointer-events:none;background:rgba(20,20,20,.92);color:#ff4d4d;padding:10px 14px;border-radius:10px;font-size:.9rem;max-width:260px;z-index:9999;opacity:0;transform:translate(12px,12px);transition:opacity .15s;border:1px solid #333}
-.game-box{max-width:920px;margin:0 auto 45px;background:rgba(20,20,20,.88);border-radius:20px;padding:35px 25px;border:1px solid #252525}
-.game-box h3{font-size:1.45rem;color:#ff4d4d;margin-bottom:10px}
-.hint{color:#888;font-size:.95rem;margin-bottom:16px}
-.btn{background:#ff4d4d;color:#fff;border:none;padding:12px 24px;border-radius:30px;font-size:.95rem;font-weight:600;margin:5px;transition:.2s}
-.btn:hover{background:#e03c3c;transform:scale(1.03)}
-.btn.secondary{background:#222;border:1px solid #444}
-.btn:disabled{opacity:.5;transform:none}
-.text-area{color:#e0e0e0;font-size:1.1rem;line-height:1.75;min-height:40px;max-width:700px;margin:15px auto;text-align:left}
-.rp-text{background:rgba(21,21,21,.95);border:1px solid #2a2a2a;border-radius:16px;padding:32px 36px;color:#f0f0f0;font-size:1.08rem;line-height:1.85;max-width:720px;margin:20px auto 0;text-align:left;white-space:pre-line;font-family:Georgia,serif}
-.joi-countdown{font-size:3.2rem;font-weight:700;color:#ff4d4d;margin:16px 0;min-height:70px}
-.joi-girl{color:#ff4d4d;font-weight:600;margin-bottom:10px}
-.joi-photo{width:260px;height:260px;object-fit:cover;border-radius:18px;margin:15px auto;display:none;border:2px solid #ff4d4d;box-shadow:0 0 30px rgba(255,77,77,.45)}
-.joi-photo.long{width:min(420px,92%);height:auto;max-height:520px;object-fit:contain}
-.button-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:12px}
-.fmk-girls{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-bottom:25px}
-.fmk-card{background:#1a1a1a;border-radius:14px;overflow:hidden;border:1px solid #2a2a2a}
-.fmk-card img{width:100%;height:210px;object-fit:cover;object-position:center 20%;display:block}
-.fmk-card .girl-name{padding:10px;font-weight:600}
-.fmk-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 10px 12px}
-.fmk-option{padding:8px 4px;background:#222;border:1px solid #333;color:#ccc;border-radius:8px;font-size:.82rem}
-.fmk-option.selected{background:#ff4d4d;border-color:#ff4d4d;color:#fff;font-weight:600}
-.fmk-result{margin-top:18px;padding:14px;background:#1a1a1a;border-radius:12px;color:#ddd;line-height:1.7;min-height:30px}
-textarea,input[type="password"]{width:100%;max-width:500px;background:#1a1a1a;border:1px solid #333;border-radius:12px;color:#eee;padding:12px;font-size:1rem;margin:8px auto;display:block}
-textarea{height:90px;resize:vertical}
-.wheel-wrap{position:relative;width:300px;height:300px;margin:24px auto}
-.wheel-pointer{position:absolute;top:-12px;left:50%;transform:translateX(-50%);z-index:6;width:0;height:0;border-left:16px solid transparent;border-right:16px solid transparent;border-top:32px solid #ff4d4d;filter:drop-shadow(0 2px 6px #000)}
-.wheel{width:300px;height:300px;border-radius:50%;border:8px solid #2a2a2a;position:relative;transition:transform 4.5s cubic-bezier(0.12,0.75,0.12,1);box-shadow:0 0 40px rgba(255,77,77,.3);background:conic-gradient(from -45deg,#e74c3c 0deg 90deg,#922b21 90deg 180deg,#c0392b 180deg 270deg,#6d1a2a 270deg 360deg)}
+.flip-front,.flip-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.07);background:rgba(16,14,14,.9)}
+.flip-back{transform:rotateY(180deg);border-color:rgba(255,59,92,.35)}
+.flip-front img,.flip-back img{width:100%;height:calc(100% - 42px);object-fit:contain;background:#0c0c0c;display:block}
+.flip-front .name,.flip-back .name{padding:11px;font-size:.9rem;font-weight:600;text-align:center;font-family:'Syne',sans-serif}
+.flip-back .name{color:#ff3b5c}
+#cursor-reaction{position:fixed;pointer-events:none;background:rgba(12,10,10,.95);color:#ff3b5c;padding:10px 14px;border-radius:12px;font-size:.85rem;max-width:240px;z-index:9999;opacity:0;transform:translate(12px,12px);transition:opacity .15s;border:1px solid rgba(255,59,92,.25)}
+.game-box{margin:0 auto 28px;background:rgba(14,12,12,.72);border-radius:22px;padding:28px 22px;border:1px solid rgba(255,255,255,.06);backdrop-filter:blur(8px)}
+.game-box h3{font-family:'Syne',sans-serif;font-size:1.25rem;color:#ff3b5c;margin-bottom:8px;font-weight:700}
+.hint{color:#7a7570;font-size:.9rem;margin-bottom:14px}
+.btn{background:#ff3b5c;color:#fff;border:none;padding:11px 22px;border-radius:999px;font-size:.9rem;font-weight:600;font-family:'DM Sans',sans-serif;margin:4px;transition:transform .15s,background .15s,box-shadow .15s}
+.btn:hover{background:#e63550;transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,59,92,.3)}
+.btn.secondary{background:transparent;border:1px solid rgba(255,255,255,.12);color:#ccc}
+.btn.secondary:hover{border-color:#ff3b5c;color:#fff;background:rgba(255,59,92,.1);box-shadow:none}
+.btn:disabled{opacity:.45;transform:none;box-shadow:none}
+.text-area{color:#ddd8d2;font-size:1.05rem;line-height:1.75;min-height:36px;max-width:640px;margin:12px auto;text-align:left}
+.rp-text{background:rgba(10,9,9,.8);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px;color:#e8e4df;font-size:1.05rem;line-height:1.85;max-width:680px;margin:16px auto 0;text-align:left;white-space:pre-line;font-family:Georgia,serif}
+.joi-countdown{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;color:#ff3b5c;margin:14px 0;min-height:64px}
+.joi-girl{color:#ff3b5c;font-weight:600;margin-bottom:8px;font-family:'Syne',sans-serif}
+.joi-photo{width:240px;height:240px;object-fit:cover;border-radius:20px;margin:12px auto;display:none;border:2px solid rgba(255,59,92,.5);box-shadow:0 0 40px rgba(255,59,92,.25)}
+.joi-photo.long{width:min(400px,90%);height:auto;max-height:480px;object-fit:contain}
+.button-row{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:10px}
+.fmk-girls{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:20px}
+.fmk-card{background:rgba(12,11,11,.85);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.fmk-card img{width:100%;height:190px;object-fit:cover;object-position:center 20%;display:block}
+.fmk-card .girl-name{padding:8px;font-weight:600;font-family:'Syne',sans-serif;font-size:.9rem}
+.fmk-options{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:0 8px 10px}
+.fmk-option{padding:7px 3px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#bbb;border-radius:8px;font-size:.78rem}
+.fmk-option.selected{background:#ff3b5c;border-color:#ff3b5c;color:#fff;font-weight:600}
+.fmk-result{margin-top:14px;padding:12px;background:rgba(0,0,0,.3);border-radius:12px;color:#ccc;line-height:1.7;min-height:28px}
+textarea,input[type="password"]{width:100%;max-width:480px;background:rgba(8,8,8,.8);border:1px solid rgba(255,255,255,.1);border-radius:14px;color:#eee;padding:12px 14px;font-size:.95rem;margin:8px auto;display:block;font-family:'DM Sans',sans-serif}
+textarea{height:88px;resize:vertical}
+.wheel-wrap{position:relative;width:280px;height:280px;margin:20px auto}
+.wheel-pointer{position:absolute;top:-10px;left:50%;transform:translateX(-50%);z-index:6;width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:28px solid #ff3b5c;filter:drop-shadow(0 2px 6px #000)}
+.wheel{width:280px;height:280px;border-radius:50%;border:6px solid rgba(255,255,255,.08);position:relative;transition:transform 4.5s cubic-bezier(0.12,0.75,0.12,1);box-shadow:0 0 50px rgba(255,59,92,.2);background:conic-gradient(from -45deg,#ff3b5c 0deg 90deg,#8b1a2e 90deg 180deg,#c42a45 180deg 270deg,#4a0f1a 270deg 360deg)}
 .wheel-label{position:absolute;inset:0;pointer-events:none}
-.wheel-label span{position:absolute;left:50%;top:50%;width:90px;text-align:center;font-weight:800;font-size:1rem;color:#fff;text-shadow:0 2px 4px #000;transform-origin:0 0}
-.wheel-label .l0{transform:rotate(0deg) translate(0,-118px) translateX(-50%)}
-.wheel-label .l1{transform:rotate(90deg) translate(0,-118px) translateX(-50%)}
-.wheel-label .l2{transform:rotate(180deg) translate(0,-118px) translateX(-50%)}
-.wheel-label .l3{transform:rotate(270deg) translate(0,-118px) translateX(-50%)}
-.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#1a1a1a;border:3px solid #ff4d4d;z-index:4}
-#lockModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center}
+.wheel-label span{position:absolute;left:50%;top:50%;width:84px;text-align:center;font-weight:800;font-size:.9rem;font-family:'Syne',sans-serif;color:#fff;text-shadow:0 2px 4px #000;transform-origin:0 0}
+.wheel-label .l0{transform:rotate(0deg) translate(0,-110px) translateX(-50%)}
+.wheel-label .l1{transform:rotate(90deg) translate(0,-110px) translateX(-50%)}
+.wheel-label .l2{transform:rotate(180deg) translate(0,-110px) translateX(-50%)}
+.wheel-label .l3{transform:rotate(270deg) translate(0,-110px) translateX(-50%)}
+.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:#120f0f;border:3px solid #ff3b5c;z-index:4}
+#lockModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:200;align-items:center;justify-content:center}
 #lockModal.show{display:flex}
-.lock-box{background:#141414;border:1px solid #333;border-radius:16px;padding:28px;max-width:360px;width:90%;text-align:center}
-.lock-box h3{color:#ff4d4d;margin-bottom:12px}
-.lock-err{color:#ff6b6b;font-size:.9rem;min-height:20px;margin-top:8px}
+.lock-box{background:#121010;border:1px solid rgba(255,59,92,.25);border-radius:20px;padding:28px;max-width:340px;width:90%;text-align:center}
+.lock-box h3{font-family:'Syne',sans-serif;color:#ff3b5c;margin-bottom:10px}
+.lock-err{color:#ff6b7a;font-size:.88rem;min-height:20px;margin-top:8px}
 #private{display:none}
 #private.unlocked{display:block}
-.og-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:1000px;margin:0 auto 30px}
-.og-card{background:#161616;border-radius:14px;overflow:hidden;border:1px solid #333;cursor:pointer;transition:transform .2s,border-color .2s}
-.og-card:hover{transform:translateY(-4px);border-color:#ff4d4d}
-.og-card img{width:100%;height:280px;object-fit:contain;background:#0a0a0a;display:block}
-.og-card .og-name{padding:12px;font-weight:600;color:#ff4d4d}
-.og-detail{display:none;max-width:640px;margin:0 auto 30px;text-align:left}
+.og-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:960px;margin:0 auto 28px}
+.og-card{background:rgba(14,12,12,.8);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.06);transition:transform .2s,border-color .2s}
+.og-card:hover{transform:translateY(-3px);border-color:rgba(255,59,92,.4)}
+.og-card img{width:100%;height:260px;object-fit:contain;background:#0a0a0a;display:block}
+.og-card .og-name{padding:11px;font-weight:600;color:#ff3b5c;font-family:'Syne',sans-serif}
+.og-detail{display:none;max-width:600px;margin:0 auto 28px;text-align:left}
 .og-detail.show{display:block}
-.og-detail img{width:100%;max-height:480px;object-fit:contain;border-radius:12px;background:#111;border:1px solid #333}
-.og-desc{margin-top:14px;padding:18px;background:#151515;border-radius:12px;border:1px solid #2a2a2a;line-height:1.75;color:#f0c0c0;font-size:1.05rem;font-style:italic}
-.og-filth{margin-top:12px;padding:18px;background:#151515;border-radius:12px;border:1px solid #2a2a2a;line-height:1.75;color:#f0f0f0;font-size:1.05rem}
-.stare-photo{width:min(360px,90%);max-height:420px;object-fit:contain;border-radius:16px;border:2px solid #ff4d4d;margin:12px auto;display:none;box-shadow:0 0 40px rgba(255,77,77,.4)}
-.stare-timer{font-size:2.4rem;font-weight:700;color:#ff4d4d;margin:12px 0}
-.mem-board{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:720px;margin:0 auto 20px}
-.mem-card{aspect-ratio:1;perspective:800px;cursor:pointer}
-.mem-inner{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.og-detail img{width:100%;max-height:440px;object-fit:contain;border-radius:14px;background:#0a0a0a;border:1px solid rgba(255,255,255,.08)}
+.og-desc{margin-top:12px;padding:16px;background:rgba(12,10,10,.8);border-radius:12px;border:1px solid rgba(255,255,255,.06);line-height:1.7;color:#e0c8c0;font-size:1rem;font-style:italic}
+.og-filth{margin-top:10px;padding:16px;background:rgba(12,10,10,.8);border-radius:12px;border:1px solid rgba(255,255,255,.06);line-height:1.7;color:#ece8e4;font-size:1rem}
+.stare-photo{width:min(340px,90%);max-height:400px;object-fit:contain;border-radius:16px;border:2px solid rgba(255,59,92,.45);margin:12px auto;display:none;box-shadow:0 0 40px rgba(255,59,92,.3)}
+.stare-timer{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:#ff3b5c;margin:10px 0}
+.mem-board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:680px;margin:0 auto 16px}
+.mem-card{aspect-ratio:1;perspective:800px}
+.mem-inner{position:relative;width:100%;height:100%;transition:transform .4s;transform-style:preserve-3d}
 .mem-card.flipped .mem-inner,.mem-card.matched .mem-inner{transform:rotateY(180deg)}
-.mem-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;overflow:hidden;border:2px solid #333;display:flex;align-items:center;justify-content:center}
-.mem-back{background:linear-gradient(145deg,#2a1515,#1a1a1a);color:#ff4d4d;font-size:1.8rem;font-weight:700}
-.mem-front{transform:rotateY(180deg);background:#111}
+.mem-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;overflow:hidden;border:2px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center}
+.mem-back{background:linear-gradient(160deg,#2a1218,#121010);color:#ff3b5c;font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800}
+.mem-front{transform:rotateY(180deg);background:#0a0a0a}
 .mem-front img{width:100%;height:100%;object-fit:cover}
-.mem-card.matched .mem-face{border-color:#ff4d4d;box-shadow:0 0 12px rgba(255,77,77,.4)}
-.mem-status{color:#888;margin-bottom:12px;min-height:24px}
-.mem-surprise{display:none;margin-top:18px;padding:22px;background:#151515;border-radius:14px;border:1px solid #ff4d4d;color:#f0f0f0;font-size:1.2rem;line-height:1.75;max-width:640px;margin-left:auto;margin-right:auto;text-align:left}
+.mem-card.matched .mem-face{border-color:#ff3b5c;box-shadow:0 0 14px rgba(255,59,92,.35)}
+.mem-status{color:#7a7570;margin-bottom:10px;min-height:22px;font-size:.9rem}
+.mem-surprise{display:none;margin-top:16px;padding:20px;background:rgba(12,10,10,.9);border-radius:16px;border:1px solid rgba(255,59,92,.4);color:#ece8e4;font-size:1.1rem;line-height:1.75;max-width:600px;margin-left:auto;margin-right:auto;text-align:left}
 .mem-surprise.show{display:block}
-#cams{text-align:center}#cams h2{font-size:1.9rem;margin-bottom:12px}
-.cam-container{max-width:900px;margin:0 auto;background:rgba(20,20,20,.88);border-radius:18px;padding:20px;border:1px solid #252525}
-.cam-container iframe{width:100%;max-width:850px;height:528px;border:none;border-radius:12px;display:block;margin:0 auto 20px}
-.info{max-width:700px;margin:0 auto;text-align:center}
-.info h2{font-size:1.6rem;margin-bottom:18px}.info p{color:#aaa}
-footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#666;font-size:.9rem}
-@media(max-width:600px){.hero h1{font-size:2.1rem}header{flex-direction:column;padding:15px 20px}nav a{margin-left:10px}.flip-card{height:320px}.wheel-wrap,.wheel{width:260px;height:260px}.mem-board{gap:8px}}
+#cams{text-align:center}
+.cam-container{background:rgba(14,12,12,.7);border-radius:20px;padding:16px;border:1px solid rgba(255,255,255,.06)}
+.cam-container iframe{width:100%;max-width:850px;height:528px;border:none;border-radius:14px;display:block;margin:0 auto 16px}
+.info{text-align:center;max-width:560px;margin:0 auto}
+.info h2{font-family:'Syne',sans-serif;font-size:1.4rem;margin-bottom:12px}
+.info p{color:#8a8580}
+footer{text-align:center;padding:36px 20px;border-top:1px solid rgba(255,255,255,.05);color:#555;font-size:.85rem}
+@media(max-width:600px){header{padding:12px 16px}nav a{margin-left:12px;font-size:.8rem}.flip-card{height:300px}.wheel-wrap,.wheel{width:250px;height:250px}.mem-board{gap:6px}}
 </style>
 </head>
 <body>
@@ -135,7 +139,7 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <div id="lockModal">
   <div class="lock-box">
     <h3>Private</h3>
-    <p style="color:#888;margin-bottom:12px">Enter password</p>
+    <p style="color:#7a7570;margin-bottom:12px">Enter password</p>
     <input type="password" id="lockPass" placeholder="Password" autocomplete="off">
     <button class="btn" type="button" onclick="tryUnlock()">Unlock</button>
     <button class="btn secondary" type="button" onclick="closeLock()">Cancel</button>
@@ -230,10 +234,9 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <div class="game-box"><h3>Fantasy Generator</h3><p class="hint">One filthy line at a time.</p><button class="btn" type="button" onclick="generateFantasy()">Generate Fantasy</button><div class="text-area" id="fantasyText"></div></div>
 </section>
 
-<!-- PRIVATE: OG + Memory locked -->
 <section id="private">
-<h2 style="text-align:center;font-size:1.9rem;margin-bottom:8px;color:#ff4d4d">OG Boner Baiters</h2>
-<p class="hint" style="text-align:center;margin-bottom:28px">The originals. Tap one.</p>
+<h2 class="sec-title" style="text-align:center;color:#ff3b5c">OG Boner Baiters</h2>
+<p class="hint" style="text-align:center;margin-bottom:24px">The originals. Tap one.</p>
 <div class="og-grid">
   <div class="og-card" onclick="showOG('Esmee')"><img src="1000023063.jpg" alt="Esmee"><div class="og-name">Esmee</div></div>
   <div class="og-card" onclick="showOG('Laia')"><img src="1000023022.jpg" alt="Laia"><div class="og-name">Laia</div></div>
@@ -242,7 +245,7 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 </div>
 <div class="og-detail" id="ogDetail">
   <img id="ogBig" src="" alt=""><div class="og-desc" id="ogDesc"></div><div class="og-filth" id="ogFilth"></div>
-  <div class="button-row" style="margin-top:14px"><button class="btn" type="button" onclick="ogNextFilth()">More filth</button><button class="btn secondary" type="button" onclick="startStare()">Stare 10 min</button><button class="btn secondary" type="button" onclick="ogHide()">Close</button></div>
+  <div class="button-row" style="margin-top:12px"><button class="btn" type="button" onclick="ogNextFilth()">More filth</button><button class="btn secondary" type="button" onclick="startStare()">Stare 10 min</button><button class="btn secondary" type="button" onclick="ogHide()">Close</button></div>
 </div>
 
 <div class="game-box">
@@ -269,7 +272,7 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <div class="game-box">
 <h3>Private JOI — OG</h3>
 <button class="btn" type="button" id="ogJoiBtn" onclick="startOgJoi()">Start private JOI</button>
-<div id="zaraChoice" style="display:none;margin:12px 0"><p style="color:#ff4d4d;margin-bottom:10px">Zara — choose:</p>
+<div id="zaraChoice" style="display:none;margin:12px 0"><p style="color:#ff3b5c;margin-bottom:10px">Zara — choose:</p>
 <button class="btn" type="button" onclick="runOgJoi('Zara','short')">Short JOI</button>
 <button class="btn secondary" type="button" onclick="runOgJoi('Zara','long')">Long JOI</button></div>
 <div class="joi-girl" id="ogJoiGirl"></div><img id="ogJoiPhoto" class="joi-photo" src="" alt="">
@@ -279,7 +282,7 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 <div class="game-box"><h3>Stroke challenge</h3><p class="hint">She sets the rules.</p><button class="btn" type="button" onclick="strokeChallenge()">Start challenge</button><div class="text-area" id="strokeOut"></div></div>
 </section>
 
-<section id="cams"><h2>Live Cams</h2>
+<section id="cams"><h2 class="sec-title">Live Cams</h2>
 <div class="cam-container">
 <iframe src="https://cbxyz.com/in/?track=embed&campaign=h0Whk&tour=SHBY&room=shine_chanel" height="528" width="850" style="border:none;" allowfullscreen></iframe>
 <iframe src="https://cbxyz.com/in/?track=embed&campaign=h0Whk&tour=nvfS" height="528" width="850" style="border:none;" allowfullscreen></iframe>
@@ -289,6 +292,7 @@ footer{text-align:center;padding:40px 20px;border-top:1px solid #1a1a1a;color:#6
 </div>
 
 <script>
+/* Same JS as last version — full logic preserved */
 const PRIVATE_PASS="bonerbait";
 let privateUnlocked=sessionStorage.getItem("privOK")==="1";
 const GIRLS=["Esmee","Fleur","Laia","Zara"];
@@ -296,82 +300,24 @@ const girlPhotos={Esmee:"esmee.jpg",Fleur:"fleur1.png",Laia:"laia.jpg",Zara:"zar
 const ogPhotos={Esmee:"1000023063.jpg",Laia:"1000023022.jpg",Zara:"561730229_18031902368720330_480763968379933635_n.jpg",Fleur:"505125862_18281200171248124_8222232097518702848_n.jpg"};
 function randGirl(){return GIRLS[Math.floor(Math.random()*4)];}
 function pick(a){return a[Math.floor(Math.random()*a.length)];}
-
 function handlePrivateNav(e){e.preventDefault();if(privateUnlocked){document.getElementById("private").classList.add("unlocked");document.getElementById("private").scrollIntoView({behavior:"smooth"});return false;}document.getElementById("lockModal").classList.add("show");document.getElementById("lockPass").value="";document.getElementById("lockErr").textContent="";setTimeout(function(){document.getElementById("lockPass").focus();},80);return false;}
 function closeLock(){document.getElementById("lockModal").classList.remove("show");}
 function tryUnlock(){if(document.getElementById("lockPass").value===PRIVATE_PASS){privateUnlocked=true;sessionStorage.setItem("privOK","1");document.getElementById("private").classList.add("unlocked");document.getElementById("navPrivate").textContent="Private";document.getElementById("navPrivate").classList.remove("lock");closeLock();document.getElementById("private").scrollIntoView({behavior:"smooth"});try{document.getElementById("zaraLongAudio").load();}catch(e){}}else document.getElementById("lockErr").textContent="Wrong password.";}
 document.getElementById("lockPass").addEventListener("keydown",function(e){if(e.key==="Enter")tryUnlock();});
 if(privateUnlocked){document.getElementById("private").classList.add("unlocked");document.getElementById("navPrivate").textContent="Private";document.getElementById("navPrivate").classList.remove("lock");}
 
-/* MEMORY: no mid-game dare — first match girl saved — reward after full win */
-const memPairs=[
-  {id:"e1",girl:"Esmee",src:"esmee.jpg"},{id:"e2",girl:"Esmee",src:"1000023063.jpg"},
-  {id:"l1",girl:"Laia",src:"laia.jpg"},{id:"l2",girl:"Laia",src:"1000023022.jpg"},
-  {id:"f1",girl:"Fleur",src:"fleur1.png"},{id:"f2",girl:"Fleur",src:"505125862_18281200171248124_8222232097518702848_n.jpg"},
-  {id:"z1",girl:"Zara",src:"zara.png"},{id:"z2",girl:"Zara",src:"561730229_18031902368720330_480763968379933635_n.jpg"}
-];
+const memPairs=[{id:"e1",girl:"Esmee",src:"esmee.jpg"},{id:"e2",girl:"Esmee",src:"1000023063.jpg"},{id:"l1",girl:"Laia",src:"laia.jpg"},{id:"l2",girl:"Laia",src:"1000023022.jpg"},{id:"f1",girl:"Fleur",src:"fleur1.png"},{id:"f2",girl:"Fleur",src:"505125862_18281200171248124_8222232097518702848_n.jpg"},{id:"z1",girl:"Zara",src:"zara.png"},{id:"z2",girl:"Zara",src:"561730229_18031902368720330_480763968379933635_n.jpg"}];
 const memSurprises={
-Esmee:[
-  "You matched me first… so listen. Stroke slow for my tits. I want precum while you stare at this face. Edge once — hands off. That load stays full until you think about coating me.",
-  "First pair was me. Good. Grab that thick cock and stroke like my tits are wrapped around it. Faster… edge… stop. Don’t you dare cum. Suffer for me.",
-  "I was first. Stroke messy for my face. Spit. Full strokes to the edge, then hands behind your back and throb. Empty nothing."
-],
-Fleur:[
-  "First match was my mouth. Stroke for it — messy, spit, full strokes. Edge hard, then stop and stare at my lips for twenty seconds. No cum.",
-  "You found me first. Grab it. Fuck your fist like it’s my mouth. Faster until you’re shaking, then hands off. Hold every drop for me.",
-  "I was first. Tip only until you leak, then full strokes to the edge. Stop. Look at my mouth and ache."
-],
-Laia:[
-  "Daddy… you matched me first. I want you to stroke for my tits — slow, then faster. Tip only until you leak, daddy. Edge once. Hands off. Save every drop for me.",
-  "I was your first pair, daddy. Spit on that cock and stroke like it’s going in my throat. Edge. Stop. Please daddy, don’t cum — hold it for me.",
-  "First match: me. Warm it up for my mouth, daddy. Slow strokes, then edge hard and stop. That cum stays in your balls for me."
-],
-Zara:[
-  "Good boy. You matched me first. Stroke for my face — soft, then faster. Leak for me. Edge twice. Hands off between edges. That load is mine, good boy.",
-  "I was first. Soft grip, good boy. Stroke slow while you imagine my mouth on the tip. Edge. Stop. Hands behind your back and throb for me. No cum.",
-  "Good boy… first pair was me. Full strokes until you’re desperate, then stop. Tip only. Edge again. Hold it. I own that load."
-]
+Esmee:["You matched me first… stroke slow for my tits. Edge once — hands off. That load stays full for me.","First pair was me. Stroke like my tits are wrapped around it. Edge… stop. Don’t cum.","I was first. Stroke messy for my face. Edge, then hands behind your back and throb."],
+Fleur:["First match was my mouth. Stroke messy, spit, edge hard, then stare at my lips. No cum.","You found me first. Fuck your fist like my mouth. Edge. Hands off. Hold every drop.","I was first. Tip only until you leak, then edge. Stop. Look at my mouth and ache."],
+Laia:["Daddy… you matched me first. Stroke for my tits. Tip only until you leak. Edge once. Save it for me.","I was your first pair, daddy. Spit and stroke like my throat. Edge. Stop. Don’t cum.","First match: me. Warm it up for my mouth, daddy. Edge hard and stop."],
+Zara:["Good boy. You matched me first. Stroke for my face. Edge twice. Hands off between. That load is mine.","I was first. Soft grip, good boy. Edge. Stop. Hands behind your back and throb. No cum.","Good boy… first pair was me. Full strokes until desperate, then stop. Tip only. Edge again. Hold it."]
 };
 let memLock=false,memFirst=null,memMatched=0,memFirstGirl=null;
 function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
-function initMemory(){
-  memLock=false;memFirst=null;memMatched=0;memFirstGirl=null;
-  document.getElementById("memStatus").textContent="Find all pairs…";
-  document.getElementById("memSurprise").classList.remove("show");
-  document.getElementById("memSurprise").innerHTML="";
-  var deck=[];
-  memPairs.forEach(function(p){deck.push({id:p.id,girl:p.girl,src:p.src});deck.push({id:p.id,girl:p.girl,src:p.src});});
-  shuffle(deck);
-  var board=document.getElementById("memBoard");board.innerHTML="";
-  deck.forEach(function(card){
-    var el=document.createElement("div");el.className="mem-card";el.dataset.id=card.id;el.dataset.girl=card.girl;
-    el.innerHTML='<div class="mem-inner"><div class="mem-face mem-back">?</div><div class="mem-face mem-front"><img src="'+card.src+'" alt=""></div></div>';
-    el.onclick=function(){memFlip(el);};board.appendChild(el);
-  });
-}
-function memFlip(el){
-  if(memLock||el.classList.contains("flipped")||el.classList.contains("matched"))return;
-  el.classList.add("flipped");
-  if(!memFirst){memFirst=el;return;}
-  memLock=true;var a=memFirst,b=el;
-  if(a.dataset.id===b.dataset.id){
-    a.classList.add("matched");b.classList.add("matched");
-    if(!memFirstGirl)memFirstGirl=a.dataset.girl;
-    memMatched++;
-    document.getElementById("memStatus").textContent="Pairs: "+memMatched+"/8";
-    memFirst=null;memLock=false;
-    if(memMatched>=8){
-      document.getElementById("memStatus").textContent="Board clear.";
-      var g=memFirstGirl||"Esmee";
-      var box=document.getElementById("memSurprise");
-      box.innerHTML="<strong style=\"color:#ff4d4d\">You won. First match: "+g+"</strong><br><br>"+pick(memSurprises[g]);
-      box.classList.add("show");
-      box.scrollIntoView({behavior:"smooth",block:"nearest"});
-    }
-  } else {
-    setTimeout(function(){a.classList.remove("flipped");b.classList.remove("flipped");memFirst=null;memLock=false;},700);
-  }
-}
+function initMemory(){memLock=false;memFirst=null;memMatched=0;memFirstGirl=null;document.getElementById("memStatus").textContent="Find all pairs…";document.getElementById("memSurprise").classList.remove("show");document.getElementById("memSurprise").innerHTML="";var deck=[];memPairs.forEach(function(p){deck.push({id:p.id,girl:p.girl,src:p.src});deck.push({id:p.id,girl:p.girl,src:p.src});});shuffle(deck);var board=document.getElementById("memBoard");board.innerHTML="";deck.forEach(function(card){var el=document.createElement("div");el.className="mem-card";el.dataset.id=card.id;el.dataset.girl=card.girl;el.innerHTML='<div class="mem-inner"><div class="mem-face mem-back">?</div><div class="mem-face mem-front"><img src="'+card.src+'" alt=""></div></div>';el.onclick=function(){memFlip(el);};board.appendChild(el);});}
+function memFlip(el){if(memLock||el.classList.contains("flipped")||el.classList.contains("matched"))return;el.classList.add("flipped");if(!memFirst){memFirst=el;return;}memLock=true;var a=memFirst,b=el;if(a.dataset.id===b.dataset.id){a.classList.add("matched");b.classList.add("matched");if(!memFirstGirl)memFirstGirl=a.dataset.girl;memMatched++;document.getElementById("memStatus").textContent="Pairs: "+memMatched+"/8";memFirst=null;memLock=false;if(memMatched>=8){document.getElementById("memStatus").textContent="Board clear.";var g=memFirstGirl||"Esmee";var box=document.getElementById("memSurprise");box.innerHTML="<strong style=\"color:#ff3b5c\">You won. First match: "+g+"</strong><br><br>"+pick(memSurprises[g]);box.classList.add("show");box.scrollIntoView({behavior:"smooth",block:"nearest"});}
+}else{setTimeout(function(){a.classList.remove("flipped");b.classList.remove("flipped");memFirst=null;memLock=false;},700);}}
 initMemory();
 
 const ogDesc={Esmee:"Sexiest blonde in school.",Laia:"Daddy’s girl energy.",Zara:"You’re her good boy the second this opens.",Fleur:"Kiss-mouth. Classic bait."};
@@ -384,41 +330,27 @@ const stareLines={Esmee:["Still staring?"],Laia:["Daddy’s still looking…"],Z
 let stareIv=null,stareLineIv=null;
 function startStare(g){if(!g)g=ogCurrent||randGirl();stopStare();var ph=document.getElementById("starePhoto");ph.src=ogPhotos[g];ph.style.display="block";document.getElementById("stareStop").style.display="inline-block";document.getElementById("stareText").textContent="Don’t look away from "+g+".";var left=10*60;function tick(){var m=Math.floor(left/60),s=left%60;document.getElementById("stareTimer").textContent=m+":"+String(s).padStart(2,"0");if(left<=0){stopStare();document.getElementById("stareText").textContent="Ten minutes.";}left--;}tick();stareIv=setInterval(tick,1000);stareLineIv=setInterval(function(){document.getElementById("stareText").textContent=pick(stareLines[g]);},45000);}
 function stopStare(){if(stareIv)clearInterval(stareIv);if(stareLineIv)clearInterval(stareLineIv);stareIv=stareLineIv=null;document.getElementById("stareTimer").textContent="";document.getElementById("stareStop").style.display="none";}
-
-const ogJoiVariants={
-Esmee:[["Look at me. Don’t touch yet.","Wrap that cock for me. Soft.","Stroke slow…","Faster. Leak for me.","Edge. Hands off.","Tip only.","Full strokes.","Edge again. Stop.","To the line…","Hold it for me."]],
-Laia:[["Hi daddy… hands still.","Take that cock for me. Slow.","Stroke, daddy.","Faster.","Hands off, daddy.","Tip only.","Edge for me.","Stroke + balls.","Faster… don’t cum.","One more edge. Hold it, daddy."]],
-Zara:[["Look at me, good boy. Hands still.","Soft grip for me.","Stroke slow…","Faster. Edge. Hands off.","Tip only.","Full strokes.","Edge. Stop. Good boy.","Balls. Keep them full.","Hold the edge.","One more stop."]],
-Fleur:[["Look at this mouth.","Grab that cock. Stroke slow.","Faster. Messy.","Edge. Stop.","Tip only.","Full strokes.","Edge again.","Build it. Don’t finish.","One more edge.","Hold every drop."]]
-};
+const ogJoiVariants={Esmee:[["Look at me. Don’t touch yet.","Wrap that cock for me. Soft.","Stroke slow…","Faster. Leak for me.","Edge. Hands off.","Tip only.","Full strokes.","Edge again. Stop.","To the line…","Hold it for me."]],Laia:[["Hi daddy… hands still.","Take that cock for me. Slow.","Stroke, daddy.","Faster.","Hands off, daddy.","Tip only.","Edge for me.","Stroke + balls.","Faster… don’t cum.","One more edge. Hold it, daddy."]],Zara:[["Look at me, good boy. Hands still.","Soft grip for me.","Stroke slow…","Faster. Edge. Hands off.","Tip only.","Full strokes.","Edge. Stop. Good boy.","Balls. Keep them full.","Hold the edge.","One more stop."]],Fleur:[["Look at this mouth.","Grab that cock. Stroke slow.","Faster. Messy.","Edge. Stop.","Tip only.","Full strokes.","Edge again.","Build it. Don’t finish.","One more edge.","Hold every drop."]]};
 const ogCumLines={Esmee:{last:["Empty those balls for my face."],final:["Cum. Now."]},Laia:{last:["Please daddy… give me that cum."],final:["Now daddy."]},Zara:{last:["Good boy. Give me that thick load."],final:["Cum. Good boy."]},Fleur:{last:["Every drop for this mouth."],final:["Cum. Right now."]}};
 let ogJoiRun=false,ogJoiStepTimer=null,ogJoiCdTimer=null;
 function startOgJoi(){if(ogJoiRun)return;var g=pick(["Esmee","Laia","Zara","Fleur"]);if(g==="Zara"){document.getElementById("ogJoiBtn").style.display="none";document.getElementById("zaraChoice").style.display="block";document.getElementById("ogJoiGirl").textContent="Zara";return;}runOgJoi(g,"short");}
-function runOgJoi(g,mode){
-  if(ogJoiRun)return;document.getElementById("zaraChoice").style.display="none";document.getElementById("ogJoiBtn").style.display="none";ogJoiRun=true;
-  var ph=document.getElementById("ogJoiPhoto");ph.src=ogPhotos[g];ph.style.display="block";document.getElementById("ogJoiGirl").textContent=g+(mode==="long"?" · Long":"");document.getElementById("ogJoiStop").style.display="inline-block";document.getElementById("ogJoiText").textContent="";document.getElementById("ogJoiCd").textContent="";
-  if(g==="Zara"&&mode==="long"){ph.classList.add("long");var a=document.getElementById("zaraLongAudio");try{a.pause();a.currentTime=0;a.volume=1;a.muted=false;a.load();}catch(e){}a.onended=function(){finishOgJoi();};var p=a.play();if(p&&p.then)p.catch(function(){document.getElementById("ogJoiText").textContent="Use localhost + joi_zara.mp3 next to index.html";});return;}
-  ph.classList.remove("long");var script=pick(ogJoiVariants[g]),i=0;
-  function step(){if(!ogJoiRun)return;if(i<script.length){document.getElementById("ogJoiText").textContent=script[i++];ogJoiStepTimer=setTimeout(step,7500);}else{var c=10;document.getElementById("ogJoiText").innerHTML="<span style=\"color:#ff4d4d\">"+pick(ogCumLines[g].last)+"</span>";document.getElementById("ogJoiCd").textContent=c;ogJoiCdTimer=setInterval(function(){if(!ogJoiRun){clearInterval(ogJoiCdTimer);return;}c--;document.getElementById("ogJoiCd").textContent=c;if(c<=0){clearInterval(ogJoiCdTimer);document.getElementById("ogJoiCd").textContent="CUM";document.getElementById("ogJoiText").innerHTML="<span style=\"color:#ff4d4d;font-size:1.25rem\">"+pick(ogCumLines[g].final)+"</span>";setTimeout(finishOgJoi,6000);}},1000);}}
-  step();
-}
+function runOgJoi(g,mode){if(ogJoiRun)return;document.getElementById("zaraChoice").style.display="none";document.getElementById("ogJoiBtn").style.display="none";ogJoiRun=true;var ph=document.getElementById("ogJoiPhoto");ph.src=ogPhotos[g];ph.style.display="block";document.getElementById("ogJoiGirl").textContent=g+(mode==="long"?" · Long":"");document.getElementById("ogJoiStop").style.display="inline-block";document.getElementById("ogJoiText").textContent="";document.getElementById("ogJoiCd").textContent="";if(g==="Zara"&&mode==="long"){ph.classList.add("long");var a=document.getElementById("zaraLongAudio");try{a.pause();a.currentTime=0;a.volume=1;a.muted=false;a.load();}catch(e){}a.onended=function(){finishOgJoi();};var p=a.play();if(p&&p.then)p.catch(function(){document.getElementById("ogJoiText").textContent="Use localhost + joi_zara.mp3";});return;}ph.classList.remove("long");var script=pick(ogJoiVariants[g]),i=0;function step(){if(!ogJoiRun)return;if(i<script.length){document.getElementById("ogJoiText").textContent=script[i++];ogJoiStepTimer=setTimeout(step,7500);}else{var c=10;document.getElementById("ogJoiText").innerHTML="<span style=\"color:#ff3b5c\">"+pick(ogCumLines[g].last)+"</span>";document.getElementById("ogJoiCd").textContent=c;ogJoiCdTimer=setInterval(function(){if(!ogJoiRun){clearInterval(ogJoiCdTimer);return;}c--;document.getElementById("ogJoiCd").textContent=c;if(c<=0){clearInterval(ogJoiCdTimer);document.getElementById("ogJoiCd").textContent="CUM";document.getElementById("ogJoiText").innerHTML="<span style=\"color:#ff3b5c;font-size:1.2rem\">"+pick(ogCumLines[g].final)+"</span>";setTimeout(finishOgJoi,6000);}},1000);}}step();}
 function stopOgJoi(){try{var a=document.getElementById("zaraLongAudio");a.pause();a.currentTime=0;}catch(e){}finishOgJoi();}
 function finishOgJoi(){ogJoiRun=false;if(ogJoiStepTimer)clearTimeout(ogJoiStepTimer);if(ogJoiCdTimer)clearInterval(ogJoiCdTimer);try{var a=document.getElementById("zaraLongAudio");a.pause();a.currentTime=0;}catch(e){}document.getElementById("ogJoiGirl").textContent="";document.getElementById("ogJoiText").textContent="";document.getElementById("ogJoiCd").textContent="";var ph=document.getElementById("ogJoiPhoto");ph.style.display="none";ph.classList.remove("long");document.getElementById("ogJoiBtn").style.display="inline-block";document.getElementById("ogJoiStop").style.display="none";document.getElementById("zaraChoice").style.display="none";}
 function strokeChallenge(){document.getElementById("strokeOut").textContent=pick(["Esmee: Stroke slow 60s. Edge once.","Laia: Daddy — tip only until you leak. Edge.","Zara: Good boy. 30 fast. Stop. Edge.","Fleur: Spit. Edge three times."]);}
-
 const tonightLines={Esmee:["Esmee owns your cock tonight."],Fleur:["Fleur. Knees first."],Laia:["Laia gets daddy’s cock."],Zara:["Zara owns it, good boy."]};
 let wheelBusy=false,wheelRotation=0;
-function spinWheel(){if(wheelBusy)return;wheelBusy=true;document.getElementById("spinBtn").disabled=true;document.getElementById("tonightOut").textContent="";var idx=Math.floor(Math.random()*4),g=GIRLS[idx];wheelRotation+=(5+Math.floor(Math.random()*3))*360+((360-idx*90)%360);document.getElementById("wheel").style.transform="rotate("+wheelRotation+"deg)";setTimeout(function(){document.getElementById("tonightOut").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+tonightLines[g][0];wheelBusy=false;document.getElementById("spinBtn").disabled=false;},4800);}
-function pickPosition(){var g=randGirl(),p={Esmee:["Missionary — deep."],Fleur:["Doggy. Hard."],Laia:["Against the wall, daddy."],Zara:["She rides. You edge. Good boy."]};document.getElementById("posOut").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+p[g][0];}
-function jealousy(){var g=randGirl();document.getElementById("jealousOut").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>You chose her. The others get jealous.";}
+function spinWheel(){if(wheelBusy)return;wheelBusy=true;document.getElementById("spinBtn").disabled=true;document.getElementById("tonightOut").textContent="";var idx=Math.floor(Math.random()*4),g=GIRLS[idx];wheelRotation+=(5+Math.floor(Math.random()*3))*360+((360-idx*90)%360);document.getElementById("wheel").style.transform="rotate("+wheelRotation+"deg)";setTimeout(function(){document.getElementById("tonightOut").innerHTML="<strong style=\"color:#ff3b5c\">"+g+"</strong><br><br>"+tonightLines[g][0];wheelBusy=false;document.getElementById("spinBtn").disabled=false;},4800);}
+function pickPosition(){var g=randGirl(),p={Esmee:["Missionary — deep."],Fleur:["Doggy. Hard."],Laia:["Against the wall, daddy."],Zara:["She rides. You edge. Good boy."]};document.getElementById("posOut").innerHTML="<strong style=\"color:#ff3b5c\">"+g+"</strong><br><br>"+p[g][0];}
+function jealousy(){var g=randGirl();document.getElementById("jealousOut").innerHTML="<strong style=\"color:#ff3b5c\">"+g+"</strong><br><br>You chose her. The others get jealous.";}
 const edgeScripts={Esmee:["Stroke slow…","Faster…","Hands off.","Tip only…","Edge…","Stop."],Fleur:["Stroke…","Faster…","Hands off.","Balls…","Edge…","Stop."],Laia:["Slow, daddy…","Faster…","Hands off.","Tip…","Edge…","Stop daddy."],Zara:["Slow, good boy…","Faster…","Hands off.","Tip…","Edge…","Stop. Good boy."]};
 let edgeTimer=null;
 function startEdge(){if(edgeTimer)clearTimeout(edgeTimer);var g=randGirl(),steps=edgeScripts[g];document.getElementById("edgeBtn").disabled=true;document.getElementById("edgeGirl").textContent=g;var i=0;(function n(){if(i>=steps.length){document.getElementById("edgeText").textContent="Done.";document.getElementById("edgeGirl").textContent="";document.getElementById("edgeBtn").disabled=false;edgeTimer=null;return;}document.getElementById("edgeText").textContent=steps[i++];edgeTimer=setTimeout(n,4500);})();}
 const tributeLines={face:{Esmee:"Cover my face.",Fleur:"On my face.",Laia:"Paint my face, daddy.",Zara:"On my face. Good boy."},tits:{Esmee:"My tits.",Fleur:"My chest.",Laia:"My chest, daddy.",Zara:"My tits. Good boy."},mouth:{Esmee:"In my mouth.",Fleur:"I swallow.",Laia:"In my mouth, daddy.",Zara:"I swallow. Good boy."},inside:{Esmee:"Deep inside me.",Fleur:"Inside me.",Laia:"Fill me, daddy.",Zara:"Inside me. Good boy."},ass:{Esmee:"My ass.",Fleur:"My ass.",Laia:"My ass, daddy.",Zara:"My ass. Good boy."}};
-function tribute(){var g=randGirl(),p=pick(["face","tits","mouth","inside","ass"]);document.getElementById("tributeOut").innerHTML="<strong style=\"color:#ff4d4d\">"+g+" · "+p+"</strong><br><br>"+tributeLines[p][g];}
+function tribute(){var g=randGirl(),p=pick(["face","tits","mouth","inside","ass"]);document.getElementById("tributeOut").innerHTML="<strong style=\"color:#ff3b5c\">"+g+" · "+p+"</strong><br><br>"+tributeLines[p][g];}
 function groupVote(){document.getElementById("voteOut").innerHTML="<strong>Hardest:</strong> "+randGirl()+"<br><strong>Suck:</strong> "+randGirl()+"<br><strong>Fuck:</strong> "+randGirl()+"<br><strong>Edge:</strong> "+randGirl();}
-function showCare(){var g=randGirl(),c={Esmee:"Keep it soft for my mouth.",Fleur:"Tight and clean.",Laia:"Daddy — soft and clean for me.",Zara:"Keep it ready, good boy."};document.getElementById("careText").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+c[g];}
-function showWorship(){var g=randGirl(),w={Esmee:["I’d kiss the tip."],Fleur:["On my knees."],Laia:["Daddy… deep."],Zara:["Lick and stroke. Good boy."]};document.getElementById("worshipText").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+w[g][0];}
+function showCare(){var g=randGirl(),c={Esmee:"Keep it soft for my mouth.",Fleur:"Tight and clean.",Laia:"Daddy — soft and clean for me.",Zara:"Keep it ready, good boy."};document.getElementById("careText").innerHTML="<strong style=\"color:#ff3b5c\">"+g+"</strong><br><br>"+c[g];}
+function showWorship(){var g=randGirl(),w={Esmee:["I’d kiss the tip."],Fleur:["On my knees."],Laia:["Daddy… deep."],Zara:["Lick and stroke. Good boy."]};document.getElementById("worshipText").innerHTML="<strong style=\"color:#ff3b5c\">"+g+"</strong><br><br>"+w[g][0];}
 const rp={esmee:"Esmee: “Take it out.” You fill her.",fleur:"Fleur against the wall. Hard.",laia:"“Hi daddy.” You fill her.",zara:"She rides you.\n\n“Good boy.”",group:"All four. Zara: “Good boy.”"};
 function showRP(k){if(!k)k=pick(["esmee","fleur","laia","zara","group"]);document.getElementById("rpText").textContent=rp[k];}
 const joiVariants={Esmee:[["Don’t touch yet.","Soft grip for me.","Stroke slow.","Faster.","Hands off.","Tip only.","Edge.","Stroke + balls.","Faster. Hold.","One more edge. Stop."]],Fleur:[["Soft grip.","Stroke slow.","Faster. Messy.","Hands off.","Tip only.","Edge.","Full length.","Hold.","Again.","Stop."]],Laia:[["Hands still, daddy.","Soft for me.","Stroke slow, daddy.","Faster.","Hands off, daddy.","Tip only.","Edge.","Stroke + balls.","Hold it daddy.","One more edge."]],Zara:[["Hands still, good boy.","Soft grip.","Stroke slow.","Faster. Good boy.","Hands off.","Tip only.","Edge. Stop. Good boy.","Full length.","Hold the edge.","One more stop."]]};
@@ -426,8 +358,7 @@ const mainCum={Esmee:{last3:["Empty those balls for me."],final:["Cum for me."]}
 const prankLines={Esmee:["Not that easy."],Fleur:["Nice try."],Laia:["Not yet, daddy."],Zara:["Not yet, good boy."]};
 let joiRunning=false;
 document.getElementById("startJoi").onclick=function(){if(joiRunning)return;joiRunning=true;var girl=randGirl(),script=pick(joiVariants[girl]);document.getElementById("joiGirl").textContent=girl;document.getElementById("startJoi").style.display="none";document.getElementById("joiPhoto").style.display="none";var step=0;(function next(){if(step<script.length){document.getElementById("joiText").textContent=script[step++];document.getElementById("joiCountdown").textContent="";setTimeout(next,8500);}else startCum(girl);})();};
-function startCum(girl){var c=10,cd=document.getElementById("joiCountdown"),ph=document.getElementById("joiPhoto"),tx=document.getElementById("joiText");var doPrank=Math.random()<0.35,prankDone=false;tx.textContent="";cd.textContent=c;ph.style.display="none";var iv=setInterval(function(){c--;cd.textContent=c;if(doPrank&&!prankDone&&(c===5||c===4)){prankDone=true;clearInterval(iv);tx.innerHTML="<span style=\"color:#ff4d4d\">"+prankLines[girl][0]+"</span>";cd.textContent="";setTimeout(function(){var c2=8;cd.textContent=c2;var iv2=setInterval(function(){c2--;cd.textContent=c2;if(c2===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML="<span style=\"color:#ff4d4d\">"+mainCum[girl].last3[0]+"</span>";}if(c2<=0){clearInterval(iv2);cd.textContent="CUM";tx.innerHTML="<span style=\"color:#ff4d4d\">"+mainCum[girl].final[0]+"</span>";setTimeout(function(){document.getElementById("joiGirl").textContent="";tx.textContent="";cd.textContent="";ph.style.display="none";document.getElementById("startJoi").style.display="inline-block";joiRunning=false;},6500);}},1000);},4500);return;}if(c===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML="<span style=\"color:#ff4d4d\">"+mainCum[girl].last3[0]+"</span>";}if(c<=0){clearInterval(iv);cd.textContent="CUM";tx.innerHTML="<span style=\"color:#ff4d4d\">"+mainCum[girl].final[0]+"</span>";setTimeout(function(){document.getElementById("joiGirl").textContent="";tx.textContent="";cd.textContent="";ph.style.display="none";document.getElementById("startJoi").style.display="inline-block";joiRunning=false;},6500);}},1000);}
-
+function startCum(girl){var c=10,cd=document.getElementById("joiCountdown"),ph=document.getElementById("joiPhoto"),tx=document.getElementById("joiText");var doPrank=Math.random()<0.35,prankDone=false;tx.textContent="";cd.textContent=c;ph.style.display="none";var iv=setInterval(function(){c--;cd.textContent=c;if(doPrank&&!prankDone&&(c===5||c===4)){prankDone=true;clearInterval(iv);tx.innerHTML="<span style=\"color:#ff3b5c\">"+prankLines[girl][0]+"</span>";cd.textContent="";setTimeout(function(){var c2=8;cd.textContent=c2;var iv2=setInterval(function(){c2--;cd.textContent=c2;if(c2===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML="<span style=\"color:#ff3b5c\">"+mainCum[girl].last3[0]+"</span>";}if(c2<=0){clearInterval(iv2);cd.textContent="CUM";tx.innerHTML="<span style=\"color:#ff3b5c\">"+mainCum[girl].final[0]+"</span>";setTimeout(function(){document.getElementById("joiGirl").textContent="";tx.textContent="";cd.textContent="";ph.style.display="none";document.getElementById("startJoi").style.display="inline-block";joiRunning=false;},6500);}},1000);},4500);return;}if(c===3){ph.src=girlPhotos[girl];ph.style.display="block";tx.innerHTML="<span style=\"color:#ff3b5c\">"+mainCum[girl].last3[0]+"</span>";}if(c<=0){clearInterval(iv);cd.textContent="CUM";tx.innerHTML="<span style=\"color:#ff3b5c\">"+mainCum[girl].final[0]+"</span>";setTimeout(function(){document.getElementById("joiGirl").textContent="";tx.textContent="";cd.textContent="";ph.style.display="none";document.getElementById("startJoi").style.display="inline-block";joiRunning=false;},6500);}},1000);}
 const sounds={Fuck:new Audio("sounds_moan.mp3"),Marry:new Audio("sounds_marry.mp3"),Kiss:new Audio("sounds_kiss.mp3"),Kill:new Audio("sounds_kill.mp3")};
 Object.keys(sounds).forEach(function(k){try{sounds[k].volume=0.65;}catch(e){}});
 const allReactions={Esmee:["She freezes…","Bites her lip"],Fleur:["“oh my god”","Smirks"],Laia:["Mouth open","Cheeks flush"],Zara:["Flush","“that’s thick”"]};
@@ -437,7 +368,7 @@ function getNewReaction(g){var a=allReactions[g].filter(function(r){return usedR
 document.querySelectorAll(".flip-front").forEach(function(front){var card=front.closest(".flip-card"),nameEl=front.querySelector(".name");if(!nameEl)return;var g=nameEl.textContent.trim();card.addEventListener("mouseenter",function(){if(card.classList.contains("flipped"))return;currentGirl=g;cursorReaction.textContent=getNewReaction(g);cursorReaction.style.opacity="1";clearInterval(reactionInterval);reactionInterval=setInterval(function(){if(currentGirl===g)cursorReaction.textContent=getNewReaction(g);},10000);});card.addEventListener("mousemove",function(e){cursorReaction.style.left=e.clientX+"px";cursorReaction.style.top=e.clientY+"px";});card.addEventListener("mouseleave",function(){cursorReaction.style.opacity="0";clearInterval(reactionInterval);currentGirl=null;});});
 const reactionsDB={mouth:{Esmee:["I’d suck you deep."],Fleur:["Wet and messy."],Laia:["Deep, daddy."],Zara:["In my mouth, good boy."]},pussy:{Esmee:["Inside me."],Fleur:["Fuck me hard."],Laia:["Put it in me, daddy."],Zara:["Sink into me, good boy."]},ass:{Esmee:["My ass."],Fleur:["My ass."],Laia:["My ass, daddy."],Zara:["My ass, good boy."]},face:{Esmee:["On my face."],Fleur:["Cover me."],Laia:["My face, daddy."],Zara:["My face, good boy."]},tits:{Esmee:["My tits."],Fleur:["My tits."],Laia:["My tits, daddy."],Zara:["Between them, good boy."]},general:{Esmee:["Whatever you want."],Fleur:["Do it."],Laia:["Use me, daddy."],Zara:["Do it, good boy."]}};
 function detectCategory(t){t=t.toLowerCase();if(/blowjob|suck|mouth|oral/.test(t))return"mouth";if(/ass|anal/.test(t))return"ass";if(/pussy|inside|creampie|fuck you/.test(t))return"pussy";if(/face|facial/.test(t))return"face";if(/tit|breast/.test(t))return"tits";return"general";}
-function getReaction(){var text=document.getElementById("userDescribe").value.trim();if(!text)return;var g=randGirl();document.getElementById("describeReaction").innerHTML="<strong style=\"color:#ff4d4d\">"+g+"</strong><br><br>"+reactionsDB[detectCategory(text)][g][0];}
+function getReaction(){var text=document.getElementById("userDescribe").value.trim();if(!text)return;var g=randGirl();document.getElementById("describeReaction").innerHTML="<strong style=\"color:#ff3b5c\">"+g+"</strong><br><br>"+reactionsDB[detectCategory(text)][g][0];}
 function generateFantasy(){document.getElementById("fantasyText").textContent=pick(["Fleur on her knees","Esmee bent over","Laia, daddy","Zara edging her good boy"]);}
 function animateValue(id,start,end,dur){var obj=document.getElementById(id),range=end-start,t0=performance.now();(function upd(t){var p=Math.min((t-t0)/dur,1);obj.textContent=id==="views"?Math.floor(start+range*p).toLocaleString()+"+":Math.floor(start+range*p);if(p<1)requestAnimationFrame(upd);})(t0);}
 window.onload=function(){animateValue("views",0,50000,2200);animateValue("likes",0,165,1800);document.getElementById("quote").textContent='"'+pick(["This cock doesn’t miss","Built different","Thick, heavy and perfect"])+'"';var v=document.getElementById("siteBgVideo");v.muted=true;v.play().catch(function(){});};
