@@ -7,118 +7,70 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}
-body{
-  background:#000;color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",sans-serif;
-  -webkit-font-smoothing:antialiased;
-  cursor:url('cock-cursor.png') 24 32,auto;
-  overflow:hidden;
-}
-a,button,input,textarea,.icon-btn,.girl-card,.mem-card,.og-tile,.star,.fmk-ops button{
-  cursor:url('cock-cursor.png') 24 32,pointer;
-}
+body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",sans-serif;
+  -webkit-font-smoothing:antialiased;overflow:hidden;cursor:url('cock-cursor.png') 24 32,auto}
+button,input,textarea,select,.girl-card,.mem-card,.og-tile,.star,.icon-btn,.fmk-ops button,.photo-card{
+  cursor:url('cock-cursor.png') 24 32,pointer}
+
 #bg{position:fixed;inset:0;z-index:0}
 #bg video{width:100%;height:100%;object-fit:cover}
 #bg .veil{position:absolute;inset:0;background:rgba(0,0,0,.55)}
 
-.screen{
-  position:fixed;inset:0;bottom:72px;z-index:2;
-  overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
-  display:none;padding-bottom:24px;
-}
+.screen{position:fixed;inset:0;bottom:72px;z-index:2;overflow-y:auto;overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;display:none;padding-bottom:24px}
 .screen.on{display:block}
 
-.tabbar{
-  position:fixed;left:0;right:0;bottom:0;z-index:50;height:72px;
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:50;height:72px;
   padding-bottom:env(safe-area-inset-bottom);padding-top:8px;
-  background:rgba(22,22,24,.92);backdrop-filter:saturate(200%) blur(24px);
-  -webkit-backdrop-filter:saturate(200%) blur(24px);
+  background:rgba(22,22,24,.94);backdrop-filter:blur(24px);
   border-top:0.5px solid rgba(255,255,255,.12);
-  display:flex;justify-content:space-around;align-items:flex-start;
-}
-.tab{
-  background:none;border:none;color:rgba(235,235,245,.4);
-  font-size:10px;font-weight:500;font-family:inherit;
-  display:flex;flex-direction:column;align-items:center;gap:3px;min-width:56px;
-}
-.tab svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6}
+  display:flex;justify-content:space-around;align-items:flex-start}
+.tab{background:none;border:none;color:rgba(235,235,245,.4);font-size:10px;font-weight:500;
+  font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:48px}
+.tab svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.6}
 .tab.on{color:#0a84ff}
 
-/* HOME — full cock visible */
-.home-wrap{padding:16px 16px 8px;max-width:520px;margin:0 auto}
-.home-wrap h1{font-size:32px;font-weight:700;letter-spacing:-.04em;line-height:1.1;margin:8px 0 4px}
-.home-wrap .sub{color:rgba(235,235,245,.55);font-size:15px;margin-bottom:16px}
-.cock-frame{
-  width:100%;
-  background:rgba(28,28,30,.92);
-  border-radius:20px;
-  border:0.5px solid rgba(255,255,255,.12);
-  padding:12px;
-  display:flex;align-items:center;justify-content:center;
-  min-height:min(58vh,520px);
-}
-.cock-frame img{
-  width:100%;
-  max-height:min(54vh,480px);
-  object-fit:contain;
-  object-position:center;
-  display:block;
-  border-radius:12px;
-}
-.widgets{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
-.widget{background:rgba(44,44,46,.85);backdrop-filter:blur(16px);border-radius:16px;padding:14px 8px;text-align:center;border:0.5px solid rgba(255,255,255,.1)}
-.widget b{display:block;font-size:20px;font-weight:600;color:#0a84ff}
-.widget span{font-size:11px;color:rgba(235,235,245,.4);text-transform:uppercase}
-.throb-pill{margin-top:12px;display:inline-flex;gap:6px;background:rgba(44,44,46,.9);border-radius:980px;padding:8px 14px;font-size:13px;border:0.5px solid rgba(255,255,255,.1)}
-.throb-pill em{color:#0a84ff;font-style:normal;font-weight:600}
-.sheet{margin:12px 0 0;padding:16px;background:rgba(28,28,30,.92);border-radius:18px;border:0.5px solid rgba(255,255,255,.08)}
+.home{padding:20px 16px;max-width:560px;margin:0 auto}
+.home h1{font-size:32px;font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:6px}
+.home .sub{color:rgba(235,235,245,.55);font-size:15px;margin-bottom:16px}
+.cock-box{width:100%;background:#111;border-radius:16px;border:1px solid rgba(255,255,255,.14);
+  padding:14px;min-height:50vh;display:flex;align-items:center;justify-content:center}
+.cock-box img{display:block;width:100%;height:auto;max-height:48vh;object-fit:contain;object-position:center}
+.widgets{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
+.widget{background:rgba(44,44,46,.9);border-radius:14px;padding:12px 8px;text-align:center;border:0.5px solid rgba(255,255,255,.1)}
+.widget b{display:block;font-size:18px;font-weight:700;color:#0a84ff}
+.widget span{font-size:10px;color:rgba(235,235,245,.4);text-transform:uppercase}
+.throb{margin-top:12px;display:inline-flex;gap:6px;background:rgba(44,44,46,.9);border-radius:999px;padding:8px 14px;font-size:13px;border:0.5px solid rgba(255,255,255,.1)}
+.throb em{color:#0a84ff;font-style:normal;font-weight:600}
+.sheet{margin-top:14px;padding:16px;background:rgba(28,28,30,.95);border-radius:16px;border:0.5px solid rgba(255,255,255,.08)}
 .sheet h3{font-size:15px;font-weight:600;margin-bottom:10px}
 .stars{display:flex;justify-content:center;gap:3px}
 .star{font-size:26px;color:rgba(255,255,255,.12);line-height:1}
 .star.active,.star:hover{color:#ffd60a}
-.rate-msg{text-align:center;font-size:12px;color:rgba(235,235,245,.4);margin-top:8px;min-height:16px}
+.rate-msg{text-align:center;font-size:12px;color:rgba(235,235,245,.4);margin-top:8px}
 
-.girls-head,.play-head{padding:20px 20px 6px}
-.girls-head h2,.play-head h2{font-size:28px;font-weight:700;letter-spacing:-.03em}
-.girls-head p,.play-head p{color:rgba(235,235,245,.45);font-size:14px}
-.h-scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 20px 28px;scrollbar-width:none}
+.head{padding:18px 18px 6px}
+.head h2{font-size:26px;font-weight:700;letter-spacing:-.03em}
+.head p{color:rgba(235,235,245,.45);font-size:13px;margin-top:2px}
+
+.h-scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 18px 28px;scrollbar-width:none}
 .h-scroll::-webkit-scrollbar{display:none}
-
-/* 3D flip cards */
-.girl-card{
-  flex:0 0 min(82vw,320px);scroll-snap-align:center;
-  height:min(72vw,440px);
-  perspective:1200px;
-  background:transparent;
-}
-.girl-inner{
-  position:relative;width:100%;height:100%;
-  transition:transform .7s cubic-bezier(.4,.0,.2,1);
-  transform-style:preserve-3d;
-}
+.girl-card{flex:0 0 min(80vw,300px);scroll-snap-align:center;height:min(70vw,420px);perspective:1200px}
+.girl-inner{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
 .girl-card.flipped .girl-inner{transform:rotateY(180deg)}
-.girl-face{
-  position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  border-radius:22px;overflow:hidden;
-  background:rgba(44,44,46,.95);
-  border:0.5px solid rgba(255,255,255,.12);
-  display:flex;flex-direction:column;
-}
+.girl-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border-radius:20px;overflow:hidden;background:rgba(44,44,46,.95);border:0.5px solid rgba(255,255,255,.12);display:flex;flex-direction:column}
 .girl-face.back{transform:rotateY(180deg);border-color:rgba(10,132,255,.4)}
-.girl-face img{
-  width:100%;flex:1;min-height:0;
-  object-fit:cover;object-position:center 12%;
-  display:block;background:#1c1c1e;
-}
+.girl-face img{width:100%;flex:1;min-height:0;object-fit:cover;object-position:center 12%;display:block;background:#1c1c1e}
 .girl-face.back img{object-fit:contain;object-position:center;background:#0a0a0a}
-.girl-face .meta{padding:12px 14px 14px;flex-shrink:0}
-.girl-face .meta strong{font-size:17px;font-weight:600}
+.girl-face .meta{padding:12px 14px;flex-shrink:0}
+.girl-face .meta strong{font-size:16px;font-weight:600}
 .girl-face .meta span{display:block;font-size:12px;color:rgba(235,235,245,.5);margin-top:3px;line-height:1.35}
 
-.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 8px;padding:18px 14px 40px;text-align:center}
+.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 8px;padding:16px 12px 40px;text-align:center}
 .icon-btn{background:none;border:none;color:#fff;font-family:inherit;padding:0;display:flex;flex-direction:column;align-items:center;gap:6px}
-.icon-btn .ico{width:58px;height:58px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 12px rgba(0,0,0,.35)}
-.icon-btn label{font-size:11px;color:rgba(235,235,245,.7);font-weight:500;max-width:72px;line-height:1.15}
+.icon-btn .ico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,.35)}
+.icon-btn label{font-size:10px;color:rgba(235,235,245,.7);font-weight:500;max-width:70px;line-height:1.15}
 .ico.b1{background:linear-gradient(180deg,#ff6b6b,#c0392b)}
 .ico.b2{background:linear-gradient(180deg,#a29bfe,#6c5ce7)}
 .ico.b3{background:linear-gradient(180deg,#fd79a8,#e84393)}
@@ -132,151 +84,105 @@ a,button,input,textarea,.icon-btn,.girl-card,.mem-card,.og-tile,.star,.fmk-ops b
 .ico.b11{background:linear-gradient(180deg,#ff9ff3,#f368e0)}
 .ico.b12{background:linear-gradient(180deg,#48dbfb,#0abde3)}
 
-/* FULLSCREEN modals */
 .modal-bg{display:none;position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.65);backdrop-filter:blur(8px)}
 .modal-bg.open{display:block}
-.modal{
-  position:fixed;left:0;right:0;top:0;bottom:0;z-index:90;
-  overflow-y:auto;-webkit-overflow-scrolling:touch;
-  background:#1c1c1e;
-  padding:max(16px,env(safe-area-inset-top)) 18px 100px;
-  transform:translateY(100%);
-  transition:transform .35s cubic-bezier(.32,.72,0,1);
-}
+.modal{position:fixed;inset:0;z-index:90;overflow-y:auto;background:#1c1c1e;
+  padding:max(16px,env(safe-area-inset-top)) 16px 90px;transform:translateY(100%);
+  transition:transform .32s cubic-bezier(.32,.72,0,1)}
 .modal.open{transform:translateY(0)}
-.modal .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.modal .topbar h2{font-size:22px;font-weight:700;letter-spacing:-.02em}
-.modal .hint{color:rgba(235,235,245,.45);font-size:14px;margin-bottom:16px;line-height:1.4}
-.modal .out{font-size:16px;line-height:1.55;min-height:28px;margin:14px 0;white-space:pre-line}
+.modal .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.modal .topbar h2{font-size:20px;font-weight:700}
+.modal .hint{color:rgba(235,235,245,.45);font-size:13px;margin-bottom:14px;line-height:1.4}
+.modal .out{font-size:15px;line-height:1.55;min-height:24px;margin:12px 0;white-space:pre-line}
 .modal .out strong{color:#0a84ff}
-.btn{display:inline-block;background:#0a84ff;color:#fff;border:none;padding:12px 22px;border-radius:980px;font-size:16px;font-weight:600;font-family:inherit;margin:4px 4px 4px 0}
-.btn:active{opacity:.8}
+.btn{display:inline-block;background:#0a84ff;color:#fff;border:none;padding:11px 18px;border-radius:980px;
+  font-size:15px;font-weight:600;font-family:inherit;margin:3px 3px 3px 0}
 .btn.ghost{background:rgba(120,120,128,.28);color:#0a84ff}
+.btn.close-x{background:rgba(120,120,128,.3);padding:8px 14px;font-size:13px}
 .btn:disabled{opacity:.35}
-.btn.close-x{background:rgba(120,120,128,.3);padding:8px 14px;font-size:14px}
-textarea,input[type=password]{width:100%;background:#2c2c2e;border:none;border-radius:12px;color:#fff;padding:14px;font-size:16px;font-family:inherit;margin:8px 0;outline:none}
-textarea{min-height:100px;resize:vertical}
+.btn.danger{background:#ff453a}
+textarea,input[type=password],input[type=file],select{
+  width:100%;background:#2c2c2e;border:none;border-radius:12px;color:#fff;padding:12px;font-size:15px;
+  font-family:inherit;margin:6px 0;outline:none}
+textarea{min-height:90px;resize:vertical}
+select{appearance:none}
 
-/* BIG wheel */
-.wheel-wrap{position:relative;width:min(92vw,380px);height:min(92vw,380px);margin:20px auto}
-.wheel-pointer{
-  position:absolute;top:-4px;left:50%;transform:translateX(-50%);z-index:5;
-  width:0;height:0;
-  border-left:16px solid transparent;border-right:16px solid transparent;
-  border-top:32px solid #0a84ff;
-  filter:drop-shadow(0 2px 6px rgba(0,0,0,.6));
-}
-.wheel{
-  width:100%;height:100%;border-radius:50%;
-  border:5px solid rgba(255,255,255,.12);
-  transition:transform 5s cubic-bezier(0.08,0.7,0.1,1);
-  background:conic-gradient(
-    from -45deg,
-    #0a84ff 0deg 90deg,
-    #0040dd 90deg 180deg,
-    #64d2ff 180deg 270deg,
-    #001a66 270deg 360deg
-  );
-  box-shadow:0 0 40px rgba(10,132,255,.25);
-}
+.wheel-wrap{position:relative;width:min(90vw,360px);height:min(90vw,360px);margin:18px auto}
+.wheel-pointer{position:absolute;top:-2px;left:50%;transform:translateX(-50%);z-index:5;
+  border-left:14px solid transparent;border-right:14px solid transparent;border-top:28px solid #0a84ff;
+  filter:drop-shadow(0 2px 6px #000)}
+.wheel{width:100%;height:100%;border-radius:50%;border:5px solid rgba(255,255,255,.12);
+  transition:transform 5s cubic-bezier(.08,.7,.1,1);
+  background:conic-gradient(from -45deg,#0a84ff 0 90deg,#0040dd 90deg 180deg,#64d2ff 180deg 270deg,#001a66 270deg 360deg)}
 .wheel-label{position:absolute;inset:0;pointer-events:none}
-.wheel-label span{
-  position:absolute;left:50%;top:50%;width:100px;text-align:center;
-  font-weight:800;font-size:15px;color:#fff;text-shadow:0 2px 4px #000;
-  transform-origin:0 0;
-}
-/* centers of segments: Esmee 0°, Fleur 90°, Laia 180°, Zara 270° — labels at mid of each quarter from -45 base */
+.wheel-label span{position:absolute;left:50%;top:50%;width:90px;text-align:center;font-weight:800;font-size:14px;
+  color:#fff;text-shadow:0 2px 4px #000;transform-origin:0 0}
 .wheel-label .l0{transform:rotate(0deg) translate(0,-42%) translateX(-50%)}
 .wheel-label .l1{transform:rotate(90deg) translate(0,-42%) translateX(-50%)}
 .wheel-label .l2{transform:rotate(180deg) translate(0,-42%) translateX(-50%)}
 .wheel-label .l3{transform:rotate(270deg) translate(0,-42%) translateX(-50%)}
-.wheel-center{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:48px;height:48px;border-radius:50%;background:#1c1c1e;
-  border:3px solid #0a84ff;z-index:4;
-}
+.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;
+  border-radius:50%;background:#1c1c1e;border:3px solid #0a84ff;z-index:4}
 
-/* FMKK — big faces */
-.fmk-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-.fmk-mini{background:#2c2c2e;border-radius:16px;overflow:hidden;text-align:center}
-.fmk-mini img{
-  width:100%;height:220px;
-  object-fit:cover;object-position:center 8%;
-  display:block;background:#1c1c1e;
-}
-.fmk-mini .n{font-size:14px;font-weight:600;padding:8px}
-.fmk-ops{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:0 8px 12px}
-.fmk-ops button{border:none;background:rgba(10,132,255,.18);color:#0a84ff;border-radius:8px;font-size:12px;padding:9px 0;font-family:inherit;font-weight:600}
+.fmk-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fmk-mini{background:#2c2c2e;border-radius:14px;overflow:hidden;text-align:center}
+.fmk-mini img{width:100%;height:200px;object-fit:cover;object-position:center 10%;display:block;background:#1c1c1e}
+.fmk-mini .n{font-size:13px;font-weight:600;padding:6px}
+.fmk-ops{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:0 6px 10px}
+.fmk-ops button{border:none;background:rgba(10,132,255,.18);color:#0a84ff;border-radius:8px;font-size:11px;padding:8px 0;font-family:inherit;font-weight:600}
 .fmk-ops button.on{background:#0a84ff;color:#fff}
 
-.priv-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:55vh;padding:40px 28px;text-align:center}
-.priv-lock .lock-ico{font-size:48px;margin-bottom:10px}
-.priv-lock h2{font-size:22px;font-weight:700}
-.priv-lock p{color:rgba(235,235,245,.4);font-size:14px;margin:8px 0 16px}
-.priv-content{display:none;padding:12px 12px 40px}
+.priv-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50vh;padding:40px 24px;text-align:center}
+.priv-content{display:none;padding:12px}
 .priv-content.show{display:block}
-.og-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-.og-tile{background:rgba(44,44,46,.95);border-radius:16px;overflow:hidden;border:0.5px solid rgba(255,255,255,.1);text-align:center}
-.og-tile img{
-  width:100%;height:200px;
-  object-fit:cover;object-position:center 10%;
-  background:#1c1c1e;display:block;
-}
-.og-tile span{display:block;padding:10px;font-size:14px;font-weight:600;color:#0a84ff}
-#ogBig{
-  width:100%;max-height:min(55vh,480px);
-  object-fit:contain;object-position:center top;
-  border-radius:14px;background:#000;display:block;
-}
-.mem-board{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:12px 0}
+.og-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.og-tile{background:rgba(44,44,46,.95);border-radius:14px;overflow:hidden;border:0.5px solid rgba(255,255,255,.1);text-align:center}
+.og-tile img{width:100%;height:180px;object-fit:cover;object-position:center 10%;background:#1c1c1e;display:block}
+.og-tile span{display:block;padding:8px;font-size:13px;font-weight:600;color:#0a84ff}
+#ogBig{width:100%;max-height:50vh;object-fit:contain;object-position:center top;border-radius:12px;background:#000;display:block}
+
+.mem-board{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
 .mem-card{aspect-ratio:1;perspective:600px}
 .mem-inner{width:100%;height:100%;transition:transform .35s;transform-style:preserve-3d;position:relative}
 .mem-card.flipped .mem-inner,.mem-card.matched .mem-inner{transform:rotateY(180deg)}
 .mem-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.mem-back{background:#3a3a3c;color:#0a84ff;font-weight:700;font-size:18px}
+.mem-back{background:#3a3a3c;color:#0a84ff;font-weight:700;font-size:16px}
 .mem-front{transform:rotateY(180deg);background:#000}
 .mem-front img{width:100%;height:100%;object-fit:cover;object-position:center 12%}
 .mem-card.matched .mem-front{box-shadow:inset 0 0 0 2px #30d158}
-.mem-status{font-size:13px;color:rgba(235,235,245,.4);text-align:center}
-.mem-win{display:none;margin-top:12px;padding:14px;background:#2c2c2e;border-radius:14px;font-size:14px;line-height:1.55;border:0.5px solid rgba(10,132,255,.3)}
+.mem-status{font-size:12px;color:rgba(235,235,245,.4);text-align:center}
+.mem-win{display:none;margin-top:10px;padding:12px;background:#2c2c2e;border-radius:12px;font-size:14px;line-height:1.5;border:0.5px solid rgba(10,132,255,.3)}
 .mem-win.show{display:block}
 
 .cams-wrap{padding:16px 10px 40px}
-.cams-wrap h2{font-size:28px;font-weight:700;padding:0 8px 12px}
-.cams-wrap iframe{
-  width:100%;height:min(70vh,560px);
-  border:none;border-radius:14px;margin-bottom:14px;background:#1c1c1e;
-  display:block;
-}
+.cams-wrap iframe{width:100%;height:min(65vh,520px);border:none;border-radius:12px;margin-bottom:12px;background:#1c1c1e;display:block}
 
-#cursor-reaction{
-  position:fixed;pointer-events:none;z-index:999;
-  background:rgba(44,44,46,.96);color:#0a84ff;padding:9px 12px;border-radius:10px;
-  font-size:13px;opacity:0;max-width:240px;border:0.5px solid rgba(255,255,255,.12);
-  transform:translate(12px,12px);transition:opacity .12s;
-}
+/* Photos tab */
+.drop-zone{margin:12px 16px;padding:32px 16px;text-align:center;border:2px dashed rgba(10,132,255,.55);
+  border-radius:16px;background:rgba(44,44,46,.7);transition:background .15s,border-color .15s}
+.drop-zone.over{background:rgba(10,132,255,.15);border-color:#0a84ff}
+.photo-lib{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 16px 40px}
+.photo-card{background:#2c2c2e;border-radius:12px;overflow:hidden;border:0.5px solid rgba(255,255,255,.08)}
+.photo-card img{width:100%;height:140px;object-fit:contain;background:#000;display:block}
+.photo-card .pc-body{padding:8px}
+.photo-card .pc-name{font-size:11px;color:rgba(235,235,245,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
+.photo-card select{font-size:12px;padding:8px;margin:0 0 6px}
 
-#joiFS{
-  display:none;position:fixed;inset:0;z-index:120;
-  background:rgba(0,0,0,.96);overflow-y:auto;text-align:center;
-  padding:56px 18px 48px;
-}
+#cursor-reaction{position:fixed;pointer-events:none;z-index:999;background:rgba(44,44,46,.96);color:#0a84ff;
+  padding:8px 12px;border-radius:10px;font-size:12px;opacity:0;max-width:220px;border:0.5px solid rgba(255,255,255,.12);
+  transform:translate(12px,12px);transition:opacity .12s}
+
+#joiFS{display:none;position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.96);overflow-y:auto;text-align:center;padding:52px 16px 40px}
 #joiFS.open{display:block}
-#joiFS .fs-close{
-  position:fixed;top:14px;right:14px;z-index:121;
-  background:rgba(120,120,128,.4);color:#fff;border:none;
-  border-radius:980px;padding:10px 16px;font-size:14px;font-weight:600;font-family:inherit;
-}
-#joiFS #joiGirl{color:#0a84ff;font-weight:600;font-size:22px;margin-bottom:12px;min-height:28px}
-#joiFS #joiPhoto{
-  width:min(440px,92vw);max-height:45vh;object-fit:contain;border-radius:18px;
-  margin:12px auto;display:none;border:0.5px solid rgba(255,255,255,.15);
-}
-#joiFS #joiText{font-size:22px;line-height:1.45;max-width:520px;margin:18px auto;min-height:72px;padding:0 8px}
-#joiFS #joiCountdown{font-size:72px;font-weight:700;color:#0a84ff;letter-spacing:-.04em;min-height:84px}
+#joiFS .fs-close{position:fixed;top:12px;right:12px;z-index:121;background:rgba(120,120,128,.4);color:#fff;border:none;
+  border-radius:980px;padding:10px 14px;font-size:13px;font-weight:600;font-family:inherit}
+#joiFS #joiGirl{color:#0a84ff;font-weight:600;font-size:20px;margin-bottom:10px;min-height:26px}
+#joiFS #joiPhoto{width:min(400px,90vw);max-height:42vh;object-fit:contain;border-radius:16px;margin:10px auto;display:none}
+#joiFS #joiText{font-size:20px;line-height:1.45;max-width:480px;margin:14px auto;min-height:64px}
+#joiFS #joiCountdown{font-size:64px;font-weight:700;color:#0a84ff;min-height:76px}
 
-.rp-block{background:#2c2c2e;border-radius:14px;padding:18px;font-size:15px;line-height:1.7;text-align:left;white-space:pre-line;margin-top:12px;max-height:55vh;overflow-y:auto}
-.care-block{background:#2c2c2e;border-radius:14px;padding:16px;font-size:15px;line-height:1.65;text-align:left;white-space:pre-line;margin-top:12px}
+.rp-block,.care-block{background:#2c2c2e;border-radius:12px;padding:14px;font-size:14px;line-height:1.65;
+  text-align:left;white-space:pre-line;margin-top:10px;max-height:50vh;overflow-y:auto}
 </style>
 </head>
 <body>
@@ -285,9 +191,7 @@ textarea{min-height:100px;resize:vertical}
   <video autoplay muted loop playsinline id="siteBgVideo"><source src="joi.mp4" type="video/mp4"></video>
   <div class="veil"></div>
 </div>
-<audio id="zaraLongAudio" preload="auto">
-  <source src="joi_zara.mp3" type="audio/mpeg">
-</audio>
+<audio id="zaraLongAudio" preload="auto"><source src="joi_zara.mp3" type="audio/mpeg"></audio>
 <div id="cursor-reaction"></div>
 
 <div id="joiFS">
@@ -301,18 +205,16 @@ textarea{min-height:100px;resize:vertical}
 
 <!-- HOME -->
 <div class="screen on" id="sc-home">
-  <div class="home-wrap">
+  <div class="home">
     <h1>Perfect<br>Symmetrical</h1>
     <p class="sub" id="quote"></p>
-    <div class="cock-frame">
-      <img src="cock.jpg" alt="Perfect symmetrical cock">
-    </div>
+    <div class="cock-box"><img id="img-cock" src="cock.jpg" alt="cock"></div>
     <div class="widgets">
       <div class="widget"><b id="views">0</b><span>Views</span></div>
       <div class="widget"><b id="likes">0</b><span>Likes</span></div>
       <div class="widget"><b>#1</b><span>Rated</span></div>
     </div>
-    <div class="throb-pill">Throbbing for <em id="throbbingFor">Esmee</em></div>
+    <div class="throb">Throbbing for <em id="throbbingFor">Esmee</em></div>
     <div class="sheet">
       <h3>Rate</h3>
       <div class="stars" id="stars">
@@ -326,30 +228,30 @@ textarea{min-height:100px;resize:vertical}
 
 <!-- GIRLS -->
 <div class="screen" id="sc-girls">
-  <div class="girls-head"><h2>Girls</h2><p>Hover for her reaction · tap to flip</p></div>
+  <div class="head"><h2>Girls</h2><p>Hover · tap to flip</p></div>
   <div class="h-scroll">
     <div class="girl-card" data-g="Esmee" onclick="this.classList.toggle('flipped')">
       <div class="girl-inner">
-        <div class="girl-face front"><img src="esmee.jpg" alt=""><div class="meta"><strong>Esmee</strong><span>Sexiest blonde in school</span></div></div>
-        <div class="girl-face back"><img src="2026-08-29_9cb40058-a7f4-e6f1-42e0-1b7f7f1491f0-main.jpg" alt=""><div class="meta"><strong>Esmee wants this</strong><span>Thick, symmetrical — she strokes for the shape and the weight</span></div></div>
+        <div class="girl-face front"><img id="img-esmee" src="esmee.jpg" alt=""><div class="meta"><strong>Esmee</strong><span>Sexiest blonde in school</span></div></div>
+        <div class="girl-face back"><img id="img-esmee_dick" src="2026-08-29_9cb40058-a7f4-e6f1-42e0-1b7f7f1491f0-main.jpg" alt=""><div class="meta"><strong>Esmee wants this</strong><span>Thick, symmetrical — for the shape and weight</span></div></div>
       </div>
     </div>
     <div class="girl-card" data-g="Fleur" onclick="this.classList.toggle('flipped')">
       <div class="girl-inner">
-        <div class="girl-face front"><img src="fleur1.png" alt=""><div class="meta"><strong>Fleur</strong><span>That mouth</span></div></div>
-        <div class="girl-face back"><img src="20260819_205630.jpg" alt=""><div class="meta"><strong>Fleur wants this</strong><span>She wants it messy on her tongue — full length, heavy tip</span></div></div>
+        <div class="girl-face front"><img id="img-fleur" src="fleur1.png" alt=""><div class="meta"><strong>Fleur</strong><span>That mouth</span></div></div>
+        <div class="girl-face back"><img id="img-fleur_dick" src="20260819_205630.jpg" alt=""><div class="meta"><strong>Fleur wants this</strong><span>Messy on her tongue — full length</span></div></div>
       </div>
     </div>
     <div class="girl-card" data-g="Laia" onclick="this.classList.toggle('flipped')">
       <div class="girl-inner">
-        <div class="girl-face front"><img src="laia.jpg" alt=""><div class="meta"><strong>Laia</strong><span>Daddy’s girl</span></div></div>
-        <div class="girl-face back"><img src="1000023134.jpg" alt=""><div class="meta"><strong>Laia wants this</strong><span>Daddy’s cock — she begs to feel every inch inside her</span></div></div>
+        <div class="girl-face front"><img id="img-laia" src="laia.jpg" alt=""><div class="meta"><strong>Laia</strong><span>Daddy’s girl</span></div></div>
+        <div class="girl-face back"><img id="img-laia_dick" src="1000023134.jpg" alt=""><div class="meta"><strong>Laia wants this</strong><span>Daddy’s cock — every inch</span></div></div>
       </div>
     </div>
     <div class="girl-card" data-g="Zara" onclick="this.classList.toggle('flipped')">
       <div class="girl-inner">
-        <div class="girl-face front"><img src="zara.png" alt=""><div class="meta"><strong>Zara</strong><span>Good boy energy</span></div></div>
-        <div class="girl-face back"><img src="1000023133.jpg" alt=""><div class="meta"><strong>Zara wants this</strong><span>She edges her good boy on this cock until he breaks</span></div></div>
+        <div class="girl-face front"><img id="img-zara" src="zara.png" alt=""><div class="meta"><strong>Zara</strong><span>Good boy energy</span></div></div>
+        <div class="girl-face back"><img id="img-zara_dick" src="1000023133.jpg" alt=""><div class="meta"><strong>Zara wants this</strong><span>She edges her good boy on this</span></div></div>
       </div>
     </div>
   </div>
@@ -357,7 +259,7 @@ textarea{min-height:100px;resize:vertical}
 
 <!-- PLAY -->
 <div class="screen" id="sc-play">
-  <div class="play-head"><h2>Play</h2><p>Tap an app</p></div>
+  <div class="head"><h2>Play</h2><p>Tap an app</p></div>
   <div class="app-grid">
     <button type="button" class="icon-btn" onclick="openModal('m-spin')"><div class="ico b1">🎡</div><label>Tonight</label></button>
     <button type="button" class="icon-btn" onclick="openModal('m-pos')"><div class="ico b2">🔥</div><label>Position</label></button>
@@ -377,20 +279,20 @@ textarea{min-height:100px;resize:vertical}
 <!-- PRIVATE -->
 <div class="screen" id="sc-private">
   <div class="priv-lock" id="privLock">
-    <div class="lock-ico">🔒</div>
-    <h2>Private</h2>
-    <p>Password required</p>
+    <div style="font-size:48px;margin-bottom:10px">🔒</div>
+    <h2 style="font-size:22px;font-weight:700">Private</h2>
+    <p style="color:rgba(235,235,245,.4);font-size:14px;margin:8px 0 14px">Password required</p>
     <input type="password" id="lockPass" placeholder="Password" autocomplete="off" style="max-width:240px;text-align:center">
     <button type="button" class="btn" onclick="tryUnlock()">Unlock</button>
     <div id="lockErr" style="color:#ff453a;font-size:13px;margin-top:8px;min-height:18px"></div>
   </div>
   <div class="priv-content" id="privContent">
-    <div class="play-head"><h2>OG Baiters</h2><p>Tap a face</p></div>
+    <div class="head"><h2>OG Baiters</h2><p>Tap a face</p></div>
     <div class="og-row">
-      <div class="og-tile" onclick="showOG('Esmee')"><img src="1000023063.jpg" alt=""><span>Esmee</span></div>
-      <div class="og-tile" onclick="showOG('Laia')"><img src="1000023022.jpg" alt=""><span>Laia</span></div>
-      <div class="og-tile" onclick="showOG('Zara')"><img src="561730229_18031902368720330_480763968379933635_n.jpg" alt=""><span>Zara</span></div>
-      <div class="og-tile" onclick="showOG('Fleur')"><img src="505125862_18281200171248124_8222232097518702848_n.jpg" alt=""><span>Fleur</span></div>
+      <div class="og-tile" onclick="showOG('Esmee')"><img id="img-og_esmee" src="1000023063.jpg" alt=""><span>Esmee</span></div>
+      <div class="og-tile" onclick="showOG('Laia')"><img id="img-og_laia" src="1000023022.jpg" alt=""><span>Laia</span></div>
+      <div class="og-tile" onclick="showOG('Zara')"><img id="img-og_zara" src="561730229_18031902368720330_480763968379933635_n.jpg" alt=""><span>Zara</span></div>
+      <div class="og-tile" onclick="showOG('Fleur')"><img id="img-og_fleur" src="505125862_18281200171248124_8222232097518702848_n.jpg" alt=""><span>Fleur</span></div>
     </div>
     <div class="sheet" id="ogDetail" style="display:none">
       <img id="ogBig" src="" alt="">
@@ -399,13 +301,13 @@ textarea{min-height:100px;resize:vertical}
       <button type="button" class="btn" onclick="ogNextFilth()">More</button>
       <button type="button" class="btn ghost" onclick="startStare()">Stare 10 min</button>
       <button type="button" class="btn ghost" onclick="document.getElementById('ogDetail').style.display='none'">Close</button>
-      <img id="starePhoto" style="display:none;width:100%;max-height:50vh;object-fit:contain;object-position:center top;margin-top:12px;border-radius:12px">
+      <img id="starePhoto" style="display:none;width:100%;max-height:45vh;object-fit:contain;margin-top:12px;border-radius:12px">
       <div id="stareTimer" style="font-size:32px;font-weight:700;color:#0a84ff;text-align:center"></div>
       <p id="stareText" style="font-size:14px;text-align:center;min-height:20px"></p>
     </div>
     <div class="sheet">
       <h3>Dirty Memory</h3>
-      <p class="mem-status" id="memStatus">Match all 8 · first match = dare when you win</p>
+      <p class="mem-status" id="memStatus">Match all 8 · first match = dare at win</p>
       <div class="mem-board" id="memBoard"></div>
       <button type="button" class="btn ghost" onclick="initMemory()">New game</button>
       <div class="mem-win" id="memSurprise"></div>
@@ -414,14 +316,14 @@ textarea{min-height:100px;resize:vertical}
       <h3>Private JOI</h3>
       <button type="button" class="btn" id="ogJoiBtn" onclick="startOgJoi()">Start</button>
       <div id="zaraChoice" style="display:none;margin-top:10px">
-        <p style="color:#0a84ff;font-size:14px;margin-bottom:8px">Zara — choose</p>
+        <p style="color:#0a84ff;font-size:14px;margin-bottom:8px">Zara</p>
         <button type="button" class="btn" onclick="runOgJoi('Zara','short')">Short</button>
         <button type="button" class="btn ghost" onclick="runOgJoi('Zara','long')">Long audio</button>
       </div>
       <div id="ogJoiGirl" style="color:#0a84ff;font-weight:600;margin-top:8px"></div>
-      <img id="ogJoiPhoto" src="" alt="" style="width:min(400px,100%);max-height:45vh;object-fit:contain;object-position:center top;border-radius:14px;margin:10px auto;display:none">
+      <img id="ogJoiPhoto" src="" alt="" style="width:min(360px,100%);max-height:40vh;object-fit:contain;border-radius:12px;margin:10px auto;display:none">
       <div id="ogJoiText" class="out"></div>
-      <div id="ogJoiCd" style="font-size:48px;font-weight:700;color:#0a84ff;text-align:center;min-height:56px"></div>
+      <div id="ogJoiCd" style="font-size:44px;font-weight:700;color:#0a84ff;text-align:center;min-height:52px"></div>
       <button type="button" class="btn ghost" id="ogJoiStop" style="display:none" onclick="stopOgJoi()">Stop</button>
     </div>
     <div class="sheet">
@@ -432,10 +334,28 @@ textarea{min-height:100px;resize:vertical}
   </div>
 </div>
 
+<!-- PHOTOS -->
+<div class="screen" id="sc-photos">
+  <div class="head">
+    <h2>Photos</h2>
+    <p>Drop into the site · saved here (this browser)</p>
+  </div>
+  <div class="drop-zone" id="dropZone">
+    <p style="font-size:16px;margin-bottom:6px">Drop photos here</p>
+    <p style="font-size:12px;color:rgba(235,235,245,.45);margin-bottom:12px">or choose files</p>
+    <label class="btn" style="display:inline-block">
+      Choose
+      <input type="file" id="photoInput" accept="image/*" multiple hidden>
+    </label>
+  </div>
+  <p style="padding:4px 16px;font-size:12px;color:rgba(235,235,245,.4)">Assign a slot so Home / Girls / Private use it</p>
+  <div class="photo-lib" id="photoLib"></div>
+</div>
+
 <!-- CAMS -->
 <div class="screen" id="sc-cams">
   <div class="cams-wrap">
-    <h2>Live</h2>
+    <h2 style="font-size:26px;font-weight:700;padding:0 8px 12px">Live</h2>
     <iframe src="https://cbxyz.com/in/?track=embed&campaign=h0Whk&tour=SHBY&room=shine_chanel" allowfullscreen></iframe>
     <iframe src="https://cbxyz.com/in/?track=embed&campaign=h0Whk&tour=nvfS" allowfullscreen></iframe>
   </div>
@@ -446,6 +366,7 @@ textarea{min-height:100px;resize:vertical}
   <button type="button" class="tab" data-sc="sc-girls" onclick="goTab(this)"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/><path d="M14 19c0-2 2-3.5 4.5-3.5S22 17 22 19"/></svg>Girls</button>
   <button type="button" class="tab" data-sc="sc-play" onclick="goTab(this)"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>Play</button>
   <button type="button" class="tab" data-sc="sc-private" onclick="goTab(this)"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>Private</button>
+  <button type="button" class="tab" data-sc="sc-photos" onclick="goTab(this)"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>Photos</button>
   <button type="button" class="tab" data-sc="sc-cams" onclick="goTab(this)"><svg viewBox="0 0 24 24"><path d="M3 7h12a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z"/><path d="M17 10l6-3v10l-6-3"/></svg>Live</button>
 </nav>
 
@@ -453,68 +374,57 @@ textarea{min-height:100px;resize:vertical}
 
 <div class="modal" id="m-spin">
   <div class="topbar"><h2>Tonight</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <p class="hint">Spin the wheel. One girl owns your cock for the night — she decides the pace, the position, and when you’re allowed to cum.</p>
+  <p class="hint">Spin. One girl owns your cock tonight — pace, position, when you cum.</p>
   <div class="wheel-wrap">
     <div class="wheel-pointer"></div>
     <div class="wheel" id="wheel">
-      <div class="wheel-label">
-        <span class="l0">Esmee</span><span class="l1">Fleur</span><span class="l2">Laia</span><span class="l3">Zara</span>
-      </div>
+      <div class="wheel-label"><span class="l0">Esmee</span><span class="l1">Fleur</span><span class="l2">Laia</span><span class="l3">Zara</span></div>
       <div class="wheel-center"></div>
     </div>
   </div>
   <button type="button" class="btn" id="spinBtn" onclick="spinWheel()">Spin</button>
   <div class="out" id="tonightOut"></div>
 </div>
-
 <div class="modal" id="m-pos">
   <div class="topbar"><h2>Position</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
   <p class="hint">She chooses how she takes you.</p>
   <button type="button" class="btn" onclick="pickPosition()">Let her choose</button>
   <div class="out" id="posOut"></div>
 </div>
-
 <div class="modal" id="m-edge">
-  <div class="topbar"><h2>Edge for her</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <p class="hint">Follow every step. Don’t cum.</p>
+  <div class="topbar"><h2>Edge</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
   <button type="button" class="btn" id="edgeBtn" onclick="startEdge()">Start</button>
   <div class="out" id="edgeGirl" style="color:#0a84ff;font-weight:600"></div>
   <div class="out" id="edgeText"></div>
 </div>
-
 <div class="modal" id="m-tribute">
-  <div class="topbar"><h2>Cum tribute</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <p class="hint">Random girl. Random place.</p>
+  <div class="topbar"><h2>Tribute</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
   <button type="button" class="btn" onclick="tribute()">Cum for her</button>
   <div class="out" id="tributeOut"></div>
 </div>
-
 <div class="modal" id="m-fmk">
-  <div class="topbar"><h2>Fuck · Marry · Kill · Kiss</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <p class="hint">One choice per girl</p>
+  <div class="topbar"><h2>FMKK</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
   <div class="fmk-row">
-    <div class="fmk-mini"><img src="esmee.jpg" alt="Esmee"><div class="n">Esmee</div><div class="fmk-ops"><button type="button" data-girl="Esmee" data-choice="Fuck">Fuck</button><button type="button" data-girl="Esmee" data-choice="Marry">Marry</button><button type="button" data-girl="Esmee" data-choice="Kill">Kill</button><button type="button" data-girl="Esmee" data-choice="Kiss">Kiss</button></div></div>
-    <div class="fmk-mini"><img src="fleur1.png" alt="Fleur"><div class="n">Fleur</div><div class="fmk-ops"><button type="button" data-girl="Fleur" data-choice="Fuck">Fuck</button><button type="button" data-girl="Fleur" data-choice="Marry">Marry</button><button type="button" data-girl="Fleur" data-choice="Kill">Kill</button><button type="button" data-girl="Fleur" data-choice="Kiss">Kiss</button></div></div>
-    <div class="fmk-mini"><img src="laia.jpg" alt="Laia"><div class="n">Laia</div><div class="fmk-ops"><button type="button" data-girl="Laia" data-choice="Fuck">Fuck</button><button type="button" data-girl="Laia" data-choice="Marry">Marry</button><button type="button" data-girl="Laia" data-choice="Kill">Kill</button><button type="button" data-girl="Laia" data-choice="Kiss">Kiss</button></div></div>
-    <div class="fmk-mini"><img src="zara.png" alt="Zara"><div class="n">Zara</div><div class="fmk-ops"><button type="button" data-girl="Zara" data-choice="Fuck">Fuck</button><button type="button" data-girl="Zara" data-choice="Marry">Marry</button><button type="button" data-girl="Zara" data-choice="Kill">Kill</button><button type="button" data-girl="Zara" data-choice="Kiss">Kiss</button></div></div>
+    <div class="fmk-mini"><img id="fmk-esmee" src="esmee.jpg" alt=""><div class="n">Esmee</div><div class="fmk-ops"><button type="button" data-girl="Esmee" data-choice="Fuck">Fuck</button><button type="button" data-girl="Esmee" data-choice="Marry">Marry</button><button type="button" data-girl="Esmee" data-choice="Kill">Kill</button><button type="button" data-girl="Esmee" data-choice="Kiss">Kiss</button></div></div>
+    <div class="fmk-mini"><img id="fmk-fleur" src="fleur1.png" alt=""><div class="n">Fleur</div><div class="fmk-ops"><button type="button" data-girl="Fleur" data-choice="Fuck">Fuck</button><button type="button" data-girl="Fleur" data-choice="Marry">Marry</button><button type="button" data-girl="Fleur" data-choice="Kill">Kill</button><button type="button" data-girl="Fleur" data-choice="Kiss">Kiss</button></div></div>
+    <div class="fmk-mini"><img id="fmk-laia" src="laia.jpg" alt=""><div class="n">Laia</div><div class="fmk-ops"><button type="button" data-girl="Laia" data-choice="Fuck">Fuck</button><button type="button" data-girl="Laia" data-choice="Marry">Marry</button><button type="button" data-girl="Laia" data-choice="Kill">Kill</button><button type="button" data-girl="Laia" data-choice="Kiss">Kiss</button></div></div>
+    <div class="fmk-mini"><img id="fmk-zara" src="zara.png" alt=""><div class="n">Zara</div><div class="fmk-ops"><button type="button" data-girl="Zara" data-choice="Fuck">Fuck</button><button type="button" data-girl="Zara" data-choice="Marry">Marry</button><button type="button" data-girl="Zara" data-choice="Kill">Kill</button><button type="button" data-girl="Zara" data-choice="Kiss">Kiss</button></div></div>
   </div>
   <div class="out" id="fmkResult"></div>
 </div>
-
 <div class="modal" id="m-jealous">
   <div class="topbar"><h2>Jealousy</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
   <button type="button" class="btn" onclick="jealousy()">Go</button>
   <div class="out" id="jealousOut"></div>
 </div>
 <div class="modal" id="m-vote">
-  <div class="topbar"><h2>Group vote</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
+  <div class="topbar"><h2>Vote</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
   <button type="button" class="btn" onclick="groupVote()">Vote</button>
   <div class="out" id="voteOut"></div>
 </div>
 <div class="modal" id="m-care">
   <div class="topbar"><h2>Cock care</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <p class="hint">She tells you exactly how to keep it for her.</p>
-  <button type="button" class="btn" onclick="showCare()">Show her rules</button>
+  <button type="button" class="btn" onclick="showCare()">Her rules</button>
   <div class="care-block" id="careText"></div>
 </div>
 <div class="modal" id="m-worship">
@@ -524,7 +434,6 @@ textarea{min-height:100px;resize:vertical}
 </div>
 <div class="modal" id="m-rp">
   <div class="topbar"><h2>Story</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <p class="hint">Long dirty scenes</p>
   <button type="button" class="btn" onclick="showRP()">Random</button>
   <button type="button" class="btn ghost" onclick="showRP('esmee')">Esmee</button>
   <button type="button" class="btn ghost" onclick="showRP('fleur')">Fleur</button>
@@ -535,7 +444,7 @@ textarea{min-height:100px;resize:vertical}
 </div>
 <div class="modal" id="m-tell">
   <div class="topbar"><h2>Tell her</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <textarea id="userDescribe" placeholder="What do you want to do…"></textarea>
+  <textarea id="userDescribe" placeholder="What do you want…"></textarea>
   <button type="button" class="btn" onclick="getReaction()">Send</button>
   <div class="out" id="describeReaction"></div>
 </div>
@@ -544,31 +453,42 @@ textarea{min-height:100px;resize:vertical}
 const PRIVATE_PASS="bonerbait";
 let privateUnlocked=sessionStorage.getItem("privOK")==="1";
 const GIRLS=["Esmee","Fleur","Laia","Zara"];
-const girlPhotos={Esmee:"esmee.jpg",Fleur:"fleur1.png",Laia:"laia.jpg",Zara:"zara.png"};
-const ogPhotos={
-  Esmee:"1000023063.jpg",
-  Laia:"1000023022.jpg",
-  Zara:"561730229_18031902368720330_480763968379933635_n.jpg",
-  Fleur:"505125862_18281200171248124_8222232097518702848_n.jpg"
+const DEFAULTS={
+  cock:"cock.jpg",
+  esmee:"esmee.jpg",fleur:"fleur1.png",laia:"laia.jpg",zara:"zara.png",
+  esmee_dick:"2026-08-29_9cb40058-a7f4-e6f1-42e0-1b7f7f1491f0-main.jpg",
+  fleur_dick:"20260819_205630.jpg",laia_dick:"1000023134.jpg",zara_dick:"1000023133.jpg",
+  og_esmee:"1000023063.jpg",og_laia:"1000023022.jpg",
+  og_zara:"561730229_18031902368720330_480763968379933635_n.jpg",
+  og_fleur:"505125862_18281200171248124_8222232097518702848_n.jpg"
 };
+const SLOTS=[
+  {id:"cock",label:"Main cock (Home)"},
+  {id:"esmee",label:"Esmee"},{id:"fleur",label:"Fleur"},{id:"laia",label:"Laia"},{id:"zara",label:"Zara"},
+  {id:"esmee_dick",label:"Esmee wants (flip)"},{id:"fleur_dick",label:"Fleur wants (flip)"},
+  {id:"laia_dick",label:"Laia wants (flip)"},{id:"zara_dick",label:"Zara wants (flip)"},
+  {id:"og_esmee",label:"OG Esmee"},{id:"og_laia",label:"OG Laia"},
+  {id:"og_zara",label:"OG Zara"},{id:"og_fleur",label:"OG Fleur"}
+];
 function randGirl(){return GIRLS[Math.floor(Math.random()*4)];}
 function pick(a){return a[Math.floor(Math.random()*a.length)];}
 
 function goTab(btn){
-  document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("on");});
-  document.querySelectorAll(".screen").forEach(function(s){s.classList.remove("on");});
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("on"));
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("on"));
   btn.classList.add("on");
   document.getElementById(btn.dataset.sc).classList.add("on");
   closeModal();
+  if(btn.dataset.sc==="sc-photos") renderPhotoLib();
 }
 function openModal(id){
   document.getElementById("modalBg").classList.add("open");
-  document.querySelectorAll(".modal").forEach(function(m){m.classList.remove("open");});
+  document.querySelectorAll(".modal").forEach(m=>m.classList.remove("open"));
   document.getElementById(id).classList.add("open");
 }
 function closeModal(){
   document.getElementById("modalBg").classList.remove("open");
-  document.querySelectorAll(".modal").forEach(function(m){m.classList.remove("open");});
+  document.querySelectorAll(".modal").forEach(m=>m.classList.remove("open"));
 }
 function openJoiFS(){document.getElementById("joiFS").classList.add("open");}
 function closeJoiFS(){document.getElementById("joiFS").classList.remove("open");}
@@ -578,70 +498,208 @@ function tryUnlock(){
     privateUnlocked=true;sessionStorage.setItem("privOK","1");
     document.getElementById("privLock").style.display="none";
     document.getElementById("privContent").classList.add("show");
-    try{document.getElementById("zaraLongAudio").load();}catch(e){}
   } else document.getElementById("lockErr").textContent="Wrong password.";
 }
-document.getElementById("lockPass").addEventListener("keydown",function(e){if(e.key==="Enter")tryUnlock();});
+document.getElementById("lockPass").addEventListener("keydown",e=>{if(e.key==="Enter")tryUnlock();});
 if(privateUnlocked){
   document.getElementById("privLock").style.display="none";
   document.getElementById("privContent").classList.add("show");
 }
 
-/* hover reactions */
+/* ========== INDEXEDDB PHOTOS ========== */
+function openDB(){
+  return new Promise((resolve,reject)=>{
+    const r=indexedDB.open("SymSitePhotos",1);
+    r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains("imgs")) r.result.createObjectStore("imgs",{keyPath:"id"});};
+    r.onsuccess=()=>resolve(r.result);
+    r.onerror=()=>reject(r.error);
+  });
+}
+function uid(){return "p_"+Date.now()+"_"+Math.random().toString(36).slice(2,8);}
+function fileToDataURL(file){
+  return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(fr.result);fr.onerror=rej;fr.readAsDataURL(file);});
+}
+async function saveFiles(files){
+  const db=await openDB();
+  for(const f of files){
+    if(!f.type.startsWith("image/")) continue;
+    const dataUrl=await fileToDataURL(f);
+    await new Promise((res,rej)=>{
+      const tx=db.transaction("imgs","readwrite");
+      tx.objectStore("imgs").put({id:uid(),name:f.name,dataUrl,t:Date.now()});
+      tx.oncomplete=res;tx.onerror=()=>rej(tx.error);
+    });
+  }
+  await renderPhotoLib();
+}
+async function listImages(){
+  const db=await openDB();
+  return new Promise((res,rej)=>{
+    const q=db.transaction("imgs").objectStore("imgs").getAll();
+    q.onsuccess=()=>res(q.result||[]);
+    q.onerror=()=>rej(q.error);
+  });
+}
+async function deleteImage(id){
+  const db=await openDB();
+  await new Promise((res,rej)=>{
+    const tx=db.transaction("imgs","readwrite");
+    tx.objectStore("imgs").delete(id);
+    tx.oncomplete=res;tx.onerror=()=>rej(tx.error);
+  });
+  const map=getSlotMap();
+  Object.keys(map).forEach(k=>{if(map[k]===id) delete map[k];});
+  localStorage.setItem("photoSlots",JSON.stringify(map));
+  await applySlotsToSite();
+  await renderPhotoLib();
+}
+function getSlotMap(){try{return JSON.parse(localStorage.getItem("photoSlots")||"{}");}catch(e){return {};}}
+function setSlot(slotId,imageId){
+  const map=getSlotMap();
+  if(!imageId) delete map[slotId]; else map[slotId]=imageId;
+  // one image per slot — clear same image from other slots optional
+  localStorage.setItem("photoSlots",JSON.stringify(map));
+  applySlotsToSite();
+  renderPhotoLib();
+}
+async function getImage(id){
+  const db=await openDB();
+  return new Promise((res,rej)=>{
+    const q=db.transaction("imgs").objectStore("imgs").get(id);
+    q.onsuccess=()=>res(q.result||null);
+    q.onerror=()=>rej(q.error);
+  });
+}
+async function applySlotsToSite(){
+  const map=getSlotMap();
+  for(const slot of SLOTS){
+    let src=DEFAULTS[slot.id];
+    if(map[slot.id]){
+      const img=await getImage(map[slot.id]);
+      if(img&&img.dataUrl) src=img.dataUrl;
+    }
+    const el=document.getElementById("img-"+slot.id);
+    if(el) el.src=src;
+    // FMKK mirrors girl faces
+    if(slot.id==="esmee"){const e=document.getElementById("fmk-esmee");if(e)e.src=src;}
+    if(slot.id==="fleur"){const e=document.getElementById("fmk-fleur");if(e)e.src=src;}
+    if(slot.id==="laia"){const e=document.getElementById("fmk-laia");if(e)e.src=src;}
+    if(slot.id==="zara"){const e=document.getElementById("fmk-zara");if(e)e.src=src;}
+  }
+  // girlPhotos for JOI uses assigned faces
+  window._girlSrc={
+    Esmee:document.getElementById("img-esmee").src,
+    Fleur:document.getElementById("img-fleur").src,
+    Laia:document.getElementById("img-laia").src,
+    Zara:document.getElementById("img-zara").src
+  };
+  window._ogSrc={
+    Esmee:document.getElementById("img-og_esmee").src,
+    Laia:document.getElementById("img-og_laia").src,
+    Zara:document.getElementById("img-og_zara").src,
+    Fleur:document.getElementById("img-og_fleur").src
+  };
+}
+async function renderPhotoLib(){
+  const list=await listImages();
+  const box=document.getElementById("photoLib");
+  const map=getSlotMap();
+  if(!list.length){
+    box.innerHTML='<p style="grid-column:1/-1;color:#666;font-size:14px">No photos yet. Drop some above.</p>';
+    return;
+  }
+  list.sort((a,b)=>b.t-a.t);
+  box.innerHTML=list.map(img=>{
+    const cur=Object.keys(map).find(k=>map[k]===img.id)||"";
+    const opts=SLOTS.map(s=>`<option value="${s.id}" ${cur===s.id?"selected":""}>${s.label}</option>`).join("");
+    return `<div class="photo-card">
+      <img src="${img.dataUrl}" alt="">
+      <div class="pc-body">
+        <div class="pc-name">${img.name||"photo"}</div>
+        <select onchange="setSlot(this.value,'${img.id}')">
+          <option value="">— not used —</option>
+          ${opts}
+        </select>
+        <button type="button" class="btn danger" style="width:100%;padding:8px;font-size:12px;margin:0" onclick="deleteImage('${img.id}')">Delete</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+// drop zone
+(function(){
+  const dz=document.getElementById("dropZone");
+  dz.addEventListener("dragover",e=>{e.preventDefault();dz.classList.add("over");});
+  dz.addEventListener("dragleave",()=>dz.classList.remove("over"));
+  dz.addEventListener("drop",e=>{
+    e.preventDefault();dz.classList.remove("over");
+    if(e.dataTransfer.files.length) saveFiles([...e.dataTransfer.files]);
+  });
+  document.getElementById("photoInput").onchange=e=>{
+    if(e.target.files.length) saveFiles([...e.target.files]);
+    e.target.value="";
+  };
+})();
+
+/* hover girls */
 const allReactions={
-  Esmee:["She freezes when she feels how thick it is…","Bites her lip staring at the shaft","Thighs press together","“Fuck… look at that symmetry”","Eyes drop and stay there"],
-  Fleur:["“oh my god” under her breath","Smirks like she already wants it in her mouth","Eyes drop to the tip","Licks her lips slow","Can’t hide the stare"],
-  Laia:["Mouth falls open a little","Hungry eyes, daddy","Cheeks flush","Breath catches","Stares like she’s already on her knees"],
-  Zara:["Flush spreads on her cheeks","“that’s thick…”","Can’t hide it, good boy","Pupils blown","Soft smile like she owns that cock"]
+  Esmee:["She freezes…","Bites her lip","Thighs press","Eyes drop"],
+  Fleur:["“oh my god”","Smirks","Licks her lips","Stares at the tip"],
+  Laia:["Mouth open","Hungry eyes, daddy","Cheeks flush","Breath catches"],
+  Zara:["Flush","“that’s thick”","Good boy stare","Soft smile"]
 };
 const usedReact={Esmee:[],Fleur:[],Laia:[],Zara:[]};
 const curReact=document.getElementById("cursor-reaction");
 function newReact(g){
-  var pool=allReactions[g].filter(function(r){return usedReact[g].indexOf(r)<0;});
+  let pool=allReactions[g].filter(r=>usedReact[g].indexOf(r)<0);
   if(!pool.length){usedReact[g]=[];pool=allReactions[g].slice();}
-  var c=pick(pool);usedReact[g].push(c);return c;
+  const c=pick(pool);usedReact[g].push(c);return c;
 }
-document.querySelectorAll(".girl-card").forEach(function(card){
-  var g=card.dataset.g, iv=null;
-  card.addEventListener("mouseenter",function(){
+document.querySelectorAll(".girl-card").forEach(card=>{
+  const g=card.dataset.g;let iv=null;
+  card.addEventListener("mouseenter",()=>{
     if(card.classList.contains("flipped"))return;
     curReact.textContent=newReact(g);curReact.style.opacity="1";
     clearInterval(iv);
-    iv=setInterval(function(){if(!card.classList.contains("flipped"))curReact.textContent=newReact(g);},10000);
+    iv=setInterval(()=>{if(!card.classList.contains("flipped"))curReact.textContent=newReact(g);},10000);
   });
-  card.addEventListener("mousemove",function(e){curReact.style.left=e.clientX+"px";curReact.style.top=e.clientY+"px";});
-  card.addEventListener("mouseleave",function(){curReact.style.opacity="0";clearInterval(iv);});
+  card.addEventListener("mousemove",e=>{curReact.style.left=e.clientX+"px";curReact.style.top=e.clientY+"px";});
+  card.addEventListener("mouseleave",()=>{curReact.style.opacity="0";clearInterval(iv);});
 });
 
 /* memory */
-const memPairs=[
-  {id:"e1",girl:"Esmee",src:"esmee.jpg"},{id:"e2",girl:"Esmee",src:"1000023063.jpg"},
-  {id:"l1",girl:"Laia",src:"laia.jpg"},{id:"l2",girl:"Laia",src:"1000023022.jpg"},
-  {id:"f1",girl:"Fleur",src:"fleur1.png"},{id:"f2",girl:"Fleur",src:"505125862_18281200171248124_8222232097518702848_n.jpg"},
-  {id:"z1",girl:"Zara",src:"zara.png"},{id:"z2",girl:"Zara",src:"561730229_18031902368720330_480763968379933635_n.jpg"}
+const memPairDefs=[
+  {id:"e1",girl:"Esmee",slot:"esmee"},{id:"e2",girl:"Esmee",slot:"og_esmee"},
+  {id:"l1",girl:"Laia",slot:"laia"},{id:"l2",girl:"Laia",slot:"og_laia"},
+  {id:"f1",girl:"Fleur",slot:"fleur"},{id:"f2",girl:"Fleur",slot:"og_fleur"},
+  {id:"z1",girl:"Zara",slot:"zara"},{id:"z2",girl:"Zara",slot:"og_zara"}
 ];
 const memSurprises={
-  Esmee:["You matched me first… stroke slow for my tits. Edge once — hands off. That load stays full for me.","First pair was me. Stroke like my tits are wrapped around it. Edge… stop. Don’t cum."],
-  Fleur:["First match was my mouth. Stroke messy, spit, edge hard, then stare at my lips. No cum.","You found me first. Fuck your fist like my mouth. Edge. Hands off."],
-  Laia:["Daddy… you matched me first. Stroke for my tits. Tip only until you leak. Edge once. Save it.","I was your first pair, daddy. Spit and stroke like my throat. Edge. Stop."],
-  Zara:["Good boy. You matched me first. Stroke for my face. Edge twice. That load is mine.","I was first. Soft grip, good boy. Edge. Stop. Hands behind your back and throb."]
+  Esmee:["You matched me first… stroke for my tits. Edge once. Hands off.","First pair was me. Edge… stop. Don’t cum."],
+  Fleur:["First match was my mouth. Stroke messy. Edge. No cum.","You found me first. Edge. Hands off."],
+  Laia:["Daddy… first match was me. Tip only until you leak. Edge. Save it.","Spit and stroke like my throat, daddy. Edge. Stop."],
+  Zara:["Good boy. First match was me. Edge twice. That load is mine.","Soft grip, good boy. Edge. Hands behind your back."]
 };
 let memLock=false,memFirst=null,memMatched=0,memFirstGirl=null;
-function shuffle(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
-function initMemory(){
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+async function initMemory(){
   memLock=false;memFirst=null;memMatched=0;memFirstGirl=null;
-  document.getElementById("memStatus").textContent="Match all 8 · first match = dare when you win";
+  document.getElementById("memStatus").textContent="Match all 8 · first match = dare at win";
   document.getElementById("memSurprise").classList.remove("show");
   document.getElementById("memSurprise").innerHTML="";
-  var deck=[];
-  memPairs.forEach(function(p){deck.push({id:p.id,girl:p.girl,src:p.src});deck.push({id:p.id,girl:p.girl,src:p.src});});
+  const deck=[];
+  for(const p of memPairDefs){
+    const el=document.getElementById("img-"+p.slot);
+    const src=el?el.src:DEFAULTS[p.slot];
+    deck.push({id:p.id,girl:p.girl,src});
+    deck.push({id:p.id,girl:p.girl,src});
+  }
   shuffle(deck);
-  var board=document.getElementById("memBoard");board.innerHTML="";
-  deck.forEach(function(card){
-    var el=document.createElement("div");
+  const board=document.getElementById("memBoard");board.innerHTML="";
+  deck.forEach(card=>{
+    const el=document.createElement("div");
     el.className="mem-card";el.dataset.id=card.id;el.dataset.girl=card.girl;
-    el.innerHTML='<div class="mem-inner"><div class="mem-face mem-back">?</div><div class="mem-face mem-front"><img src="'+card.src+'" alt=""></div></div>';
-    el.onclick=function(){memFlip(el);};
+    el.innerHTML=`<div class="mem-inner"><div class="mem-face mem-back">?</div><div class="mem-face mem-front"><img src="${card.src}" alt=""></div></div>`;
+    el.onclick=()=>memFlip(el);
     board.appendChild(el);
   });
 }
@@ -649,33 +707,33 @@ function memFlip(el){
   if(memLock||el.classList.contains("flipped")||el.classList.contains("matched"))return;
   el.classList.add("flipped");
   if(!memFirst){memFirst=el;return;}
-  memLock=true;var a=memFirst,b=el;
+  memLock=true;const a=memFirst,b=el;
   if(a.dataset.id===b.dataset.id){
     a.classList.add("matched");b.classList.add("matched");
     if(!memFirstGirl)memFirstGirl=a.dataset.girl;
     memMatched++;document.getElementById("memStatus").textContent=memMatched+"/8";
     memFirst=null;memLock=false;
     if(memMatched>=8){
-      var g=memFirstGirl||"Esmee";
-      var box=document.getElementById("memSurprise");
-      box.innerHTML="<strong style=\"color:#0a84ff\">Won · First: "+g+"</strong><br><br>"+pick(memSurprises[g]);
+      const g=memFirstGirl||"Esmee";
+      const box=document.getElementById("memSurprise");
+      box.innerHTML=`<strong style="color:#0a84ff">Won · First: ${g}</strong><br><br>${pick(memSurprises[g])}`;
       box.classList.add("show");
     }
-  } else setTimeout(function(){a.classList.remove("flipped");b.classList.remove("flipped");memFirst=null;memLock=false;},600);
+  } else setTimeout(()=>{a.classList.remove("flipped");b.classList.remove("flipped");memFirst=null;memLock=false;},600);
 }
-initMemory();
 
-const ogDesc={Esmee:"Sexiest blonde in school.",Laia:"Daddy’s girl energy.",Zara:"You’re her good boy the second this opens.",Fleur:"Kiss-mouth. Classic bait."};
+/* private OG */
+const ogDesc={Esmee:"Sexiest blonde in school.",Laia:"Daddy’s girl.",Zara:"You’re her good boy.",Fleur:"Kiss-mouth."};
 const ogFilth={
-  Esmee:["Don’t touch yet. Just look.","Stroke slow for my face.","Edge. Hands off."],
-  Laia:["Hi daddy… look at me.","Touch it for me. Slow.","Edge. Hold it, daddy."],
-  Zara:["Good boy. Eyes on me.","Stroke for me.","Edge. Hands off, good boy."],
+  Esmee:["Don’t touch yet.","Stroke for my face.","Edge. Hands off."],
+  Laia:["Hi daddy…","Touch it slow.","Edge. Hold it, daddy."],
+  Zara:["Good boy. Eyes on me.","Stroke for me.","Edge. Hands off."],
   Fleur:["Look at this mouth.","Stroke messy.","Edge. Stop."]
 };
 let ogCurrent=null,ogFilthI=0;
 function showOG(g){
   ogCurrent=g;ogFilthI=0;
-  document.getElementById("ogBig").src=ogPhotos[g];
+  document.getElementById("ogBig").src=(window._ogSrc&&window._ogSrc[g])||DEFAULTS["og_"+g.toLowerCase()];
   document.getElementById("ogDesc").textContent=ogDesc[g];
   document.getElementById("ogFilth").textContent=ogFilth[g][0];
   document.getElementById("ogDetail").style.display="block";
@@ -690,12 +748,13 @@ let stareIv=null;
 function startStare(g){
   if(!g)g=ogCurrent||randGirl();
   if(stareIv)clearInterval(stareIv);
-  var ph=document.getElementById("starePhoto");
-  ph.src=ogPhotos[g];ph.style.display="block";
+  const ph=document.getElementById("starePhoto");
+  ph.src=(window._ogSrc&&window._ogSrc[g])||DEFAULTS["og_"+g.toLowerCase()];
+  ph.style.display="block";
   document.getElementById("stareText").textContent="Don’t look away from "+g+".";
-  var left=600;
+  let left=600;
   function tick(){
-    var m=Math.floor(left/60),s=left%60;
+    const m=Math.floor(left/60),s=left%60;
     document.getElementById("stareTimer").textContent=m+":"+String(s).padStart(2,"0");
     if(left--<=0){clearInterval(stareIv);document.getElementById("stareText").textContent="Ten minutes.";}
   }
@@ -703,22 +762,16 @@ function startStare(g){
 }
 
 const ogJoiVariants={
-  Esmee:[["Look at me. Don’t touch yet.","Soft grip for me.","Stroke slow…","Faster. Leak for me.","Edge. Hands off.","Tip only.","Full strokes.","Edge again. Stop.","Hold it.","Almost…"]],
-  Laia:[["Hi daddy. Hands still.","Touch it slow for me.","Stroke, daddy.","Faster.","Hands off, daddy.","Tip only.","Edge for me.","Balls + stroke.","Hold it daddy.","One more edge."]],
-  Zara:[["Look at me, good boy. Hands still.","Soft grip.","Stroke slow…","Faster. Edge. Hands off.","Tip only.","Full strokes.","Edge. Stop. Good boy.","Balls. Keep them full.","Hold the edge.","One more stop."]],
-  Fleur:[["Look at this mouth.","Stroke slow.","Faster. Messy.","Edge. Stop.","Tip only.","Full strokes.","Edge again.","Build it. Don’t finish.","One more edge.","Hold every drop."]]
+  Esmee:[["Look at me. Don’t touch.","Soft grip.","Stroke slow.","Faster. Leak.","Edge. Hands off.","Tip only.","Full strokes.","Edge. Stop.","Hold it.","Almost…"]],
+  Laia:[["Hi daddy. Hands still.","Touch it slow.","Stroke, daddy.","Faster.","Hands off.","Tip only.","Edge.","Balls + stroke.","Hold it daddy.","One more edge."]],
+  Zara:[["Look at me, good boy.","Soft grip.","Stroke slow.","Faster. Edge. Hands off.","Tip only.","Full strokes.","Edge. Stop. Good boy.","Balls.","Hold.","One more stop."]],
+  Fleur:[["Look at this mouth.","Stroke slow.","Faster. Messy.","Edge. Stop.","Tip only.","Full strokes.","Edge.","Build it.","One more.","Hold every drop."]]
 };
-const ogCum={
-  Esmee:{l:"Empty those balls for my face.",f:"Cum. Now."},
-  Laia:{l:"Please daddy… give me that cum.",f:"Now daddy."},
-  Zara:{l:"Good boy. Give me that thick load.",f:"Cum. Good boy."},
-  Fleur:{l:"Every drop for this mouth.",f:"Cum. Right now."}
-};
+const ogCum={Esmee:{l:"Empty those balls for my face.",f:"Cum. Now."},Laia:{l:"Please daddy… that cum.",f:"Now daddy."},Zara:{l:"Thick load, good boy.",f:"Cum. Good boy."},Fleur:{l:"Every drop for this mouth.",f:"Cum."}};
 let ogJoiRun=false,ogJoiStepTimer=null,ogJoiCdTimer=null;
-
 function startOgJoi(){
   if(ogJoiRun)return;
-  var g=pick(GIRLS);
+  const g=pick(GIRLS);
   if(g==="Zara"){
     document.getElementById("ogJoiBtn").style.display="none";
     document.getElementById("zaraChoice").style.display="block";
@@ -726,79 +779,49 @@ function startOgJoi(){
   }
   runOgJoi(g,"short");
 }
-
 function runOgJoi(g,mode){
   if(ogJoiRun)return;
   document.getElementById("zaraChoice").style.display="none";
   document.getElementById("ogJoiBtn").style.display="none";
   ogJoiRun=true;
-  var ph=document.getElementById("ogJoiPhoto");
-  ph.src=ogPhotos[g];
+  const ph=document.getElementById("ogJoiPhoto");
+  ph.src=(window._ogSrc&&window._ogSrc[g])||DEFAULTS["og_"+g.toLowerCase()];
   ph.style.display="block";
-  document.getElementById("ogJoiGirl").textContent=g+(mode==="long"?" · Long audio":"");
+  document.getElementById("ogJoiGirl").textContent=g+(mode==="long"?" · Long":"");
   document.getElementById("ogJoiStop").style.display="inline-block";
   document.getElementById("ogJoiText").textContent="";
   document.getElementById("ogJoiCd").textContent="";
-
-  if(g==="Zara" && mode==="long"){
-    var a=document.getElementById("zaraLongAudio");
-    try{
-      a.pause();
-      a.currentTime=0;
-      a.muted=false;
-      a.volume=1.0;
-      a.load();
-    }catch(e){}
-    a.onended=function(){finishOgJoi();};
-    a.onerror=function(){
-      document.getElementById("ogJoiText").textContent="Audio file missing. Put joi_zara.mp3 next to index.html and open via http://localhost:8000";
-    };
-    var p=a.play();
-    if(p && p.then){
-      p.then(function(){
-        document.getElementById("ogJoiText").textContent="Audio playing… listen and stroke for her.";
-      }).catch(function(err){
-        document.getElementById("ogJoiText").textContent="Browser blocked audio. Click the page once, then press Long audio again. Also use localhost (not file://).";
-        console.log(err);
-      });
-    }
+  if(g==="Zara"&&mode==="long"){
+    const a=document.getElementById("zaraLongAudio");
+    try{a.pause();a.currentTime=0;a.muted=false;a.volume=1;a.load();}catch(e){}
+    a.onended=finishOgJoi;
+    a.onerror=()=>{document.getElementById("ogJoiText").textContent="Put joi_zara.mp3 next to index.html · open via localhost";};
+    const p=a.play();
+    if(p&&p.then)p.then(()=>{document.getElementById("ogJoiText").textContent="Audio playing…";}).catch(()=>{
+      document.getElementById("ogJoiText").textContent="Click page once, press Long again. Use http://localhost:8000";
+    });
     return;
   }
-
-  var script=pick(ogJoiVariants[g]), i=0;
+  const script=pick(ogJoiVariants[g]);let i=0;
   function step(){
     if(!ogJoiRun)return;
-    if(i<script.length){
-      document.getElementById("ogJoiText").textContent=script[i++];
-      ogJoiStepTimer=setTimeout(step,7500);
-    } else {
-      var c=10;
-      document.getElementById("ogJoiText").textContent=ogCum[g].l;
-      document.getElementById("ogJoiCd").textContent=c;
-      ogJoiCdTimer=setInterval(function(){
-        if(!ogJoiRun)return;
-        c--;
-        document.getElementById("ogJoiCd").textContent=c;
-        if(c<=0){
-          clearInterval(ogJoiCdTimer);
-          document.getElementById("ogJoiCd").textContent="CUM";
-          document.getElementById("ogJoiText").textContent=ogCum[g].f;
-          setTimeout(finishOgJoi,5000);
-        }
+    if(i<script.length){document.getElementById("ogJoiText").textContent=script[i++];ogJoiStepTimer=setTimeout(step,7500);}
+    else{
+      let c=10;document.getElementById("ogJoiText").textContent=ogCum[g].l;document.getElementById("ogJoiCd").textContent=c;
+      ogJoiCdTimer=setInterval(()=>{
+        if(!ogJoiRun)return;c--;document.getElementById("ogJoiCd").textContent=c;
+        if(c<=0){clearInterval(ogJoiCdTimer);document.getElementById("ogJoiCd").textContent="CUM";document.getElementById("ogJoiText").textContent=ogCum[g].f;setTimeout(finishOgJoi,5000);}
       },1000);
     }
   }
   step();
 }
-function stopOgJoi(){
-  try{var a=document.getElementById("zaraLongAudio");a.pause();a.currentTime=0;}catch(e){}
-  finishOgJoi();
-}
+function stopOgJoi(){try{const a=document.getElementById("zaraLongAudio");a.pause();a.currentTime=0;}catch(e){}finishOgJoi();}
 function finishOgJoi(){
   ogJoiRun=false;
   if(ogJoiStepTimer)clearTimeout(ogJoiStepTimer);
   if(ogJoiCdTimer)clearInterval(ogJoiCdTimer);
-  try{var a=document.getElementById("zaraLongAudio");a.pause();a.currentTime=0;}catch(e){}
+  try{const a=document.getElementById("zaraLongAudio");a.pause();a.currentTime=0;}catch(e){}
   document.getElementById("ogJoiGirl").textContent="";
   document.getElementById("ogJoiText").textContent="";
   document.getElementById("ogJoiCd").textContent="";
@@ -809,310 +832,138 @@ function finishOgJoi(){
 }
 function strokeChallenge(){
   document.getElementById("strokeOut").textContent=pick([
-    "Esmee: Stroke 60s staring at me. Edge once. No cum.",
-    "Laia: Daddy — tip only until you leak. Then edge. Hands off.",
-    "Zara: Good boy. 30 fast. Stop. 30 slow. Edge.",
-    "Fleur: Spit. Full strokes. Edge three times. Hold the third."
+    "Esmee: Stroke 60s. Edge once.","Laia: Daddy — tip only until leak.","Zara: Good boy. 30 fast. Stop. Edge.","Fleur: Spit. Edge ×3."
   ]);
 }
 
-/* WHEEL — land in CENTER of segment, not on edge
-   Segments with conic from -45deg:
-   Esmee: -45 to 45  → center at 0°
-   Fleur: 45 to 135  → center at 90°
-   Laia:  135 to 225 → center at 180°
-   Zara:  225 to 315 → center at 270°
-   Pointer is at top. We rotate wheel so segment center ends under pointer.
-*/
-let wheelBusy=false, wheelRotation=0;
+let wheelBusy=false,wheelRotation=0;
 function spinWheel(){
-  if(wheelBusy)return;
-  wheelBusy=true;
-  document.getElementById("spinBtn").disabled=true;
+  if(wheelBusy)return;wheelBusy=true;document.getElementById("spinBtn").disabled=true;
   document.getElementById("tonightOut").textContent="";
-  var idx=Math.floor(Math.random()*4); // 0 Esmee, 1 Fleur, 2 Laia, 3 Zara
-  var g=GIRLS[idx];
-  // To put segment center under top pointer: rotate by (360 - centerAngle) plus full spins
-  // center angles: 0, 90, 180, 270
-  var centerAngle=idx*90;
-  var target=(360-centerAngle)%360;
-  // small random jitter INSIDE segment only (±20°) so it never lands on the border
-  var jitter=(Math.random()*40)-20;
-  var spins=6+Math.floor(Math.random()*3);
-  wheelRotation+=spins*360+target+jitter;
+  const idx=Math.floor(Math.random()*4),g=GIRLS[idx];
+  const center=idx*90,target=(360-center)%360,jitter=(Math.random()*40)-20;
+  wheelRotation+=(6+Math.floor(Math.random()*3))*360+target+jitter;
   document.getElementById("wheel").style.transform="rotate("+wheelRotation+"deg)";
-  setTimeout(function(){
-    var lines={
-      Esmee:"Esmee owns your cock tonight. Soft strokes first — then every inch until you empty inside her.",
-      Fleur:"Fleur gets it. Knees first, that mouth, then bent over hard.",
-      Laia:"Laia gets daddy’s cock. She’ll beg, suck, and take every drop.",
-      Zara:"Zara owns it, good boy. She edges you first — you cum when she says."
-    };
+  setTimeout(()=>{
+    const lines={Esmee:"Esmee owns it tonight.",Fleur:"Fleur. Knees first, then hard.",Laia:"Laia gets daddy’s cock.",Zara:"Zara owns it, good boy."};
     document.getElementById("tonightOut").innerHTML="<strong>"+g+"</strong>\n"+lines[g];
-    wheelBusy=false;
-    document.getElementById("spinBtn").disabled=false;
+    wheelBusy=false;document.getElementById("spinBtn").disabled=false;
   },5200);
 }
-
 function pickPosition(){
-  var g=randGirl();
-  var p={Esmee:"Missionary — eyes on you, deep and slow.",Fleur:"Doggy. Hard. No mercy.",Laia:"Against the wall, moaning daddy.",Zara:"She rides. You edge. Good boy stays still until she allows it."};
+  const g=randGirl(),p={Esmee:"Missionary — deep.",Fleur:"Doggy. Hard.",Laia:"Wall, moaning daddy.",Zara:"She rides. You edge. Good boy."};
   document.getElementById("posOut").innerHTML="<strong>"+g+"</strong>\n"+p[g];
 }
 function jealousy(){
-  var g=randGirl();
-  var s={
-    Esmee:"You pull Esmee close. Fleur mutters she’d drain you better. Laia whispers she’d be wetter for daddy. Zara smirks — longer edge for her good boy.",
-    Fleur:"Fleur grips you. Esmee softens. Laia waits on her knees. Zara takes seconds — good boy earns it.",
-    Laia:"Laia’s quiet daddy energy makes the others restless. Esmee claims she’s wetter. Fleur wants next. Zara makes you suffer first.",
-    Zara:"Zara nods. Good boy. Esmee would suck deeper. Fleur finishes after. Laia wants next on her knees."
-  };
-  document.getElementById("jealousOut").innerHTML="<strong>"+g+"</strong>\n"+s[g];
+  document.getElementById("jealousOut").innerHTML="<strong>"+randGirl()+"</strong>\nShe gets you. The others get jealous.";
 }
 const edgeScripts={
-  Esmee:["Stroke slow for me…","Faster…","Hands off.","Tip only…","Edge…","Stop. Hold it for me."],
+  Esmee:["Stroke slow…","Faster…","Hands off.","Tip…","Edge…","Stop."],
   Fleur:["Stroke…","Faster…","Hands off.","Balls…","Edge…","Stop."],
   Laia:["Slow, daddy…","Faster…","Hands off.","Tip…","Edge…","Stop daddy."],
-  Zara:["Slow, good boy…","Faster…","Hands off.","Tip…","Edge…","Stop. Good boy."]
+  Zara:["Slow, good boy…","Faster…","Hands off.","Tip…","Edge…","Stop."]
 };
 let edgeTimer=null;
 function startEdge(){
   if(edgeTimer)clearTimeout(edgeTimer);
-  var g=randGirl(),s=edgeScripts[g];
+  const g=randGirl(),s=edgeScripts[g];
   document.getElementById("edgeBtn").disabled=true;
   document.getElementById("edgeGirl").textContent=g;
-  var i=0;
+  let i=0;
   (function n(){
-    if(i>=s.length){
-      document.getElementById("edgeText").textContent="Done. That load is heavier now.";
-      document.getElementById("edgeBtn").disabled=false;return;
-    }
-    document.getElementById("edgeText").textContent=s[i++];
-    edgeTimer=setTimeout(n,4500);
+    if(i>=s.length){document.getElementById("edgeText").textContent="Done.";document.getElementById("edgeBtn").disabled=false;return;}
+    document.getElementById("edgeText").textContent=s[i++];edgeTimer=setTimeout(n,4500);
   })();
 }
-const trib={
-  face:{Esmee:"Cover my face.",Fleur:"On my face.",Laia:"Paint my face, daddy.",Zara:"On my face. Good boy."},
-  tits:{Esmee:"My tits.",Fleur:"My chest.",Laia:"My chest, daddy.",Zara:"My tits. Good boy."},
-  mouth:{Esmee:"In my mouth.",Fleur:"I swallow.",Laia:"My mouth, daddy.",Zara:"I swallow. Good boy."},
-  inside:{Esmee:"Deep inside me.",Fleur:"Inside me.",Laia:"Fill me, daddy.",Zara:"Inside me. Good boy."},
-  ass:{Esmee:"My ass.",Fleur:"My ass.",Laia:"My ass, daddy.",Zara:"My ass. Good boy."}
-};
-function tribute(){
-  var g=randGirl(),p=pick(["face","tits","mouth","inside","ass"]);
-  document.getElementById("tributeOut").innerHTML="<strong>"+g+" · "+p+"</strong>\n"+trib[p][g];
-}
-function groupVote(){
-  document.getElementById("voteOut").textContent="Hardest: "+randGirl()+"\nSuck: "+randGirl()+"\nFuck: "+randGirl()+"\nEdge: "+randGirl();
-}
-
-/* EXTENDED COCK CARE */
+const trib={face:{Esmee:"Cover my face.",Fleur:"On my face.",Laia:"Paint my face, daddy.",Zara:"On my face. Good boy."},tits:{Esmee:"My tits.",Fleur:"My chest.",Laia:"My chest, daddy.",Zara:"My tits. Good boy."},mouth:{Esmee:"In my mouth.",Fleur:"I swallow.",Laia:"My mouth, daddy.",Zara:"I swallow. Good boy."},inside:{Esmee:"Deep inside.",Fleur:"Inside me.",Laia:"Fill me, daddy.",Zara:"Inside me. Good boy."},ass:{Esmee:"My ass.",Fleur:"My ass.",Laia:"My ass, daddy.",Zara:"My ass. Good boy."}};
+function tribute(){const g=randGirl(),p=pick(["face","tits","mouth","inside","ass"]);document.getElementById("tributeOut").innerHTML="<strong>"+g+" · "+p+"</strong>\n"+trib[p][g];}
+function groupVote(){document.getElementById("voteOut").textContent="Hardest: "+randGirl()+"\nSuck: "+randGirl()+"\nFuck: "+randGirl()+"\nEdge: "+randGirl();}
 const careFull={
-Esmee:`Esmee’s rules for that cock:
-
-1. Wash it every morning with warm water — no harsh soap on the head.
-2. After you shower, pat dry. Never leave it damp under clothes.
-3. Once a day: a drop of clean oil or unscented cream. Stroke it in slow so the skin stays soft for my hands and mouth.
-4. If you edge at night, clean up properly after — I don’t want residue.
-5. Trim, don’t shave raw. I want it neat when I look down.
-6. No tight underwear all day — I want it hanging free when you get home.
-7. Before you see me: wash again. I taste everything.
-8. Keep the tip sensitive. Don’t rub it raw on rough fabric.
-9. When it’s hard for me, I want it shiny, clean, and heavy — not neglected.
-10. You take care of this cock because it’s the one I chose. Don’t half-ass it.`,
-
+Esmee:`Esmee’s rules:
+1. Wash every morning — warm water, soft on the head.
+2. Pat dry. Never leave damp.
+3. Light oil or cream once a day. Soft for my hands and mouth.
+4. Clean after edging.
+5. Trim neat.
+6. No tight underwear all day.
+7. Wash again before you see me.
+8. Keep the tip sensitive.
+9. I want it clean, heavy, ready.
+10. You take care of this because I chose it.`,
 Fleur:`Fleur’s rules:
-
-1. Clean shaft, clean balls, clean tip — every single day.
-2. I like it when the skin is soft. Use a light oil at night.
-3. If you cum, wash it off completely. I won’t put a sticky cock in my mouth.
-4. Keep the base tidy. I notice.
-5. Don’t overwash with soap — it kills the taste I want.
-6. After gym or sweat: rinse before you touch me.
-7. I want full blood flow. No sitting with it crushed for hours.
-8. When you stroke for me, use lube or spit — not dry friction that makes it red and angry.
-9. That tip stays smooth. No peeling, no neglect.
-10. I only get on my knees for a cock that looks looked-after. Yours better be.`,
-
+1. Clean shaft, balls, tip — daily.
+2. Soft skin. Light oil at night.
+3. After you cum — wash completely.
+4. Base tidy.
+5. Don’t over-soap.
+6. After sweat — rinse before me.
+7. Full blood flow. Don’t crush it for hours.
+8. Lube when stroking — not dry raw.
+9. Smooth tip.
+10. I only kneel for a looked-after cock.`,
 Laia:`Laia’s rules, daddy:
-
-1. Daddy keeps it soft and clean for me every morning.
-2. Warm water on the head. Gentle. I put that in my mouth.
-3. A little cream at night so it never feels rough against my skin.
-4. After you play with it, wash. I don’t want old cum when I kiss it.
-5. Trim neat for me. I like looking at it.
-6. Don’t hide it in tight pants all day — I want it full when I free it.
-7. Before bed if you’re hard for me: clean hands, clean cock.
-8. No harsh products. My tongue notices.
-9. When you edge thinking about me, still take care of it after.
-10. This cock is for me, daddy. You keep it perfect so I can spoil it.`,
-
+1. Soft and clean every morning.
+2. Warm water on the head. Gentle.
+3. Cream at night.
+4. Wash after play.
+5. Trim neat for me.
+6. Not crushed in tight pants.
+7. Clean hands, clean cock.
+8. No harsh products.
+9. Care after edging for me.
+10. This cock is for me, daddy.`,
 Zara:`Zara’s rules, good boy:
-
-1. Good boys wash their cock every day without being told.
-2. Soft skin. One drop of oil after the shower. Rub it in slow.
-3. I inspect. If it’s dirty, you don’t get my mouth.
-4. Keep balls clean too — I play with them.
-5. No dry stroking until it’s raw. Lube when you edge for me.
-6. After you leak, clean the tip. I want it presentable.
-7. Underwear that doesn’t choke it. I want it heavy and free.
-8. Before you see me: fresh wash. Non-negotiable.
-9. You maintain this cock like it belongs to me — because when I’m here, it does.
-10. Good boy keeps it ready. Always.`
+1. Wash every day without being told.
+2. Soft skin. Oil after shower.
+3. Dirty = no mouth.
+4. Balls clean too.
+5. Lube when you edge for me.
+6. Clean the tip after leaking.
+7. Underwear that doesn’t choke it.
+8. Fresh wash before me.
+9. Maintain it like it’s mine.
+10. Good boy keeps it ready.`
 };
-function showCare(){
-  var g=randGirl();
-  document.getElementById("careText").textContent=careFull[g];
-}
+function showCare(){document.getElementById("careText").textContent=careFull[randGirl()];}
 function showWorship(){
-  var g=randGirl();
-  var w={
-    Esmee:"I’d kiss the tip, taste the precum, then suck your balls while I stroke the shaft.",
-    Fleur:"On my knees, tongue from base to tip, messy and loud.",
-    Laia:"Daddy… on my knees, taking it deep until my eyes water.",
-    Zara:"I’d stroke and lick while you stay still. Throbbing on my tongue, good boy."
-  };
+  const g=randGirl(),w={Esmee:"Kiss the tip, taste precum, suck your balls.",Fleur:"On my knees, tongue base to tip.",Laia:"Daddy… deep until my eyes water.",Zara:"Stroke and lick. Stay still, good boy."};
   document.getElementById("worshipText").innerHTML="<strong>"+g+"</strong>\n"+w[g];
 }
-
 const rp={
-esmee:`Esmee is on the couch in that striped top, phone still in her hand like she just caught you staring.
-
-“Take it out,” she says quietly. “I want to see it.”
-
-You do. Her eyes drop and stay there. She bites her lip, slides closer, and wraps her fingers around the shaft — slow, testing the weight.
-
-“Fuck… it’s even thicker up close.”
-
-She strokes you while she watches your face. Then she leans down, lips on the tip, tongue tasting the precum before she takes more of you into her mouth. Wet, messy, deliberate.
-
-When she pulls off, she turns around, pulls her shorts down, and looks back over her shoulder.
-
-“Put it in. Slow first… then I want all of it.”
-
-You push into her. She’s tight and already soaked. She moans into the cushion as you start fucking her deeper, harder, hands on her hips. She tells you not to stop — tells you she wants to feel you throb when you fill her.
-
-When you get close she tightens around you.
-
-“Do it. Empty it inside me.”
-
-You cum hard. She stays there a second longer, breathing, then laughs softly.
-
-“Yeah. That’s what I wanted.”`,
-
-fleur:`Fleur has you against the wall before you fully process it. That mouth is already on yours, then on your neck, then she’s on her knees.
-
-She doesn’t tease for long. She spits on your cock, wraps both hands around it, and sucks the head like she’s starving. Eyes up. Messy. Loud.
-
-“You taste so fucking good,” she mutters between strokes of her tongue.
-
-She stands, turns, braces on the table, and pushes back into you.
-
-“Don’t be gentle.”
-
-You fuck her hard. The sound of skin, her moans, her telling you deeper — faster. She reaches back to spread herself so you can see everything.
-
-When you’re about to lose it she says:
-
-“On my face. I want it.”
-
-You pull out. She drops to her knees again and takes every rope across her lips and tongue, then swallows what lands in her mouth.
-
-She wipes the corner of her smile with her thumb.
-
-“Again sometime. Soon.”`,
-
-laia:`“Hi daddy.”
-
-Laia’s voice is soft but her eyes aren’t. She’s already tugging at your waistband, already on her knees, already looking up like she’s been waiting all day.
-
-She takes you into her mouth slow at first — careful — then deeper, gagging a little and moaning around it like she likes that. Spit runs down the shaft. She strokes what she can’t fit and never breaks eye contact.
-
-“Is that good, daddy?”
-
-You pull her up, bend her over the bed, and slide into her from behind. She gasps your name mixed with daddy, fingers twisting in the sheets.
-
-“Harder… please… I can take it.”
-
-You fuck her until her legs shake. When you tell her you’re close she pushes back onto every thrust.
-
-“Inside. Please daddy. Fill me.”
-
-You empty into her. She stays full of you, breathing hard, then whispers:
-
-“Thank you, daddy.”`,
-
-zara:`Zara doesn’t rush. She makes you sit. She straddles your lap, fully clothed at first, grinding on the bulge until you’re leaking in your pants.
-
-“Good boy. Hands on my waist. Don’t you dare finish early.”
-
-She frees your cock, strokes it with two fingers only — cruel, light — then sinks down on it inch by inch until you’re buried. Her forehead against yours.
-
-“Feel that? That’s mine right now.”
-
-She rides slow. Then faster. Every time you throb too hard she stops completely and makes you breathe.
-
-“Edge for me. I own that load.”
-
-She builds you up three times to the brink. On the fourth she doesn’t stop. She rides you through it while you cum deep inside her, her voice in your ear:
-
-“That’s it. Good boy. Give me all of it.”
-
-She stays seated on you after, pulsing around you, smiling.
-
-“You did so well.”`,
-
-group:`All four of them in the room. Esmee on your left, Fleur already on her knees, Laia kissing your neck and calling you daddy, Zara holding your chin so you look at her.
-
-“Good boy,” Zara says. “They’re all going to use you.”
-
-Mouths and hands everywhere. Fleur takes you deepest. Esmee strokes what isn’t in a throat. Laia whispers filthy thank-yous. Zara decides when you’re allowed to get close — and when you have to stop.
-
-When she finally says “now,” you unload across tongues and lips and tits while they keep you twitching through it.
-
-Zara wipes your tip with her thumb and makes you watch her taste it.
-
-“Again later. We weren’t done with you.”`
+esmee:`Esmee on the couch. “Take it out.” She strokes, then takes you in her mouth — wet, deliberate. Turns around. “Put it in.” You fuck her deep until she says “Empty it inside me.” You do. “Yeah. That’s what I wanted.”`,
+fleur:`Fleur against the wall, then on her knees — messy, loud. “Don’t be gentle.” Hard from behind. “On my face.” She takes every rope. “Again. Soon.”`,
+laia:`“Hi daddy.” On her knees, deep, eye contact. You bend her over. “Harder… please.” “Inside. Please daddy.” You fill her. “Thank you, daddy.”`,
+zara:`She grinds, then sinks down. “Good boy. Don’t finish early.” Edges you three times. On the fourth she rides you through it. “That’s it. Good boy.”`,
+group:`All four. Mouths and hands. Zara decides when. “Now.” You unload across them. “Again later.”`
 };
-function showRP(k){
-  if(!k)k=pick(["esmee","fleur","laia","zara","group"]);
-  document.getElementById("rpText").textContent=rp[k];
-}
+function showRP(k){if(!k)k=pick(["esmee","fleur","laia","zara","group"]);document.getElementById("rpText").textContent=rp[k];}
 
 const joiV={
-  Esmee:[["Don’t touch yet. Just look and get hard for me.","Soft grip. Wrap your hand around it.","Stroke slow… up and down.","A little faster. Leak for me.","Slow down. Squeeze.","Close? Hands off. Breathe.","Tip only. Soft.","Full strokes. Edge.","Hands off. Stroke and balls.","Faster… hold it.","One more edge. Stop."]],
-  Fleur:[["Soft grip. Now.","Stroke slow like my fist.","Faster. Messy. Spit if you want.","Hands off. Breathe.","Tip only.","Edge for me. Stop.","Full length.","Hold the edge.","Again. Suffer.","Stop at the line."]],
-  Laia:[["Hands still, daddy.","Soft for me.","Stroke slow, daddy.","Faster. I love when you’re needy.","Hands off, daddy.","Tip only.","Edge.","Stroke and balls.","Hold it daddy.","One more edge. Stop."]],
-  Zara:[["Hands still, good boy.","Soft grip.","Stroke slow.","Faster. Good boy.","Hands off.","Tip only.","Edge. Stop. Good boy.","Full length.","Hold the edge.","One more stop."]]
+  Esmee:[["Don’t touch yet.","Soft grip.","Stroke slow.","Faster.","Hands off.","Tip only.","Edge.","Stroke + balls.","Hold.","One more edge. Stop."]],
+  Fleur:[["Soft grip.","Stroke slow.","Faster. Messy.","Hands off.","Tip.","Edge.","Full length.","Hold.","Again.","Stop."]],
+  Laia:[["Hands still, daddy.","Soft.","Stroke slow.","Faster.","Hands off.","Tip.","Edge.","Balls.","Hold it daddy.","One more edge."]],
+  Zara:[["Hands still, good boy.","Soft grip.","Stroke slow.","Faster.","Hands off.","Tip.","Edge. Stop. Good boy.","Full length.","Hold.","One more stop."]]
 };
-const mainCum={
-  Esmee:{l:"Empty those balls for me.",f:"Cum for me."},
-  Fleur:{l:"Every drop.",f:"Cum."},
-  Laia:{l:"Please daddy… that cum.",f:"Now daddy."},
-  Zara:{l:"Thick load, good boy.",f:"Cum. Good boy."}
-};
+const mainCum={Esmee:{l:"Empty those balls for me.",f:"Cum for me."},Fleur:{l:"Every drop.",f:"Cum."},Laia:{l:"Please daddy…",f:"Now daddy."},Zara:{l:"Thick load, good boy.",f:"Cum. Good boy."}};
 let joiRunning=false;
 document.getElementById("startJoi").onclick=function(){
-  if(joiRunning)return;
-  joiRunning=true;
-  var girl=randGirl(),script=pick(joiV[girl]);
+  if(joiRunning)return;joiRunning=true;
+  const girl=randGirl(),script=pick(joiV[girl]);
   document.getElementById("joiGirl").textContent=girl;
   document.getElementById("startJoi").style.display="none";
   document.getElementById("joiPhoto").style.display="none";
-  var step=0;
+  let step=0;
   (function next(){
     if(step<script.length){
       document.getElementById("joiText").textContent=script[step++];
       document.getElementById("joiCountdown").textContent="";
       setTimeout(next,8500);
     } else {
-      var c=10;
-      document.getElementById("joiCountdown").textContent=c;
-      var iv=setInterval(function(){
-        c--;
-        document.getElementById("joiCountdown").textContent=c;
+      let c=10;document.getElementById("joiCountdown").textContent=c;
+      const iv=setInterval(()=>{
+        c--;document.getElementById("joiCountdown").textContent=c;
         if(c===3){
-          document.getElementById("joiPhoto").src=girlPhotos[girl];
+          document.getElementById("joiPhoto").src=(window._girlSrc&&window._girlSrc[girl])||DEFAULTS[girl.toLowerCase()];
           document.getElementById("joiPhoto").style.display="block";
           document.getElementById("joiText").textContent=mainCum[girl].l;
         }
@@ -1120,7 +971,7 @@ document.getElementById("startJoi").onclick=function(){
           clearInterval(iv);
           document.getElementById("joiCountdown").textContent="CUM";
           document.getElementById("joiText").textContent=mainCum[girl].f;
-          setTimeout(function(){
+          setTimeout(()=>{
             document.getElementById("joiGirl").textContent="";
             document.getElementById("joiText").textContent="";
             document.getElementById("joiCountdown").textContent="";
@@ -1133,65 +984,45 @@ document.getElementById("startJoi").onclick=function(){
     }
   })();
 };
-
 function getReaction(){
-  var t=document.getElementById("userDescribe").value.trim().toLowerCase();
+  const t=document.getElementById("userDescribe").value.trim().toLowerCase();
   if(!t)return;
-  var g=randGirl(),line;
-  if(/blow|suck|mouth|oral/.test(t))line={Esmee:"I’d drop and suck you deep.",Fleur:"Wet and messy on my tongue.",Laia:"Deep in my throat, daddy.",Zara:"In my mouth, good boy."}[g];
-  else if(/ass|anal/.test(t))line={Esmee:"Take my ass.",Fleur:"Push into my ass.",Laia:"You can have my ass, daddy.",Zara:"My ass, good boy."}[g];
-  else if(/pussy|inside|creampie|fuck you|fuck me/.test(t))line={Esmee:"Inside me. Deep.",Fleur:"Fuck me hard.",Laia:"Put it in me, daddy.",Zara:"Sink into me, good boy."}[g];
-  else if(/face|facial/.test(t))line={Esmee:"On my face.",Fleur:"Cover me.",Laia:"My face, daddy.",Zara:"My face, good boy."}[g];
-  else if(/tit|breast/.test(t))line={Esmee:"Fuck my tits.",Fleur:"Between my tits.",Laia:"My tits, daddy.",Zara:"Between them, good boy."}[g];
-  else line={Esmee:"Whatever you want to me.",Fleur:"Come do it.",Laia:"Use me, daddy.",Zara:"Do it, good boy."}[g];
+  const g=randGirl();
+  let line;
+  if(/blow|suck|mouth|oral/.test(t)) line={Esmee:"I’d suck you deep.",Fleur:"Wet and messy.",Laia:"Deep, daddy.",Zara:"In my mouth, good boy."}[g];
+  else if(/ass|anal/.test(t)) line={Esmee:"My ass.",Fleur:"My ass.",Laia:"My ass, daddy.",Zara:"My ass, good boy."}[g];
+  else if(/pussy|inside|fuck/.test(t)) line={Esmee:"Inside me.",Fleur:"Fuck me hard.",Laia:"Put it in me, daddy.",Zara:"Sink into me, good boy."}[g];
+  else if(/face|facial/.test(t)) line={Esmee:"On my face.",Fleur:"Cover me.",Laia:"My face, daddy.",Zara:"My face, good boy."}[g];
+  else if(/tit|breast/.test(t)) line={Esmee:"My tits.",Fleur:"My tits.",Laia:"My tits, daddy.",Zara:"Between them, good boy."}[g];
+  else line={Esmee:"Whatever you want.",Fleur:"Do it.",Laia:"Use me, daddy.",Zara:"Do it, good boy."}[g];
   document.getElementById("describeReaction").innerHTML="<strong>"+g+"</strong>\n"+line;
 }
 
 function animateValue(id,start,end,dur){
-  var o=document.getElementById(id),r=end-start,t0=performance.now();
-  (function u(t){
-    var p=Math.min((t-t0)/dur,1);
-    o.textContent=id==="views"?Math.floor(start+r*p).toLocaleString()+"+":Math.floor(start+r*p);
-    if(p<1)requestAnimationFrame(u);
-  })(t0);
+  const o=document.getElementById(id),r=end-start,t0=performance.now();
+  (function u(t){const p=Math.min((t-t0)/dur,1);o.textContent=id==="views"?Math.floor(start+r*p).toLocaleString()+"+":Math.floor(start+r*p);if(p<1)requestAnimationFrame(u);})(t0);
 }
-window.onload=function(){
+window.onload=async function(){
   animateValue("views",0,50000,2000);
   animateValue("likes",0,165,1600);
   document.getElementById("quote").textContent=pick(["This cock doesn’t miss.","Built different.","Thick, heavy, perfect."]);
-  document.getElementById("siteBgVideo").play().catch(function(){});
+  document.getElementById("siteBgVideo").play().catch(()=>{});
+  await applySlotsToSite();
+  await initMemory();
 };
 const stars=document.querySelectorAll(".star");
-var cur=localStorage.getItem("cockRating")||0;
-if(cur>0){
-  stars.forEach(function(s){s.classList.toggle("active",s.dataset.value<=cur);});
-  document.getElementById("ratingResult").textContent=cur+"/10";
-}
-stars.forEach(function(s){
-  s.onclick=function(){
-    var v=s.dataset.value;
-    localStorage.setItem("cockRating",v);
-    stars.forEach(function(x){x.classList.toggle("active",x.dataset.value<=v);});
-    document.getElementById("ratingResult").textContent=v+"/10";
-  };
-});
-setInterval(function(){
-  var el=document.getElementById("throbbingFor");
-  el.style.opacity=0;
-  setTimeout(function(){el.textContent=randGirl();el.style.opacity=1;},300);
-},9000);
-var fmk={};
-document.querySelectorAll(".fmk-ops button").forEach(function(b){
-  b.onclick=function(){
-    var g=b.dataset.girl,c=b.dataset.choice;
-    document.querySelectorAll('.fmk-ops button[data-girl="'+g+'"]').forEach(function(x){x.classList.remove("on");});
-    b.classList.add("on");
-    fmk[g]=c;
-    var h="";
-    ["Fuck","Marry","Kiss","Kill"].forEach(function(t){
-      var n=Object.keys(fmk).find(function(k){return fmk[k]===t;});
-      if(n)h+=t+": "+n+"\n";
-    });
+let cur=localStorage.getItem("cockRating")||0;
+if(cur>0){stars.forEach(s=>s.classList.toggle("active",s.dataset.value<=cur));document.getElementById("ratingResult").textContent=cur+"/10";}
+stars.forEach(s=>{s.onclick=()=>{const v=s.dataset.value;localStorage.setItem("cockRating",v);stars.forEach(x=>x.classList.toggle("active",x.dataset.value<=v));document.getElementById("ratingResult").textContent=v+"/10";};});
+setInterval(()=>{const el=document.getElementById("throbbingFor");el.style.opacity=0;setTimeout(()=>{el.textContent=randGirl();el.style.opacity=1;},300);},9000);
+const fmk={};
+document.querySelectorAll(".fmk-ops button").forEach(b=>{
+  b.onclick=()=>{
+    const g=b.dataset.girl,c=b.dataset.choice;
+    document.querySelectorAll('.fmk-ops button[data-girl="'+g+'"]').forEach(x=>x.classList.remove("on"));
+    b.classList.add("on");fmk[g]=c;
+    let h="";
+    ["Fuck","Marry","Kiss","Kill"].forEach(t=>{const n=Object.keys(fmk).find(k=>fmk[k]===t);if(n)h+=t+": "+n+"\n";});
     document.getElementById("fmkResult").textContent=h;
   };
 });
