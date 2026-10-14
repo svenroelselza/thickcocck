@@ -2,187 +2,87 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
 <title>Symmetrical</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%}
-body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",sans-serif;
-  -webkit-font-smoothing:antialiased;overflow:hidden;cursor:url('cock-cursor.png') 24 32,auto}
-button,input,textarea,select,.girl-card,.mem-card,.og-tile,.star,.icon-btn,.fmk-ops button,.photo-card{
-  cursor:url('cock-cursor.png') 24 32,pointer}
-
+body{background:#000;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",sans-serif;overflow:hidden}
+button,input,select,textarea{font-family:inherit}
 #bg{position:fixed;inset:0;z-index:0}
 #bg video{width:100%;height:100%;object-fit:cover}
 #bg .veil{position:absolute;inset:0;background:rgba(0,0,0,.55)}
-
-.screen{position:fixed;inset:0;bottom:72px;z-index:2;overflow-y:auto;overflow-x:hidden;
-  -webkit-overflow-scrolling:touch;display:none;padding-bottom:24px}
+.screen{position:fixed;inset:0;bottom:72px;z-index:2;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none;padding-bottom:28px}
 .screen.on{display:block}
-
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:50;height:72px;
-  padding-bottom:env(safe-area-inset-bottom);padding-top:8px;
-  background:rgba(22,22,24,.94);backdrop-filter:blur(24px);
-  border-top:0.5px solid rgba(255,255,255,.12);
-  display:flex;justify-content:space-around;align-items:flex-start}
-.tab{background:none;border:none;color:rgba(235,235,245,.4);font-size:10px;font-weight:500;
-  font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:48px}
-.tab svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.6}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:50;height:72px;padding-bottom:env(safe-area-inset-bottom);padding-top:8px;background:rgba(22,22,24,.94);backdrop-filter:blur(24px);border-top:.5px solid rgba(255,255,255,.12);display:flex;justify-content:space-around;align-items:flex-start}
+.tab{background:none;border:none;color:rgba(235,235,245,.4);font-size:10px;font-weight:500;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:44px}
 .tab.on{color:#0a84ff}
-
 .home{padding:20px 16px;max-width:560px;margin:0 auto}
 .home h1{font-size:32px;font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:6px}
 .home .sub{color:rgba(235,235,245,.55);font-size:15px;margin-bottom:16px}
-.cock-box{width:100%;background:#111;border-radius:16px;border:1px solid rgba(255,255,255,.14);
-  padding:14px;min-height:50vh;display:flex;align-items:center;justify-content:center}
-.cock-box img{display:block;width:100%;height:auto;max-height:48vh;object-fit:contain;object-position:center}
+.cock-box{width:100%;background:#111;border-radius:16px;border:1px solid rgba(255,255,255,.14);padding:14px;min-height:42vh;display:flex;align-items:center;justify-content:center}
+.cock-box img{display:block;width:100%;height:auto;max-height:48vh;object-fit:contain}
 .widgets{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
-.widget{background:rgba(44,44,46,.9);border-radius:14px;padding:12px 8px;text-align:center;border:0.5px solid rgba(255,255,255,.1)}
+.widget{background:rgba(44,44,46,.9);border-radius:14px;padding:12px 8px;text-align:center;border:.5px solid rgba(255,255,255,.1)}
 .widget b{display:block;font-size:18px;font-weight:700;color:#0a84ff}
 .widget span{font-size:10px;color:rgba(235,235,245,.4);text-transform:uppercase}
-.throb{margin-top:12px;display:inline-flex;gap:6px;background:rgba(44,44,46,.9);border-radius:999px;padding:8px 14px;font-size:13px;border:0.5px solid rgba(255,255,255,.1)}
-.throb em{color:#0a84ff;font-style:normal;font-weight:600}
-.sheet{margin-top:14px;padding:16px;background:rgba(28,28,30,.95);border-radius:16px;border:0.5px solid rgba(255,255,255,.08)}
-.sheet h3{font-size:15px;font-weight:600;margin-bottom:10px}
-.stars{display:flex;justify-content:center;gap:3px}
-.star{font-size:26px;color:rgba(255,255,255,.12);line-height:1}
-.star.active,.star:hover{color:#ffd60a}
-.rate-msg{text-align:center;font-size:12px;color:rgba(235,235,245,.4);margin-top:8px}
-
+.coins-bar{margin-top:12px;display:inline-flex;gap:8px;align-items:center;background:rgba(44,44,46,.95);border-radius:999px;padding:8px 14px;font-size:14px;border:.5px solid rgba(255,255,255,.1)}
+.coins-bar em{color:#ffd60a;font-style:normal;font-weight:700}
 .head{padding:18px 18px 6px}
-.head h2{font-size:26px;font-weight:700;letter-spacing:-.03em}
+.head h2{font-size:26px;font-weight:700}
 .head p{color:rgba(235,235,245,.45);font-size:13px;margin-top:2px}
-
 .h-scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 18px 28px;scrollbar-width:none}
 .h-scroll::-webkit-scrollbar{display:none}
-.girl-card{flex:0 0 min(80vw,300px);scroll-snap-align:center;height:min(70vw,420px);perspective:1200px}
-.girl-inner{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
+.girl-card{flex:0 0 min(80vw,300px);scroll-snap-align:center;height:min(70vw,400px);perspective:1200px}
+.girl-inner{position:relative;width:100%;height:100%;transition:transform .7s;transform-style:preserve-3d}
 .girl-card.flipped .girl-inner{transform:rotateY(180deg)}
-.girl-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
-  border-radius:20px;overflow:hidden;background:rgba(44,44,46,.95);border:0.5px solid rgba(255,255,255,.12);display:flex;flex-direction:column}
-.girl-face.back{transform:rotateY(180deg);border-color:rgba(10,132,255,.4)}
-.girl-face img{width:100%;flex:1;min-height:0;object-fit:cover;object-position:center 12%;display:block;background:#1c1c1e}
-.girl-face.back img{object-fit:contain;object-position:center;background:#0a0a0a}
-.girl-face .meta{padding:12px 14px;flex-shrink:0}
-.girl-face .meta strong{font-size:16px;font-weight:600}
-.girl-face .meta span{display:block;font-size:12px;color:rgba(235,235,245,.5);margin-top:3px;line-height:1.35}
-
-.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 8px;padding:16px 12px 40px;text-align:center}
-.icon-btn{background:none;border:none;color:#fff;font-family:inherit;padding:0;display:flex;flex-direction:column;align-items:center;gap:6px}
-.icon-btn .ico{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 4px 12px rgba(0,0,0,.35)}
-.icon-btn label{font-size:10px;color:rgba(235,235,245,.7);font-weight:500;max-width:70px;line-height:1.15}
-.ico.b1{background:linear-gradient(180deg,#ff6b6b,#c0392b)}
-.ico.b2{background:linear-gradient(180deg,#a29bfe,#6c5ce7)}
-.ico.b3{background:linear-gradient(180deg,#fd79a8,#e84393)}
-.ico.b4{background:linear-gradient(180deg,#74b9ff,#0984e3)}
-.ico.b5{background:linear-gradient(180deg,#55efc4,#00b894)}
-.ico.b6{background:linear-gradient(180deg,#ffeaa7,#fdcb6e)}
-.ico.b7{background:linear-gradient(180deg,#dfe6e9,#636e72)}
-.ico.b8{background:linear-gradient(180deg,#fab1a0,#e17055)}
-.ico.b9{background:linear-gradient(180deg,#81ecec,#00cec9)}
-.ico.b10{background:linear-gradient(180deg,#df9aff,#a29bfe)}
-.ico.b11{background:linear-gradient(180deg,#ff9ff3,#f368e0)}
-.ico.b12{background:linear-gradient(180deg,#48dbfb,#0abde3)}
-
-.modal-bg{display:none;position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.65);backdrop-filter:blur(8px)}
-.modal-bg.open{display:block}
-.modal{position:fixed;inset:0;z-index:90;overflow-y:auto;background:#1c1c1e;
-  padding:max(16px,env(safe-area-inset-top)) 16px 90px;transform:translateY(100%);
-  transition:transform .32s cubic-bezier(.32,.72,0,1)}
-.modal.open{transform:translateY(0)}
-.modal .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
-.modal .topbar h2{font-size:20px;font-weight:700}
-.modal .hint{color:rgba(235,235,245,.45);font-size:13px;margin-bottom:14px;line-height:1.4}
-.modal .out{font-size:15px;line-height:1.55;min-height:24px;margin:12px 0;white-space:pre-line}
-.modal .out strong{color:#0a84ff}
-.btn{display:inline-block;background:#0a84ff;color:#fff;border:none;padding:11px 18px;border-radius:980px;
-  font-size:15px;font-weight:600;font-family:inherit;margin:3px 3px 3px 0}
+.girl-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;overflow:hidden;background:#2c2c2e;border:.5px solid rgba(255,255,255,.12);display:flex;flex-direction:column}
+.girl-face.back{transform:rotateY(180deg)}
+.girl-face img{width:100%;flex:1;min-height:0;object-fit:cover;object-position:center 12%;background:#1c1c1e}
+.girl-face.back img{object-fit:contain;background:#0a0a0a}
+.girl-face .meta{padding:12px 14px}
+.girl-face .meta strong{font-size:16px}
+.girl-face .meta span{display:block;font-size:12px;color:rgba(235,235,245,.5);margin-top:3px}
+.pad{padding:12px 16px}
+.card{background:rgba(44,44,46,.95);border-radius:16px;padding:16px;margin-bottom:12px;border:.5px solid rgba(255,255,255,.1)}
+.card h3{font-size:17px;margin-bottom:8px}
+.btn{display:inline-block;background:#0a84ff;color:#fff;border:none;padding:11px 18px;border-radius:980px;font-size:15px;font-weight:600;margin:4px 4px 4px 0}
 .btn.ghost{background:rgba(120,120,128,.28);color:#0a84ff}
-.btn.close-x{background:rgba(120,120,128,.3);padding:8px 14px;font-size:13px}
-.btn:disabled{opacity:.35}
+.btn.gold{background:#ffd60a;color:#000}
 .btn.danger{background:#ff453a}
-textarea,input[type=password],input[type=file],select{
-  width:100%;background:#2c2c2e;border:none;border-radius:12px;color:#fff;padding:12px;font-size:15px;
-  font-family:inherit;margin:6px 0;outline:none}
-textarea{min-height:90px;resize:vertical}
-select{appearance:none}
-
-.wheel-wrap{position:relative;width:min(90vw,360px);height:min(90vw,360px);margin:18px auto}
-.wheel-pointer{position:absolute;top:-2px;left:50%;transform:translateX(-50%);z-index:5;
-  border-left:14px solid transparent;border-right:14px solid transparent;border-top:28px solid #0a84ff;
-  filter:drop-shadow(0 2px 6px #000)}
-.wheel{width:100%;height:100%;border-radius:50%;border:5px solid rgba(255,255,255,.12);
-  transition:transform 5s cubic-bezier(.08,.7,.1,1);
-  background:conic-gradient(from -45deg,#0a84ff 0 90deg,#0040dd 90deg 180deg,#64d2ff 180deg 270deg,#001a66 270deg 360deg)}
-.wheel-label{position:absolute;inset:0;pointer-events:none}
-.wheel-label span{position:absolute;left:50%;top:50%;width:90px;text-align:center;font-weight:800;font-size:14px;
-  color:#fff;text-shadow:0 2px 4px #000;transform-origin:0 0}
-.wheel-label .l0{transform:rotate(0deg) translate(0,-42%) translateX(-50%)}
-.wheel-label .l1{transform:rotate(90deg) translate(0,-42%) translateX(-50%)}
-.wheel-label .l2{transform:rotate(180deg) translate(0,-42%) translateX(-50%)}
-.wheel-label .l3{transform:rotate(270deg) translate(0,-42%) translateX(-50%)}
-.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;
-  border-radius:50%;background:#1c1c1e;border:3px solid #0a84ff;z-index:4}
-
-.fmk-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.fmk-mini{background:#2c2c2e;border-radius:14px;overflow:hidden;text-align:center}
-.fmk-mini img{width:100%;height:200px;object-fit:cover;object-position:center 10%;display:block;background:#1c1c1e}
-.fmk-mini .n{font-size:13px;font-weight:600;padding:6px}
-.fmk-ops{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:0 6px 10px}
-.fmk-ops button{border:none;background:rgba(10,132,255,.18);color:#0a84ff;border-radius:8px;font-size:11px;padding:8px 0;font-family:inherit;font-weight:600}
-.fmk-ops button.on{background:#0a84ff;color:#fff}
-
-.priv-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:50vh;padding:40px 24px;text-align:center}
-.priv-content{display:none;padding:12px}
-.priv-content.show{display:block}
-.og-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.og-tile{background:rgba(44,44,46,.95);border-radius:14px;overflow:hidden;border:0.5px solid rgba(255,255,255,.1);text-align:center}
-.og-tile img{width:100%;height:180px;object-fit:cover;object-position:center 10%;background:#1c1c1e;display:block}
-.og-tile span{display:block;padding:8px;font-size:13px;font-weight:600;color:#0a84ff}
-#ogBig{width:100%;max-height:50vh;object-fit:contain;object-position:center top;border-radius:12px;background:#000;display:block}
-
-.mem-board{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
-.mem-card{aspect-ratio:1;perspective:600px}
-.mem-inner{width:100%;height:100%;transition:transform .35s;transform-style:preserve-3d;position:relative}
-.mem-card.flipped .mem-inner,.mem-card.matched .mem-inner{transform:rotateY(180deg)}
-.mem-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.mem-back{background:#3a3a3c;color:#0a84ff;font-weight:700;font-size:16px}
-.mem-front{transform:rotateY(180deg);background:#000}
-.mem-front img{width:100%;height:100%;object-fit:cover;object-position:center 12%}
-.mem-card.matched .mem-front{box-shadow:inset 0 0 0 2px #30d158}
-.mem-status{font-size:12px;color:rgba(235,235,245,.4);text-align:center}
-.mem-win{display:none;margin-top:10px;padding:12px;background:#2c2c2e;border-radius:12px;font-size:14px;line-height:1.5;border:0.5px solid rgba(10,132,255,.3)}
-.mem-win.show{display:block}
-
-.cams-wrap{padding:16px 10px 40px}
-.cams-wrap iframe{width:100%;height:min(65vh,520px);border:none;border-radius:12px;margin-bottom:12px;background:#1c1c1e;display:block}
-
-/* Photos tab */
-.drop-zone{margin:12px 16px;padding:32px 16px;text-align:center;border:2px dashed rgba(10,132,255,.55);
-  border-radius:16px;background:rgba(44,44,46,.7);transition:background .15s,border-color .15s}
+.btn:disabled{opacity:.35}
+input[type=number],input[type=password],select,textarea{width:100%;background:#2c2c2e;border:none;border-radius:12px;color:#fff;padding:12px;font-size:15px;margin:6px 0;outline:none}
+.bal{font-size:28px;font-weight:800;color:#ffd60a;margin:8px 0}
+.shop-item{display:flex;gap:12px;align-items:flex-start;background:#2c2c2e;border-radius:14px;padding:12px;margin-bottom:10px;border:.5px solid rgba(255,255,255,.08)}
+.shop-item .thumb{width:72px;height:72px;border-radius:10px;object-fit:cover;background:#111;flex-shrink:0;filter:blur(8px)}
+.shop-item.owned .thumb{filter:none}
+.shop-item .info{flex:1;min-width:0}
+.shop-item .info strong{display:block;font-size:15px}
+.shop-item .info span{font-size:12px;color:rgba(235,235,245,.5)}
+.shop-item .price{color:#ffd60a;font-weight:700;font-size:14px;margin-top:4px}
+.owned-badge{display:inline-block;background:#30d158;color:#000;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;margin-top:6px}
+.locked-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.locked-grid img,.locked-grid video{width:100%;border-radius:10px;background:#000;max-height:200px;object-fit:contain}
+.drop-zone{margin:12px 16px;padding:28px 16px;text-align:center;border:2px dashed rgba(10,132,255,.55);border-radius:16px;background:rgba(44,44,46,.7)}
 .drop-zone.over{background:rgba(10,132,255,.15);border-color:#0a84ff}
 .photo-lib{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 16px 40px}
-.photo-card{background:#2c2c2e;border-radius:12px;overflow:hidden;border:0.5px solid rgba(255,255,255,.08)}
-.photo-card img{width:100%;height:140px;object-fit:contain;background:#000;display:block}
+.photo-card{background:#2c2c2e;border-radius:12px;overflow:hidden;border:.5px solid rgba(255,255,255,.08)}
+.photo-card img,.photo-card video{width:100%;height:140px;object-fit:contain;background:#000;display:block}
 .photo-card .pc-body{padding:8px}
 .photo-card .pc-name{font-size:11px;color:rgba(235,235,245,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:6px}
 .photo-card select{font-size:12px;padding:8px;margin:0 0 6px}
-
-#cursor-reaction{position:fixed;pointer-events:none;z-index:999;background:rgba(44,44,46,.96);color:#0a84ff;
-  padding:8px 12px;border-radius:10px;font-size:12px;opacity:0;max-width:220px;border:0.5px solid rgba(255,255,255,.12);
-  transform:translate(12px,12px);transition:opacity .12s}
-
-#joiFS{display:none;position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.96);overflow-y:auto;text-align:center;padding:52px 16px 40px}
-#joiFS.open{display:block}
-#joiFS .fs-close{position:fixed;top:12px;right:12px;z-index:121;background:rgba(120,120,128,.4);color:#fff;border:none;
-  border-radius:980px;padding:10px 14px;font-size:13px;font-weight:600;font-family:inherit}
-#joiFS #joiGirl{color:#0a84ff;font-weight:600;font-size:20px;margin-bottom:10px;min-height:26px}
-#joiFS #joiPhoto{width:min(400px,90vw);max-height:42vh;object-fit:contain;border-radius:16px;margin:10px auto;display:none}
-#joiFS #joiText{font-size:20px;line-height:1.45;max-width:480px;margin:14px auto;min-height:64px}
-#joiFS #joiCountdown{font-size:64px;font-weight:700;color:#0a84ff;min-height:76px}
-
-.rp-block,.care-block{background:#2c2c2e;border-radius:12px;padding:14px;font-size:14px;line-height:1.65;
-  text-align:left;white-space:pre-line;margin-top:10px;max-height:50vh;overflow-y:auto}
+#mediaPreview{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.95);align-items:center;justify-content:center;flex-direction:column;padding:16px}
+#mediaPreview.open{display:flex}
+#previewImg,#previewVid{max-width:100%;max-height:80vh;object-fit:contain}
+.priv-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:45vh;padding:40px 24px;text-align:center}
+.priv-content{display:none;padding:12px 16px}
+.priv-content.show{display:block}
+.og-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.og-tile{background:#2c2c2e;border-radius:14px;overflow:hidden;text-align:center}
+.og-tile img{width:100%;height:180px;object-fit:cover;object-position:center 10%}
+.og-tile span{display:block;padding:8px;font-size:13px;font-weight:600;color:#0a84ff}
+.msg{font-size:14px;line-height:1.45;margin:8px 0;min-height:20px}
+.side-btns{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
 </style>
 </head>
 <body>
@@ -191,343 +91,364 @@ select{appearance:none}
   <video autoplay muted loop playsinline id="siteBgVideo"><source src="joi.mp4" type="video/mp4"></video>
   <div class="veil"></div>
 </div>
-<audio id="zaraLongAudio" preload="auto"><source src="joi_zara.mp3" type="audio/mpeg"></audio>
-<div id="cursor-reaction"></div>
 
-<div id="joiFS">
-  <button type="button" class="fs-close" onclick="closeJoiFS()">Close</button>
-  <div id="joiGirl"></div>
-  <img id="joiPhoto" src="" alt="">
-  <div id="joiText"></div>
-  <div id="joiCountdown"></div>
-  <button type="button" class="btn" id="startJoi">Start JOI</button>
+<div id="mediaPreview">
+  <button type="button" class="btn ghost" style="position:fixed;top:12px;right:12px;z-index:201" onclick="closePreview()">Close</button>
+  <img id="previewImg" alt="" style="display:none">
+  <video id="previewVid" controls playsinline style="display:none"></video>
 </div>
 
 <!-- HOME -->
 <div class="screen on" id="sc-home">
   <div class="home">
     <h1>Perfect<br>Symmetrical</h1>
-    <p class="sub" id="quote"></p>
+    <p class="sub">Private collection</p>
     <div class="cock-box"><img id="img-cock" src="cock.jpg" alt="cock"></div>
     <div class="widgets">
       <div class="widget"><b id="views">0</b><span>Views</span></div>
       <div class="widget"><b id="likes">0</b><span>Likes</span></div>
       <div class="widget"><b>#1</b><span>Rated</span></div>
     </div>
-    <div class="throb">Throbbing for <em id="throbbingFor">Esmee</em></div>
-    <div class="sheet">
-      <h3>Rate</h3>
-      <div class="stars" id="stars">
-        <span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span>
-        <span class="star" data-value="6">★</span><span class="star" data-value="7">★</span><span class="star" data-value="8">★</span><span class="star" data-value="9">★</span><span class="star" data-value="10">★</span>
-      </div>
-      <div class="rate-msg" id="ratingResult">Tap a star</div>
-    </div>
+    <div class="coins-bar">Coins <em id="coinBalHome">1000</em></div>
   </div>
 </div>
 
 <!-- GIRLS -->
 <div class="screen" id="sc-girls">
-  <div class="head"><h2>Girls</h2><p>Hover · tap to flip</p></div>
+  <div class="head"><h2>Girls</h2><p>Tap to flip</p></div>
   <div class="h-scroll">
-    <div class="girl-card" data-g="Esmee" onclick="this.classList.toggle('flipped')">
+    <div class="girl-card" onclick="this.classList.toggle('flipped')">
       <div class="girl-inner">
         <div class="girl-face front"><img id="img-esmee" src="esmee.jpg" alt=""><div class="meta"><strong>Esmee</strong><span>Sexiest blonde in school</span></div></div>
-        <div class="girl-face back"><img id="img-esmee_dick" src="2026-08-29_9cb40058-a7f4-e6f1-42e0-1b7f7f1491f0-main.jpg" alt=""><div class="meta"><strong>Esmee wants this</strong><span>Thick, symmetrical — for the shape and weight</span></div></div>
+        <div class="girl-face back"><img id="img-esmee_dick" src="2026-08-29_9cb40058-a7f4-e6f1-42e0-1b7f7f1491f0-main.jpg" alt=""><div class="meta"><strong>Esmee wants this</strong><span>Thick & symmetrical</span></div></div>
       </div>
     </div>
-    <div class="girl-card" data-g="Fleur" onclick="this.classList.toggle('flipped')">
+    <div class="girl-card" onclick="this.classList.toggle('flipped')">
       <div class="girl-inner">
-        <div class="girl-face front"><img id="img-fleur" src="fleur1.png" alt=""><div class="meta"><strong>Fleur</strong><span>That mouth</span></div></div>
-        <div class="girl-face back"><img id="img-fleur_dick" src="20260819_205630.jpg" alt=""><div class="meta"><strong>Fleur wants this</strong><span>Messy on her tongue — full length</span></div></div>
+        <div class="girl-face front"><img id="img-fleur" src="fleur1.png" alt=""><div class="meta"><strong>Fleur</strong><span>Soft tease, dirty mind</span></div></div>
+        <div class="girl-face back"><img id="img-fleur_dick" src="20260819_205630.jpg" alt=""><div class="meta"><strong>Fleur wants this</strong><span>For the weight</span></div></div>
       </div>
     </div>
-    <div class="girl-card" data-g="Laia" onclick="this.classList.toggle('flipped')">
+    <div class="girl-card" onclick="this.classList.toggle('flipped')">
       <div class="girl-inner">
-        <div class="girl-face front"><img id="img-laia" src="laia.jpg" alt=""><div class="meta"><strong>Laia</strong><span>Daddy’s girl</span></div></div>
-        <div class="girl-face back"><img id="img-laia_dick" src="1000023134.jpg" alt=""><div class="meta"><strong>Laia wants this</strong><span>Daddy’s cock — every inch</span></div></div>
+        <div class="girl-face front"><img id="img-laia" src="laia.jpg" alt=""><div class="meta"><strong>Laia</strong><span>Daddy's girl</span></div></div>
+        <div class="girl-face back"><img id="img-laia_dick" src="1000023134.jpg" alt=""><div class="meta"><strong>Laia wants this</strong><span>For daddy</span></div></div>
       </div>
     </div>
-    <div class="girl-card" data-g="Zara" onclick="this.classList.toggle('flipped')">
+    <div class="girl-card" onclick="this.classList.toggle('flipped')">
       <div class="girl-inner">
         <div class="girl-face front"><img id="img-zara" src="zara.png" alt=""><div class="meta"><strong>Zara</strong><span>Good boy energy</span></div></div>
-        <div class="girl-face back"><img id="img-zara_dick" src="1000023133.jpg" alt=""><div class="meta"><strong>Zara wants this</strong><span>She edges her good boy on this</span></div></div>
+        <div class="girl-face back"><img id="img-zara_dick" src="1000023133.jpg" alt=""><div class="meta"><strong>Zara wants this</strong><span>Stroke for me good boy</span></div></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- PLAY -->
+<!-- PLAY / CASINO -->
 <div class="screen" id="sc-play">
-  <div class="head"><h2>Play</h2><p>Tap an app</p></div>
-  <div class="app-grid">
-    <button type="button" class="icon-btn" onclick="openModal('m-spin')"><div class="ico b1">🎡</div><label>Tonight</label></button>
-    <button type="button" class="icon-btn" onclick="openModal('m-pos')"><div class="ico b2">🔥</div><label>Position</label></button>
-    <button type="button" class="icon-btn" onclick="openModal('m-edge')"><div class="ico b3">✋</div><label>Edge</label></button>
-    <button type="button" class="icon-btn" onclick="openModal('m-tribute')"><div class="ico b4">💦</div><label>Tribute</label></button>
-    <button type="button" class="icon-btn" onclick="openJoiFS()"><div class="ico b5">🎧</div><label>JOI</label></button>
-    <button type="button" class="icon-btn" onclick="openModal('m-fmk')"><div class="ico b6">💋</div><label>FMKK</label></button>
-    <button type="button" class="icon-btn" onclick="openModal('m-jealous')"><div class="ico b7">😈</div><label>Jealousy</label></button>
-    <button type="button" class="icon-btn" onclick="openModal('m-vote')"><div class="ico b8">🗳</div><label>Vote</label></button>
-    <button type="button" class="icon-btn" onclick="openModal('m-care')"><div class="ico b9">🧴</div><label>Care</label></button>
-    <button type="button" class="icon-btn" onclick="openModal('m-worship')"><div class="ico b10">🙏</div><label>Worship</label></button>
-    <button type="button" class="icon-btn" onclick="openModal('m-rp')"><div class="ico b11">📖</div><label>Story</label></button>
-    <button type="button" class="icon-btn" onclick="openModal('m-tell')"><div class="ico b12">💬</div><label>Tell her</label></button>
+  <div class="head"><h2>Casino</h2><p>50/50 · no max bet · coins stay after reload</p></div>
+  <div class="pad">
+    <div class="card">
+      <h3>Balance</h3>
+      <div class="bal"><span id="coinBal">1000</span> coins</div>
+      <button type="button" class="btn ghost" onclick="resetCoins()">Reset to 1000</button>
+    </div>
+    <div class="card">
+      <h3>Double or nothing</h3>
+      <p class="msg">Pick a side. Win = +bet · Lose = −bet</p>
+      <label style="font-size:13px;color:rgba(235,235,245,.5)">Bet amount</label>
+      <input type="number" id="betAmt" min="1" value="50">
+      <div class="side-btns">
+        <button type="button" class="btn" id="betRed" onclick="setSide('red')">Red</button>
+        <button type="button" class="btn ghost" id="betBlack" onclick="setSide('black')">Black</button>
+      </div>
+      <button type="button" class="btn gold" onclick="playFlip()">PLAY</button>
+      <div class="msg" id="casinoMsg"></div>
+    </div>
   </div>
 </div>
 
-<!-- PRIVATE -->
-<div class="screen" id="sc-private">
-  <div class="priv-lock" id="privLock">
-    <div style="font-size:48px;margin-bottom:10px">🔒</div>
-    <h2 style="font-size:22px;font-weight:700">Private</h2>
-    <p style="color:rgba(235,235,245,.4);font-size:14px;margin:8px 0 14px">Password required</p>
-    <input type="password" id="lockPass" placeholder="Password" autocomplete="off" style="max-width:240px;text-align:center">
-    <button type="button" class="btn" onclick="tryUnlock()">Unlock</button>
-    <div id="lockErr" style="color:#ff453a;font-size:13px;margin-top:8px;min-height:18px"></div>
-  </div>
-  <div class="priv-content" id="privContent">
-    <div class="head"><h2>OG Baiters</h2><p>Tap a face</p></div>
-    <div class="og-row">
-      <div class="og-tile" onclick="showOG('Esmee')"><img id="img-og_esmee" src="1000023063.jpg" alt=""><span>Esmee</span></div>
-      <div class="og-tile" onclick="showOG('Laia')"><img id="img-og_laia" src="1000023022.jpg" alt=""><span>Laia</span></div>
-      <div class="og-tile" onclick="showOG('Zara')"><img id="img-og_zara" src="561730229_18031902368720330_480763968379933635_n.jpg" alt=""><span>Zara</span></div>
-      <div class="og-tile" onclick="showOG('Fleur')"><img id="img-og_fleur" src="505125862_18281200171248124_8222232097518702848_n.jpg" alt=""><span>Fleur</span></div>
-    </div>
-    <div class="sheet" id="ogDetail" style="display:none">
-      <img id="ogBig" src="" alt="">
-      <p id="ogDesc" style="margin-top:10px;font-size:13px;color:rgba(235,235,245,.55);font-style:italic"></p>
-      <p id="ogFilth" style="margin-top:8px;font-size:15px"></p>
-      <button type="button" class="btn" onclick="ogNextFilth()">More</button>
-      <button type="button" class="btn ghost" onclick="startStare()">Stare 10 min</button>
-      <button type="button" class="btn ghost" onclick="document.getElementById('ogDetail').style.display='none'">Close</button>
-      <img id="starePhoto" style="display:none;width:100%;max-height:45vh;object-fit:contain;margin-top:12px;border-radius:12px">
-      <div id="stareTimer" style="font-size:32px;font-weight:700;color:#0a84ff;text-align:center"></div>
-      <p id="stareText" style="font-size:14px;text-align:center;min-height:20px"></p>
-    </div>
-    <div class="sheet">
-      <h3>Dirty Memory</h3>
-      <p class="mem-status" id="memStatus">Match all 8 · first match = dare at win</p>
-      <div class="mem-board" id="memBoard"></div>
-      <button type="button" class="btn ghost" onclick="initMemory()">New game</button>
-      <div class="mem-win" id="memSurprise"></div>
-    </div>
-    <div class="sheet">
-      <h3>Private JOI</h3>
-      <button type="button" class="btn" id="ogJoiBtn" onclick="startOgJoi()">Start</button>
-      <div id="zaraChoice" style="display:none;margin-top:10px">
-        <p style="color:#0a84ff;font-size:14px;margin-bottom:8px">Zara</p>
-        <button type="button" class="btn" onclick="runOgJoi('Zara','short')">Short</button>
-        <button type="button" class="btn ghost" onclick="runOgJoi('Zara','long')">Long audio</button>
-      </div>
-      <div id="ogJoiGirl" style="color:#0a84ff;font-weight:600;margin-top:8px"></div>
-      <img id="ogJoiPhoto" src="" alt="" style="width:min(360px,100%);max-height:40vh;object-fit:contain;border-radius:12px;margin:10px auto;display:none">
-      <div id="ogJoiText" class="out"></div>
-      <div id="ogJoiCd" style="font-size:44px;font-weight:700;color:#0a84ff;text-align:center;min-height:52px"></div>
-      <button type="button" class="btn ghost" id="ogJoiStop" style="display:none" onclick="stopOgJoi()">Stop</button>
-    </div>
-    <div class="sheet">
-      <h3>Stroke challenge</h3>
-      <button type="button" class="btn" onclick="strokeChallenge()">Go</button>
-      <div id="strokeOut" class="out"></div>
+<!-- SHOP -->
+<div class="screen" id="sc-shop">
+  <div class="head"><h2>Shop</h2><p>Spend coins · unlocks stay after reload</p></div>
+  <div class="pad">
+    <div class="coins-bar" style="margin-bottom:12px">Coins <em id="coinBalShop">1000</em></div>
+    <div id="shopList"></div>
+    <div class="card" id="ownedViewer" style="display:none">
+      <h3>Your unlocks</h3>
+      <div id="ownedContent" class="locked-grid"></div>
     </div>
   </div>
 </div>
 
 <!-- PHOTOS -->
 <div class="screen" id="sc-photos">
-  <div class="head">
-    <h2>Photos</h2>
-    <p>Drop into the site · saved here (this browser)</p>
-  </div>
+  <div class="head"><h2>Photos</h2><p>Drop images/videos · tap to view · assign slots</p></div>
   <div class="drop-zone" id="dropZone">
-    <p style="font-size:16px;margin-bottom:6px">Drop photos here</p>
-    <p style="font-size:12px;color:rgba(235,235,245,.45);margin-bottom:12px">or choose files</p>
-    <label class="btn" style="display:inline-block">
-      Choose
-      <input type="file" id="photoInput" accept="image/*" multiple hidden>
-    </label>
+    Drop files here or
+    <button type="button" class="btn" style="margin-top:8px" onclick="document.getElementById('photoInput').click()">Choose files</button>
+    <input type="file" id="photoInput" accept="image/*,video/*" multiple hidden>
   </div>
-  <p style="padding:4px 16px;font-size:12px;color:rgba(235,235,245,.4)">Assign a slot so Home / Girls / Private use it</p>
   <div class="photo-lib" id="photoLib"></div>
 </div>
 
-<!-- CAMS -->
-<div class="screen" id="sc-cams">
-  <div class="cams-wrap">
-    <h2 style="font-size:26px;font-weight:700;padding:0 8px 12px">Live</h2>
-    <iframe src="https://cbxyz.com/in/?track=embed&campaign=h0Whk&tour=SHBY&room=shine_chanel" allowfullscreen></iframe>
-    <iframe src="https://cbxyz.com/in/?track=embed&campaign=h0Whk&tour=nvfS" allowfullscreen></iframe>
+<!-- PRIVATE -->
+<div class="screen" id="sc-private">
+  <div class="priv-lock" id="privLock">
+    <h2 style="margin-bottom:12px">Private</h2>
+    <p style="color:rgba(235,235,245,.5);margin-bottom:12px;font-size:14px">Password required</p>
+    <input type="password" id="privPass" placeholder="Password" style="max-width:280px">
+    <button type="button" class="btn" onclick="tryPriv()">Unlock</button>
+    <p class="msg" id="privErr" style="color:#ff453a"></p>
   </div>
-</div>
-
-<nav class="tabbar">
-  <button type="button" class="tab on" data-sc="sc-home" onclick="goTab(this)"><svg viewBox="0 0 24 24"><path d="M4 10.5L12 4l8 6.5V20a1 1 0 01-1 1h-5v-6H10v6H5a1 1 0 01-1-1v-9.5z"/></svg>Home</button>
-  <button type="button" class="tab" data-sc="sc-girls" onclick="goTab(this)"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3 19c0-3 3-5 6-5s6 2 6 5"/><path d="M14 19c0-2 2-3.5 4.5-3.5S22 17 22 19"/></svg>Girls</button>
-  <button type="button" class="tab" data-sc="sc-play" onclick="goTab(this)"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>Play</button>
-  <button type="button" class="tab" data-sc="sc-private" onclick="goTab(this)"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>Private</button>
-  <button type="button" class="tab" data-sc="sc-photos" onclick="goTab(this)"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M3 16l5-5 4 4 3-3 6 6"/></svg>Photos</button>
-  <button type="button" class="tab" data-sc="sc-cams" onclick="goTab(this)"><svg viewBox="0 0 24 24"><path d="M3 7h12a2 2 0 012 2v8a2 2 0 01-2 2H3a2 2 0 01-2-2V9a2 2 0 012-2z"/><path d="M17 10l6-3v10l-6-3"/></svg>Live</button>
-</nav>
-
-<div class="modal-bg" id="modalBg" onclick="closeModal()"></div>
-
-<div class="modal" id="m-spin">
-  <div class="topbar"><h2>Tonight</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <p class="hint">Spin. One girl owns your cock tonight — pace, position, when you cum.</p>
-  <div class="wheel-wrap">
-    <div class="wheel-pointer"></div>
-    <div class="wheel" id="wheel">
-      <div class="wheel-label"><span class="l0">Esmee</span><span class="l1">Fleur</span><span class="l2">Laia</span><span class="l3">Zara</span></div>
-      <div class="wheel-center"></div>
+  <div class="priv-content" id="privContent">
+    <div class="head"><h2>Private</h2><p>OG + shop unlocks</p></div>
+    <div class="pad">
+      <div class="og-row">
+        <div class="og-tile"><img src="1000023063.jpg" alt=""><span>Esmee OG</span></div>
+        <div class="og-tile"><img src="1000023022.jpg" alt=""><span>Laia OG</span></div>
+        <div class="og-tile"><img src="561730229_18031902368720330_480763968379933635_n.jpg" alt=""><span>Zara OG</span></div>
+        <div class="og-tile"><img src="505125862_18281200171248124_8222232097518702848_n.jpg" alt=""><span>Fleur OG</span></div>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <h3>Shop unlocks here too</h3>
+        <div id="privShopUnlocks" class="locked-grid"></div>
+      </div>
     </div>
   </div>
-  <button type="button" class="btn" id="spinBtn" onclick="spinWheel()">Spin</button>
-  <div class="out" id="tonightOut"></div>
 </div>
-<div class="modal" id="m-pos">
-  <div class="topbar"><h2>Position</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <p class="hint">She chooses how she takes you.</p>
-  <button type="button" class="btn" onclick="pickPosition()">Let her choose</button>
-  <div class="out" id="posOut"></div>
-</div>
-<div class="modal" id="m-edge">
-  <div class="topbar"><h2>Edge</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <button type="button" class="btn" id="edgeBtn" onclick="startEdge()">Start</button>
-  <div class="out" id="edgeGirl" style="color:#0a84ff;font-weight:600"></div>
-  <div class="out" id="edgeText"></div>
-</div>
-<div class="modal" id="m-tribute">
-  <div class="topbar"><h2>Tribute</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <button type="button" class="btn" onclick="tribute()">Cum for her</button>
-  <div class="out" id="tributeOut"></div>
-</div>
-<div class="modal" id="m-fmk">
-  <div class="topbar"><h2>FMKK</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <div class="fmk-row">
-    <div class="fmk-mini"><img id="fmk-esmee" src="esmee.jpg" alt=""><div class="n">Esmee</div><div class="fmk-ops"><button type="button" data-girl="Esmee" data-choice="Fuck">Fuck</button><button type="button" data-girl="Esmee" data-choice="Marry">Marry</button><button type="button" data-girl="Esmee" data-choice="Kill">Kill</button><button type="button" data-girl="Esmee" data-choice="Kiss">Kiss</button></div></div>
-    <div class="fmk-mini"><img id="fmk-fleur" src="fleur1.png" alt=""><div class="n">Fleur</div><div class="fmk-ops"><button type="button" data-girl="Fleur" data-choice="Fuck">Fuck</button><button type="button" data-girl="Fleur" data-choice="Marry">Marry</button><button type="button" data-girl="Fleur" data-choice="Kill">Kill</button><button type="button" data-girl="Fleur" data-choice="Kiss">Kiss</button></div></div>
-    <div class="fmk-mini"><img id="fmk-laia" src="laia.jpg" alt=""><div class="n">Laia</div><div class="fmk-ops"><button type="button" data-girl="Laia" data-choice="Fuck">Fuck</button><button type="button" data-girl="Laia" data-choice="Marry">Marry</button><button type="button" data-girl="Laia" data-choice="Kill">Kill</button><button type="button" data-girl="Laia" data-choice="Kiss">Kiss</button></div></div>
-    <div class="fmk-mini"><img id="fmk-zara" src="zara.png" alt=""><div class="n">Zara</div><div class="fmk-ops"><button type="button" data-girl="Zara" data-choice="Fuck">Fuck</button><button type="button" data-girl="Zara" data-choice="Marry">Marry</button><button type="button" data-girl="Zara" data-choice="Kill">Kill</button><button type="button" data-girl="Zara" data-choice="Kiss">Kiss</button></div></div>
-  </div>
-  <div class="out" id="fmkResult"></div>
-</div>
-<div class="modal" id="m-jealous">
-  <div class="topbar"><h2>Jealousy</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <button type="button" class="btn" onclick="jealousy()">Go</button>
-  <div class="out" id="jealousOut"></div>
-</div>
-<div class="modal" id="m-vote">
-  <div class="topbar"><h2>Vote</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <button type="button" class="btn" onclick="groupVote()">Vote</button>
-  <div class="out" id="voteOut"></div>
-</div>
-<div class="modal" id="m-care">
-  <div class="topbar"><h2>Cock care</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <button type="button" class="btn" onclick="showCare()">Her rules</button>
-  <div class="care-block" id="careText"></div>
-</div>
-<div class="modal" id="m-worship">
-  <div class="topbar"><h2>Worship</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <button type="button" class="btn" onclick="showWorship()">Go</button>
-  <div class="out" id="worshipText"></div>
-</div>
-<div class="modal" id="m-rp">
-  <div class="topbar"><h2>Story</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <button type="button" class="btn" onclick="showRP()">Random</button>
-  <button type="button" class="btn ghost" onclick="showRP('esmee')">Esmee</button>
-  <button type="button" class="btn ghost" onclick="showRP('fleur')">Fleur</button>
-  <button type="button" class="btn ghost" onclick="showRP('laia')">Laia</button>
-  <button type="button" class="btn ghost" onclick="showRP('zara')">Zara</button>
-  <button type="button" class="btn ghost" onclick="showRP('group')">Group</button>
-  <div class="rp-block" id="rpText"></div>
-</div>
-<div class="modal" id="m-tell">
-  <div class="topbar"><h2>Tell her</h2><button type="button" class="btn close-x" onclick="closeModal()">Close</button></div>
-  <textarea id="userDescribe" placeholder="What do you want…"></textarea>
-  <button type="button" class="btn" onclick="getReaction()">Send</button>
-  <div class="out" id="describeReaction"></div>
+
+<div class="tabbar">
+  <button type="button" class="tab on" data-s="home" onclick="go('home')">Home</button>
+  <button type="button" class="tab" data-s="girls" onclick="go('girls')">Girls</button>
+  <button type="button" class="tab" data-s="play" onclick="go('play')">Casino</button>
+  <button type="button" class="tab" data-s="shop" onclick="go('shop')">Shop</button>
+  <button type="button" class="tab" data-s="photos" onclick="go('photos')">Photos</button>
+  <button type="button" class="tab" data-s="private" onclick="go('private')">Private</button>
 </div>
 
 <script>
-const PRIVATE_PASS="bonerbait";
-let privateUnlocked=sessionStorage.getItem("privOK")==="1";
-const GIRLS=["Esmee","Fleur","Laia","Zara"];
-const DEFAULTS={
-  cock:"cock.jpg",
-  esmee:"esmee.jpg",fleur:"fleur1.png",laia:"laia.jpg",zara:"zara.png",
-  esmee_dick:"2026-08-29_9cb40058-a7f4-e6f1-42e0-1b7f7f1491f0-main.jpg",
-  fleur_dick:"20260819_205630.jpg",laia_dick:"1000023134.jpg",zara_dick:"1000023133.jpg",
-  og_esmee:"1000023063.jpg",og_laia:"1000023022.jpg",
-  og_zara:"561730229_18031902368720330_480763968379933635_n.jpg",
-  og_fleur:"505125862_18281200171248124_8222232097518702848_n.jpg"
-};
-const SLOTS=[
-  {id:"cock",label:"Main cock (Home)"},
-  {id:"esmee",label:"Esmee"},{id:"fleur",label:"Fleur"},{id:"laia",label:"Laia"},{id:"zara",label:"Zara"},
-  {id:"esmee_dick",label:"Esmee wants (flip)"},{id:"fleur_dick",label:"Fleur wants (flip)"},
-  {id:"laia_dick",label:"Laia wants (flip)"},{id:"zara_dick",label:"Zara wants (flip)"},
-  {id:"og_esmee",label:"OG Esmee"},{id:"og_laia",label:"OG Laia"},
-  {id:"og_zara",label:"OG Zara"},{id:"og_fleur",label:"OG Fleur"}
+/* ========== COINS ========== */
+function getCoins(){ return parseInt(localStorage.getItem("coins")||"1000",10); }
+function setCoins(n){
+  n=Math.max(0,n|0);
+  localStorage.setItem("coins",String(n));
+  ["coinBal","coinBalHome","coinBalShop"].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.textContent=n;
+  });
+}
+function resetCoins(){ if(confirm("Reset balance to 1000?")) setCoins(1000); }
+
+/* ========== UNLOCKS ========== */
+function getUnlocked(){
+  try{ return JSON.parse(localStorage.getItem("unlocked")||"[]"); }catch(e){ return []; }
+}
+function setUnlocked(arr){ localStorage.setItem("unlocked", JSON.stringify(arr)); }
+
+const SHOP = [
+  {
+    id:"axelle",
+    name:"Axelle",
+    price:400,
+    type:"single",
+    files:["axellecollage.jpg"],
+    thumb:"axellecollage.jpg"
+  },
+  {
+    id:"esmee_nkd",
+    name:"Esmee NKD",
+    price:1200,
+    type:"single",
+    files:["esmeenkd.jpg"],
+    thumb:"esmeenkd.jpg"
+  },
+  {
+    id:"zara_bundle",
+    name:"Zara Bundle",
+    price:1800,
+    type:"bundle",
+    files:["zara1.jpg","zara2.jpg","zarankd.jpg"],
+    thumb:"zara1.jpg"
+  },
+  {
+    id:"madelief_bundle",
+    name:"Madelief Bundle",
+    price:2000,
+    type:"bundle",
+    files:[
+      "madeliefvideo.mp4",
+      "madelief_v.dam_2f2dd65720194ee39230a083d331983b.jpg",
+      "madelief_v.dam_54bf304b1f6d423eb307a7d1e6912aaa.jpg",
+      "madelief_v.dam_94a3155b6e2a48e280352f718a2faf7d.jpg",
+      "madelief_v.dam_370983344a4b47c3b2f6ed86b865b867.jpg",
+      "madelief_v.dam_b2eb1c480b764c1aacd2697f60d986ea.jpg",
+      "madelief_v.dam_6a86c14eb8cd419ba3657f0a87b4856d.jpg",
+      "madelief_v.dam_7d5e41f1db984b0b94077e72db7cbe20.jpg",
+      "madelief_v.dam_9f598116c65647d189b0b36ce118b793.jpg",
+      "madelief_v.dam_72ec605852fd476784076378136dac43.jpg",
+      "madelief_v.dam_ac83b9b29f4d4a82a451949e2383ca27.jpg"
+    ],
+    thumb:"madelief_v.dam_2f2dd65720194ee39230a083d331983b.jpg"
+  }
 ];
-function randGirl(){return GIRLS[Math.floor(Math.random()*4)];}
-function pick(a){return a[Math.floor(Math.random()*a.length)];}
 
-function goTab(btn){
-  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("on"));
+function isOwned(id){ return getUnlocked().includes(id); }
+
+function buy(id){
+  const item=SHOP.find(x=>x.id===id);
+  if(!item||isOwned(id)) return;
+  const c=getCoins();
+  if(c<item.price){ alert("Not enough coins"); return; }
+  setCoins(c-item.price);
+  const u=getUnlocked(); u.push(id); setUnlocked(u);
+  renderShop();
+  renderOwned();
+}
+
+function renderShop(){
+  const box=document.getElementById("shopList");
+  box.innerHTML=SHOP.map(item=>{
+    const owned=isOwned(item.id);
+    return `<div class="shop-item ${owned?"owned":""}">
+      <img class="thumb" src="${item.thumb}" alt="" onerror="this.style.background='#333'">
+      <div class="info">
+        <strong>${item.name}</strong>
+        <span>${item.type==="bundle"?item.files.length+" files":"1 file"}</span>
+        <div class="price">${item.price} coins</div>
+        ${owned
+          ? `<span class="owned-badge">OWNED</span> <button type="button" class="btn ghost" style="margin-top:6px;padding:6px 12px;font-size:12px" onclick="showOwned('${item.id}')">View</button>`
+          : `<button type="button" class="btn" style="margin-top:6px;padding:8px 14px;font-size:13px" onclick="buy('${item.id}')">Buy</button>`
+        }
+      </div>
+    </div>`;
+  }).join("");
+  document.getElementById("coinBalShop").textContent=getCoins();
+}
+
+function mediaTag(src){
+  if(/\.mp4|\.webm|\.mov$/i.test(src))
+    return `<video src="${src}" controls playsinline></video>`;
+  return `<img src="${src}" alt="" onclick="openPreview('${src}','image')">`;
+}
+
+function showOwned(id){
+  const item=SHOP.find(x=>x.id===id);
+  if(!item||!isOwned(id)) return;
+  const box=document.getElementById("ownedViewer");
+  const cont=document.getElementById("ownedContent");
+  box.style.display="block";
+  cont.innerHTML=item.files.map(f=>mediaTag(f)).join("");
+  box.scrollIntoView({behavior:"smooth"});
+}
+
+function renderOwned(){
+  const cont=document.getElementById("ownedContent");
+  const priv=document.getElementById("privShopUnlocks");
+  const owned=SHOP.filter(x=>isOwned(x.id));
+  if(!owned.length){
+    document.getElementById("ownedViewer").style.display="none";
+    if(priv) priv.innerHTML="<span style='color:rgba(235,235,245,.4);font-size:13px'>Nothing unlocked yet</span>";
+    return;
+  }
+  document.getElementById("ownedViewer").style.display="block";
+  const html=owned.map(item=>item.files.map(f=>mediaTag(f)).join("")).join("");
+  cont.innerHTML=html;
+  if(priv) priv.innerHTML=html;
+}
+
+/* ========== CASINO ========== */
+let side="red";
+function setSide(s){
+  side=s;
+  document.getElementById("betRed").className=s==="red"?"btn":"btn ghost";
+  document.getElementById("betBlack").className=s==="black"?"btn":"btn ghost";
+}
+function playFlip(){
+  const bet=parseInt(document.getElementById("betAmt").value,10);
+  const msg=document.getElementById("casinoMsg");
+  if(!bet||bet<1){ msg.textContent="Enter a valid bet"; return; }
+  const c=getCoins();
+  if(bet>c){ msg.textContent="Not enough coins"; return; }
+  const win=Math.random()<0.5;
+  const result=win?side:(side==="red"?"black":"red");
+  if(result===side){
+    setCoins(c+bet);
+    msg.textContent="Result: "+result.toUpperCase()+" — YOU WIN +"+bet;
+  } else {
+    setCoins(c-bet);
+    msg.textContent="Result: "+result.toUpperCase()+" — YOU LOSE −"+bet;
+  }
+}
+
+/* ========== NAV ========== */
+function go(name){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("on"));
-  btn.classList.add("on");
-  document.getElementById(btn.dataset.sc).classList.add("on");
-  closeModal();
-  if(btn.dataset.sc==="sc-photos") renderPhotoLib();
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("on"));
+  const sc=document.getElementById("sc-"+name);
+  if(sc) sc.classList.add("on");
+  const tab=document.querySelector('.tab[data-s="'+name+'"]');
+  if(tab) tab.classList.add("on");
+  if(name==="shop"){ renderShop(); renderOwned(); }
+  if(name==="photos") renderPhotoLib();
+  if(name==="private") renderOwned();
 }
-function openModal(id){
-  document.getElementById("modalBg").classList.add("open");
-  document.querySelectorAll(".modal").forEach(m=>m.classList.remove("open"));
-  document.getElementById(id).classList.add("open");
-}
-function closeModal(){
-  document.getElementById("modalBg").classList.remove("open");
-  document.querySelectorAll(".modal").forEach(m=>m.classList.remove("open"));
-}
-function openJoiFS(){document.getElementById("joiFS").classList.add("open");}
-function closeJoiFS(){document.getElementById("joiFS").classList.remove("open");}
 
-function tryUnlock(){
-  if(document.getElementById("lockPass").value===PRIVATE_PASS){
-    privateUnlocked=true;sessionStorage.setItem("privOK","1");
+/* ========== PRIVATE ========== */
+function tryPriv(){
+  const p=document.getElementById("privPass").value;
+  if(p==="bonerbait"){
     document.getElementById("privLock").style.display="none";
     document.getElementById("privContent").classList.add("show");
-  } else document.getElementById("lockErr").textContent="Wrong password.";
+    sessionStorage.setItem("priv","1");
+    renderOwned();
+  } else {
+    document.getElementById("privErr").textContent="Wrong password";
+  }
 }
-document.getElementById("lockPass").addEventListener("keydown",e=>{if(e.key==="Enter")tryUnlock();});
-if(privateUnlocked){
+if(sessionStorage.getItem("priv")==="1"){
   document.getElementById("privLock").style.display="none";
   document.getElementById("privContent").classList.add("show");
 }
 
-/* ========== INDEXEDDB PHOTOS ========== */
+/* ========== PHOTOS (IndexedDB) ========== */
+const SLOTS=[
+  {id:"cock",label:"Home cock"},
+  {id:"esmee",label:"Esmee face"},
+  {id:"fleur",label:"Fleur face"},
+  {id:"laia",label:"Laia face"},
+  {id:"zara",label:"Zara face"},
+  {id:"esmee_dick",label:"Esmee flip"},
+  {id:"fleur_dick",label:"Fleur flip"},
+  {id:"laia_dick",label:"Laia flip"},
+  {id:"zara_dick",label:"Zara flip"}
+];
+
 function openDB(){
-  return new Promise((resolve,reject)=>{
-    const r=indexedDB.open("SymSitePhotos",1);
-    r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains("imgs")) r.result.createObjectStore("imgs",{keyPath:"id"});};
-    r.onsuccess=()=>resolve(r.result);
-    r.onerror=()=>reject(r.error);
+  return new Promise((res,rej)=>{
+    const r=indexedDB.open("SitePhotos",1);
+    r.onupgradeneeded=()=>r.result.createObjectStore("imgs",{keyPath:"id"});
+    r.onsuccess=()=>res(r.result);
+    r.onerror=()=>rej(r.error);
   });
 }
-function uid(){return "p_"+Date.now()+"_"+Math.random().toString(36).slice(2,8);}
-function fileToDataURL(file){
-  return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(fr.result);fr.onerror=rej;fr.readAsDataURL(file);});
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,8); }
+function fileToDataURL(f){
+  return new Promise((res,rej)=>{
+    const fr=new FileReader();
+    fr.onload=()=>res(fr.result);
+    fr.onerror=rej;
+    fr.readAsDataURL(f);
+  });
 }
 async function saveFiles(files){
   const db=await openDB();
   for(const f of files){
-    if(!f.type.startsWith("image/")) continue;
+    if(!f.type.startsWith("image/")&&!f.type.startsWith("video/")) continue;
     const dataUrl=await fileToDataURL(f);
     await new Promise((res,rej)=>{
       const tx=db.transaction("imgs","readwrite");
-      tx.objectStore("imgs").put({id:uid(),name:f.name,dataUrl,t:Date.now()});
-      tx.oncomplete=res;tx.onerror=()=>rej(tx.error);
+      tx.objectStore("imgs").put({id:uid(),name:f.name,type:f.type,dataUrl,t:Date.now()});
+      tx.oncomplete=res; tx.onerror=()=>rej(tx.error);
     });
   }
   await renderPhotoLib();
@@ -535,497 +456,125 @@ async function saveFiles(files){
 async function listImages(){
   const db=await openDB();
   return new Promise((res,rej)=>{
-    const q=db.transaction("imgs").objectStore("imgs").getAll();
+    const tx=db.transaction("imgs","readonly");
+    const q=tx.objectStore("imgs").getAll();
     q.onsuccess=()=>res(q.result||[]);
     q.onerror=()=>rej(q.error);
   });
 }
 async function deleteImage(id){
+  const map=getSlotMap();
+  Object.keys(map).forEach(k=>{ if(map[k]===id) delete map[k]; });
+  saveSlotMap(map);
   const db=await openDB();
   await new Promise((res,rej)=>{
     const tx=db.transaction("imgs","readwrite");
     tx.objectStore("imgs").delete(id);
-    tx.oncomplete=res;tx.onerror=()=>rej(tx.error);
+    tx.oncomplete=res; tx.onerror=()=>rej(tx.error);
   });
-  const map=getSlotMap();
-  Object.keys(map).forEach(k=>{if(map[k]===id) delete map[k];});
-  localStorage.setItem("photoSlots",JSON.stringify(map));
-  await applySlotsToSite();
+  applySlotsToSite();
   await renderPhotoLib();
 }
-function getSlotMap(){try{return JSON.parse(localStorage.getItem("photoSlots")||"{}");}catch(e){return {};}}
-function setSlot(slotId,imageId){
+function getSlotMap(){ try{ return JSON.parse(localStorage.getItem("photoSlots")||"{}"); }catch(e){ return {}; } }
+function saveSlotMap(m){ localStorage.setItem("photoSlots",JSON.stringify(m)); }
+
+function setSlot(slotId, imageId){
   const map=getSlotMap();
-  if(!imageId) delete map[slotId]; else map[slotId]=imageId;
-  // one image per slot — clear same image from other slots optional
-  localStorage.setItem("photoSlots",JSON.stringify(map));
+  Object.keys(map).forEach(k=>{ if(map[k]===imageId) delete map[k]; });
+  if(slotId) map[slotId]=imageId;
+  saveSlotMap(map);
   applySlotsToSite();
   renderPhotoLib();
 }
-async function getImage(id){
-  const db=await openDB();
-  return new Promise((res,rej)=>{
-    const q=db.transaction("imgs").objectStore("imgs").get(id);
-    q.onsuccess=()=>res(q.result||null);
-    q.onerror=()=>rej(q.error);
-  });
-}
+
 async function applySlotsToSite(){
   const map=getSlotMap();
-  for(const slot of SLOTS){
-    let src=DEFAULTS[slot.id];
-    if(map[slot.id]){
-      const img=await getImage(map[slot.id]);
-      if(img&&img.dataUrl) src=img.dataUrl;
-    }
-    const el=document.getElementById("img-"+slot.id);
-    if(el) el.src=src;
-    // FMKK mirrors girl faces
-    if(slot.id==="esmee"){const e=document.getElementById("fmk-esmee");if(e)e.src=src;}
-    if(slot.id==="fleur"){const e=document.getElementById("fmk-fleur");if(e)e.src=src;}
-    if(slot.id==="laia"){const e=document.getElementById("fmk-laia");if(e)e.src=src;}
-    if(slot.id==="zara"){const e=document.getElementById("fmk-zara");if(e)e.src=src;}
-  }
-  // girlPhotos for JOI uses assigned faces
-  window._girlSrc={
-    Esmee:document.getElementById("img-esmee").src,
-    Fleur:document.getElementById("img-fleur").src,
-    Laia:document.getElementById("img-laia").src,
-    Zara:document.getElementById("img-zara").src
+  const imgs=await listImages();
+  const byId={}; imgs.forEach(i=>byId[i.id]=i);
+  const defaults={
+    cock:"cock.jpg", esmee:"esmee.jpg", fleur:"fleur1.png", laia:"laia.jpg", zara:"zara.png",
+    esmee_dick:"2026-08-29_9cb40058-a7f4-e6f1-42e0-1b7f7f1491f0-main.jpg",
+    fleur_dick:"20260819_205630.jpg", laia_dick:"1000023134.jpg", zara_dick:"1000023133.jpg"
   };
-  window._ogSrc={
-    Esmee:document.getElementById("img-og_esmee").src,
-    Laia:document.getElementById("img-og_laia").src,
-    Zara:document.getElementById("img-og_zara").src,
-    Fleur:document.getElementById("img-og_fleur").src
-  };
+  Object.keys(defaults).forEach(slot=>{
+    const el=document.getElementById("img-"+slot);
+    if(!el) return;
+    const id=map[slot];
+    if(id&&byId[id]) el.src=byId[id].dataUrl;
+    else el.src=defaults[slot];
+  });
 }
+
 async function renderPhotoLib(){
-  const list=await listImages();
-  const box=document.getElementById("photoLib");
+  const lib=document.getElementById("photoLib");
+  if(!lib) return;
+  const imgs=await listImages();
   const map=getSlotMap();
-  if(!list.length){
-    box.innerHTML='<p style="grid-column:1/-1;color:#666;font-size:14px">No photos yet. Drop some above.</p>';
-    return;
-  }
-  list.sort((a,b)=>b.t-a.t);
-  box.innerHTML=list.map(img=>{
-    const cur=Object.keys(map).find(k=>map[k]===img.id)||"";
-    const opts=SLOTS.map(s=>`<option value="${s.id}" ${cur===s.id?"selected":""}>${s.label}</option>`).join("");
+  if(!imgs.length){ lib.innerHTML='<p style="grid-column:1/-1;color:rgba(235,235,245,.4);font-size:13px;padding:8px">No files yet</p>'; return; }
+  lib.innerHTML=imgs.sort((a,b)=>b.t-a.t).map(img=>{
+    let cur="";
+    Object.keys(map).forEach(k=>{ if(map[k]===img.id) cur=k; });
+    const isVid=img.type&&img.type.startsWith("video/");
+    const media=isVid
+      ? `<video src="${img.dataUrl}" muted style="width:100%;height:140px;object-fit:contain;background:#000" onclick="openPreview('${img.dataUrl}','video')"></video>`
+      : `<img src="${img.dataUrl}" alt="" onclick="openPreview('${img.dataUrl}','image')">`;
     return `<div class="photo-card">
-      <img src="${img.dataUrl}" alt="">
+      ${media}
       <div class="pc-body">
-        <div class="pc-name">${img.name||"photo"}</div>
+        <div class="pc-name">${img.name||"file"}</div>
         <select onchange="setSlot(this.value,'${img.id}')">
           <option value="">— not used —</option>
-          ${opts}
+          ${SLOTS.map(s=>`<option value="${s.id}" ${cur===s.id?"selected":""}>${s.label}</option>`).join("")}
         </select>
-        <button type="button" class="btn danger" style="width:100%;padding:8px;font-size:12px;margin:0" onclick="deleteImage('${img.id}')">Delete</button>
+        <button type="button" class="btn danger" style="padding:6px 10px;font-size:12px;width:100%" onclick="deleteImage('${img.id}')">Delete</button>
       </div>
     </div>`;
   }).join("");
 }
-// drop zone
+
+function openPreview(src, kind){
+  const box=document.getElementById("mediaPreview");
+  const img=document.getElementById("previewImg");
+  const vid=document.getElementById("previewVid");
+  box.classList.add("open");
+  if(kind==="video"||/\.mp4|\.webm|video\//i.test(src)){
+    img.style.display="none"; vid.style.display="block"; vid.src=src; vid.play().catch(()=>{});
+  } else {
+    vid.pause(); vid.removeAttribute("src"); vid.style.display="none";
+    img.style.display="block"; img.src=src;
+  }
+}
+function closePreview(){
+  const vid=document.getElementById("previewVid");
+  vid.pause(); document.getElementById("mediaPreview").classList.remove("open");
+}
+
+/* drop zone */
 (function(){
-  const dz=document.getElementById("dropZone");
-  dz.addEventListener("dragover",e=>{e.preventDefault();dz.classList.add("over");});
-  dz.addEventListener("dragleave",()=>dz.classList.remove("over"));
-  dz.addEventListener("drop",e=>{
-    e.preventDefault();dz.classList.remove("over");
-    if(e.dataTransfer.files.length) saveFiles([...e.dataTransfer.files]);
+  const zone=document.getElementById("dropZone");
+  const input=document.getElementById("photoInput");
+  if(!zone) return;
+  zone.addEventListener("dragover",e=>{ e.preventDefault(); zone.classList.add("over"); });
+  zone.addEventListener("dragleave",()=>zone.classList.remove("over"));
+  zone.addEventListener("drop",e=>{
+    e.preventDefault(); zone.classList.remove("over");
+    if(e.dataTransfer.files.length) saveFiles(e.dataTransfer.files);
   });
-  document.getElementById("photoInput").onchange=e=>{
-    if(e.target.files.length) saveFiles([...e.target.files]);
-    e.target.value="";
-  };
+  input.addEventListener("change",()=>{ if(input.files.length) saveFiles(input.files); input.value=""; });
 })();
 
-/* hover girls */
-const allReactions={
-  Esmee:["She freezes…","Bites her lip","Thighs press","Eyes drop"],
-  Fleur:["“oh my god”","Smirks","Licks her lips","Stares at the tip"],
-  Laia:["Mouth open","Hungry eyes, daddy","Cheeks flush","Breath catches"],
-  Zara:["Flush","“that’s thick”","Good boy stare","Soft smile"]
-};
-const usedReact={Esmee:[],Fleur:[],Laia:[],Zara:[]};
-const curReact=document.getElementById("cursor-reaction");
-function newReact(g){
-  let pool=allReactions[g].filter(r=>usedReact[g].indexOf(r)<0);
-  if(!pool.length){usedReact[g]=[];pool=allReactions[g].slice();}
-  const c=pick(pool);usedReact[g].push(c);return c;
-}
-document.querySelectorAll(".girl-card").forEach(card=>{
-  const g=card.dataset.g;let iv=null;
-  card.addEventListener("mouseenter",()=>{
-    if(card.classList.contains("flipped"))return;
-    curReact.textContent=newReact(g);curReact.style.opacity="1";
-    clearInterval(iv);
-    iv=setInterval(()=>{if(!card.classList.contains("flipped"))curReact.textContent=newReact(g);},10000);
-  });
-  card.addEventListener("mousemove",e=>{curReact.style.left=e.clientX+"px";curReact.style.top=e.clientY+"px";});
-  card.addEventListener("mouseleave",()=>{curReact.style.opacity="0";clearInterval(iv);});
-});
+/* views counter cosmetic */
+(function(){
+  let v=parseInt(localStorage.getItem("views")||"0",10)+1;
+  localStorage.setItem("views",String(v));
+  const el=document.getElementById("views"); if(el) el.textContent=v;
+})();
 
-/* memory */
-const memPairDefs=[
-  {id:"e1",girl:"Esmee",slot:"esmee"},{id:"e2",girl:"Esmee",slot:"og_esmee"},
-  {id:"l1",girl:"Laia",slot:"laia"},{id:"l2",girl:"Laia",slot:"og_laia"},
-  {id:"f1",girl:"Fleur",slot:"fleur"},{id:"f2",girl:"Fleur",slot:"og_fleur"},
-  {id:"z1",girl:"Zara",slot:"zara"},{id:"z2",girl:"Zara",slot:"og_zara"}
-];
-const memSurprises={
-  Esmee:["You matched me first… stroke for my tits. Edge once. Hands off.","First pair was me. Edge… stop. Don’t cum."],
-  Fleur:["First match was my mouth. Stroke messy. Edge. No cum.","You found me first. Edge. Hands off."],
-  Laia:["Daddy… first match was me. Tip only until you leak. Edge. Save it.","Spit and stroke like my throat, daddy. Edge. Stop."],
-  Zara:["Good boy. First match was me. Edge twice. That load is mine.","Soft grip, good boy. Edge. Hands behind your back."]
-};
-let memLock=false,memFirst=null,memMatched=0,memFirstGirl=null;
-function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-async function initMemory(){
-  memLock=false;memFirst=null;memMatched=0;memFirstGirl=null;
-  document.getElementById("memStatus").textContent="Match all 8 · first match = dare at win";
-  document.getElementById("memSurprise").classList.remove("show");
-  document.getElementById("memSurprise").innerHTML="";
-  const deck=[];
-  for(const p of memPairDefs){
-    const el=document.getElementById("img-"+p.slot);
-    const src=el?el.src:DEFAULTS[p.slot];
-    deck.push({id:p.id,girl:p.girl,src});
-    deck.push({id:p.id,girl:p.girl,src});
-  }
-  shuffle(deck);
-  const board=document.getElementById("memBoard");board.innerHTML="";
-  deck.forEach(card=>{
-    const el=document.createElement("div");
-    el.className="mem-card";el.dataset.id=card.id;el.dataset.girl=card.girl;
-    el.innerHTML=`<div class="mem-inner"><div class="mem-face mem-back">?</div><div class="mem-face mem-front"><img src="${card.src}" alt=""></div></div>`;
-    el.onclick=()=>memFlip(el);
-    board.appendChild(el);
-  });
-}
-function memFlip(el){
-  if(memLock||el.classList.contains("flipped")||el.classList.contains("matched"))return;
-  el.classList.add("flipped");
-  if(!memFirst){memFirst=el;return;}
-  memLock=true;const a=memFirst,b=el;
-  if(a.dataset.id===b.dataset.id){
-    a.classList.add("matched");b.classList.add("matched");
-    if(!memFirstGirl)memFirstGirl=a.dataset.girl;
-    memMatched++;document.getElementById("memStatus").textContent=memMatched+"/8";
-    memFirst=null;memLock=false;
-    if(memMatched>=8){
-      const g=memFirstGirl||"Esmee";
-      const box=document.getElementById("memSurprise");
-      box.innerHTML=`<strong style="color:#0a84ff">Won · First: ${g}</strong><br><br>${pick(memSurprises[g])}`;
-      box.classList.add("show");
-    }
-  } else setTimeout(()=>{a.classList.remove("flipped");b.classList.remove("flipped");memFirst=null;memLock=false;},600);
-}
-
-/* private OG */
-const ogDesc={Esmee:"Sexiest blonde in school.",Laia:"Daddy’s girl.",Zara:"You’re her good boy.",Fleur:"Kiss-mouth."};
-const ogFilth={
-  Esmee:["Don’t touch yet.","Stroke for my face.","Edge. Hands off."],
-  Laia:["Hi daddy…","Touch it slow.","Edge. Hold it, daddy."],
-  Zara:["Good boy. Eyes on me.","Stroke for me.","Edge. Hands off."],
-  Fleur:["Look at this mouth.","Stroke messy.","Edge. Stop."]
-};
-let ogCurrent=null,ogFilthI=0;
-function showOG(g){
-  ogCurrent=g;ogFilthI=0;
-  document.getElementById("ogBig").src=(window._ogSrc&&window._ogSrc[g])||DEFAULTS["og_"+g.toLowerCase()];
-  document.getElementById("ogDesc").textContent=ogDesc[g];
-  document.getElementById("ogFilth").textContent=ogFilth[g][0];
-  document.getElementById("ogDetail").style.display="block";
-  document.getElementById("starePhoto").style.display="none";
-}
-function ogNextFilth(){
-  if(!ogCurrent)return;
-  ogFilthI=(ogFilthI+1)%ogFilth[ogCurrent].length;
-  document.getElementById("ogFilth").textContent=ogFilth[ogCurrent][ogFilthI];
-}
-let stareIv=null;
-function startStare(g){
-  if(!g)g=ogCurrent||randGirl();
-  if(stareIv)clearInterval(stareIv);
-  const ph=document.getElementById("starePhoto");
-  ph.src=(window._ogSrc&&window._ogSrc[g])||DEFAULTS["og_"+g.toLowerCase()];
-  ph.style.display="block";
-  document.getElementById("stareText").textContent="Don’t look away from "+g+".";
-  let left=600;
-  function tick(){
-    const m=Math.floor(left/60),s=left%60;
-    document.getElementById("stareTimer").textContent=m+":"+String(s).padStart(2,"0");
-    if(left--<=0){clearInterval(stareIv);document.getElementById("stareText").textContent="Ten minutes.";}
-  }
-  tick();stareIv=setInterval(tick,1000);
-}
-
-const ogJoiVariants={
-  Esmee:[["Look at me. Don’t touch.","Soft grip.","Stroke slow.","Faster. Leak.","Edge. Hands off.","Tip only.","Full strokes.","Edge. Stop.","Hold it.","Almost…"]],
-  Laia:[["Hi daddy. Hands still.","Touch it slow.","Stroke, daddy.","Faster.","Hands off.","Tip only.","Edge.","Balls + stroke.","Hold it daddy.","One more edge."]],
-  Zara:[["Look at me, good boy.","Soft grip.","Stroke slow.","Faster. Edge. Hands off.","Tip only.","Full strokes.","Edge. Stop. Good boy.","Balls.","Hold.","One more stop."]],
-  Fleur:[["Look at this mouth.","Stroke slow.","Faster. Messy.","Edge. Stop.","Tip only.","Full strokes.","Edge.","Build it.","One more.","Hold every drop."]]
-};
-const ogCum={Esmee:{l:"Empty those balls for my face.",f:"Cum. Now."},Laia:{l:"Please daddy… that cum.",f:"Now daddy."},Zara:{l:"Thick load, good boy.",f:"Cum. Good boy."},Fleur:{l:"Every drop for this mouth.",f:"Cum."}};
-let ogJoiRun=false,ogJoiStepTimer=null,ogJoiCdTimer=null;
-function startOgJoi(){
-  if(ogJoiRun)return;
-  const g=pick(GIRLS);
-  if(g==="Zara"){
-    document.getElementById("ogJoiBtn").style.display="none";
-    document.getElementById("zaraChoice").style.display="block";
-    return;
-  }
-  runOgJoi(g,"short");
-}
-function runOgJoi(g,mode){
-  if(ogJoiRun)return;
-  document.getElementById("zaraChoice").style.display="none";
-  document.getElementById("ogJoiBtn").style.display="none";
-  ogJoiRun=true;
-  const ph=document.getElementById("ogJoiPhoto");
-  ph.src=(window._ogSrc&&window._ogSrc[g])||DEFAULTS["og_"+g.toLowerCase()];
-  ph.style.display="block";
-  document.getElementById("ogJoiGirl").textContent=g+(mode==="long"?" · Long":"");
-  document.getElementById("ogJoiStop").style.display="inline-block";
-  document.getElementById("ogJoiText").textContent="";
-  document.getElementById("ogJoiCd").textContent="";
-  if(g==="Zara"&&mode==="long"){
-    const a=document.getElementById("zaraLongAudio");
-    try{a.pause();a.currentTime=0;a.muted=false;a.volume=1;a.load();}catch(e){}
-    a.onended=finishOgJoi;
-    a.onerror=()=>{document.getElementById("ogJoiText").textContent="Put joi_zara.mp3 next to index.html · open via localhost";};
-    const p=a.play();
-    if(p&&p.then)p.then(()=>{document.getElementById("ogJoiText").textContent="Audio playing…";}).catch(()=>{
-      document.getElementById("ogJoiText").textContent="Click page once, press Long again. Use http://localhost:8000";
-    });
-    return;
-  }
-  const script=pick(ogJoiVariants[g]);let i=0;
-  function step(){
-    if(!ogJoiRun)return;
-    if(i<script.length){document.getElementById("ogJoiText").textContent=script[i++];ogJoiStepTimer=setTimeout(step,7500);}
-    else{
-      let c=10;document.getElementById("ogJoiText").textContent=ogCum[g].l;document.getElementById("ogJoiCd").textContent=c;
-      ogJoiCdTimer=setInterval(()=>{
-        if(!ogJoiRun)return;c--;document.getElementById("ogJoiCd").textContent=c;
-        if(c<=0){clearInterval(ogJoiCdTimer);document.getElementById("ogJoiCd").textContent="CUM";document.getElementById("ogJoiText").textContent=ogCum[g].f;setTimeout(finishOgJoi,5000);}
-      },1000);
-    }
-  }
-  step();
-}
-function stopOgJoi(){try{const a=document.getElementById("zaraLongAudio");a.pause();a.currentTime=0;}catch(e){}finishOgJoi();}
-function finishOgJoi(){
-  ogJoiRun=false;
-  if(ogJoiStepTimer)clearTimeout(ogJoiStepTimer);
-  if(ogJoiCdTimer)clearInterval(ogJoiCdTimer);
-  try{const a=document.getElementById("zaraLongAudio");a.pause();a.currentTime=0;}catch(e){}
-  document.getElementById("ogJoiGirl").textContent="";
-  document.getElementById("ogJoiText").textContent="";
-  document.getElementById("ogJoiCd").textContent="";
-  document.getElementById("ogJoiPhoto").style.display="none";
-  document.getElementById("ogJoiBtn").style.display="inline-block";
-  document.getElementById("ogJoiStop").style.display="none";
-  document.getElementById("zaraChoice").style.display="none";
-}
-function strokeChallenge(){
-  document.getElementById("strokeOut").textContent=pick([
-    "Esmee: Stroke 60s. Edge once.","Laia: Daddy — tip only until leak.","Zara: Good boy. 30 fast. Stop. Edge.","Fleur: Spit. Edge ×3."
-  ]);
-}
-
-let wheelBusy=false,wheelRotation=0;
-function spinWheel(){
-  if(wheelBusy)return;wheelBusy=true;document.getElementById("spinBtn").disabled=true;
-  document.getElementById("tonightOut").textContent="";
-  const idx=Math.floor(Math.random()*4),g=GIRLS[idx];
-  const center=idx*90,target=(360-center)%360,jitter=(Math.random()*40)-20;
-  wheelRotation+=(6+Math.floor(Math.random()*3))*360+target+jitter;
-  document.getElementById("wheel").style.transform="rotate("+wheelRotation+"deg)";
-  setTimeout(()=>{
-    const lines={Esmee:"Esmee owns it tonight.",Fleur:"Fleur. Knees first, then hard.",Laia:"Laia gets daddy’s cock.",Zara:"Zara owns it, good boy."};
-    document.getElementById("tonightOut").innerHTML="<strong>"+g+"</strong>\n"+lines[g];
-    wheelBusy=false;document.getElementById("spinBtn").disabled=false;
-  },5200);
-}
-function pickPosition(){
-  const g=randGirl(),p={Esmee:"Missionary — deep.",Fleur:"Doggy. Hard.",Laia:"Wall, moaning daddy.",Zara:"She rides. You edge. Good boy."};
-  document.getElementById("posOut").innerHTML="<strong>"+g+"</strong>\n"+p[g];
-}
-function jealousy(){
-  document.getElementById("jealousOut").innerHTML="<strong>"+randGirl()+"</strong>\nShe gets you. The others get jealous.";
-}
-const edgeScripts={
-  Esmee:["Stroke slow…","Faster…","Hands off.","Tip…","Edge…","Stop."],
-  Fleur:["Stroke…","Faster…","Hands off.","Balls…","Edge…","Stop."],
-  Laia:["Slow, daddy…","Faster…","Hands off.","Tip…","Edge…","Stop daddy."],
-  Zara:["Slow, good boy…","Faster…","Hands off.","Tip…","Edge…","Stop."]
-};
-let edgeTimer=null;
-function startEdge(){
-  if(edgeTimer)clearTimeout(edgeTimer);
-  const g=randGirl(),s=edgeScripts[g];
-  document.getElementById("edgeBtn").disabled=true;
-  document.getElementById("edgeGirl").textContent=g;
-  let i=0;
-  (function n(){
-    if(i>=s.length){document.getElementById("edgeText").textContent="Done.";document.getElementById("edgeBtn").disabled=false;return;}
-    document.getElementById("edgeText").textContent=s[i++];edgeTimer=setTimeout(n,4500);
-  })();
-}
-const trib={face:{Esmee:"Cover my face.",Fleur:"On my face.",Laia:"Paint my face, daddy.",Zara:"On my face. Good boy."},tits:{Esmee:"My tits.",Fleur:"My chest.",Laia:"My chest, daddy.",Zara:"My tits. Good boy."},mouth:{Esmee:"In my mouth.",Fleur:"I swallow.",Laia:"My mouth, daddy.",Zara:"I swallow. Good boy."},inside:{Esmee:"Deep inside.",Fleur:"Inside me.",Laia:"Fill me, daddy.",Zara:"Inside me. Good boy."},ass:{Esmee:"My ass.",Fleur:"My ass.",Laia:"My ass, daddy.",Zara:"My ass. Good boy."}};
-function tribute(){const g=randGirl(),p=pick(["face","tits","mouth","inside","ass"]);document.getElementById("tributeOut").innerHTML="<strong>"+g+" · "+p+"</strong>\n"+trib[p][g];}
-function groupVote(){document.getElementById("voteOut").textContent="Hardest: "+randGirl()+"\nSuck: "+randGirl()+"\nFuck: "+randGirl()+"\nEdge: "+randGirl();}
-const careFull={
-Esmee:`Esmee’s rules:
-1. Wash every morning — warm water, soft on the head.
-2. Pat dry. Never leave damp.
-3. Light oil or cream once a day. Soft for my hands and mouth.
-4. Clean after edging.
-5. Trim neat.
-6. No tight underwear all day.
-7. Wash again before you see me.
-8. Keep the tip sensitive.
-9. I want it clean, heavy, ready.
-10. You take care of this because I chose it.`,
-Fleur:`Fleur’s rules:
-1. Clean shaft, balls, tip — daily.
-2. Soft skin. Light oil at night.
-3. After you cum — wash completely.
-4. Base tidy.
-5. Don’t over-soap.
-6. After sweat — rinse before me.
-7. Full blood flow. Don’t crush it for hours.
-8. Lube when stroking — not dry raw.
-9. Smooth tip.
-10. I only kneel for a looked-after cock.`,
-Laia:`Laia’s rules, daddy:
-1. Soft and clean every morning.
-2. Warm water on the head. Gentle.
-3. Cream at night.
-4. Wash after play.
-5. Trim neat for me.
-6. Not crushed in tight pants.
-7. Clean hands, clean cock.
-8. No harsh products.
-9. Care after edging for me.
-10. This cock is for me, daddy.`,
-Zara:`Zara’s rules, good boy:
-1. Wash every day without being told.
-2. Soft skin. Oil after shower.
-3. Dirty = no mouth.
-4. Balls clean too.
-5. Lube when you edge for me.
-6. Clean the tip after leaking.
-7. Underwear that doesn’t choke it.
-8. Fresh wash before me.
-9. Maintain it like it’s mine.
-10. Good boy keeps it ready.`
-};
-function showCare(){document.getElementById("careText").textContent=careFull[randGirl()];}
-function showWorship(){
-  const g=randGirl(),w={Esmee:"Kiss the tip, taste precum, suck your balls.",Fleur:"On my knees, tongue base to tip.",Laia:"Daddy… deep until my eyes water.",Zara:"Stroke and lick. Stay still, good boy."};
-  document.getElementById("worshipText").innerHTML="<strong>"+g+"</strong>\n"+w[g];
-}
-const rp={
-esmee:`Esmee on the couch. “Take it out.” She strokes, then takes you in her mouth — wet, deliberate. Turns around. “Put it in.” You fuck her deep until she says “Empty it inside me.” You do. “Yeah. That’s what I wanted.”`,
-fleur:`Fleur against the wall, then on her knees — messy, loud. “Don’t be gentle.” Hard from behind. “On my face.” She takes every rope. “Again. Soon.”`,
-laia:`“Hi daddy.” On her knees, deep, eye contact. You bend her over. “Harder… please.” “Inside. Please daddy.” You fill her. “Thank you, daddy.”`,
-zara:`She grinds, then sinks down. “Good boy. Don’t finish early.” Edges you three times. On the fourth she rides you through it. “That’s it. Good boy.”`,
-group:`All four. Mouths and hands. Zara decides when. “Now.” You unload across them. “Again later.”`
-};
-function showRP(k){if(!k)k=pick(["esmee","fleur","laia","zara","group"]);document.getElementById("rpText").textContent=rp[k];}
-
-const joiV={
-  Esmee:[["Don’t touch yet.","Soft grip.","Stroke slow.","Faster.","Hands off.","Tip only.","Edge.","Stroke + balls.","Hold.","One more edge. Stop."]],
-  Fleur:[["Soft grip.","Stroke slow.","Faster. Messy.","Hands off.","Tip.","Edge.","Full length.","Hold.","Again.","Stop."]],
-  Laia:[["Hands still, daddy.","Soft.","Stroke slow.","Faster.","Hands off.","Tip.","Edge.","Balls.","Hold it daddy.","One more edge."]],
-  Zara:[["Hands still, good boy.","Soft grip.","Stroke slow.","Faster.","Hands off.","Tip.","Edge. Stop. Good boy.","Full length.","Hold.","One more stop."]]
-};
-const mainCum={Esmee:{l:"Empty those balls for me.",f:"Cum for me."},Fleur:{l:"Every drop.",f:"Cum."},Laia:{l:"Please daddy…",f:"Now daddy."},Zara:{l:"Thick load, good boy.",f:"Cum. Good boy."}};
-let joiRunning=false;
-document.getElementById("startJoi").onclick=function(){
-  if(joiRunning)return;joiRunning=true;
-  const girl=randGirl(),script=pick(joiV[girl]);
-  document.getElementById("joiGirl").textContent=girl;
-  document.getElementById("startJoi").style.display="none";
-  document.getElementById("joiPhoto").style.display="none";
-  let step=0;
-  (function next(){
-    if(step<script.length){
-      document.getElementById("joiText").textContent=script[step++];
-      document.getElementById("joiCountdown").textContent="";
-      setTimeout(next,8500);
-    } else {
-      let c=10;document.getElementById("joiCountdown").textContent=c;
-      const iv=setInterval(()=>{
-        c--;document.getElementById("joiCountdown").textContent=c;
-        if(c===3){
-          document.getElementById("joiPhoto").src=(window._girlSrc&&window._girlSrc[girl])||DEFAULTS[girl.toLowerCase()];
-          document.getElementById("joiPhoto").style.display="block";
-          document.getElementById("joiText").textContent=mainCum[girl].l;
-        }
-        if(c<=0){
-          clearInterval(iv);
-          document.getElementById("joiCountdown").textContent="CUM";
-          document.getElementById("joiText").textContent=mainCum[girl].f;
-          setTimeout(()=>{
-            document.getElementById("joiGirl").textContent="";
-            document.getElementById("joiText").textContent="";
-            document.getElementById("joiCountdown").textContent="";
-            document.getElementById("joiPhoto").style.display="none";
-            document.getElementById("startJoi").style.display="inline-block";
-            joiRunning=false;
-          },5500);
-        }
-      },1000);
-    }
-  })();
-};
-function getReaction(){
-  const t=document.getElementById("userDescribe").value.trim().toLowerCase();
-  if(!t)return;
-  const g=randGirl();
-  let line;
-  if(/blow|suck|mouth|oral/.test(t)) line={Esmee:"I’d suck you deep.",Fleur:"Wet and messy.",Laia:"Deep, daddy.",Zara:"In my mouth, good boy."}[g];
-  else if(/ass|anal/.test(t)) line={Esmee:"My ass.",Fleur:"My ass.",Laia:"My ass, daddy.",Zara:"My ass, good boy."}[g];
-  else if(/pussy|inside|fuck/.test(t)) line={Esmee:"Inside me.",Fleur:"Fuck me hard.",Laia:"Put it in me, daddy.",Zara:"Sink into me, good boy."}[g];
-  else if(/face|facial/.test(t)) line={Esmee:"On my face.",Fleur:"Cover me.",Laia:"My face, daddy.",Zara:"My face, good boy."}[g];
-  else if(/tit|breast/.test(t)) line={Esmee:"My tits.",Fleur:"My tits.",Laia:"My tits, daddy.",Zara:"Between them, good boy."}[g];
-  else line={Esmee:"Whatever you want.",Fleur:"Do it.",Laia:"Use me, daddy.",Zara:"Do it, good boy."}[g];
-  document.getElementById("describeReaction").innerHTML="<strong>"+g+"</strong>\n"+line;
-}
-
-function animateValue(id,start,end,dur){
-  const o=document.getElementById(id),r=end-start,t0=performance.now();
-  (function u(t){const p=Math.min((t-t0)/dur,1);o.textContent=id==="views"?Math.floor(start+r*p).toLocaleString()+"+":Math.floor(start+r*p);if(p<1)requestAnimationFrame(u);})(t0);
-}
-window.onload=async function(){
-  animateValue("views",0,50000,2000);
-  animateValue("likes",0,165,1600);
-  document.getElementById("quote").textContent=pick(["This cock doesn’t miss.","Built different.","Thick, heavy, perfect."]);
-  document.getElementById("siteBgVideo").play().catch(()=>{});
-  await applySlotsToSite();
-  await initMemory();
-};
-const stars=document.querySelectorAll(".star");
-let cur=localStorage.getItem("cockRating")||0;
-if(cur>0){stars.forEach(s=>s.classList.toggle("active",s.dataset.value<=cur));document.getElementById("ratingResult").textContent=cur+"/10";}
-stars.forEach(s=>{s.onclick=()=>{const v=s.dataset.value;localStorage.setItem("cockRating",v);stars.forEach(x=>x.classList.toggle("active",x.dataset.value<=v));document.getElementById("ratingResult").textContent=v+"/10";};});
-setInterval(()=>{const el=document.getElementById("throbbingFor");el.style.opacity=0;setTimeout(()=>{el.textContent=randGirl();el.style.opacity=1;},300);},9000);
-const fmk={};
-document.querySelectorAll(".fmk-ops button").forEach(b=>{
-  b.onclick=()=>{
-    const g=b.dataset.girl,c=b.dataset.choice;
-    document.querySelectorAll('.fmk-ops button[data-girl="'+g+'"]').forEach(x=>x.classList.remove("on"));
-    b.classList.add("on");fmk[g]=c;
-    let h="";
-    ["Fuck","Marry","Kiss","Kill"].forEach(t=>{const n=Object.keys(fmk).find(k=>fmk[k]===t);if(n)h+=t+": "+n+"\n";});
-    document.getElementById("fmkResult").textContent=h;
-  };
-});
+/* init */
+setCoins(getCoins());
+renderShop();
+renderOwned();
+applySlotsToSite();
 </script>
 </body>
 </html>
